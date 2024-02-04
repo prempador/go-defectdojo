@@ -10,7 +10,8 @@ $ docker run --rm -u $(id -u):$(id -g) \
     -i /local/ddj-oapi.yaml \
     -g go \
     -o /local \
-    --additional-properties=generateInterfaces=true
+    --additional-properties=generateInterfaces=true \
+	--additional-properties=packageName=defectdojo
 
 $ rm ddj-oapi.yaml
 ```
