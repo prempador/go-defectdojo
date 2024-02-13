@@ -3,10 +3,259 @@ info:
   description: Defect Dojo - Open Source vulnerability Management made easy. Prefetch
     related parameters/responses not yet in the schema.
   title: Defect Dojo API v2
-  version: 2.30.4
+  version: 2.31.1
 servers:
 - url: /
 paths:
+  /api/v2/announcements/:
+    get:
+      operationId: announcements_list
+      parameters:
+      - explode: true
+        in: query
+        name: dismissable
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: Number of results to return per page.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: message
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: The initial index from which to return the results.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: |-
+          The style of banner to display. (info, success, warning, danger)
+
+          * `info` - Info
+          * `success` - Success
+          * `warning` - Warning
+          * `danger` - Danger
+        explode: true
+        in: query
+        name: style
+        required: false
+        schema:
+          enum:
+          - danger
+          - info
+          - success
+          - warning
+          type: string
+          x-spec-enum-id: a21af280f632fa34
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedAnnouncementList'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - tokenAuth: []
+      tags:
+      - announcements
+    post:
+      operationId: announcements_create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AnnouncementRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AnnouncementRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AnnouncementRequest'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Announcement'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - tokenAuth: []
+      tags:
+      - announcements
+  /api/v2/announcements/{id}/:
+    delete:
+      operationId: announcements_destroy
+      parameters:
+      - description: A unique integer value identifying this announcement.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "204":
+          description: No response body
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - tokenAuth: []
+      tags:
+      - announcements
+    get:
+      operationId: announcements_retrieve
+      parameters:
+      - description: A unique integer value identifying this announcement.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Announcement'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - tokenAuth: []
+      tags:
+      - announcements
+    patch:
+      operationId: announcements_partial_update
+      parameters:
+      - description: A unique integer value identifying this announcement.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedAnnouncementRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedAnnouncementRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedAnnouncementRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Announcement'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - tokenAuth: []
+      tags:
+      - announcements
+    put:
+      operationId: announcements_update
+      parameters:
+      - description: A unique integer value identifying this announcement.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AnnouncementRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AnnouncementRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AnnouncementRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Announcement'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - tokenAuth: []
+      tags:
+      - announcements
+  /api/v2/announcements/{id}/delete_preview/:
+    get:
+      operationId: announcements_delete_preview_list
+      parameters:
+      - description: A unique integer value identifying this announcement.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: Number of results to return per page.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: The initial index from which to return the results.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedDeletePreviewList'
+          description: ""
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - tokenAuth: []
+      tags:
+      - announcements
   /api/v2/api-token-auth/:
     post:
       operationId: api_token_auth_create
@@ -4176,6 +4425,14 @@ paths:
         style: form
       - explode: true
         in: query
+        name: sla_expiration_date
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - explode: true
+        in: query
         name: sla_start_date
         required: false
         schema:
@@ -6001,6 +6258,14 @@ paths:
         name: severity_justification
         required: false
         schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: sla_expiration_date
+        required: false
+        schema:
+          format: date
           type: string
         style: form
       - explode: true
@@ -16883,6 +17148,77 @@ components:
       required:
       - entry
       type: object
+    Announcement:
+      example:
+        dismissable: true
+        style: info
+        id: 0
+        message: message
+      properties:
+        id:
+          readOnly: true
+          type: integer
+        message:
+          description: "This dismissable message will be displayed on all pages for\
+            \ authenticated users. It can contain basic html tags, for example <a\
+            \ href='https://www.fred.com' style='color: #337ab7;' target='_blank'>https://example.com</a>"
+          maxLength: 500
+          type: string
+        style:
+          description: |-
+            The style of banner to display. (info, success, warning, danger)
+
+            * `info` - Info
+            * `success` - Success
+            * `warning` - Warning
+            * `danger` - Danger
+          enum:
+          - info
+          - success
+          - warning
+          - danger
+          type: string
+          x-spec-enum-id: a21af280f632fa34
+        dismissable:
+          description: Ticking this box allows users to dismiss the current announcement
+          title: Dismissable?
+          type: boolean
+      required:
+      - id
+      type: object
+    AnnouncementRequest:
+      example:
+        dismissable: true
+        style: info
+        message: message
+      properties:
+        message:
+          description: "This dismissable message will be displayed on all pages for\
+            \ authenticated users. It can contain basic html tags, for example <a\
+            \ href='https://www.fred.com' style='color: #337ab7;' target='_blank'>https://example.com</a>"
+          maxLength: 500
+          minLength: 1
+          type: string
+        style:
+          description: |-
+            The style of banner to display. (info, success, warning, danger)
+
+            * `info` - Info
+            * `success` - Success
+            * `warning` - Warning
+            * `danger` - Danger
+          enum:
+          - info
+          - success
+          - warning
+          - danger
+          type: string
+          x-spec-enum-id: a21af280f632fa34
+        dismissable:
+          description: Ticking this box allows users to dismiss the current announcement
+          title: Dismissable?
+          type: boolean
+      type: object
     AppAnalysis:
       example:
         website: https://openapi-generator.tech
@@ -18188,6 +18524,7 @@ components:
             time: 2000-01-23T04:56:07.000+00:00
             current_editor: ""
         pen_test: true
+        prefetch: "{}"
         description: description
         preset: 5
         risk_acceptance:
@@ -18414,6 +18751,8 @@ components:
             type: integer
           readOnly: true
           type: array
+        prefetch:
+          type: object
       required:
       - active
       - created
@@ -19857,6 +20196,7 @@ components:
           jira_issue: ""
         mitigated: 2000-01-23T04:56:07.000+00:00
         severity: severity
+        sla_expiration_date: 2000-01-23
         endpoints:
         - 9
         - 9
@@ -19946,6 +20286,12 @@ components:
           description: "(readonly)The date used as start date for SLA calculation.\
             \ Set by expiring risk acceptances. Empty by default, causing a fallback\
             \ to 'date'."
+          format: date
+          nullable: true
+          type: string
+        sla_expiration_date:
+          description: "(readonly)The date SLA expires for this finding. Empty by\
+            \ default, causing a fallback to 'date'."
           format: date
           nullable: true
           type: string
@@ -20405,6 +20751,7 @@ components:
         - 5
         mitigated: 2000-01-23T04:56:07.000+00:00
         severity: severity
+        sla_expiration_date: 2000-01-23
         endpoints:
         - 4
         - 4
@@ -20468,6 +20815,12 @@ components:
           description: "(readonly)The date used as start date for SLA calculation.\
             \ Set by expiring risk acceptances. Empty by default, causing a fallback\
             \ to 'date'."
+          format: date
+          nullable: true
+          type: string
+        sla_expiration_date:
+          description: "(readonly)The date SLA expires for this finding. Empty by\
+            \ default, causing a fallback to 'date'."
           format: date
           nullable: true
           type: string
@@ -20835,6 +21188,7 @@ components:
         - 1
         - 1
         severity: severity
+        sla_expiration_date: 2000-01-23
         planned_remediation_date: 2000-01-23
         verified: true
         reporter: 5
@@ -20887,6 +21241,12 @@ components:
           description: "(readonly)The date used as start date for SLA calculation.\
             \ Set by expiring risk acceptances. Empty by default, causing a fallback\
             \ to 'date'."
+          format: date
+          nullable: true
+          type: string
+        sla_expiration_date:
+          description: "(readonly)The date SLA expires for this finding. Empty by\
+            \ default, causing a fallback to 'date'."
           format: date
           nullable: true
           type: string
@@ -21350,6 +21710,7 @@ components:
         - vulnerability_id: vulnerability_id
         dynamic_finding: true
         severity: severity
+        sla_expiration_date: 2000-01-23
         planned_remediation_date: 2000-01-23
         verified: true
         reporter: 0
@@ -21388,6 +21749,12 @@ components:
           description: "(readonly)The date used as start date for SLA calculation.\
             \ Set by expiring risk acceptances. Empty by default, causing a fallback\
             \ to 'date'."
+          format: date
+          nullable: true
+          type: string
+        sla_expiration_date:
+          description: "(readonly)The date SLA expires for this finding. Empty by\
+            \ default, causing a fallback to 'date'."
           format: date
           nullable: true
           type: string
@@ -21998,6 +22365,7 @@ components:
         auto_create_context: true
         build_id: build_id
         service: service
+        apply_tags_to_findings: true
         group_by: component_name
         engagement_id: 7
         deduplication_on_engagement: true
@@ -22068,7 +22436,7 @@ components:
             * `Checkmarx Scan` - Checkmarx Scan
             * `Checkmarx Scan detailed` - Checkmarx Scan detailed
             * `Checkov Scan` - Checkov Scan
-            * `Clair Klar Scan` - Clair Klar Scan
+            * `Chef Inspect Log` - Chef Inspect Log
             * `Clair Scan` - Clair Scan
             * `Cloudsploit Scan` - Cloudsploit Scan
             * `Cobalt.io API Import` - Cobalt.io API Import
@@ -22101,6 +22469,7 @@ components:
             * `GitLab SAST Report` - GitLab SAST Report
             * `GitLab Secret Detection Report` - GitLab Secret Detection Report
             * `Gitleaks Scan` - Gitleaks Scan
+            * `Google Cloud Artifact Vulnerability Scan` - Google Cloud Artifact Vulnerability Scan
             * `Gosec Scanner` - Gosec Scanner
             * `Govulncheck Scanner` - Govulncheck Scanner
             * `HackerOne Cases` - HackerOne Cases
@@ -22121,7 +22490,10 @@ components:
             * `KICS Scan` - KICS Scan
             * `Kiuwan Scan` - Kiuwan Scan
             * `kube-bench Scan` - kube-bench Scan
+            * `Kubeaudit Scan` - Kubeaudit Scan
             * `KubeHunter Scan` - KubeHunter Scan
+            * `Kubescape JSON Importer` - Kubescape JSON Importer
+            * `Mend Scan` - Mend Scan
             * `Meterian Scan` - Meterian Scan
             * `Microfocus Webinspect Scan` - Microfocus Webinspect Scan
             * `MobSF Scan` - MobSF Scan
@@ -22138,8 +22510,7 @@ components:
             * `NPM Audit Scan` - NPM Audit Scan
             * `Nuclei Scan` - Nuclei Scan
             * `Openscap Vulnerability Scan` - Openscap Vulnerability Scan
-            * `OpenVAS CSV` - OpenVAS CSV
-            * `OpenVAS XML` - OpenVAS XML
+            * `OpenVAS Parser` - OpenVAS Parser
             * `ORT evaluated model Importer` - ORT evaluated model Importer
             * `OssIndex Devaudit SCA Scan Importer` - OssIndex Devaudit SCA Scan Importer
             * `Outpost24 Scan` - Outpost24 Scan
@@ -22152,6 +22523,7 @@ components:
             * `Qualys Infrastructure Scan (WebGUI XML)` - Qualys Infrastructure Scan (WebGUI XML)
             * `Qualys Scan` - Qualys Scan
             * `Qualys Webapp Scan` - Qualys Webapp Scan
+            * `Red Hat Satellite` - Red Hat Satellite
             * `Retire.js Scan` - Retire.js Scan
             * `Risk Recon API Importer` - Risk Recon API Importer
             * `Rubocop Scan` - Rubocop Scan
@@ -22174,7 +22546,7 @@ components:
             * `Sslyze Scan` - Sslyze Scan
             * `SSLyze Scan (JSON)` - SSLyze Scan (JSON)
             * `StackHawk HawkScan` - StackHawk HawkScan
-            * `Sysdig Vulnerability Report - Pipeline, Registry and Runtime (CSV)` - Sysdig Vulnerability Report - Pipeline, Registry and Runtime (CSV)
+            * `Sysdig Vulnerability Report` - Sysdig Vulnerability Report
             * `Talisman Scan` - Talisman Scan
             * `Tenable Scan` - Tenable Scan
             * `Terrascan Scan` - Terrascan Scan
@@ -22197,7 +22569,6 @@ components:
             * `WFuzz JSON report` - WFuzz JSON report
             * `Whispers Scan` - Whispers Scan
             * `WhiteHat Sentinel` - WhiteHat Sentinel
-            * `Whitesource Scan` - Whitesource Scan
             * `Wpscan` - Wpscan
             * `Xanitizer Scan` - Xanitizer Scan
             * `Yarn Audit Scan` - Yarn Audit Scan
@@ -22238,7 +22609,7 @@ components:
           - Checkmarx Scan
           - Checkmarx Scan detailed
           - Checkov Scan
-          - Clair Klar Scan
+          - Chef Inspect Log
           - Clair Scan
           - Cloudsploit Scan
           - Cobalt.io API Import
@@ -22271,6 +22642,7 @@ components:
           - GitLab SAST Report
           - GitLab Secret Detection Report
           - Gitleaks Scan
+          - Google Cloud Artifact Vulnerability Scan
           - Gosec Scanner
           - Govulncheck Scanner
           - HackerOne Cases
@@ -22291,7 +22663,10 @@ components:
           - KICS Scan
           - Kiuwan Scan
           - kube-bench Scan
+          - Kubeaudit Scan
           - KubeHunter Scan
+          - Kubescape JSON Importer
+          - Mend Scan
           - Meterian Scan
           - Microfocus Webinspect Scan
           - MobSF Scan
@@ -22308,8 +22683,7 @@ components:
           - NPM Audit Scan
           - Nuclei Scan
           - Openscap Vulnerability Scan
-          - OpenVAS CSV
-          - OpenVAS XML
+          - OpenVAS Parser
           - ORT evaluated model Importer
           - OssIndex Devaudit SCA Scan Importer
           - Outpost24 Scan
@@ -22322,6 +22696,7 @@ components:
           - Qualys Infrastructure Scan (WebGUI XML)
           - Qualys Scan
           - Qualys Webapp Scan
+          - Red Hat Satellite
           - Retire.js Scan
           - Risk Recon API Importer
           - Rubocop Scan
@@ -22344,7 +22719,7 @@ components:
           - Sslyze Scan
           - SSLyze Scan (JSON)
           - StackHawk HawkScan
-          - "Sysdig Vulnerability Report - Pipeline, Registry and Runtime (CSV)"
+          - Sysdig Vulnerability Report
           - Talisman Scan
           - Tenable Scan
           - Terrascan Scan
@@ -22367,13 +22742,12 @@ components:
           - WFuzz JSON report
           - Whispers Scan
           - WhiteHat Sentinel
-          - Whitesource Scan
           - Wpscan
           - Xanitizer Scan
           - Yarn Audit Scan
           - ZAP Scan
           type: string
-          x-spec-enum-id: c9c3741a12e9ba09
+          x-spec-enum-id: 0bc843b6ba2e88ab
         endpoint_to_add:
           description: "The IP address, host name or full URL. It must be valid"
           type: integer
@@ -22489,6 +22863,9 @@ components:
           allOf:
           - $ref: '#/components/schemas/ImportStatistics'
           readOnly: true
+        apply_tags_to_findings:
+          description: "If set to True, the tags will be applied to the findings"
+          type: boolean
       required:
       - active
       - engagement_id
@@ -22567,7 +22944,7 @@ components:
             * `Checkmarx Scan` - Checkmarx Scan
             * `Checkmarx Scan detailed` - Checkmarx Scan detailed
             * `Checkov Scan` - Checkov Scan
-            * `Clair Klar Scan` - Clair Klar Scan
+            * `Chef Inspect Log` - Chef Inspect Log
             * `Clair Scan` - Clair Scan
             * `Cloudsploit Scan` - Cloudsploit Scan
             * `Cobalt.io API Import` - Cobalt.io API Import
@@ -22600,6 +22977,7 @@ components:
             * `GitLab SAST Report` - GitLab SAST Report
             * `GitLab Secret Detection Report` - GitLab Secret Detection Report
             * `Gitleaks Scan` - Gitleaks Scan
+            * `Google Cloud Artifact Vulnerability Scan` - Google Cloud Artifact Vulnerability Scan
             * `Gosec Scanner` - Gosec Scanner
             * `Govulncheck Scanner` - Govulncheck Scanner
             * `HackerOne Cases` - HackerOne Cases
@@ -22620,7 +22998,10 @@ components:
             * `KICS Scan` - KICS Scan
             * `Kiuwan Scan` - Kiuwan Scan
             * `kube-bench Scan` - kube-bench Scan
+            * `Kubeaudit Scan` - Kubeaudit Scan
             * `KubeHunter Scan` - KubeHunter Scan
+            * `Kubescape JSON Importer` - Kubescape JSON Importer
+            * `Mend Scan` - Mend Scan
             * `Meterian Scan` - Meterian Scan
             * `Microfocus Webinspect Scan` - Microfocus Webinspect Scan
             * `MobSF Scan` - MobSF Scan
@@ -22637,8 +23018,7 @@ components:
             * `NPM Audit Scan` - NPM Audit Scan
             * `Nuclei Scan` - Nuclei Scan
             * `Openscap Vulnerability Scan` - Openscap Vulnerability Scan
-            * `OpenVAS CSV` - OpenVAS CSV
-            * `OpenVAS XML` - OpenVAS XML
+            * `OpenVAS Parser` - OpenVAS Parser
             * `ORT evaluated model Importer` - ORT evaluated model Importer
             * `OssIndex Devaudit SCA Scan Importer` - OssIndex Devaudit SCA Scan Importer
             * `Outpost24 Scan` - Outpost24 Scan
@@ -22651,6 +23031,7 @@ components:
             * `Qualys Infrastructure Scan (WebGUI XML)` - Qualys Infrastructure Scan (WebGUI XML)
             * `Qualys Scan` - Qualys Scan
             * `Qualys Webapp Scan` - Qualys Webapp Scan
+            * `Red Hat Satellite` - Red Hat Satellite
             * `Retire.js Scan` - Retire.js Scan
             * `Risk Recon API Importer` - Risk Recon API Importer
             * `Rubocop Scan` - Rubocop Scan
@@ -22673,7 +23054,7 @@ components:
             * `Sslyze Scan` - Sslyze Scan
             * `SSLyze Scan (JSON)` - SSLyze Scan (JSON)
             * `StackHawk HawkScan` - StackHawk HawkScan
-            * `Sysdig Vulnerability Report - Pipeline, Registry and Runtime (CSV)` - Sysdig Vulnerability Report - Pipeline, Registry and Runtime (CSV)
+            * `Sysdig Vulnerability Report` - Sysdig Vulnerability Report
             * `Talisman Scan` - Talisman Scan
             * `Tenable Scan` - Tenable Scan
             * `Terrascan Scan` - Terrascan Scan
@@ -22696,7 +23077,6 @@ components:
             * `WFuzz JSON report` - WFuzz JSON report
             * `Whispers Scan` - Whispers Scan
             * `WhiteHat Sentinel` - WhiteHat Sentinel
-            * `Whitesource Scan` - Whitesource Scan
             * `Wpscan` - Wpscan
             * `Xanitizer Scan` - Xanitizer Scan
             * `Yarn Audit Scan` - Yarn Audit Scan
@@ -22737,7 +23117,7 @@ components:
           - Checkmarx Scan
           - Checkmarx Scan detailed
           - Checkov Scan
-          - Clair Klar Scan
+          - Chef Inspect Log
           - Clair Scan
           - Cloudsploit Scan
           - Cobalt.io API Import
@@ -22770,6 +23150,7 @@ components:
           - GitLab SAST Report
           - GitLab Secret Detection Report
           - Gitleaks Scan
+          - Google Cloud Artifact Vulnerability Scan
           - Gosec Scanner
           - Govulncheck Scanner
           - HackerOne Cases
@@ -22790,7 +23171,10 @@ components:
           - KICS Scan
           - Kiuwan Scan
           - kube-bench Scan
+          - Kubeaudit Scan
           - KubeHunter Scan
+          - Kubescape JSON Importer
+          - Mend Scan
           - Meterian Scan
           - Microfocus Webinspect Scan
           - MobSF Scan
@@ -22807,8 +23191,7 @@ components:
           - NPM Audit Scan
           - Nuclei Scan
           - Openscap Vulnerability Scan
-          - OpenVAS CSV
-          - OpenVAS XML
+          - OpenVAS Parser
           - ORT evaluated model Importer
           - OssIndex Devaudit SCA Scan Importer
           - Outpost24 Scan
@@ -22821,6 +23204,7 @@ components:
           - Qualys Infrastructure Scan (WebGUI XML)
           - Qualys Scan
           - Qualys Webapp Scan
+          - Red Hat Satellite
           - Retire.js Scan
           - Risk Recon API Importer
           - Rubocop Scan
@@ -22843,7 +23227,7 @@ components:
           - Sslyze Scan
           - SSLyze Scan (JSON)
           - StackHawk HawkScan
-          - "Sysdig Vulnerability Report - Pipeline, Registry and Runtime (CSV)"
+          - Sysdig Vulnerability Report
           - Talisman Scan
           - Tenable Scan
           - Terrascan Scan
@@ -22866,13 +23250,12 @@ components:
           - WFuzz JSON report
           - Whispers Scan
           - WhiteHat Sentinel
-          - Whitesource Scan
           - Wpscan
           - Xanitizer Scan
           - Yarn Audit Scan
           - ZAP Scan
           type: string
-          x-spec-enum-id: c9c3741a12e9ba09
+          x-spec-enum-id: 0bc843b6ba2e88ab
         endpoint_to_add:
           description: "The IP address, host name or full URL. It must be valid"
           type: integer
@@ -22980,6 +23363,9 @@ components:
           default: true
           description: "If set to false, finding groups will only be created when\
             \ there is more than one grouped finding"
+          type: boolean
+        apply_tags_to_findings:
+          description: "If set to True, the tags will be applied to the findings"
           type: boolean
       required:
       - active
@@ -24789,6 +25175,7 @@ components:
                 jira_issue: ""
               mitigated: 2000-01-23T04:56:07.000+00:00
               severity: severity
+              sla_expiration_date: 2000-01-23
               endpoints:
               - 9
               - 9
@@ -25253,6 +25640,9 @@ components:
         scan_added_empty: slack
         id: 0
         user: 1
+        sla_breach_combined:
+        - slack
+        - slack
       properties:
         id:
           readOnly: true
@@ -25518,6 +25908,23 @@ components:
             type: string
             x-spec-enum-id: a212c0fdfd2d116d
           type: array
+        sla_breach_combined:
+          default:
+          - alert
+          items:
+            description: |-
+              * `slack` - slack
+              * `msteams` - msteams
+              * `mail` - mail
+              * `alert` - alert
+            enum:
+            - slack
+            - msteams
+            - mail
+            - alert
+            type: string
+            x-spec-enum-id: a212c0fdfd2d116d
+          type: array
         risk_acceptance_expiration:
           default:
           - alert
@@ -25613,6 +26020,9 @@ components:
         - slack
         scan_added_empty: slack
         user: 6
+        sla_breach_combined:
+        - slack
+        - slack
       properties:
         product:
           nullable: true
@@ -25875,6 +26285,23 @@ components:
             type: string
             x-spec-enum-id: a212c0fdfd2d116d
           type: array
+        sla_breach_combined:
+          default:
+          - alert
+          items:
+            description: |-
+              * `slack` - slack
+              * `msteams` - msteams
+              * `mail` - mail
+              * `alert` - alert
+            enum:
+            - slack
+            - msteams
+            - mail
+            - alert
+            type: string
+            x-spec-enum-id: a212c0fdfd2d116d
+          type: array
         risk_acceptance_expiration:
           default:
           - alert
@@ -25911,6 +26338,39 @@ components:
           - ""
           type: string
           x-spec-enum-id: a212c0fdfd2d116d
+      type: object
+    PaginatedAnnouncementList:
+      example:
+        next: http://api.example.org/accounts/?offset=400&limit=100
+        previous: http://api.example.org/accounts/?offset=200&limit=100
+        count: 123
+        results:
+        - dismissable: true
+          style: info
+          id: 0
+          message: message
+        - dismissable: true
+          style: info
+          id: 0
+          message: message
+      properties:
+        count:
+          example: 123
+          type: integer
+        next:
+          example: http://api.example.org/accounts/?offset=400&limit=100
+          format: uri
+          nullable: true
+          type: string
+        previous:
+          example: http://api.example.org/accounts/?offset=200&limit=100
+          format: uri
+          nullable: true
+          type: string
+        results:
+          items:
+            $ref: '#/components/schemas/Announcement'
+          type: array
       type: object
     PaginatedAppAnalysisList:
       example:
@@ -27332,6 +27792,7 @@ components:
               time: 2000-01-23T04:56:07.000+00:00
               current_editor: ""
           pen_test: true
+          prefetch: "{}"
           description: description
           preset: 5
           risk_acceptance:
@@ -27421,6 +27882,7 @@ components:
               time: 2000-01-23T04:56:07.000+00:00
               current_editor: ""
           pen_test: true
+          prefetch: "{}"
           description: description
           preset: 5
           risk_acceptance:
@@ -28976,6 +29438,7 @@ components:
             jira_issue: ""
           mitigated: 2000-01-23T04:56:07.000+00:00
           severity: severity
+          sla_expiration_date: 2000-01-23
           endpoints:
           - 9
           - 9
@@ -29797,6 +30260,7 @@ components:
             jira_issue: ""
           mitigated: 2000-01-23T04:56:07.000+00:00
           severity: severity
+          sla_expiration_date: 2000-01-23
           endpoints:
           - 9
           - 9
@@ -31495,6 +31959,7 @@ components:
                 jira_issue: ""
               mitigated: 2000-01-23T04:56:07.000+00:00
               severity: severity
+              sla_expiration_date: 2000-01-23
               endpoints:
               - 9
               - 9
@@ -32457,6 +32922,7 @@ components:
                   jira_issue: ""
                 mitigated: 2000-01-23T04:56:07.000+00:00
                 severity: severity
+                sla_expiration_date: 2000-01-23
                 endpoints:
                 - 9
                 - 9
@@ -33421,6 +33887,7 @@ components:
                   jira_issue: ""
                 mitigated: 2000-01-23T04:56:07.000+00:00
                 severity: severity
+                sla_expiration_date: 2000-01-23
                 endpoints:
                 - 9
                 - 9
@@ -33898,6 +34365,9 @@ components:
           scan_added_empty: slack
           id: 0
           user: 1
+          sla_breach_combined:
+          - slack
+          - slack
         - template: false
           product: 6
           other:
@@ -34072,6 +34542,9 @@ components:
           scan_added_empty: slack
           id: 0
           user: 1
+          sla_breach_combined:
+          - slack
+          - slack
       properties:
         count:
           example: 123
@@ -37994,6 +38467,39 @@ components:
             $ref: '#/components/schemas/User'
           type: array
       type: object
+    PatchedAnnouncementRequest:
+      example:
+        dismissable: true
+        style: info
+        message: message
+      properties:
+        message:
+          description: "This dismissable message will be displayed on all pages for\
+            \ authenticated users. It can contain basic html tags, for example <a\
+            \ href='https://www.fred.com' style='color: #337ab7;' target='_blank'>https://example.com</a>"
+          maxLength: 500
+          minLength: 1
+          type: string
+        style:
+          description: |-
+            The style of banner to display. (info, success, warning, danger)
+
+            * `info` - Info
+            * `success` - Success
+            * `warning` - Warning
+            * `danger` - Danger
+          enum:
+          - info
+          - success
+          - warning
+          - danger
+          type: string
+          x-spec-enum-id: a21af280f632fa34
+        dismissable:
+          description: Ticking this box allows users to dismiss the current announcement
+          title: Dismissable?
+          type: boolean
+      type: object
     PatchedAppAnalysisRequest:
       example:
         website: https://openapi-generator.tech
@@ -38558,6 +39064,7 @@ components:
         - vulnerability_id: vulnerability_id
         dynamic_finding: true
         severity: severity
+        sla_expiration_date: 2000-01-23
         planned_remediation_date: 2000-01-23
         verified: true
         reporter: 0
@@ -38596,6 +39103,12 @@ components:
           description: "(readonly)The date used as start date for SLA calculation.\
             \ Set by expiring risk acceptances. Empty by default, causing a fallback\
             \ to 'date'."
+          format: date
+          nullable: true
+          type: string
+        sla_expiration_date:
+          description: "(readonly)The date SLA expires for this finding. Empty by\
+            \ default, causing a fallback to 'date'."
           format: date
           nullable: true
           type: string
@@ -39345,6 +39858,9 @@ components:
         - slack
         scan_added_empty: slack
         user: 6
+        sla_breach_combined:
+        - slack
+        - slack
       properties:
         product:
           nullable: true
@@ -39591,6 +40107,23 @@ components:
             x-spec-enum-id: a212c0fdfd2d116d
           type: array
         sla_breach:
+          default:
+          - alert
+          items:
+            description: |-
+              * `slack` - slack
+              * `msteams` - msteams
+              * `mail` - mail
+              * `alert` - alert
+            enum:
+            - slack
+            - msteams
+            - mail
+            - alert
+            type: string
+            x-spec-enum-id: a212c0fdfd2d116d
+          type: array
+        sla_breach_combined:
           default:
           - alert
           items:
@@ -40163,9 +40696,9 @@ components:
         allow_anonymous_survey_repsonse: true
       properties:
         enable_deduplication:
-          description: "With this setting turned on, Dojo deduplicates findings by\
-            \ comparing endpoints, cwe fields, and titles. If two findings share a\
-            \ URL and have the same CWE or title, Dojo marks the less recent finding\
+          description: "With this setting turned on, DefectDojo deduplicates findings\
+            \ by comparing endpoints, cwe fields, and titles. If two findings share\
+            \ a URL and have the same CWE or title, DefectDojo marks the recent finding\
             \ as a duplicate. When deduplication is enabled, a list of deduplicated\
             \ findings is added to the engagement view."
           title: Deduplicate findings
@@ -43712,6 +44245,7 @@ components:
         auto_create_context: true
         build_id: build_id
         service: service
+        apply_tags_to_findings: true
         group_by: component_name
         engagement_id: 2
         deduplication_on_engagement: true
@@ -43788,7 +44322,7 @@ components:
             * `Checkmarx Scan` - Checkmarx Scan
             * `Checkmarx Scan detailed` - Checkmarx Scan detailed
             * `Checkov Scan` - Checkov Scan
-            * `Clair Klar Scan` - Clair Klar Scan
+            * `Chef Inspect Log` - Chef Inspect Log
             * `Clair Scan` - Clair Scan
             * `Cloudsploit Scan` - Cloudsploit Scan
             * `Cobalt.io API Import` - Cobalt.io API Import
@@ -43821,6 +44355,7 @@ components:
             * `GitLab SAST Report` - GitLab SAST Report
             * `GitLab Secret Detection Report` - GitLab Secret Detection Report
             * `Gitleaks Scan` - Gitleaks Scan
+            * `Google Cloud Artifact Vulnerability Scan` - Google Cloud Artifact Vulnerability Scan
             * `Gosec Scanner` - Gosec Scanner
             * `Govulncheck Scanner` - Govulncheck Scanner
             * `HackerOne Cases` - HackerOne Cases
@@ -43841,7 +44376,10 @@ components:
             * `KICS Scan` - KICS Scan
             * `Kiuwan Scan` - Kiuwan Scan
             * `kube-bench Scan` - kube-bench Scan
+            * `Kubeaudit Scan` - Kubeaudit Scan
             * `KubeHunter Scan` - KubeHunter Scan
+            * `Kubescape JSON Importer` - Kubescape JSON Importer
+            * `Mend Scan` - Mend Scan
             * `Meterian Scan` - Meterian Scan
             * `Microfocus Webinspect Scan` - Microfocus Webinspect Scan
             * `MobSF Scan` - MobSF Scan
@@ -43858,8 +44396,7 @@ components:
             * `NPM Audit Scan` - NPM Audit Scan
             * `Nuclei Scan` - Nuclei Scan
             * `Openscap Vulnerability Scan` - Openscap Vulnerability Scan
-            * `OpenVAS CSV` - OpenVAS CSV
-            * `OpenVAS XML` - OpenVAS XML
+            * `OpenVAS Parser` - OpenVAS Parser
             * `ORT evaluated model Importer` - ORT evaluated model Importer
             * `OssIndex Devaudit SCA Scan Importer` - OssIndex Devaudit SCA Scan Importer
             * `Outpost24 Scan` - Outpost24 Scan
@@ -43872,6 +44409,7 @@ components:
             * `Qualys Infrastructure Scan (WebGUI XML)` - Qualys Infrastructure Scan (WebGUI XML)
             * `Qualys Scan` - Qualys Scan
             * `Qualys Webapp Scan` - Qualys Webapp Scan
+            * `Red Hat Satellite` - Red Hat Satellite
             * `Retire.js Scan` - Retire.js Scan
             * `Risk Recon API Importer` - Risk Recon API Importer
             * `Rubocop Scan` - Rubocop Scan
@@ -43894,7 +44432,7 @@ components:
             * `Sslyze Scan` - Sslyze Scan
             * `SSLyze Scan (JSON)` - SSLyze Scan (JSON)
             * `StackHawk HawkScan` - StackHawk HawkScan
-            * `Sysdig Vulnerability Report - Pipeline, Registry and Runtime (CSV)` - Sysdig Vulnerability Report - Pipeline, Registry and Runtime (CSV)
+            * `Sysdig Vulnerability Report` - Sysdig Vulnerability Report
             * `Talisman Scan` - Talisman Scan
             * `Tenable Scan` - Tenable Scan
             * `Terrascan Scan` - Terrascan Scan
@@ -43917,7 +44455,6 @@ components:
             * `WFuzz JSON report` - WFuzz JSON report
             * `Whispers Scan` - Whispers Scan
             * `WhiteHat Sentinel` - WhiteHat Sentinel
-            * `Whitesource Scan` - Whitesource Scan
             * `Wpscan` - Wpscan
             * `Xanitizer Scan` - Xanitizer Scan
             * `Yarn Audit Scan` - Yarn Audit Scan
@@ -43958,7 +44495,7 @@ components:
           - Checkmarx Scan
           - Checkmarx Scan detailed
           - Checkov Scan
-          - Clair Klar Scan
+          - Chef Inspect Log
           - Clair Scan
           - Cloudsploit Scan
           - Cobalt.io API Import
@@ -43991,6 +44528,7 @@ components:
           - GitLab SAST Report
           - GitLab Secret Detection Report
           - Gitleaks Scan
+          - Google Cloud Artifact Vulnerability Scan
           - Gosec Scanner
           - Govulncheck Scanner
           - HackerOne Cases
@@ -44011,7 +44549,10 @@ components:
           - KICS Scan
           - Kiuwan Scan
           - kube-bench Scan
+          - Kubeaudit Scan
           - KubeHunter Scan
+          - Kubescape JSON Importer
+          - Mend Scan
           - Meterian Scan
           - Microfocus Webinspect Scan
           - MobSF Scan
@@ -44028,8 +44569,7 @@ components:
           - NPM Audit Scan
           - Nuclei Scan
           - Openscap Vulnerability Scan
-          - OpenVAS CSV
-          - OpenVAS XML
+          - OpenVAS Parser
           - ORT evaluated model Importer
           - OssIndex Devaudit SCA Scan Importer
           - Outpost24 Scan
@@ -44042,6 +44582,7 @@ components:
           - Qualys Infrastructure Scan (WebGUI XML)
           - Qualys Scan
           - Qualys Webapp Scan
+          - Red Hat Satellite
           - Retire.js Scan
           - Risk Recon API Importer
           - Rubocop Scan
@@ -44064,7 +44605,7 @@ components:
           - Sslyze Scan
           - SSLyze Scan (JSON)
           - StackHawk HawkScan
-          - "Sysdig Vulnerability Report - Pipeline, Registry and Runtime (CSV)"
+          - Sysdig Vulnerability Report
           - Talisman Scan
           - Tenable Scan
           - Terrascan Scan
@@ -44087,13 +44628,12 @@ components:
           - WFuzz JSON report
           - Whispers Scan
           - WhiteHat Sentinel
-          - Whitesource Scan
           - Wpscan
           - Xanitizer Scan
           - Yarn Audit Scan
           - ZAP Scan
           type: string
-          x-spec-enum-id: c9c3741a12e9ba09
+          x-spec-enum-id: 0bc843b6ba2e88ab
         endpoint_to_add:
           type: integer
         file:
@@ -44207,6 +44747,9 @@ components:
           allOf:
           - $ref: '#/components/schemas/ImportStatistics'
           readOnly: true
+        apply_tags_to_findings:
+          description: "If set to True, the tags will be applied to the findings"
+          type: boolean
       required:
       - active
       - engagement_id
@@ -44290,7 +44833,7 @@ components:
             * `Checkmarx Scan` - Checkmarx Scan
             * `Checkmarx Scan detailed` - Checkmarx Scan detailed
             * `Checkov Scan` - Checkov Scan
-            * `Clair Klar Scan` - Clair Klar Scan
+            * `Chef Inspect Log` - Chef Inspect Log
             * `Clair Scan` - Clair Scan
             * `Cloudsploit Scan` - Cloudsploit Scan
             * `Cobalt.io API Import` - Cobalt.io API Import
@@ -44323,6 +44866,7 @@ components:
             * `GitLab SAST Report` - GitLab SAST Report
             * `GitLab Secret Detection Report` - GitLab Secret Detection Report
             * `Gitleaks Scan` - Gitleaks Scan
+            * `Google Cloud Artifact Vulnerability Scan` - Google Cloud Artifact Vulnerability Scan
             * `Gosec Scanner` - Gosec Scanner
             * `Govulncheck Scanner` - Govulncheck Scanner
             * `HackerOne Cases` - HackerOne Cases
@@ -44343,7 +44887,10 @@ components:
             * `KICS Scan` - KICS Scan
             * `Kiuwan Scan` - Kiuwan Scan
             * `kube-bench Scan` - kube-bench Scan
+            * `Kubeaudit Scan` - Kubeaudit Scan
             * `KubeHunter Scan` - KubeHunter Scan
+            * `Kubescape JSON Importer` - Kubescape JSON Importer
+            * `Mend Scan` - Mend Scan
             * `Meterian Scan` - Meterian Scan
             * `Microfocus Webinspect Scan` - Microfocus Webinspect Scan
             * `MobSF Scan` - MobSF Scan
@@ -44360,8 +44907,7 @@ components:
             * `NPM Audit Scan` - NPM Audit Scan
             * `Nuclei Scan` - Nuclei Scan
             * `Openscap Vulnerability Scan` - Openscap Vulnerability Scan
-            * `OpenVAS CSV` - OpenVAS CSV
-            * `OpenVAS XML` - OpenVAS XML
+            * `OpenVAS Parser` - OpenVAS Parser
             * `ORT evaluated model Importer` - ORT evaluated model Importer
             * `OssIndex Devaudit SCA Scan Importer` - OssIndex Devaudit SCA Scan Importer
             * `Outpost24 Scan` - Outpost24 Scan
@@ -44374,6 +44920,7 @@ components:
             * `Qualys Infrastructure Scan (WebGUI XML)` - Qualys Infrastructure Scan (WebGUI XML)
             * `Qualys Scan` - Qualys Scan
             * `Qualys Webapp Scan` - Qualys Webapp Scan
+            * `Red Hat Satellite` - Red Hat Satellite
             * `Retire.js Scan` - Retire.js Scan
             * `Risk Recon API Importer` - Risk Recon API Importer
             * `Rubocop Scan` - Rubocop Scan
@@ -44396,7 +44943,7 @@ components:
             * `Sslyze Scan` - Sslyze Scan
             * `SSLyze Scan (JSON)` - SSLyze Scan (JSON)
             * `StackHawk HawkScan` - StackHawk HawkScan
-            * `Sysdig Vulnerability Report - Pipeline, Registry and Runtime (CSV)` - Sysdig Vulnerability Report - Pipeline, Registry and Runtime (CSV)
+            * `Sysdig Vulnerability Report` - Sysdig Vulnerability Report
             * `Talisman Scan` - Talisman Scan
             * `Tenable Scan` - Tenable Scan
             * `Terrascan Scan` - Terrascan Scan
@@ -44419,7 +44966,6 @@ components:
             * `WFuzz JSON report` - WFuzz JSON report
             * `Whispers Scan` - Whispers Scan
             * `WhiteHat Sentinel` - WhiteHat Sentinel
-            * `Whitesource Scan` - Whitesource Scan
             * `Wpscan` - Wpscan
             * `Xanitizer Scan` - Xanitizer Scan
             * `Yarn Audit Scan` - Yarn Audit Scan
@@ -44460,7 +45006,7 @@ components:
           - Checkmarx Scan
           - Checkmarx Scan detailed
           - Checkov Scan
-          - Clair Klar Scan
+          - Chef Inspect Log
           - Clair Scan
           - Cloudsploit Scan
           - Cobalt.io API Import
@@ -44493,6 +45039,7 @@ components:
           - GitLab SAST Report
           - GitLab Secret Detection Report
           - Gitleaks Scan
+          - Google Cloud Artifact Vulnerability Scan
           - Gosec Scanner
           - Govulncheck Scanner
           - HackerOne Cases
@@ -44513,7 +45060,10 @@ components:
           - KICS Scan
           - Kiuwan Scan
           - kube-bench Scan
+          - Kubeaudit Scan
           - KubeHunter Scan
+          - Kubescape JSON Importer
+          - Mend Scan
           - Meterian Scan
           - Microfocus Webinspect Scan
           - MobSF Scan
@@ -44530,8 +45080,7 @@ components:
           - NPM Audit Scan
           - Nuclei Scan
           - Openscap Vulnerability Scan
-          - OpenVAS CSV
-          - OpenVAS XML
+          - OpenVAS Parser
           - ORT evaluated model Importer
           - OssIndex Devaudit SCA Scan Importer
           - Outpost24 Scan
@@ -44544,6 +45093,7 @@ components:
           - Qualys Infrastructure Scan (WebGUI XML)
           - Qualys Scan
           - Qualys Webapp Scan
+          - Red Hat Satellite
           - Retire.js Scan
           - Risk Recon API Importer
           - Rubocop Scan
@@ -44566,7 +45116,7 @@ components:
           - Sslyze Scan
           - SSLyze Scan (JSON)
           - StackHawk HawkScan
-          - "Sysdig Vulnerability Report - Pipeline, Registry and Runtime (CSV)"
+          - Sysdig Vulnerability Report
           - Talisman Scan
           - Tenable Scan
           - Terrascan Scan
@@ -44589,13 +45139,12 @@ components:
           - WFuzz JSON report
           - Whispers Scan
           - WhiteHat Sentinel
-          - Whitesource Scan
           - Wpscan
           - Xanitizer Scan
           - Yarn Audit Scan
           - ZAP Scan
           type: string
-          x-spec-enum-id: c9c3741a12e9ba09
+          x-spec-enum-id: 0bc843b6ba2e88ab
         endpoint_to_add:
           type: integer
         file:
@@ -44704,6 +45253,9 @@ components:
           default: true
           description: "If set to false, finding groups will only be created when\
             \ there is more than one grouped finding"
+          type: boolean
+        apply_tags_to_findings:
+          description: "If set to True, the tags will be applied to the findings"
           type: boolean
       required:
       - active
@@ -45670,6 +46222,7 @@ components:
             jira_issue: ""
           mitigated: 2000-01-23T04:56:07.000+00:00
           severity: severity
+          sla_expiration_date: 2000-01-23
           endpoints:
           - 9
           - 9
@@ -46491,6 +47044,7 @@ components:
             jira_issue: ""
           mitigated: 2000-01-23T04:56:07.000+00:00
           severity: severity
+          sla_expiration_date: 2000-01-23
           endpoints:
           - 9
           - 9
@@ -47438,9 +47992,9 @@ components:
           readOnly: true
           type: integer
         enable_deduplication:
-          description: "With this setting turned on, Dojo deduplicates findings by\
-            \ comparing endpoints, cwe fields, and titles. If two findings share a\
-            \ URL and have the same CWE or title, Dojo marks the less recent finding\
+          description: "With this setting turned on, DefectDojo deduplicates findings\
+            \ by comparing endpoints, cwe fields, and titles. If two findings share\
+            \ a URL and have the same CWE or title, DefectDojo marks the recent finding\
             \ as a duplicate. When deduplication is enabled, a list of deduplicated\
             \ findings is added to the engagement view."
           title: Deduplicate findings
@@ -49019,9 +49573,9 @@ components:
         allow_anonymous_survey_repsonse: true
       properties:
         enable_deduplication:
-          description: "With this setting turned on, Dojo deduplicates findings by\
-            \ comparing endpoints, cwe fields, and titles. If two findings share a\
-            \ URL and have the same CWE or title, Dojo marks the less recent finding\
+          description: "With this setting turned on, DefectDojo deduplicates findings\
+            \ by comparing endpoints, cwe fields, and titles. If two findings share\
+            \ a URL and have the same CWE or title, DefectDojo marks the recent finding\
             \ as a duplicate. When deduplication is enabled, a list of deduplicated\
             \ findings is added to the engagement view."
           title: Deduplicate findings
@@ -55031,6 +55585,7 @@ components:
               jira_issue: ""
             mitigated: 2000-01-23T04:56:07.000+00:00
             severity: severity
+            sla_expiration_date: 2000-01-23
             endpoints:
             - 9
             - 9

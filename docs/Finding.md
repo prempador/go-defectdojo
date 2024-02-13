@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **Title** | **string** | A short description of the flaw. | 
 **Date** | Pointer to **string** | The date the flaw was discovered. | [optional] 
 **SlaStartDate** | Pointer to **NullableString** | (readonly)The date used as start date for SLA calculation. Set by expiring risk acceptances. Empty by default, causing a fallback to &#39;date&#39;. | [optional] 
+**SlaExpirationDate** | Pointer to **NullableString** | (readonly)The date SLA expires for this finding. Empty by default, causing a fallback to &#39;date&#39;. | [optional] 
 **Cwe** | Pointer to **NullableInt32** | The CWE number associated with this flaw. | [optional] 
 **Cvssv3** | Pointer to **NullableString** | Common Vulnerability Scoring System version 3 (CVSSv3) score associated with this flaw. | [optional] 
 **Cvssv3Score** | Pointer to **NullableFloat64** | Numerical CVSSv3 score for the vulnerability. If the vector is given, the score is updated while saving the finding | [optional] 
@@ -503,6 +504,41 @@ HasSlaStartDate returns a boolean if a field has been set.
 `func (o *Finding) UnsetSlaStartDate()`
 
 UnsetSlaStartDate ensures that no value is present for SlaStartDate, not even an explicit nil
+### GetSlaExpirationDate
+
+`func (o *Finding) GetSlaExpirationDate() string`
+
+GetSlaExpirationDate returns the SlaExpirationDate field if non-nil, zero value otherwise.
+
+### GetSlaExpirationDateOk
+
+`func (o *Finding) GetSlaExpirationDateOk() (*string, bool)`
+
+GetSlaExpirationDateOk returns a tuple with the SlaExpirationDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSlaExpirationDate
+
+`func (o *Finding) SetSlaExpirationDate(v string)`
+
+SetSlaExpirationDate sets SlaExpirationDate field to given value.
+
+### HasSlaExpirationDate
+
+`func (o *Finding) HasSlaExpirationDate() bool`
+
+HasSlaExpirationDate returns a boolean if a field has been set.
+
+### SetSlaExpirationDateNil
+
+`func (o *Finding) SetSlaExpirationDateNil(b bool)`
+
+ SetSlaExpirationDateNil sets the value for SlaExpirationDate to be an explicit nil
+
+### UnsetSlaExpirationDate
+`func (o *Finding) UnsetSlaExpirationDate()`
+
+UnsetSlaExpirationDate ensures that no value is present for SlaExpirationDate, not even an explicit nil
 ### GetCwe
 
 `func (o *Finding) GetCwe() int32`

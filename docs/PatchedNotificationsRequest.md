@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **ReviewRequested** | Pointer to **[]string** |  | [optional] [default to ["alert"]]
 **Other** | Pointer to **[]string** |  | [optional] [default to ["alert"]]
 **SlaBreach** | Pointer to **[]string** |  | [optional] [default to ["alert"]]
+**SlaBreachCombined** | Pointer to **[]string** |  | [optional] [default to ["alert"]]
 **RiskAcceptanceExpiration** | Pointer to **[]string** |  | [optional] [default to ["alert"]]
 **Template** | Pointer to **bool** |  | [optional] [default to false]
 **ScanAddedEmpty** | Pointer to **string** | Triggered whenever an (re-)import has been done (even if that created/updated/closed no findings).  * &#x60;slack&#x60; - slack * &#x60;msteams&#x60; - msteams * &#x60;mail&#x60; - mail * &#x60;alert&#x60; - alert | [optional] 
@@ -488,6 +489,31 @@ SetSlaBreach sets SlaBreach field to given value.
 `func (o *PatchedNotificationsRequest) HasSlaBreach() bool`
 
 HasSlaBreach returns a boolean if a field has been set.
+
+### GetSlaBreachCombined
+
+`func (o *PatchedNotificationsRequest) GetSlaBreachCombined() []string`
+
+GetSlaBreachCombined returns the SlaBreachCombined field if non-nil, zero value otherwise.
+
+### GetSlaBreachCombinedOk
+
+`func (o *PatchedNotificationsRequest) GetSlaBreachCombinedOk() (*[]string, bool)`
+
+GetSlaBreachCombinedOk returns a tuple with the SlaBreachCombined field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSlaBreachCombined
+
+`func (o *PatchedNotificationsRequest) SetSlaBreachCombined(v []string)`
+
+SetSlaBreachCombined sets SlaBreachCombined field to given value.
+
+### HasSlaBreachCombined
+
+`func (o *PatchedNotificationsRequest) HasSlaBreachCombined() bool`
+
+HasSlaBreachCombined returns a boolean if a field has been set.
 
 ### GetRiskAcceptanceExpiration
 

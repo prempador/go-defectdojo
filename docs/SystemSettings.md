@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
-**EnableDeduplication** | Pointer to **bool** | With this setting turned on, Dojo deduplicates findings by comparing endpoints, cwe fields, and titles. If two findings share a URL and have the same CWE or title, Dojo marks the less recent finding as a duplicate. When deduplication is enabled, a list of deduplicated findings is added to the engagement view. | [optional] 
+**EnableDeduplication** | Pointer to **bool** | With this setting turned on, DefectDojo deduplicates findings by comparing endpoints, cwe fields, and titles. If two findings share a URL and have the same CWE or title, DefectDojo marks the recent finding as a duplicate. When deduplication is enabled, a list of deduplicated findings is added to the engagement view. | [optional] 
 **DeleteDuplicates** | Pointer to **bool** | Requires next setting: maximum number of duplicates to retain. | [optional] 
 **MaxDupes** | Pointer to **NullableInt32** | When enabled, if a single issue reaches the maximum number of duplicates, the oldest will be deleted. Duplicate will not be deleted when left empty. A value of 0 will remove all duplicates. | [optional] 
 **EmailFrom** | Pointer to **string** |  | [optional] 
