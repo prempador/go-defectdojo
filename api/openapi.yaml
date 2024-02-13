@@ -18524,6 +18524,7 @@ components:
             time: 2000-01-23T04:56:07.000+00:00
             current_editor: ""
         pen_test: true
+        prefetch: "{}"
         description: description
         preset: 5
         risk_acceptance:
@@ -18750,6 +18751,8 @@ components:
             type: integer
           readOnly: true
           type: array
+        prefetch:
+          type: object
       required:
       - active
       - created
@@ -27789,6 +27792,7 @@ components:
               time: 2000-01-23T04:56:07.000+00:00
               current_editor: ""
           pen_test: true
+          prefetch: "{}"
           description: description
           preset: 5
           risk_acceptance:
@@ -27878,6 +27882,7 @@ components:
               time: 2000-01-23T04:56:07.000+00:00
               current_editor: ""
           pen_test: true
+          prefetch: "{}"
           description: description
           preset: 5
           risk_acceptance:

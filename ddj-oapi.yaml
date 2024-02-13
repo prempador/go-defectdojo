@@ -15868,6 +15868,8 @@ components:
           items:
             type: integer
           readOnly: true
+        prefetch:
+          type: object
       required:
       - active
       - created
