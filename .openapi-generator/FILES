@@ -688,5 +688,4 @@ model_vulnerability_id_request.go
 model_vulnerability_id_template.go
 model_vulnerability_id_template_request.go
 response.go
-test/api_announcements_test.go
 utils.go
