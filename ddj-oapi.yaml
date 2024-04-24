@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Defect Dojo API v2
-  version: 2.31.1
+  version: 2.33.5
   description: Defect Dojo - Open Source vulnerability Management made easy. Prefetch
     related parameters/responses not yet in the schema.
 paths:
@@ -1186,15 +1186,17 @@ paths:
         name: social_provider
         schema:
           type: string
-          x-spec-enum-id: 98e1fa172846b918
+          x-spec-enum-id: fe57c2b04188fb94
           nullable: true
           title: Social Authentication Provider
           enum:
           - AzureAD
+          - Remote
         description: |-
           Group imported from a social provider.
 
           * `AzureAD` - AzureAD
+          * `Remote` - Remote
       tags:
       - dojo_groups
       security:
@@ -3148,6 +3150,16 @@ paths:
         schema:
           type: boolean
       - in: query
+        name: after
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: before
+        schema:
+          type: string
+          format: date
+      - in: query
         name: component_name
         schema:
           type: string
@@ -3262,6 +3274,16 @@ paths:
         description: Multiple values may be separated by commas.
         explode: false
         style: form
+      - in: query
+        name: epss_percentile
+        schema:
+          type: number
+          format: float
+      - in: query
+        name: epss_score
+        schema:
+          type: number
+          format: float
       - in: query
         name: false_p
         schema:
@@ -3636,6 +3658,11 @@ paths:
         description: The initial index from which to return the results.
         schema:
           type: integer
+      - in: query
+        name: 'on'
+        schema:
+          type: string
+          format: date
       - in: query
         name: out_of_scope
         schema:
@@ -4748,6 +4775,16 @@ paths:
         schema:
           type: boolean
       - in: query
+        name: after
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: before
+        schema:
+          type: string
+          format: date
+      - in: query
         name: component_name
         schema:
           type: string
@@ -4862,6 +4899,16 @@ paths:
         description: Multiple values may be separated by commas.
         explode: false
         style: form
+      - in: query
+        name: epss_percentile
+        schema:
+          type: number
+          format: float
+      - in: query
+        name: epss_score
+        schema:
+          type: number
+          format: float
       - in: query
         name: false_p
         schema:
@@ -5236,6 +5283,11 @@ paths:
         description: The initial index from which to return the results.
         schema:
           type: integer
+      - in: query
+        name: 'on'
+        schema:
+          type: string
+          format: date
       - in: query
         name: out_of_scope
         schema:
@@ -11154,6 +11206,33 @@ paths:
               schema:
                 $ref: '#/components/schemas/PaginatedRiskAcceptanceList'
           description: ''
+    post:
+      operationId: risk_acceptance_create
+      tags:
+      - risk_acceptance
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RiskAcceptanceRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RiskAcceptanceRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RiskAcceptanceRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RiskAcceptance'
+          description: ''
   /api/v2/risk_acceptance/{id}/:
     get:
       operationId: risk_acceptance_retrieve
@@ -15332,16 +15411,18 @@ components:
         social_provider:
           enum:
           - AzureAD
+          - Remote
           - ''
           - null
           type: string
-          x-spec-enum-id: 98e1fa172846b918
+          x-spec-enum-id: fe57c2b04188fb94
           nullable: true
           title: Social Authentication Provider
           description: |-
             Group imported from a social provider.
 
             * `AzureAD` - AzureAD
+            * `Remote` - Remote
         users:
           type: array
           items:
@@ -15442,16 +15523,18 @@ components:
         social_provider:
           enum:
           - AzureAD
+          - Remote
           - ''
           - null
           type: string
-          x-spec-enum-id: 98e1fa172846b918
+          x-spec-enum-id: fe57c2b04188fb94
           nullable: true
           title: Social Authentication Provider
           description: |-
             Group imported from a social provider.
 
             * `AzureAD` - AzureAD
+            * `Remote` - Remote
       required:
       - name
     Endpoint:
@@ -16415,6 +16498,22 @@ components:
           minimum: -2147483648
           nullable: true
           description: The CWE number associated with this flaw.
+        epss_score:
+          type: number
+          format: double
+          maximum: 1.0
+          minimum: 0.0
+          nullable: true
+          description: EPSS score for the CVE. Describes how likely it is the vulnerability
+            will be exploited in the next 30 days.
+        epss_percentile:
+          type: number
+          format: double
+          maximum: 1.0
+          minimum: 0.0
+          nullable: true
+          description: EPSS percentile for the CVE. Describes how many CVEs are scored
+            at or below this one.
         cvssv3:
           type: string
           nullable: true
@@ -16426,9 +16525,12 @@ components:
         cvssv3_score:
           type: number
           format: double
+          maximum: 10.0
+          minimum: 0.0
           nullable: true
           description: Numerical CVSSv3 score for the vulnerability. If the vector
-            is given, the score is updated while saving the finding
+            is given, the score is updated while saving the finding. The value must
+            be between 0-10.
         url:
           type: string
           readOnly: true
@@ -16438,7 +16540,7 @@ components:
         severity:
           type: string
           description: The severity level of this flaw (Critical, High, Medium, Low,
-            Informational).
+            Info).
           maxLength: 200
         description:
           type: string
@@ -16974,6 +17076,22 @@ components:
           minimum: -2147483648
           nullable: true
           description: The CWE number associated with this flaw.
+        epss_score:
+          type: number
+          format: double
+          maximum: 1.0
+          minimum: 0.0
+          nullable: true
+          description: EPSS score for the CVE. Describes how likely it is the vulnerability
+            will be exploited in the next 30 days.
+        epss_percentile:
+          type: number
+          format: double
+          maximum: 1.0
+          minimum: 0.0
+          nullable: true
+          description: EPSS percentile for the CVE. Describes how many CVEs are scored
+            at or below this one.
         cvssv3:
           type: string
           nullable: true
@@ -16985,13 +17103,16 @@ components:
         cvssv3_score:
           type: number
           format: double
+          maximum: 10.0
+          minimum: 0.0
           nullable: true
           description: Numerical CVSSv3 score for the vulnerability. If the vector
-            is given, the score is updated while saving the finding
+            is given, the score is updated while saving the finding. The value must
+            be between 0-10.
         severity:
           type: string
           description: The severity level of this flaw (Critical, High, Medium, Low,
-            Informational).
+            Info).
           maxLength: 200
         description:
           type: string
@@ -17337,6 +17458,22 @@ components:
           minimum: -2147483648
           nullable: true
           description: The CWE number associated with this flaw.
+        epss_score:
+          type: number
+          format: double
+          maximum: 1.0
+          minimum: 0.0
+          nullable: true
+          description: EPSS score for the CVE. Describes how likely it is the vulnerability
+            will be exploited in the next 30 days.
+        epss_percentile:
+          type: number
+          format: double
+          maximum: 1.0
+          minimum: 0.0
+          nullable: true
+          description: EPSS percentile for the CVE. Describes how many CVEs are scored
+            at or below this one.
         cvssv3:
           type: string
           nullable: true
@@ -17349,14 +17486,17 @@ components:
         cvssv3_score:
           type: number
           format: double
+          maximum: 10.0
+          minimum: 0.0
           nullable: true
           description: Numerical CVSSv3 score for the vulnerability. If the vector
-            is given, the score is updated while saving the finding
+            is given, the score is updated while saving the finding. The value must
+            be between 0-10.
         severity:
           type: string
           minLength: 1
           description: The severity level of this flaw (Critical, High, Medium, Low,
-            Informational).
+            Info).
           maxLength: 200
         description:
           type: string
@@ -17649,6 +17789,7 @@ components:
           allOf:
           - $ref: '#/components/schemas/JIRAIssue'
           readOnly: true
+          nullable: true
       required:
       - id
       - jira_issue
@@ -17777,6 +17918,22 @@ components:
           minimum: -2147483648
           nullable: true
           description: The CWE number associated with this flaw.
+        epss_score:
+          type: number
+          format: double
+          maximum: 1.0
+          minimum: 0.0
+          nullable: true
+          description: EPSS score for the CVE. Describes how likely it is the vulnerability
+            will be exploited in the next 30 days.
+        epss_percentile:
+          type: number
+          format: double
+          maximum: 1.0
+          minimum: 0.0
+          nullable: true
+          description: EPSS percentile for the CVE. Describes how many CVEs are scored
+            at or below this one.
         cvssv3:
           type: string
           nullable: true
@@ -17789,14 +17946,17 @@ components:
         cvssv3_score:
           type: number
           format: double
+          maximum: 10.0
+          minimum: 0.0
           nullable: true
           description: Numerical CVSSv3 score for the vulnerability. If the vector
-            is given, the score is updated while saving the finding
+            is given, the score is updated while saving the finding. The value must
+            be between 0-10.
         severity:
           type: string
           minLength: 1
           description: The severity level of this flaw (Critical, High, Medium, Low,
-            Informational).
+            Info).
           maxLength: 200
         description:
           type: string
@@ -18273,7 +18433,6 @@ components:
         scan_type:
           enum:
           - Acunetix Scan
-          - Acunetix360 Scan
           - Anchore Engine Scan
           - Anchore Enterprise Policy Check
           - Anchore Grype
@@ -18298,11 +18457,13 @@ components:
           - Bugcrowd API Import
           - BugCrowd Scan
           - Bundler-Audit Scan
+          - Burp Dastardly Scan
           - Burp Enterprise Scan
           - Burp GraphQL API
           - Burp REST API
           - Burp Scan
           - CargoAudit Scan
+          - Checkmarx One Scan
           - Checkmarx OSA
           - Checkmarx Scan
           - Checkmarx Scan detailed
@@ -18318,6 +18479,7 @@ components:
           - Crashtest Security JSON File
           - Crashtest Security XML File
           - CredScan Scan
+          - Crunch42 Scan
           - CycloneDX Scan
           - DawnScanner Scan
           - Dependency Check Scan
@@ -18371,6 +18533,7 @@ components:
           - Mobsfscan Scan
           - Mozilla Observatory Scan
           - MSDefender Parser
+          - Nancy Scan
           - Netsparker Scan
           - NeuVector (compliance)
           - NeuVector (REST)
@@ -18378,12 +18541,15 @@ components:
           - Nikto Scan
           - Nmap Scan
           - Node Security Platform Scan
+          - Nosey Parker Scan
           - NPM Audit Scan
+          - NPM Audit v7+ Scan
           - Nuclei Scan
           - Openscap Vulnerability Scan
           - OpenVAS Parser
           - ORT evaluated model Importer
           - OssIndex Devaudit SCA Scan Importer
+          - OSV Scan
           - Outpost24 Scan
           - PHP Security Audit v2
           - PHP Symfony Security Check
@@ -18404,6 +18570,7 @@ components:
           - Scout Suite Scan
           - Semgrep JSON Report
           - SKF Scan
+          - Snyk Code Scan
           - Snyk Scan
           - Solar Appscreener Scan
           - SonarQube API Import
@@ -18440,6 +18607,7 @@ components:
           - WFuzz JSON report
           - Whispers Scan
           - WhiteHat Sentinel
+          - Wiz Scan
           - Wpscan
           - Xanitizer Scan
           - Yarn Audit Scan
@@ -18447,7 +18615,6 @@ components:
           type: string
           description: |-
             * `Acunetix Scan` - Acunetix Scan
-            * `Acunetix360 Scan` - Acunetix360 Scan
             * `Anchore Engine Scan` - Anchore Engine Scan
             * `Anchore Enterprise Policy Check` - Anchore Enterprise Policy Check
             * `Anchore Grype` - Anchore Grype
@@ -18472,11 +18639,13 @@ components:
             * `Bugcrowd API Import` - Bugcrowd API Import
             * `BugCrowd Scan` - BugCrowd Scan
             * `Bundler-Audit Scan` - Bundler-Audit Scan
+            * `Burp Dastardly Scan` - Burp Dastardly Scan
             * `Burp Enterprise Scan` - Burp Enterprise Scan
             * `Burp GraphQL API` - Burp GraphQL API
             * `Burp REST API` - Burp REST API
             * `Burp Scan` - Burp Scan
             * `CargoAudit Scan` - CargoAudit Scan
+            * `Checkmarx One Scan` - Checkmarx One Scan
             * `Checkmarx OSA` - Checkmarx OSA
             * `Checkmarx Scan` - Checkmarx Scan
             * `Checkmarx Scan detailed` - Checkmarx Scan detailed
@@ -18492,6 +18661,7 @@ components:
             * `Crashtest Security JSON File` - Crashtest Security JSON File
             * `Crashtest Security XML File` - Crashtest Security XML File
             * `CredScan Scan` - CredScan Scan
+            * `Crunch42 Scan` - Crunch42 Scan
             * `CycloneDX Scan` - CycloneDX Scan
             * `DawnScanner Scan` - DawnScanner Scan
             * `Dependency Check Scan` - Dependency Check Scan
@@ -18545,6 +18715,7 @@ components:
             * `Mobsfscan Scan` - Mobsfscan Scan
             * `Mozilla Observatory Scan` - Mozilla Observatory Scan
             * `MSDefender Parser` - MSDefender Parser
+            * `Nancy Scan` - Nancy Scan
             * `Netsparker Scan` - Netsparker Scan
             * `NeuVector (compliance)` - NeuVector (compliance)
             * `NeuVector (REST)` - NeuVector (REST)
@@ -18552,12 +18723,15 @@ components:
             * `Nikto Scan` - Nikto Scan
             * `Nmap Scan` - Nmap Scan
             * `Node Security Platform Scan` - Node Security Platform Scan
+            * `Nosey Parker Scan` - Nosey Parker Scan
             * `NPM Audit Scan` - NPM Audit Scan
+            * `NPM Audit v7+ Scan` - NPM Audit v7+ Scan
             * `Nuclei Scan` - Nuclei Scan
             * `Openscap Vulnerability Scan` - Openscap Vulnerability Scan
             * `OpenVAS Parser` - OpenVAS Parser
             * `ORT evaluated model Importer` - ORT evaluated model Importer
             * `OssIndex Devaudit SCA Scan Importer` - OssIndex Devaudit SCA Scan Importer
+            * `OSV Scan` - OSV Scan
             * `Outpost24 Scan` - Outpost24 Scan
             * `PHP Security Audit v2` - PHP Security Audit v2
             * `PHP Symfony Security Check` - PHP Symfony Security Check
@@ -18578,6 +18752,7 @@ components:
             * `Scout Suite Scan` - Scout Suite Scan
             * `Semgrep JSON Report` - Semgrep JSON Report
             * `SKF Scan` - SKF Scan
+            * `Snyk Code Scan` - Snyk Code Scan
             * `Snyk Scan` - Snyk Scan
             * `Solar Appscreener Scan` - Solar Appscreener Scan
             * `SonarQube API Import` - SonarQube API Import
@@ -18614,11 +18789,12 @@ components:
             * `WFuzz JSON report` - WFuzz JSON report
             * `Whispers Scan` - Whispers Scan
             * `WhiteHat Sentinel` - WhiteHat Sentinel
+            * `Wiz Scan` - Wiz Scan
             * `Wpscan` - Wpscan
             * `Xanitizer Scan` - Xanitizer Scan
             * `Yarn Audit Scan` - Yarn Audit Scan
             * `ZAP Scan` - ZAP Scan
-          x-spec-enum-id: 0bc843b6ba2e88ab
+          x-spec-enum-id: ce3efb7e1b63f41e
         endpoint_to_add:
           type: integer
           description: The IP address, host name or full URL. It must be valid
@@ -18737,6 +18913,9 @@ components:
         apply_tags_to_findings:
           type: boolean
           description: If set to True, the tags will be applied to the findings
+        apply_tags_to_endpoints:
+          type: boolean
+          description: If set to True, the tags will be applied to the endpoints
       required:
       - active
       - engagement_id
@@ -18781,7 +18960,6 @@ components:
         scan_type:
           enum:
           - Acunetix Scan
-          - Acunetix360 Scan
           - Anchore Engine Scan
           - Anchore Enterprise Policy Check
           - Anchore Grype
@@ -18806,11 +18984,13 @@ components:
           - Bugcrowd API Import
           - BugCrowd Scan
           - Bundler-Audit Scan
+          - Burp Dastardly Scan
           - Burp Enterprise Scan
           - Burp GraphQL API
           - Burp REST API
           - Burp Scan
           - CargoAudit Scan
+          - Checkmarx One Scan
           - Checkmarx OSA
           - Checkmarx Scan
           - Checkmarx Scan detailed
@@ -18826,6 +19006,7 @@ components:
           - Crashtest Security JSON File
           - Crashtest Security XML File
           - CredScan Scan
+          - Crunch42 Scan
           - CycloneDX Scan
           - DawnScanner Scan
           - Dependency Check Scan
@@ -18879,6 +19060,7 @@ components:
           - Mobsfscan Scan
           - Mozilla Observatory Scan
           - MSDefender Parser
+          - Nancy Scan
           - Netsparker Scan
           - NeuVector (compliance)
           - NeuVector (REST)
@@ -18886,12 +19068,15 @@ components:
           - Nikto Scan
           - Nmap Scan
           - Node Security Platform Scan
+          - Nosey Parker Scan
           - NPM Audit Scan
+          - NPM Audit v7+ Scan
           - Nuclei Scan
           - Openscap Vulnerability Scan
           - OpenVAS Parser
           - ORT evaluated model Importer
           - OssIndex Devaudit SCA Scan Importer
+          - OSV Scan
           - Outpost24 Scan
           - PHP Security Audit v2
           - PHP Symfony Security Check
@@ -18912,6 +19097,7 @@ components:
           - Scout Suite Scan
           - Semgrep JSON Report
           - SKF Scan
+          - Snyk Code Scan
           - Snyk Scan
           - Solar Appscreener Scan
           - SonarQube API Import
@@ -18948,6 +19134,7 @@ components:
           - WFuzz JSON report
           - Whispers Scan
           - WhiteHat Sentinel
+          - Wiz Scan
           - Wpscan
           - Xanitizer Scan
           - Yarn Audit Scan
@@ -18955,7 +19142,6 @@ components:
           type: string
           description: |-
             * `Acunetix Scan` - Acunetix Scan
-            * `Acunetix360 Scan` - Acunetix360 Scan
             * `Anchore Engine Scan` - Anchore Engine Scan
             * `Anchore Enterprise Policy Check` - Anchore Enterprise Policy Check
             * `Anchore Grype` - Anchore Grype
@@ -18980,11 +19166,13 @@ components:
             * `Bugcrowd API Import` - Bugcrowd API Import
             * `BugCrowd Scan` - BugCrowd Scan
             * `Bundler-Audit Scan` - Bundler-Audit Scan
+            * `Burp Dastardly Scan` - Burp Dastardly Scan
             * `Burp Enterprise Scan` - Burp Enterprise Scan
             * `Burp GraphQL API` - Burp GraphQL API
             * `Burp REST API` - Burp REST API
             * `Burp Scan` - Burp Scan
             * `CargoAudit Scan` - CargoAudit Scan
+            * `Checkmarx One Scan` - Checkmarx One Scan
             * `Checkmarx OSA` - Checkmarx OSA
             * `Checkmarx Scan` - Checkmarx Scan
             * `Checkmarx Scan detailed` - Checkmarx Scan detailed
@@ -19000,6 +19188,7 @@ components:
             * `Crashtest Security JSON File` - Crashtest Security JSON File
             * `Crashtest Security XML File` - Crashtest Security XML File
             * `CredScan Scan` - CredScan Scan
+            * `Crunch42 Scan` - Crunch42 Scan
             * `CycloneDX Scan` - CycloneDX Scan
             * `DawnScanner Scan` - DawnScanner Scan
             * `Dependency Check Scan` - Dependency Check Scan
@@ -19053,6 +19242,7 @@ components:
             * `Mobsfscan Scan` - Mobsfscan Scan
             * `Mozilla Observatory Scan` - Mozilla Observatory Scan
             * `MSDefender Parser` - MSDefender Parser
+            * `Nancy Scan` - Nancy Scan
             * `Netsparker Scan` - Netsparker Scan
             * `NeuVector (compliance)` - NeuVector (compliance)
             * `NeuVector (REST)` - NeuVector (REST)
@@ -19060,12 +19250,15 @@ components:
             * `Nikto Scan` - Nikto Scan
             * `Nmap Scan` - Nmap Scan
             * `Node Security Platform Scan` - Node Security Platform Scan
+            * `Nosey Parker Scan` - Nosey Parker Scan
             * `NPM Audit Scan` - NPM Audit Scan
+            * `NPM Audit v7+ Scan` - NPM Audit v7+ Scan
             * `Nuclei Scan` - Nuclei Scan
             * `Openscap Vulnerability Scan` - Openscap Vulnerability Scan
             * `OpenVAS Parser` - OpenVAS Parser
             * `ORT evaluated model Importer` - ORT evaluated model Importer
             * `OssIndex Devaudit SCA Scan Importer` - OssIndex Devaudit SCA Scan Importer
+            * `OSV Scan` - OSV Scan
             * `Outpost24 Scan` - Outpost24 Scan
             * `PHP Security Audit v2` - PHP Security Audit v2
             * `PHP Symfony Security Check` - PHP Symfony Security Check
@@ -19086,6 +19279,7 @@ components:
             * `Scout Suite Scan` - Scout Suite Scan
             * `Semgrep JSON Report` - Semgrep JSON Report
             * `SKF Scan` - SKF Scan
+            * `Snyk Code Scan` - Snyk Code Scan
             * `Snyk Scan` - Snyk Scan
             * `Solar Appscreener Scan` - Solar Appscreener Scan
             * `SonarQube API Import` - SonarQube API Import
@@ -19122,11 +19316,12 @@ components:
             * `WFuzz JSON report` - WFuzz JSON report
             * `Whispers Scan` - Whispers Scan
             * `WhiteHat Sentinel` - WhiteHat Sentinel
+            * `Wiz Scan` - Wiz Scan
             * `Wpscan` - Wpscan
             * `Xanitizer Scan` - Xanitizer Scan
             * `Yarn Audit Scan` - Yarn Audit Scan
             * `ZAP Scan` - ZAP Scan
-          x-spec-enum-id: 0bc843b6ba2e88ab
+          x-spec-enum-id: ce3efb7e1b63f41e
         endpoint_to_add:
           type: integer
           description: The IP address, host name or full URL. It must be valid
@@ -19238,6 +19433,9 @@ components:
         apply_tags_to_findings:
           type: boolean
           description: If set to True, the tags will be applied to the findings
+        apply_tags_to_endpoints:
+          type: boolean
+          description: If set to True, the tags will be applied to the endpoints
       required:
       - active
       - scan_type
@@ -19667,6 +19865,10 @@ components:
             update JIRA tickets for findings in this Product.
         enable_engagement_epic_mapping:
           type: boolean
+        epic_issue_type_name:
+          type: string
+          description: The name of the of structure that represents an Epic
+          maxLength: 64
         push_notes:
           type: boolean
         product_jira_sla_notification:
@@ -19726,6 +19928,10 @@ components:
             update JIRA tickets for findings in this Product.
         enable_engagement_epic_mapping:
           type: boolean
+        epic_issue_type_name:
+          type: string
+          description: The name of the of structure that represents an Epic
+          maxLength: 64
         push_notes:
           type: boolean
         product_jira_sla_notification:
@@ -22375,16 +22581,18 @@ components:
         social_provider:
           enum:
           - AzureAD
+          - Remote
           - ''
           - null
           type: string
-          x-spec-enum-id: 98e1fa172846b918
+          x-spec-enum-id: fe57c2b04188fb94
           nullable: true
           title: Social Authentication Provider
           description: |-
             Group imported from a social provider.
 
             * `AzureAD` - AzureAD
+            * `Remote` - Remote
     PatchedEndpointRequest:
       type: object
       properties:
@@ -22679,6 +22887,22 @@ components:
           minimum: -2147483648
           nullable: true
           description: The CWE number associated with this flaw.
+        epss_score:
+          type: number
+          format: double
+          maximum: 1.0
+          minimum: 0.0
+          nullable: true
+          description: EPSS score for the CVE. Describes how likely it is the vulnerability
+            will be exploited in the next 30 days.
+        epss_percentile:
+          type: number
+          format: double
+          maximum: 1.0
+          minimum: 0.0
+          nullable: true
+          description: EPSS percentile for the CVE. Describes how many CVEs are scored
+            at or below this one.
         cvssv3:
           type: string
           nullable: true
@@ -22691,14 +22915,17 @@ components:
         cvssv3_score:
           type: number
           format: double
+          maximum: 10.0
+          minimum: 0.0
           nullable: true
           description: Numerical CVSSv3 score for the vulnerability. If the vector
-            is given, the score is updated while saving the finding
+            is given, the score is updated while saving the finding. The value must
+            be between 0-10.
         severity:
           type: string
           minLength: 1
           description: The severity level of this flaw (Critical, High, Medium, Low,
-            Informational).
+            Info).
           maxLength: 200
         description:
           type: string
@@ -23151,6 +23378,10 @@ components:
             update JIRA tickets for findings in this Product.
         enable_engagement_epic_mapping:
           type: boolean
+        epic_issue_type_name:
+          type: string
+          description: The name of the of structure that represents an Epic
+          maxLength: 64
         push_notes:
           type: boolean
         product_jira_sla_notification:
@@ -23911,7 +24142,7 @@ components:
           type: string
           minLength: 1
           description: SonarQube issue key
-          maxLength: 30
+          maxLength: 60
         status:
           type: string
           minLength: 1
@@ -25460,6 +25691,9 @@ components:
           type: boolean
           title: Password must not be common
           description: Requires user passwords to not be part of list of common passwords.
+        api_expose_error_details:
+          type: boolean
+          description: When turned on, the API will expose error details in the response.
         default_group:
           type: integer
           nullable: true
@@ -26653,7 +26887,6 @@ components:
         scan_type:
           enum:
           - Acunetix Scan
-          - Acunetix360 Scan
           - Anchore Engine Scan
           - Anchore Enterprise Policy Check
           - Anchore Grype
@@ -26678,11 +26911,13 @@ components:
           - Bugcrowd API Import
           - BugCrowd Scan
           - Bundler-Audit Scan
+          - Burp Dastardly Scan
           - Burp Enterprise Scan
           - Burp GraphQL API
           - Burp REST API
           - Burp Scan
           - CargoAudit Scan
+          - Checkmarx One Scan
           - Checkmarx OSA
           - Checkmarx Scan
           - Checkmarx Scan detailed
@@ -26698,6 +26933,7 @@ components:
           - Crashtest Security JSON File
           - Crashtest Security XML File
           - CredScan Scan
+          - Crunch42 Scan
           - CycloneDX Scan
           - DawnScanner Scan
           - Dependency Check Scan
@@ -26751,6 +26987,7 @@ components:
           - Mobsfscan Scan
           - Mozilla Observatory Scan
           - MSDefender Parser
+          - Nancy Scan
           - Netsparker Scan
           - NeuVector (compliance)
           - NeuVector (REST)
@@ -26758,12 +26995,15 @@ components:
           - Nikto Scan
           - Nmap Scan
           - Node Security Platform Scan
+          - Nosey Parker Scan
           - NPM Audit Scan
+          - NPM Audit v7+ Scan
           - Nuclei Scan
           - Openscap Vulnerability Scan
           - OpenVAS Parser
           - ORT evaluated model Importer
           - OssIndex Devaudit SCA Scan Importer
+          - OSV Scan
           - Outpost24 Scan
           - PHP Security Audit v2
           - PHP Symfony Security Check
@@ -26784,6 +27024,7 @@ components:
           - Scout Suite Scan
           - Semgrep JSON Report
           - SKF Scan
+          - Snyk Code Scan
           - Snyk Scan
           - Solar Appscreener Scan
           - SonarQube API Import
@@ -26820,6 +27061,7 @@ components:
           - WFuzz JSON report
           - Whispers Scan
           - WhiteHat Sentinel
+          - Wiz Scan
           - Wpscan
           - Xanitizer Scan
           - Yarn Audit Scan
@@ -26827,7 +27069,6 @@ components:
           type: string
           description: |-
             * `Acunetix Scan` - Acunetix Scan
-            * `Acunetix360 Scan` - Acunetix360 Scan
             * `Anchore Engine Scan` - Anchore Engine Scan
             * `Anchore Enterprise Policy Check` - Anchore Enterprise Policy Check
             * `Anchore Grype` - Anchore Grype
@@ -26852,11 +27093,13 @@ components:
             * `Bugcrowd API Import` - Bugcrowd API Import
             * `BugCrowd Scan` - BugCrowd Scan
             * `Bundler-Audit Scan` - Bundler-Audit Scan
+            * `Burp Dastardly Scan` - Burp Dastardly Scan
             * `Burp Enterprise Scan` - Burp Enterprise Scan
             * `Burp GraphQL API` - Burp GraphQL API
             * `Burp REST API` - Burp REST API
             * `Burp Scan` - Burp Scan
             * `CargoAudit Scan` - CargoAudit Scan
+            * `Checkmarx One Scan` - Checkmarx One Scan
             * `Checkmarx OSA` - Checkmarx OSA
             * `Checkmarx Scan` - Checkmarx Scan
             * `Checkmarx Scan detailed` - Checkmarx Scan detailed
@@ -26872,6 +27115,7 @@ components:
             * `Crashtest Security JSON File` - Crashtest Security JSON File
             * `Crashtest Security XML File` - Crashtest Security XML File
             * `CredScan Scan` - CredScan Scan
+            * `Crunch42 Scan` - Crunch42 Scan
             * `CycloneDX Scan` - CycloneDX Scan
             * `DawnScanner Scan` - DawnScanner Scan
             * `Dependency Check Scan` - Dependency Check Scan
@@ -26925,6 +27169,7 @@ components:
             * `Mobsfscan Scan` - Mobsfscan Scan
             * `Mozilla Observatory Scan` - Mozilla Observatory Scan
             * `MSDefender Parser` - MSDefender Parser
+            * `Nancy Scan` - Nancy Scan
             * `Netsparker Scan` - Netsparker Scan
             * `NeuVector (compliance)` - NeuVector (compliance)
             * `NeuVector (REST)` - NeuVector (REST)
@@ -26932,12 +27177,15 @@ components:
             * `Nikto Scan` - Nikto Scan
             * `Nmap Scan` - Nmap Scan
             * `Node Security Platform Scan` - Node Security Platform Scan
+            * `Nosey Parker Scan` - Nosey Parker Scan
             * `NPM Audit Scan` - NPM Audit Scan
+            * `NPM Audit v7+ Scan` - NPM Audit v7+ Scan
             * `Nuclei Scan` - Nuclei Scan
             * `Openscap Vulnerability Scan` - Openscap Vulnerability Scan
             * `OpenVAS Parser` - OpenVAS Parser
             * `ORT evaluated model Importer` - ORT evaluated model Importer
             * `OssIndex Devaudit SCA Scan Importer` - OssIndex Devaudit SCA Scan Importer
+            * `OSV Scan` - OSV Scan
             * `Outpost24 Scan` - Outpost24 Scan
             * `PHP Security Audit v2` - PHP Security Audit v2
             * `PHP Symfony Security Check` - PHP Symfony Security Check
@@ -26958,6 +27206,7 @@ components:
             * `Scout Suite Scan` - Scout Suite Scan
             * `Semgrep JSON Report` - Semgrep JSON Report
             * `SKF Scan` - SKF Scan
+            * `Snyk Code Scan` - Snyk Code Scan
             * `Snyk Scan` - Snyk Scan
             * `Solar Appscreener Scan` - Solar Appscreener Scan
             * `SonarQube API Import` - SonarQube API Import
@@ -26994,11 +27243,12 @@ components:
             * `WFuzz JSON report` - WFuzz JSON report
             * `Whispers Scan` - Whispers Scan
             * `WhiteHat Sentinel` - WhiteHat Sentinel
+            * `Wiz Scan` - Wiz Scan
             * `Wpscan` - Wpscan
             * `Xanitizer Scan` - Xanitizer Scan
             * `Yarn Audit Scan` - Yarn Audit Scan
             * `ZAP Scan` - ZAP Scan
-          x-spec-enum-id: 0bc843b6ba2e88ab
+          x-spec-enum-id: ce3efb7e1b63f41e
         endpoint_to_add:
           type: integer
         file:
@@ -27115,6 +27365,9 @@ components:
         apply_tags_to_findings:
           type: boolean
           description: If set to True, the tags will be applied to the findings
+        apply_tags_to_endpoints:
+          type: boolean
+          description: If set to True, the tags will be applied to the endpoints
       required:
       - active
       - engagement_id
@@ -27164,7 +27417,6 @@ components:
         scan_type:
           enum:
           - Acunetix Scan
-          - Acunetix360 Scan
           - Anchore Engine Scan
           - Anchore Enterprise Policy Check
           - Anchore Grype
@@ -27189,11 +27441,13 @@ components:
           - Bugcrowd API Import
           - BugCrowd Scan
           - Bundler-Audit Scan
+          - Burp Dastardly Scan
           - Burp Enterprise Scan
           - Burp GraphQL API
           - Burp REST API
           - Burp Scan
           - CargoAudit Scan
+          - Checkmarx One Scan
           - Checkmarx OSA
           - Checkmarx Scan
           - Checkmarx Scan detailed
@@ -27209,6 +27463,7 @@ components:
           - Crashtest Security JSON File
           - Crashtest Security XML File
           - CredScan Scan
+          - Crunch42 Scan
           - CycloneDX Scan
           - DawnScanner Scan
           - Dependency Check Scan
@@ -27262,6 +27517,7 @@ components:
           - Mobsfscan Scan
           - Mozilla Observatory Scan
           - MSDefender Parser
+          - Nancy Scan
           - Netsparker Scan
           - NeuVector (compliance)
           - NeuVector (REST)
@@ -27269,12 +27525,15 @@ components:
           - Nikto Scan
           - Nmap Scan
           - Node Security Platform Scan
+          - Nosey Parker Scan
           - NPM Audit Scan
+          - NPM Audit v7+ Scan
           - Nuclei Scan
           - Openscap Vulnerability Scan
           - OpenVAS Parser
           - ORT evaluated model Importer
           - OssIndex Devaudit SCA Scan Importer
+          - OSV Scan
           - Outpost24 Scan
           - PHP Security Audit v2
           - PHP Symfony Security Check
@@ -27295,6 +27554,7 @@ components:
           - Scout Suite Scan
           - Semgrep JSON Report
           - SKF Scan
+          - Snyk Code Scan
           - Snyk Scan
           - Solar Appscreener Scan
           - SonarQube API Import
@@ -27331,6 +27591,7 @@ components:
           - WFuzz JSON report
           - Whispers Scan
           - WhiteHat Sentinel
+          - Wiz Scan
           - Wpscan
           - Xanitizer Scan
           - Yarn Audit Scan
@@ -27338,7 +27599,6 @@ components:
           type: string
           description: |-
             * `Acunetix Scan` - Acunetix Scan
-            * `Acunetix360 Scan` - Acunetix360 Scan
             * `Anchore Engine Scan` - Anchore Engine Scan
             * `Anchore Enterprise Policy Check` - Anchore Enterprise Policy Check
             * `Anchore Grype` - Anchore Grype
@@ -27363,11 +27623,13 @@ components:
             * `Bugcrowd API Import` - Bugcrowd API Import
             * `BugCrowd Scan` - BugCrowd Scan
             * `Bundler-Audit Scan` - Bundler-Audit Scan
+            * `Burp Dastardly Scan` - Burp Dastardly Scan
             * `Burp Enterprise Scan` - Burp Enterprise Scan
             * `Burp GraphQL API` - Burp GraphQL API
             * `Burp REST API` - Burp REST API
             * `Burp Scan` - Burp Scan
             * `CargoAudit Scan` - CargoAudit Scan
+            * `Checkmarx One Scan` - Checkmarx One Scan
             * `Checkmarx OSA` - Checkmarx OSA
             * `Checkmarx Scan` - Checkmarx Scan
             * `Checkmarx Scan detailed` - Checkmarx Scan detailed
@@ -27383,6 +27645,7 @@ components:
             * `Crashtest Security JSON File` - Crashtest Security JSON File
             * `Crashtest Security XML File` - Crashtest Security XML File
             * `CredScan Scan` - CredScan Scan
+            * `Crunch42 Scan` - Crunch42 Scan
             * `CycloneDX Scan` - CycloneDX Scan
             * `DawnScanner Scan` - DawnScanner Scan
             * `Dependency Check Scan` - Dependency Check Scan
@@ -27436,6 +27699,7 @@ components:
             * `Mobsfscan Scan` - Mobsfscan Scan
             * `Mozilla Observatory Scan` - Mozilla Observatory Scan
             * `MSDefender Parser` - MSDefender Parser
+            * `Nancy Scan` - Nancy Scan
             * `Netsparker Scan` - Netsparker Scan
             * `NeuVector (compliance)` - NeuVector (compliance)
             * `NeuVector (REST)` - NeuVector (REST)
@@ -27443,12 +27707,15 @@ components:
             * `Nikto Scan` - Nikto Scan
             * `Nmap Scan` - Nmap Scan
             * `Node Security Platform Scan` - Node Security Platform Scan
+            * `Nosey Parker Scan` - Nosey Parker Scan
             * `NPM Audit Scan` - NPM Audit Scan
+            * `NPM Audit v7+ Scan` - NPM Audit v7+ Scan
             * `Nuclei Scan` - Nuclei Scan
             * `Openscap Vulnerability Scan` - Openscap Vulnerability Scan
             * `OpenVAS Parser` - OpenVAS Parser
             * `ORT evaluated model Importer` - ORT evaluated model Importer
             * `OssIndex Devaudit SCA Scan Importer` - OssIndex Devaudit SCA Scan Importer
+            * `OSV Scan` - OSV Scan
             * `Outpost24 Scan` - Outpost24 Scan
             * `PHP Security Audit v2` - PHP Security Audit v2
             * `PHP Symfony Security Check` - PHP Symfony Security Check
@@ -27469,6 +27736,7 @@ components:
             * `Scout Suite Scan` - Scout Suite Scan
             * `Semgrep JSON Report` - Semgrep JSON Report
             * `SKF Scan` - SKF Scan
+            * `Snyk Code Scan` - Snyk Code Scan
             * `Snyk Scan` - Snyk Scan
             * `Solar Appscreener Scan` - Solar Appscreener Scan
             * `SonarQube API Import` - SonarQube API Import
@@ -27505,11 +27773,12 @@ components:
             * `WFuzz JSON report` - WFuzz JSON report
             * `Whispers Scan` - Whispers Scan
             * `WhiteHat Sentinel` - WhiteHat Sentinel
+            * `Wiz Scan` - Wiz Scan
             * `Wpscan` - Wpscan
             * `Xanitizer Scan` - Xanitizer Scan
             * `Yarn Audit Scan` - Yarn Audit Scan
             * `ZAP Scan` - ZAP Scan
-          x-spec-enum-id: 0bc843b6ba2e88ab
+          x-spec-enum-id: ce3efb7e1b63f41e
         endpoint_to_add:
           type: integer
         file:
@@ -27622,6 +27891,9 @@ components:
         apply_tags_to_findings:
           type: boolean
           description: If set to True, the tags will be applied to the findings
+        apply_tags_to_endpoints:
+          type: boolean
+          description: If set to True, the tags will be applied to the endpoints
       required:
       - active
       - scan_type
@@ -28134,7 +28406,7 @@ components:
         key:
           type: string
           description: SonarQube issue key
-          maxLength: 30
+          maxLength: 60
         status:
           type: string
           description: SonarQube issue status
@@ -28155,7 +28427,7 @@ components:
           type: string
           minLength: 1
           description: SonarQube issue key
-          maxLength: 30
+          maxLength: 60
         status:
           type: string
           minLength: 1
@@ -29882,6 +30154,9 @@ components:
           type: boolean
           title: Password must not be common
           description: Requires user passwords to not be part of list of common passwords.
+        api_expose_error_details:
+          type: boolean
+          description: When turned on, the API will expose error details in the response.
         default_group:
           type: integer
           nullable: true
@@ -31397,6 +31672,9 @@ components:
           type: boolean
           title: Password must not be common
           description: Requires user passwords to not be part of list of common passwords.
+        api_expose_error_details:
+          type: boolean
+          description: When turned on, the API will expose error details in the response.
         default_group:
           type: integer
           nullable: true

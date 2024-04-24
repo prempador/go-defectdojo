@@ -24,10 +24,12 @@ Name | Type | Description | Notes
 **SlaStartDate** | Pointer to **NullableString** | (readonly)The date used as start date for SLA calculation. Set by expiring risk acceptances. Empty by default, causing a fallback to &#39;date&#39;. | [optional] 
 **SlaExpirationDate** | Pointer to **NullableString** | (readonly)The date SLA expires for this finding. Empty by default, causing a fallback to &#39;date&#39;. | [optional] 
 **Cwe** | Pointer to **NullableInt32** | The CWE number associated with this flaw. | [optional] 
+**EpssScore** | Pointer to **NullableFloat64** | EPSS score for the CVE. Describes how likely it is the vulnerability will be exploited in the next 30 days. | [optional] 
+**EpssPercentile** | Pointer to **NullableFloat64** | EPSS percentile for the CVE. Describes how many CVEs are scored at or below this one. | [optional] 
 **Cvssv3** | Pointer to **NullableString** | Common Vulnerability Scoring System version 3 (CVSSv3) score associated with this flaw. | [optional] 
-**Cvssv3Score** | Pointer to **NullableFloat64** | Numerical CVSSv3 score for the vulnerability. If the vector is given, the score is updated while saving the finding | [optional] 
+**Cvssv3Score** | Pointer to **NullableFloat64** | Numerical CVSSv3 score for the vulnerability. If the vector is given, the score is updated while saving the finding. The value must be between 0-10. | [optional] 
 **Url** | **NullableString** | External reference that provides more information about this flaw. | [readonly] 
-**Severity** | **string** | The severity level of this flaw (Critical, High, Medium, Low, Informational). | 
+**Severity** | **string** | The severity level of this flaw (Critical, High, Medium, Low, Info). | 
 **Description** | **string** | Longer more descriptive information about the flaw. | 
 **Mitigation** | Pointer to **NullableString** | Text describing how to best fix the flaw. | [optional] 
 **Impact** | Pointer to **NullableString** | Text describing the impact this flaw has on systems, products, enterprise, etc. | [optional] 
@@ -574,6 +576,76 @@ HasCwe returns a boolean if a field has been set.
 `func (o *Finding) UnsetCwe()`
 
 UnsetCwe ensures that no value is present for Cwe, not even an explicit nil
+### GetEpssScore
+
+`func (o *Finding) GetEpssScore() float64`
+
+GetEpssScore returns the EpssScore field if non-nil, zero value otherwise.
+
+### GetEpssScoreOk
+
+`func (o *Finding) GetEpssScoreOk() (*float64, bool)`
+
+GetEpssScoreOk returns a tuple with the EpssScore field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEpssScore
+
+`func (o *Finding) SetEpssScore(v float64)`
+
+SetEpssScore sets EpssScore field to given value.
+
+### HasEpssScore
+
+`func (o *Finding) HasEpssScore() bool`
+
+HasEpssScore returns a boolean if a field has been set.
+
+### SetEpssScoreNil
+
+`func (o *Finding) SetEpssScoreNil(b bool)`
+
+ SetEpssScoreNil sets the value for EpssScore to be an explicit nil
+
+### UnsetEpssScore
+`func (o *Finding) UnsetEpssScore()`
+
+UnsetEpssScore ensures that no value is present for EpssScore, not even an explicit nil
+### GetEpssPercentile
+
+`func (o *Finding) GetEpssPercentile() float64`
+
+GetEpssPercentile returns the EpssPercentile field if non-nil, zero value otherwise.
+
+### GetEpssPercentileOk
+
+`func (o *Finding) GetEpssPercentileOk() (*float64, bool)`
+
+GetEpssPercentileOk returns a tuple with the EpssPercentile field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEpssPercentile
+
+`func (o *Finding) SetEpssPercentile(v float64)`
+
+SetEpssPercentile sets EpssPercentile field to given value.
+
+### HasEpssPercentile
+
+`func (o *Finding) HasEpssPercentile() bool`
+
+HasEpssPercentile returns a boolean if a field has been set.
+
+### SetEpssPercentileNil
+
+`func (o *Finding) SetEpssPercentileNil(b bool)`
+
+ SetEpssPercentileNil sets the value for EpssPercentile to be an explicit nil
+
+### UnsetEpssPercentile
+`func (o *Finding) UnsetEpssPercentile()`
+
+UnsetEpssPercentile ensures that no value is present for EpssPercentile, not even an explicit nil
 ### GetCvssv3
 
 `func (o *Finding) GetCvssv3() string`

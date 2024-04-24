@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **AddVulnerabilityIdToJiraLabel** | Pointer to **bool** |  | [optional] 
 **PushAllIssues** | Pointer to **bool** | Automatically maintain parity with JIRA. Always create and update JIRA tickets for findings in this Product. | [optional] 
 **EnableEngagementEpicMapping** | Pointer to **bool** |  | [optional] 
+**EpicIssueTypeName** | Pointer to **string** | The name of the of structure that represents an Epic | [optional] 
 **PushNotes** | Pointer to **bool** |  | [optional] 
 **ProductJiraSlaNotification** | Pointer to **bool** |  | [optional] 
 **RiskAcceptanceExpirationNotification** | Pointer to **bool** |  | [optional] 
@@ -303,6 +304,31 @@ SetEnableEngagementEpicMapping sets EnableEngagementEpicMapping field to given v
 `func (o *JIRAProjectRequest) HasEnableEngagementEpicMapping() bool`
 
 HasEnableEngagementEpicMapping returns a boolean if a field has been set.
+
+### GetEpicIssueTypeName
+
+`func (o *JIRAProjectRequest) GetEpicIssueTypeName() string`
+
+GetEpicIssueTypeName returns the EpicIssueTypeName field if non-nil, zero value otherwise.
+
+### GetEpicIssueTypeNameOk
+
+`func (o *JIRAProjectRequest) GetEpicIssueTypeNameOk() (*string, bool)`
+
+GetEpicIssueTypeNameOk returns a tuple with the EpicIssueTypeName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEpicIssueTypeName
+
+`func (o *JIRAProjectRequest) SetEpicIssueTypeName(v string)`
+
+SetEpicIssueTypeName sets EpicIssueTypeName field to given value.
+
+### HasEpicIssueTypeName
+
+`func (o *JIRAProjectRequest) HasEpicIssueTypeName() bool`
+
+HasEpicIssueTypeName returns a boolean if a field has been set.
 
 ### GetPushNotes
 
