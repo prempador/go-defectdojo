@@ -240,7 +240,7 @@ func main() {
 	name := "name_example" // string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
 	prefetch := []string{"Prefetch_example"} // []string | List of fields for which to prefetch model instances and add those to the response (optional)
-	socialProvider := "socialProvider_example" // string | Group imported from a social provider.  * `AzureAD` - AzureAD (optional)
+	socialProvider := "socialProvider_example" // string | Group imported from a social provider.  * `AzureAD` - AzureAD * `Remote` - Remote (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -270,7 +270,7 @@ Name | Type | Description  | Notes
  **name** | **string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
  **prefetch** | **[]string** | List of fields for which to prefetch model instances and add those to the response | 
- **socialProvider** | **string** | Group imported from a social provider.  * &#x60;AzureAD&#x60; - AzureAD | 
+ **socialProvider** | **string** | Group imported from a social provider.  * &#x60;AzureAD&#x60; - AzureAD * &#x60;Remote&#x60; - Remote | 
 
 ### Return type
 

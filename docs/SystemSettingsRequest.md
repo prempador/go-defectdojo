@@ -67,6 +67,7 @@ Name | Type | Description | Notes
 **LowercaseCharacterRequired** | Pointer to **bool** | Requires user passwords to contain at least one lowercase letter (a-z). | [optional] 
 **UppercaseCharacterRequired** | Pointer to **bool** | Requires user passwords to contain at least one uppercase letter (A-Z). | [optional] 
 **NonCommonPasswordRequired** | Pointer to **bool** | Requires user passwords to not be part of list of common passwords. | [optional] 
+**ApiExposeErrorDetails** | Pointer to **bool** | When turned on, the API will expose error details in the response. | [optional] 
 **DefaultGroup** | Pointer to **NullableInt32** | New users will be assigned to this group. | [optional] 
 **DefaultGroupRole** | Pointer to **NullableInt32** | New users will be assigned to their default group with this role. | [optional] 
 
@@ -1723,6 +1724,31 @@ SetNonCommonPasswordRequired sets NonCommonPasswordRequired field to given value
 `func (o *SystemSettingsRequest) HasNonCommonPasswordRequired() bool`
 
 HasNonCommonPasswordRequired returns a boolean if a field has been set.
+
+### GetApiExposeErrorDetails
+
+`func (o *SystemSettingsRequest) GetApiExposeErrorDetails() bool`
+
+GetApiExposeErrorDetails returns the ApiExposeErrorDetails field if non-nil, zero value otherwise.
+
+### GetApiExposeErrorDetailsOk
+
+`func (o *SystemSettingsRequest) GetApiExposeErrorDetailsOk() (*bool, bool)`
+
+GetApiExposeErrorDetailsOk returns a tuple with the ApiExposeErrorDetails field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetApiExposeErrorDetails
+
+`func (o *SystemSettingsRequest) SetApiExposeErrorDetails(v bool)`
+
+SetApiExposeErrorDetails sets ApiExposeErrorDetails field to given value.
+
+### HasApiExposeErrorDetails
+
+`func (o *SystemSettingsRequest) HasApiExposeErrorDetails() bool`
+
+HasApiExposeErrorDetails returns a boolean if a field has been set.
 
 ### GetDefaultGroup
 

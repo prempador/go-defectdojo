@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **ConfigurationPermissions** | Pointer to **[]int32** |  | [optional] 
 **Name** | **string** |  | 
 **Description** | Pointer to **NullableString** |  | [optional] 
-**SocialProvider** | Pointer to **NullableString** | Group imported from a social provider.  * &#x60;AzureAD&#x60; - AzureAD | [optional] 
+**SocialProvider** | Pointer to **NullableString** | Group imported from a social provider.  * &#x60;AzureAD&#x60; - AzureAD * &#x60;Remote&#x60; - Remote | [optional] 
 **Users** | **[]int32** |  | [readonly] 
 **Prefetch** | Pointer to [**DojoGroupPrefetch**](DojoGroupPrefetch.md) |  | [optional] 
 

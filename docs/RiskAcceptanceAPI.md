@@ -4,6 +4,7 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**RiskAcceptanceCreate**](RiskAcceptanceAPI.md#RiskAcceptanceCreate) | **Post** /api/v2/risk_acceptance/ | 
 [**RiskAcceptanceDeletePreviewList**](RiskAcceptanceAPI.md#RiskAcceptanceDeletePreviewList) | **Get** /api/v2/risk_acceptance/{id}/delete_preview/ | 
 [**RiskAcceptanceDestroy**](RiskAcceptanceAPI.md#RiskAcceptanceDestroy) | **Delete** /api/v2/risk_acceptance/{id}/ | 
 [**RiskAcceptanceDownloadProofRetrieve**](RiskAcceptanceAPI.md#RiskAcceptanceDownloadProofRetrieve) | **Get** /api/v2/risk_acceptance/{id}/download_proof/ | 
@@ -12,6 +13,70 @@ Method | HTTP request | Description
 [**RiskAcceptanceRetrieve**](RiskAcceptanceAPI.md#RiskAcceptanceRetrieve) | **Get** /api/v2/risk_acceptance/{id}/ | 
 [**RiskAcceptanceUpdate**](RiskAcceptanceAPI.md#RiskAcceptanceUpdate) | **Put** /api/v2/risk_acceptance/{id}/ | 
 
+
+
+## RiskAcceptanceCreate
+
+> RiskAcceptance RiskAcceptanceCreate(ctx).RiskAcceptanceRequest(riskAcceptanceRequest).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/prempador/go-defectdojo"
+)
+
+func main() {
+	riskAcceptanceRequest := *openapiclient.NewRiskAcceptanceRequest("Name_example", int32(123), []int32{int32(123)}) // RiskAcceptanceRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.RiskAcceptanceAPI.RiskAcceptanceCreate(context.Background()).RiskAcceptanceRequest(riskAcceptanceRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RiskAcceptanceAPI.RiskAcceptanceCreate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `RiskAcceptanceCreate`: RiskAcceptance
+	fmt.Fprintf(os.Stdout, "Response from `RiskAcceptanceAPI.RiskAcceptanceCreate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRiskAcceptanceCreateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **riskAcceptanceRequest** | [**RiskAcceptanceRequest**](RiskAcceptanceRequest.md) |  | 
+
+### Return type
+
+[**RiskAcceptance**](RiskAcceptance.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## RiskAcceptanceDeletePreviewList

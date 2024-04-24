@@ -7,13 +7,13 @@ Name | Type | Description | Notes
 **Id** | **int32** |  | [readonly] 
 **Name** | **string** |  | 
 **Test** | **int32** |  | 
-**JiraIssue** | [**JIRAIssue**](JIRAIssue.md) |  | [readonly] 
+**JiraIssue** | [**NullableJIRAIssue**](JIRAIssue.md) |  | [readonly] 
 
 ## Methods
 
 ### NewFindingGroup
 
-`func NewFindingGroup(id int32, name string, test int32, jiraIssue JIRAIssue, ) *FindingGroup`
+`func NewFindingGroup(id int32, name string, test int32, jiraIssue NullableJIRAIssue, ) *FindingGroup`
 
 NewFindingGroup instantiates a new FindingGroup object
 This constructor will assign default values to properties that have it defined,
@@ -108,6 +108,16 @@ and a boolean to check if the value has been set.
 SetJiraIssue sets JiraIssue field to given value.
 
 
+### SetJiraIssueNil
+
+`func (o *FindingGroup) SetJiraIssueNil(b bool)`
+
+ SetJiraIssueNil sets the value for JiraIssue to be an explicit nil
+
+### UnsetJiraIssue
+`func (o *FindingGroup) UnsetJiraIssue()`
+
+UnsetJiraIssue ensures that no value is present for JiraIssue, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
