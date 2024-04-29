@@ -16975,7 +16975,6 @@ components:
       - numerical_severity
       - param
       - payload
-      - related_fields
       - request_response
       - scanner_confidence
       - severity
