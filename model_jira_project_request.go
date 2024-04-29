@@ -187,7 +187,7 @@ func (o *JIRAProjectRequest) GetCustomFieldsOk() (*interface{}, bool) {
 
 // HasCustomFields returns a boolean if a field has been set.
 func (o *JIRAProjectRequest) HasCustomFields() bool {
-	if o != nil && IsNil(o.CustomFields) {
+	if o != nil && !IsNil(o.CustomFields) {
 		return true
 	}
 

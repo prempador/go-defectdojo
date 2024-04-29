@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **Age** | **int32** |  | [readonly] 
 **SlaDaysRemaining** | **int32** |  | [readonly] 
 **FindingMeta** | [**[]FindingMeta**](FindingMeta.md) |  | [readonly] 
-**RelatedFields** | [**FindingRelatedFields**](FindingRelatedFields.md) |  | [readonly] 
+**RelatedFields** | Pointer to [**FindingRelatedFields**](FindingRelatedFields.md) |  | [optional] [readonly] 
 **JiraCreation** | **time.Time** |  | [readonly] 
 **JiraChange** | **time.Time** |  | [readonly] 
 **DisplayStatus** | **string** |  | [readonly] 
@@ -91,7 +91,7 @@ Name | Type | Description | Notes
 
 ### NewFinding
 
-`func NewFinding(id int32, requestResponse BurpRawRequestResponse, acceptedRisks []RiskAcceptance, age int32, slaDaysRemaining int32, findingMeta []FindingMeta, relatedFields FindingRelatedFields, jiraCreation time.Time, jiraChange time.Time, displayStatus string, findingGroups []FindingGroup, title string, url NullableString, severity string, description string, lastStatusUpdate NullableTime, threadId int32, mitigated NullableTime, numericalSeverity string, lastReviewed NullableTime, param NullableString, payload NullableString, hashCode NullableString, created NullableTime, scannerConfidence NullableInt32, test int32, duplicateFinding NullableInt32, mitigatedBy NullableInt32, lastReviewedBy NullableInt32, endpoints []int32, notes []Note, files []int32, foundBy []int32, ) *Finding`
+`func NewFinding(id int32, requestResponse BurpRawRequestResponse, acceptedRisks []RiskAcceptance, age int32, slaDaysRemaining int32, findingMeta []FindingMeta, jiraCreation time.Time, jiraChange time.Time, displayStatus string, findingGroups []FindingGroup, title string, url NullableString, severity string, description string, lastStatusUpdate NullableTime, threadId int32, mitigated NullableTime, numericalSeverity string, lastReviewed NullableTime, param NullableString, payload NullableString, hashCode NullableString, created NullableTime, scannerConfidence NullableInt32, test int32, duplicateFinding NullableInt32, mitigatedBy NullableInt32, lastReviewedBy NullableInt32, endpoints []int32, notes []Note, files []int32, foundBy []int32, ) *Finding`
 
 NewFinding instantiates a new Finding object
 This constructor will assign default values to properties that have it defined,
@@ -295,6 +295,11 @@ and a boolean to check if the value has been set.
 
 SetRelatedFields sets RelatedFields field to given value.
 
+### HasRelatedFields
+
+`func (o *Finding) HasRelatedFields() bool`
+
+HasRelatedFields returns a boolean if a field has been set.
 
 ### GetJiraCreation
 

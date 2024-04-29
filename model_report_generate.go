@@ -456,7 +456,7 @@ func (o *ReportGenerate) GetFindingNotesOk() ([]FindingToNotes, bool) {
 
 // HasFindingNotes returns a boolean if a field has been set.
 func (o *ReportGenerate) HasFindingNotes() bool {
-	if o != nil && IsNil(o.FindingNotes) {
+	if o != nil && !IsNil(o.FindingNotes) {
 		return true
 	}
 

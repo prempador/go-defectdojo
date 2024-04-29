@@ -30,7 +30,7 @@ type Finding struct {
 	Age int32 `json:"age"`
 	SlaDaysRemaining int32 `json:"sla_days_remaining"`
 	FindingMeta []FindingMeta `json:"finding_meta"`
-	RelatedFields FindingRelatedFields `json:"related_fields"`
+	RelatedFields *FindingRelatedFields `json:"related_fields,omitempty"`
 	JiraCreation time.Time `json:"jira_creation"`
 	JiraChange time.Time `json:"jira_change"`
 	DisplayStatus string `json:"display_status"`
@@ -176,7 +176,7 @@ type _Finding Finding
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFinding(id int32, requestResponse BurpRawRequestResponse, acceptedRisks []RiskAcceptance, age int32, slaDaysRemaining int32, findingMeta []FindingMeta, relatedFields FindingRelatedFields, jiraCreation time.Time, jiraChange time.Time, displayStatus string, findingGroups []FindingGroup, title string, url NullableString, severity string, description string, lastStatusUpdate NullableTime, threadId int32, mitigated NullableTime, numericalSeverity string, lastReviewed NullableTime, param NullableString, payload NullableString, hashCode NullableString, created NullableTime, scannerConfidence NullableInt32, test int32, duplicateFinding NullableInt32, mitigatedBy NullableInt32, lastReviewedBy NullableInt32, endpoints []int32, notes []Note, files []int32, foundBy []int32) *Finding {
+func NewFinding(id int32, requestResponse BurpRawRequestResponse, acceptedRisks []RiskAcceptance, age int32, slaDaysRemaining int32, findingMeta []FindingMeta, jiraCreation time.Time, jiraChange time.Time, displayStatus string, findingGroups []FindingGroup, title string, url NullableString, severity string, description string, lastStatusUpdate NullableTime, threadId int32, mitigated NullableTime, numericalSeverity string, lastReviewed NullableTime, param NullableString, payload NullableString, hashCode NullableString, created NullableTime, scannerConfidence NullableInt32, test int32, duplicateFinding NullableInt32, mitigatedBy NullableInt32, lastReviewedBy NullableInt32, endpoints []int32, notes []Note, files []int32, foundBy []int32) *Finding {
 	this := Finding{}
 	this.Id = id
 	this.RequestResponse = requestResponse
@@ -186,7 +186,6 @@ func NewFinding(id int32, requestResponse BurpRawRequestResponse, acceptedRisks 
 	this.Age = age
 	this.SlaDaysRemaining = slaDaysRemaining
 	this.FindingMeta = findingMeta
-	this.RelatedFields = relatedFields
 	this.JiraCreation = jiraCreation
 	this.JiraChange = jiraChange
 	this.DisplayStatus = displayStatus
@@ -434,28 +433,36 @@ func (o *Finding) SetFindingMeta(v []FindingMeta) {
 	o.FindingMeta = v
 }
 
-// GetRelatedFields returns the RelatedFields field value
+// GetRelatedFields returns the RelatedFields field value if set, zero value otherwise.
 func (o *Finding) GetRelatedFields() FindingRelatedFields {
-	if o == nil {
+	if o == nil || IsNil(o.RelatedFields) {
 		var ret FindingRelatedFields
 		return ret
 	}
-
-	return o.RelatedFields
+	return *o.RelatedFields
 }
 
-// GetRelatedFieldsOk returns a tuple with the RelatedFields field value
+// GetRelatedFieldsOk returns a tuple with the RelatedFields field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Finding) GetRelatedFieldsOk() (*FindingRelatedFields, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RelatedFields) {
 		return nil, false
 	}
-	return &o.RelatedFields, true
+	return o.RelatedFields, true
 }
 
-// SetRelatedFields sets field value
+// HasRelatedFields returns a boolean if a field has been set.
+func (o *Finding) HasRelatedFields() bool {
+	if o != nil && !IsNil(o.RelatedFields) {
+		return true
+	}
+
+	return false
+}
+
+// SetRelatedFields gets a reference to the given FindingRelatedFields and assigns it to the RelatedFields field.
 func (o *Finding) SetRelatedFields(v FindingRelatedFields) {
-	o.RelatedFields = v
+	o.RelatedFields = &v
 }
 
 // GetJiraCreation returns the JiraCreation field value
@@ -2942,7 +2949,9 @@ func (o Finding) ToMap() (map[string]interface{}, error) {
 	toSerialize["age"] = o.Age
 	toSerialize["sla_days_remaining"] = o.SlaDaysRemaining
 	toSerialize["finding_meta"] = o.FindingMeta
-	toSerialize["related_fields"] = o.RelatedFields
+	if !IsNil(o.RelatedFields) {
+		toSerialize["related_fields"] = o.RelatedFields
+	}
 	toSerialize["jira_creation"] = o.JiraCreation
 	toSerialize["jira_change"] = o.JiraChange
 	toSerialize["display_status"] = o.DisplayStatus
@@ -3124,7 +3133,6 @@ func (o *Finding) UnmarshalJSON(data []byte) (err error) {
 		"age",
 		"sla_days_remaining",
 		"finding_meta",
-		"related_fields",
 		"jira_creation",
 		"jira_change",
 		"display_status",

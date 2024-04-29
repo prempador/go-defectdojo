@@ -1,6 +1,5 @@
 .gitignore
 .travis.yml
-README.md
 api/openapi.yaml
 api_announcements.go
 api_api_token_auth.go
