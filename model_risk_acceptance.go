@@ -50,6 +50,7 @@ type RiskAcceptance struct {
 	Owner int32 `json:"owner"`
 	AcceptedFindings []int32 `json:"accepted_findings"`
 	Notes []int32 `json:"notes"`
+	Prefetch map[string]interface{} `json:"prefetch,omitempty"`
 }
 
 type _RiskAcceptance RiskAcceptance
@@ -637,6 +638,38 @@ func (o *RiskAcceptance) SetNotes(v []int32) {
 	o.Notes = v
 }
 
+// GetPrefetch returns the Prefetch field value if set, zero value otherwise.
+func (o *RiskAcceptance) GetPrefetch() map[string]interface{} {
+	if o == nil || IsNil(o.Prefetch) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.Prefetch
+}
+
+// GetPrefetchOk returns a tuple with the Prefetch field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RiskAcceptance) GetPrefetchOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.Prefetch) {
+		return map[string]interface{}{}, false
+	}
+	return o.Prefetch, true
+}
+
+// HasPrefetch returns a boolean if a field has been set.
+func (o *RiskAcceptance) HasPrefetch() bool {
+	if o != nil && !IsNil(o.Prefetch) {
+		return true
+	}
+
+	return false
+}
+
+// SetPrefetch gets a reference to the given map[string]interface{} and assigns it to the Prefetch field.
+func (o *RiskAcceptance) SetPrefetch(v map[string]interface{}) {
+	o.Prefetch = v
+}
+
 func (o RiskAcceptance) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -681,6 +714,9 @@ func (o RiskAcceptance) ToMap() (map[string]interface{}, error) {
 	toSerialize["owner"] = o.Owner
 	toSerialize["accepted_findings"] = o.AcceptedFindings
 	toSerialize["notes"] = o.Notes
+	if !IsNil(o.Prefetch) {
+		toSerialize["prefetch"] = o.Prefetch
+	}
 	return toSerialize, nil
 }
 

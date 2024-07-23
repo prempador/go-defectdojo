@@ -20187,6 +20187,7 @@ components:
               expiration_date_warned: 2000-01-23T04:56:07.000+00:00
               expiration_date_handled: 2000-01-23T04:56:07.000+00:00
               created: 2000-01-23T04:56:07.000+00:00
+              prefetch: "{}"
               recommendation: recommendation
               accepted_by: accepted_by
               expiration_date: 2000-01-23T04:56:07.000+00:00
@@ -20252,6 +20253,7 @@ components:
           expiration_date_warned: 2000-01-23T04:56:07.000+00:00
           expiration_date_handled: 2000-01-23T04:56:07.000+00:00
           created: 2000-01-23T04:56:07.000+00:00
+          prefetch: "{}"
           recommendation: recommendation
           accepted_by: accepted_by
           expiration_date: 2000-01-23T04:56:07.000+00:00
@@ -20274,6 +20276,7 @@ components:
           expiration_date_warned: 2000-01-23T04:56:07.000+00:00
           expiration_date_handled: 2000-01-23T04:56:07.000+00:00
           created: 2000-01-23T04:56:07.000+00:00
+          prefetch: "{}"
           recommendation: recommendation
           accepted_by: accepted_by
           expiration_date: 2000-01-23T04:56:07.000+00:00
@@ -25299,6 +25302,7 @@ components:
                     expiration_date_warned: 2000-01-23T04:56:07.000+00:00
                     expiration_date_handled: 2000-01-23T04:56:07.000+00:00
                     created: 2000-01-23T04:56:07.000+00:00
+                    prefetch: "{}"
                     recommendation: recommendation
                     accepted_by: accepted_by
                     expiration_date: 2000-01-23T04:56:07.000+00:00
@@ -25364,6 +25368,7 @@ components:
                 expiration_date_warned: 2000-01-23T04:56:07.000+00:00
                 expiration_date_handled: 2000-01-23T04:56:07.000+00:00
                 created: 2000-01-23T04:56:07.000+00:00
+                prefetch: "{}"
                 recommendation: recommendation
                 accepted_by: accepted_by
                 expiration_date: 2000-01-23T04:56:07.000+00:00
@@ -25386,6 +25391,7 @@ components:
                 expiration_date_warned: 2000-01-23T04:56:07.000+00:00
                 expiration_date_handled: 2000-01-23T04:56:07.000+00:00
                 created: 2000-01-23T04:56:07.000+00:00
+                prefetch: "{}"
                 recommendation: recommendation
                 accepted_by: accepted_by
                 expiration_date: 2000-01-23T04:56:07.000+00:00
@@ -28830,6 +28836,7 @@ components:
               expiration_date_warned: 2000-01-23T04:56:07.000+00:00
               expiration_date_handled: 2000-01-23T04:56:07.000+00:00
               created: 2000-01-23T04:56:07.000+00:00
+              prefetch: "{}"
               recommendation: recommendation
               accepted_by: accepted_by
               expiration_date: 2000-01-23T04:56:07.000+00:00
@@ -29564,6 +29571,7 @@ components:
                 expiration_date_warned: 2000-01-23T04:56:07.000+00:00
                 expiration_date_handled: 2000-01-23T04:56:07.000+00:00
                 created: 2000-01-23T04:56:07.000+00:00
+                prefetch: "{}"
                 recommendation: recommendation
                 accepted_by: accepted_by
                 expiration_date: 2000-01-23T04:56:07.000+00:00
@@ -29629,6 +29637,7 @@ components:
             expiration_date_warned: 2000-01-23T04:56:07.000+00:00
             expiration_date_handled: 2000-01-23T04:56:07.000+00:00
             created: 2000-01-23T04:56:07.000+00:00
+            prefetch: "{}"
             recommendation: recommendation
             accepted_by: accepted_by
             expiration_date: 2000-01-23T04:56:07.000+00:00
@@ -29651,6 +29660,7 @@ components:
             expiration_date_warned: 2000-01-23T04:56:07.000+00:00
             expiration_date_handled: 2000-01-23T04:56:07.000+00:00
             created: 2000-01-23T04:56:07.000+00:00
+            prefetch: "{}"
             recommendation: recommendation
             accepted_by: accepted_by
             expiration_date: 2000-01-23T04:56:07.000+00:00
@@ -30388,6 +30398,7 @@ components:
                 expiration_date_warned: 2000-01-23T04:56:07.000+00:00
                 expiration_date_handled: 2000-01-23T04:56:07.000+00:00
                 created: 2000-01-23T04:56:07.000+00:00
+                prefetch: "{}"
                 recommendation: recommendation
                 accepted_by: accepted_by
                 expiration_date: 2000-01-23T04:56:07.000+00:00
@@ -30453,6 +30464,7 @@ components:
             expiration_date_warned: 2000-01-23T04:56:07.000+00:00
             expiration_date_handled: 2000-01-23T04:56:07.000+00:00
             created: 2000-01-23T04:56:07.000+00:00
+            prefetch: "{}"
             recommendation: recommendation
             accepted_by: accepted_by
             expiration_date: 2000-01-23T04:56:07.000+00:00
@@ -30475,6 +30487,7 @@ components:
             expiration_date_warned: 2000-01-23T04:56:07.000+00:00
             expiration_date_handled: 2000-01-23T04:56:07.000+00:00
             created: 2000-01-23T04:56:07.000+00:00
+            prefetch: "{}"
             recommendation: recommendation
             accepted_by: accepted_by
             expiration_date: 2000-01-23T04:56:07.000+00:00
@@ -32091,6 +32104,7 @@ components:
                     expiration_date_warned: 2000-01-23T04:56:07.000+00:00
                     expiration_date_handled: 2000-01-23T04:56:07.000+00:00
                     created: 2000-01-23T04:56:07.000+00:00
+                    prefetch: "{}"
                     recommendation: recommendation
                     accepted_by: accepted_by
                     expiration_date: 2000-01-23T04:56:07.000+00:00
@@ -32156,6 +32170,7 @@ components:
                 expiration_date_warned: 2000-01-23T04:56:07.000+00:00
                 expiration_date_handled: 2000-01-23T04:56:07.000+00:00
                 created: 2000-01-23T04:56:07.000+00:00
+                prefetch: "{}"
                 recommendation: recommendation
                 accepted_by: accepted_by
                 expiration_date: 2000-01-23T04:56:07.000+00:00
@@ -32178,6 +32193,7 @@ components:
                 expiration_date_warned: 2000-01-23T04:56:07.000+00:00
                 expiration_date_handled: 2000-01-23T04:56:07.000+00:00
                 created: 2000-01-23T04:56:07.000+00:00
+                prefetch: "{}"
                 recommendation: recommendation
                 accepted_by: accepted_by
                 expiration_date: 2000-01-23T04:56:07.000+00:00
@@ -33056,6 +33072,7 @@ components:
                       expiration_date_warned: 2000-01-23T04:56:07.000+00:00
                       expiration_date_handled: 2000-01-23T04:56:07.000+00:00
                       created: 2000-01-23T04:56:07.000+00:00
+                      prefetch: "{}"
                       recommendation: recommendation
                       accepted_by: accepted_by
                       expiration_date: 2000-01-23T04:56:07.000+00:00
@@ -33121,6 +33138,7 @@ components:
                   expiration_date_warned: 2000-01-23T04:56:07.000+00:00
                   expiration_date_handled: 2000-01-23T04:56:07.000+00:00
                   created: 2000-01-23T04:56:07.000+00:00
+                  prefetch: "{}"
                   recommendation: recommendation
                   accepted_by: accepted_by
                   expiration_date: 2000-01-23T04:56:07.000+00:00
@@ -33143,6 +33161,7 @@ components:
                   expiration_date_warned: 2000-01-23T04:56:07.000+00:00
                   expiration_date_handled: 2000-01-23T04:56:07.000+00:00
                   created: 2000-01-23T04:56:07.000+00:00
+                  prefetch: "{}"
                   recommendation: recommendation
                   accepted_by: accepted_by
                   expiration_date: 2000-01-23T04:56:07.000+00:00
@@ -34023,6 +34042,7 @@ components:
                       expiration_date_warned: 2000-01-23T04:56:07.000+00:00
                       expiration_date_handled: 2000-01-23T04:56:07.000+00:00
                       created: 2000-01-23T04:56:07.000+00:00
+                      prefetch: "{}"
                       recommendation: recommendation
                       accepted_by: accepted_by
                       expiration_date: 2000-01-23T04:56:07.000+00:00
@@ -34088,6 +34108,7 @@ components:
                   expiration_date_warned: 2000-01-23T04:56:07.000+00:00
                   expiration_date_handled: 2000-01-23T04:56:07.000+00:00
                   created: 2000-01-23T04:56:07.000+00:00
+                  prefetch: "{}"
                   recommendation: recommendation
                   accepted_by: accepted_by
                   expiration_date: 2000-01-23T04:56:07.000+00:00
@@ -34110,6 +34131,7 @@ components:
                   expiration_date_warned: 2000-01-23T04:56:07.000+00:00
                   expiration_date_handled: 2000-01-23T04:56:07.000+00:00
                   created: 2000-01-23T04:56:07.000+00:00
+                  prefetch: "{}"
                   recommendation: recommendation
                   accepted_by: accepted_by
                   expiration_date: 2000-01-23T04:56:07.000+00:00
@@ -37535,6 +37557,7 @@ components:
           expiration_date_warned: 2000-01-23T04:56:07.000+00:00
           expiration_date_handled: 2000-01-23T04:56:07.000+00:00
           created: 2000-01-23T04:56:07.000+00:00
+          prefetch: "{}"
           recommendation: recommendation
           accepted_by: accepted_by
           expiration_date: 2000-01-23T04:56:07.000+00:00
@@ -37557,6 +37580,7 @@ components:
           expiration_date_warned: 2000-01-23T04:56:07.000+00:00
           expiration_date_handled: 2000-01-23T04:56:07.000+00:00
           created: 2000-01-23T04:56:07.000+00:00
+          prefetch: "{}"
           recommendation: recommendation
           accepted_by: accepted_by
           expiration_date: 2000-01-23T04:56:07.000+00:00
@@ -46433,6 +46457,7 @@ components:
                 expiration_date_warned: 2000-01-23T04:56:07.000+00:00
                 expiration_date_handled: 2000-01-23T04:56:07.000+00:00
                 created: 2000-01-23T04:56:07.000+00:00
+                prefetch: "{}"
                 recommendation: recommendation
                 accepted_by: accepted_by
                 expiration_date: 2000-01-23T04:56:07.000+00:00
@@ -46498,6 +46523,7 @@ components:
             expiration_date_warned: 2000-01-23T04:56:07.000+00:00
             expiration_date_handled: 2000-01-23T04:56:07.000+00:00
             created: 2000-01-23T04:56:07.000+00:00
+            prefetch: "{}"
             recommendation: recommendation
             accepted_by: accepted_by
             expiration_date: 2000-01-23T04:56:07.000+00:00
@@ -46520,6 +46546,7 @@ components:
             expiration_date_warned: 2000-01-23T04:56:07.000+00:00
             expiration_date_handled: 2000-01-23T04:56:07.000+00:00
             created: 2000-01-23T04:56:07.000+00:00
+            prefetch: "{}"
             recommendation: recommendation
             accepted_by: accepted_by
             expiration_date: 2000-01-23T04:56:07.000+00:00
@@ -47257,6 +47284,7 @@ components:
                 expiration_date_warned: 2000-01-23T04:56:07.000+00:00
                 expiration_date_handled: 2000-01-23T04:56:07.000+00:00
                 created: 2000-01-23T04:56:07.000+00:00
+                prefetch: "{}"
                 recommendation: recommendation
                 accepted_by: accepted_by
                 expiration_date: 2000-01-23T04:56:07.000+00:00
@@ -47322,6 +47350,7 @@ components:
             expiration_date_warned: 2000-01-23T04:56:07.000+00:00
             expiration_date_handled: 2000-01-23T04:56:07.000+00:00
             created: 2000-01-23T04:56:07.000+00:00
+            prefetch: "{}"
             recommendation: recommendation
             accepted_by: accepted_by
             expiration_date: 2000-01-23T04:56:07.000+00:00
@@ -47344,6 +47373,7 @@ components:
             expiration_date_warned: 2000-01-23T04:56:07.000+00:00
             expiration_date_handled: 2000-01-23T04:56:07.000+00:00
             created: 2000-01-23T04:56:07.000+00:00
+            prefetch: "{}"
             recommendation: recommendation
             accepted_by: accepted_by
             expiration_date: 2000-01-23T04:56:07.000+00:00
@@ -47607,6 +47637,7 @@ components:
         expiration_date_warned: 2000-01-23T04:56:07.000+00:00
         expiration_date_handled: 2000-01-23T04:56:07.000+00:00
         created: 2000-01-23T04:56:07.000+00:00
+        prefetch: "{}"
         recommendation: recommendation
         accepted_by: accepted_by
         expiration_date: 2000-01-23T04:56:07.000+00:00
@@ -47700,6 +47731,8 @@ components:
             type: integer
           readOnly: true
           type: array
+        prefetch:
+          type: object
       required:
       - accepted_findings
       - created
@@ -54667,6 +54700,7 @@ components:
             expiration_date_warned: 2000-01-23T04:56:07.000+00:00
             expiration_date_handled: 2000-01-23T04:56:07.000+00:00
             created: 2000-01-23T04:56:07.000+00:00
+            prefetch: "{}"
             recommendation: recommendation
             accepted_by: accepted_by
             expiration_date: 2000-01-23T04:56:07.000+00:00
@@ -55808,6 +55842,7 @@ components:
                   expiration_date_warned: 2000-01-23T04:56:07.000+00:00
                   expiration_date_handled: 2000-01-23T04:56:07.000+00:00
                   created: 2000-01-23T04:56:07.000+00:00
+                  prefetch: "{}"
                   recommendation: recommendation
                   accepted_by: accepted_by
                   expiration_date: 2000-01-23T04:56:07.000+00:00
@@ -55873,6 +55908,7 @@ components:
               expiration_date_warned: 2000-01-23T04:56:07.000+00:00
               expiration_date_handled: 2000-01-23T04:56:07.000+00:00
               created: 2000-01-23T04:56:07.000+00:00
+              prefetch: "{}"
               recommendation: recommendation
               accepted_by: accepted_by
               expiration_date: 2000-01-23T04:56:07.000+00:00
@@ -55895,6 +55931,7 @@ components:
               expiration_date_warned: 2000-01-23T04:56:07.000+00:00
               expiration_date_handled: 2000-01-23T04:56:07.000+00:00
               created: 2000-01-23T04:56:07.000+00:00
+              prefetch: "{}"
               recommendation: recommendation
               accepted_by: accepted_by
               expiration_date: 2000-01-23T04:56:07.000+00:00
