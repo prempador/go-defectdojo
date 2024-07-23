@@ -16975,7 +16975,6 @@ components:
       - numerical_severity
       - param
       - payload
-      - related_fields
       - request_response
       - scanner_confidence
       - severity
@@ -28176,6 +28175,8 @@ components:
           items:
             type: integer
           readOnly: true
+        prefetch:
+          type: object
       required:
       - accepted_findings
       - created

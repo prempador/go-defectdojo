@@ -21,8 +21,11 @@ var _ MappedNullable = &ImportStatistics{}
 
 // ImportStatistics struct for ImportStatistics
 type ImportStatistics struct {
+	// Finding statistics as stored in Defect Dojo before the import
 	Before *SeverityStatusStatistics `json:"before,omitempty"`
+	// Finding statistics of modifications made by the reimport. Only available when TRACK_IMPORT_HISTORY hass not disabled.
 	Delta *DeltaStatistics `json:"delta,omitempty"`
+	// Finding statistics as stored in Defect Dojo after the import
 	After SeverityStatusStatistics `json:"after"`
 }
 

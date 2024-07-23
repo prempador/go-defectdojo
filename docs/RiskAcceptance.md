@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **Owner** | **int32** | User in DefectDojo owning this acceptance. Only the owner and staff users can edit the risk acceptance. | 
 **AcceptedFindings** | **[]int32** |  | 
 **Notes** | **[]int32** |  | [readonly] 
+**Prefetch** | Pointer to **map[string]interface{}** |  | [optional] 
 
 ## Methods
 
@@ -501,6 +502,31 @@ and a boolean to check if the value has been set.
 
 SetNotes sets Notes field to given value.
 
+
+### GetPrefetch
+
+`func (o *RiskAcceptance) GetPrefetch() map[string]interface{}`
+
+GetPrefetch returns the Prefetch field if non-nil, zero value otherwise.
+
+### GetPrefetchOk
+
+`func (o *RiskAcceptance) GetPrefetchOk() (*map[string]interface{}, bool)`
+
+GetPrefetchOk returns a tuple with the Prefetch field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPrefetch
+
+`func (o *RiskAcceptance) SetPrefetch(v map[string]interface{})`
+
+SetPrefetch sets Prefetch field to given value.
+
+### HasPrefetch
+
+`func (o *RiskAcceptance) HasPrefetch() bool`
+
+HasPrefetch returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
