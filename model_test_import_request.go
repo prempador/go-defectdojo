@@ -68,7 +68,7 @@ func (o *TestImportRequest) GetImportSettingsOk() (*interface{}, bool) {
 
 // HasImportSettings returns a boolean if a field has been set.
 func (o *TestImportRequest) HasImportSettings() bool {
-	if o != nil && IsNil(o.ImportSettings) {
+	if o != nil && !IsNil(o.ImportSettings) {
 		return true
 	}
 
