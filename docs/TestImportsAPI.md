@@ -218,7 +218,7 @@ Name | Type | Description  | Notes
 
 ## TestImportsList
 
-> PaginatedTestImportList TestImportsList(ctx).BranchTag(branchTag).BuildId(buildId).CommitHash(commitHash).FindingsAffected(findingsAffected).Limit(limit).Offset(offset).Prefetch(prefetch).Test(test).TestImportFindingActionAction(testImportFindingActionAction).TestImportFindingActionCreated(testImportFindingActionCreated).TestImportFindingActionFinding(testImportFindingActionFinding).Version(version).Execute()
+> PaginatedTestImportList TestImportsList(ctx).BranchTag(branchTag).BuildId(buildId).CommitHash(commitHash).FindingsAffected(findingsAffected).Limit(limit).Offset(offset).Test(test).TestImportFindingActionAction(testImportFindingActionAction).TestImportFindingActionCreated(testImportFindingActionCreated).TestImportFindingActionFinding(testImportFindingActionFinding).Version(version).Execute()
 
 
 
@@ -242,7 +242,6 @@ func main() {
 	findingsAffected := []int32{int32(123)} // []int32 |  (optional)
 	limit := int32(56) // int32 | Number of results to return per page. (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
-	prefetch := []string{"Prefetch_example"} // []string | List of fields for which to prefetch model instances and add those to the response (optional)
 	test := int32(56) // int32 |  (optional)
 	testImportFindingActionAction := "testImportFindingActionAction_example" // string | * `N` - created * `C` - closed * `R` - reactivated * `U` - left untouched (optional)
 	testImportFindingActionCreated := time.Now() // time.Time |  (optional)
@@ -251,7 +250,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TestImportsAPI.TestImportsList(context.Background()).BranchTag(branchTag).BuildId(buildId).CommitHash(commitHash).FindingsAffected(findingsAffected).Limit(limit).Offset(offset).Prefetch(prefetch).Test(test).TestImportFindingActionAction(testImportFindingActionAction).TestImportFindingActionCreated(testImportFindingActionCreated).TestImportFindingActionFinding(testImportFindingActionFinding).Version(version).Execute()
+	resp, r, err := apiClient.TestImportsAPI.TestImportsList(context.Background()).BranchTag(branchTag).BuildId(buildId).CommitHash(commitHash).FindingsAffected(findingsAffected).Limit(limit).Offset(offset).Test(test).TestImportFindingActionAction(testImportFindingActionAction).TestImportFindingActionCreated(testImportFindingActionCreated).TestImportFindingActionFinding(testImportFindingActionFinding).Version(version).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestImportsAPI.TestImportsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -278,7 +277,6 @@ Name | Type | Description  | Notes
  **findingsAffected** | **[]int32** |  | 
  **limit** | **int32** | Number of results to return per page. | 
  **offset** | **int32** | The initial index from which to return the results. | 
- **prefetch** | **[]string** | List of fields for which to prefetch model instances and add those to the response | 
  **test** | **int32** |  | 
  **testImportFindingActionAction** | **string** | * &#x60;N&#x60; - created * &#x60;C&#x60; - closed * &#x60;R&#x60; - reactivated * &#x60;U&#x60; - left untouched | 
  **testImportFindingActionCreated** | **time.Time** |  | 
@@ -375,7 +373,7 @@ Name | Type | Description  | Notes
 
 ## TestImportsRetrieve
 
-> TestImport TestImportsRetrieve(ctx, id).Prefetch(prefetch).Execute()
+> TestImport TestImportsRetrieve(ctx, id).Execute()
 
 
 
@@ -393,11 +391,10 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this test_ import.
-	prefetch := []string{"Prefetch_example"} // []string | List of fields for which to prefetch model instances and add those to the response (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TestImportsAPI.TestImportsRetrieve(context.Background(), id).Prefetch(prefetch).Execute()
+	resp, r, err := apiClient.TestImportsAPI.TestImportsRetrieve(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestImportsAPI.TestImportsRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -423,7 +420,6 @@ Other parameters are passed through a pointer to a apiTestImportsRetrieveRequest
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **prefetch** | **[]string** | List of fields for which to prefetch model instances and add those to the response | 
 
 ### Return type
 

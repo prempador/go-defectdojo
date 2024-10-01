@@ -40,6 +40,7 @@ Name | Type | Description | Notes
 **EnableProductTagInheritance** | Pointer to **bool** | Enables product tag inheritance globally for all products. Any tags added on a product will automatically be added to all Engagements, Tests, and Findings | [optional] 
 **EnableBenchmark** | Pointer to **bool** | Enables Benchmarks such as the OWASP ASVS (Application Security Verification Standard) | [optional] 
 **EnableTemplateMatch** | Pointer to **bool** | Enables global remediation advice and matching on CWE and Title. The text will be replaced for mitigation, impact and references on a finding. Useful for providing consistent impact and remediation advice regardless of the scanner. | [optional] 
+**EnableSimilarFindings** | Pointer to **bool** | Enable the query of similar findings on the view finding page. This feature can involve potentially large queries and negatively impact performance | [optional] 
 **EngagementAutoClose** | Pointer to **bool** | Closes an engagement after 3 days (default) past due date including last update. | [optional] 
 **EngagementAutoCloseDays** | Pointer to **int32** | Closes an engagement after the specified number of days past due date including last update. | [optional] 
 **EnableFindingSla** | Pointer to **bool** | Enables Finding SLA&#39;s for time to remediate. | [optional] 
@@ -59,6 +60,7 @@ Name | Type | Description | Notes
 **EnableUserProfileEditable** | Pointer to **bool** | When turned on users can edit their profiles | [optional] 
 **EnableProductTrackingFiles** | Pointer to **bool** | With this setting turned off, the product tracking files will be disabled in the user interface. | [optional] 
 **EnableFindingGroups** | Pointer to **bool** | With this setting turned off, the Finding Groups will be disabled. | [optional] 
+**EnableUiTableBasedSearching** | Pointer to **bool** | With this setting enabled, table headings will contain sort buttons for the current page of data in addition to sorting buttons that consider data from all pages. | [optional] 
 **EnableCalendar** | Pointer to **bool** | With this setting turned off, the Calendar will be disabled in the user interface. | [optional] 
 **DefaultGroupEmailPattern** | Pointer to **string** | New users will only be assigned to the default group, when their email address matches this regex pattern. This is optional condition. | [optional] 
 **MinimumPasswordLength** | Pointer to **int32** | Requires user to set passwords greater than minimum length. | [optional] 
@@ -69,6 +71,7 @@ Name | Type | Description | Notes
 **UppercaseCharacterRequired** | Pointer to **bool** | Requires user passwords to contain at least one uppercase letter (A-Z). | [optional] 
 **NonCommonPasswordRequired** | Pointer to **bool** | Requires user passwords to not be part of list of common passwords. | [optional] 
 **ApiExposeErrorDetails** | Pointer to **bool** | When turned on, the API will expose error details in the response. | [optional] 
+**FilterStringMatching** | Pointer to **bool** | When turned on, all filter operations in the UI will require string matches rather than ID. This is a performance enhancement to avoid fetching objects unnecessarily. | [optional] 
 **DefaultGroup** | Pointer to **NullableInt32** | New users will be assigned to this group. | [optional] 
 **DefaultGroupRole** | Pointer to **NullableInt32** | New users will be assigned to their default group with this role. | [optional] 
 
@@ -1026,6 +1029,31 @@ SetEnableTemplateMatch sets EnableTemplateMatch field to given value.
 
 HasEnableTemplateMatch returns a boolean if a field has been set.
 
+### GetEnableSimilarFindings
+
+`func (o *SystemSettings) GetEnableSimilarFindings() bool`
+
+GetEnableSimilarFindings returns the EnableSimilarFindings field if non-nil, zero value otherwise.
+
+### GetEnableSimilarFindingsOk
+
+`func (o *SystemSettings) GetEnableSimilarFindingsOk() (*bool, bool)`
+
+GetEnableSimilarFindingsOk returns a tuple with the EnableSimilarFindings field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnableSimilarFindings
+
+`func (o *SystemSettings) SetEnableSimilarFindings(v bool)`
+
+SetEnableSimilarFindings sets EnableSimilarFindings field to given value.
+
+### HasEnableSimilarFindings
+
+`func (o *SystemSettings) HasEnableSimilarFindings() bool`
+
+HasEnableSimilarFindings returns a boolean if a field has been set.
+
 ### GetEngagementAutoClose
 
 `func (o *SystemSettings) GetEngagementAutoClose() bool`
@@ -1521,6 +1549,31 @@ SetEnableFindingGroups sets EnableFindingGroups field to given value.
 
 HasEnableFindingGroups returns a boolean if a field has been set.
 
+### GetEnableUiTableBasedSearching
+
+`func (o *SystemSettings) GetEnableUiTableBasedSearching() bool`
+
+GetEnableUiTableBasedSearching returns the EnableUiTableBasedSearching field if non-nil, zero value otherwise.
+
+### GetEnableUiTableBasedSearchingOk
+
+`func (o *SystemSettings) GetEnableUiTableBasedSearchingOk() (*bool, bool)`
+
+GetEnableUiTableBasedSearchingOk returns a tuple with the EnableUiTableBasedSearching field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnableUiTableBasedSearching
+
+`func (o *SystemSettings) SetEnableUiTableBasedSearching(v bool)`
+
+SetEnableUiTableBasedSearching sets EnableUiTableBasedSearching field to given value.
+
+### HasEnableUiTableBasedSearching
+
+`func (o *SystemSettings) HasEnableUiTableBasedSearching() bool`
+
+HasEnableUiTableBasedSearching returns a boolean if a field has been set.
+
 ### GetEnableCalendar
 
 `func (o *SystemSettings) GetEnableCalendar() bool`
@@ -1770,6 +1823,31 @@ SetApiExposeErrorDetails sets ApiExposeErrorDetails field to given value.
 `func (o *SystemSettings) HasApiExposeErrorDetails() bool`
 
 HasApiExposeErrorDetails returns a boolean if a field has been set.
+
+### GetFilterStringMatching
+
+`func (o *SystemSettings) GetFilterStringMatching() bool`
+
+GetFilterStringMatching returns the FilterStringMatching field if non-nil, zero value otherwise.
+
+### GetFilterStringMatchingOk
+
+`func (o *SystemSettings) GetFilterStringMatchingOk() (*bool, bool)`
+
+GetFilterStringMatchingOk returns a tuple with the FilterStringMatching field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFilterStringMatching
+
+`func (o *SystemSettings) SetFilterStringMatching(v bool)`
+
+SetFilterStringMatching sets FilterStringMatching field to given value.
+
+### HasFilterStringMatching
+
+`func (o *SystemSettings) HasFilterStringMatching() bool`
+
+HasFilterStringMatching returns a boolean if a field has been set.
 
 ### GetDefaultGroup
 

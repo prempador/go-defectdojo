@@ -12,9 +12,9 @@ Name | Type | Description | Notes
 **Age** | **int32** |  | [readonly] 
 **SlaDaysRemaining** | **int32** |  | [readonly] 
 **FindingMeta** | [**[]FindingMeta**](FindingMeta.md) |  | [readonly] 
-**RelatedFields** | [**FindingRelatedFields**](FindingRelatedFields.md) |  | [readonly] 
-**JiraCreation** | **time.Time** |  | [readonly] 
-**JiraChange** | **time.Time** |  | [readonly] 
+**RelatedFields** | [**NullableFindingRelatedFields**](FindingRelatedFields.md) |  | [readonly] 
+**JiraCreation** | **NullableTime** |  | [readonly] 
+**JiraChange** | **NullableTime** |  | [readonly] 
 **DisplayStatus** | **string** |  | [readonly] 
 **FindingGroups** | [**[]FindingGroup**](FindingGroup.md) |  | [readonly] 
 **VulnerabilityIds** | Pointer to [**[]VulnerabilityId**](VulnerabilityId.md) |  | [optional] 
@@ -91,7 +91,7 @@ Name | Type | Description | Notes
 
 ### NewFinding
 
-`func NewFinding(id int32, requestResponse BurpRawRequestResponse, acceptedRisks []RiskAcceptance, age int32, slaDaysRemaining int32, findingMeta []FindingMeta, relatedFields FindingRelatedFields, jiraCreation time.Time, jiraChange time.Time, displayStatus string, findingGroups []FindingGroup, title string, url NullableString, severity string, description string, lastStatusUpdate NullableTime, threadId int32, mitigated NullableTime, numericalSeverity string, lastReviewed NullableTime, param NullableString, payload NullableString, hashCode NullableString, created NullableTime, scannerConfidence NullableInt32, test int32, duplicateFinding NullableInt32, mitigatedBy NullableInt32, lastReviewedBy NullableInt32, endpoints []int32, notes []Note, files []int32, foundBy []int32, ) *Finding`
+`func NewFinding(id int32, requestResponse BurpRawRequestResponse, acceptedRisks []RiskAcceptance, age int32, slaDaysRemaining int32, findingMeta []FindingMeta, relatedFields NullableFindingRelatedFields, jiraCreation NullableTime, jiraChange NullableTime, displayStatus string, findingGroups []FindingGroup, title string, url NullableString, severity string, description string, lastStatusUpdate NullableTime, threadId int32, mitigated NullableTime, numericalSeverity string, lastReviewed NullableTime, param NullableString, payload NullableString, hashCode NullableString, created NullableTime, scannerConfidence NullableInt32, test int32, duplicateFinding NullableInt32, mitigatedBy NullableInt32, lastReviewedBy NullableInt32, endpoints []int32, notes []Note, files []int32, foundBy []int32, ) *Finding`
 
 NewFinding instantiates a new Finding object
 This constructor will assign default values to properties that have it defined,
@@ -296,6 +296,16 @@ and a boolean to check if the value has been set.
 SetRelatedFields sets RelatedFields field to given value.
 
 
+### SetRelatedFieldsNil
+
+`func (o *Finding) SetRelatedFieldsNil(b bool)`
+
+ SetRelatedFieldsNil sets the value for RelatedFields to be an explicit nil
+
+### UnsetRelatedFields
+`func (o *Finding) UnsetRelatedFields()`
+
+UnsetRelatedFields ensures that no value is present for RelatedFields, not even an explicit nil
 ### GetJiraCreation
 
 `func (o *Finding) GetJiraCreation() time.Time`
@@ -316,6 +326,16 @@ and a boolean to check if the value has been set.
 SetJiraCreation sets JiraCreation field to given value.
 
 
+### SetJiraCreationNil
+
+`func (o *Finding) SetJiraCreationNil(b bool)`
+
+ SetJiraCreationNil sets the value for JiraCreation to be an explicit nil
+
+### UnsetJiraCreation
+`func (o *Finding) UnsetJiraCreation()`
+
+UnsetJiraCreation ensures that no value is present for JiraCreation, not even an explicit nil
 ### GetJiraChange
 
 `func (o *Finding) GetJiraChange() time.Time`
@@ -336,6 +356,16 @@ and a boolean to check if the value has been set.
 SetJiraChange sets JiraChange field to given value.
 
 
+### SetJiraChangeNil
+
+`func (o *Finding) SetJiraChangeNil(b bool)`
+
+ SetJiraChangeNil sets the value for JiraChange to be an explicit nil
+
+### UnsetJiraChange
+`func (o *Finding) UnsetJiraChange()`
+
+UnsetJiraChange ensures that no value is present for JiraChange, not even an explicit nil
 ### GetDisplayStatus
 
 `func (o *Finding) GetDisplayStatus() string`

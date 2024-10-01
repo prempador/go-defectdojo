@@ -73,6 +73,7 @@ docs/AnnouncementRequest.md
 docs/AnnouncementsAPI.md
 docs/ApiTokenAuthAPI.md
 docs/AppAnalysis.md
+docs/AppAnalysisPrefetch.md
 docs/AppAnalysisRequest.md
 docs/AuthToken.md
 docs/AuthTokenRequest.md
@@ -84,6 +85,7 @@ docs/Credential.md
 docs/CredentialMapping.md
 docs/CredentialMappingRequest.md
 docs/CredentialMappingsAPI.md
+docs/CredentialPrefetch.md
 docs/CredentialRequest.md
 docs/CredentialsAPI.md
 docs/DeletePreview.md
@@ -113,6 +115,7 @@ docs/EngagementCheckList.md
 docs/EngagementCheckListRequest.md
 docs/EngagementPresets.md
 docs/EngagementPresetsAPI.md
+docs/EngagementPresetsPrefetch.md
 docs/EngagementPresetsRequest.md
 docs/EngagementRequest.md
 docs/EngagementToFiles.md
@@ -159,6 +162,7 @@ docs/JIRAInstanceRequest.md
 docs/JIRAIssue.md
 docs/JIRAIssueRequest.md
 docs/JIRAProject.md
+docs/JIRAProjectPrefetch.md
 docs/JIRAProjectRequest.md
 docs/JiraConfigurationsAPI.md
 docs/JiraFindingMappingsAPI.md
@@ -173,7 +177,6 @@ docs/LanguageTypeRequest.md
 docs/LanguageTypesAPI.md
 docs/LanguagesAPI.md
 docs/Meta.md
-docs/MetaPrefetch.md
 docs/MetaRequest.md
 docs/MetadataAPI.md
 docs/NetworkLocations.md
@@ -189,7 +192,6 @@ docs/NoteTypeRequest.md
 docs/NotesAPI.md
 docs/Notifications.md
 docs/NotificationsAPI.md
-docs/NotificationsPrefetch.md
 docs/NotificationsRequest.md
 docs/Oa3API.md
 docs/PaginatedAnnouncementList.md
@@ -219,6 +221,7 @@ docs/PaginatedNoteList.md
 docs/PaginatedNoteTypeList.md
 docs/PaginatedNotificationsList.md
 docs/PaginatedProductAPIScanConfigurationList.md
+docs/PaginatedProductAPIScanConfigurationListPrefetch.md
 docs/PaginatedProductGroupList.md
 docs/PaginatedProductGroupListPrefetch.md
 docs/PaginatedProductList.md
@@ -233,6 +236,7 @@ docs/PaginatedProductTypeMemberList.md
 docs/PaginatedProductTypeMemberListPrefetch.md
 docs/PaginatedQuestionnaireAnswerList.md
 docs/PaginatedQuestionnaireAnsweredSurveyList.md
+docs/PaginatedQuestionnaireAnsweredSurveyListPrefetch.md
 docs/PaginatedQuestionnaireEngagementSurveyList.md
 docs/PaginatedQuestionnaireGeneralSurveyList.md
 docs/PaginatedQuestionnaireQuestionList.md
@@ -245,11 +249,12 @@ docs/PaginatedSonarqubeIssueTransitionList.md
 docs/PaginatedStubFindingList.md
 docs/PaginatedSystemSettingsList.md
 docs/PaginatedTestImportList.md
-docs/PaginatedTestImportListPrefetch.md
 docs/PaginatedTestList.md
 docs/PaginatedTestTypeList.md
 docs/PaginatedToolConfigurationList.md
+docs/PaginatedToolConfigurationListPrefetch.md
 docs/PaginatedToolProductSettingsList.md
+docs/PaginatedToolProductSettingsListPrefetch.md
 docs/PaginatedToolTypeList.md
 docs/PaginatedUserContactInfoList.md
 docs/PaginatedUserContactInfoListPrefetch.md
@@ -414,6 +419,7 @@ model_add_new_note_option_request.go
 model_announcement.go
 model_announcement_request.go
 model_app_analysis.go
+model_app_analysis_prefetch.go
 model_app_analysis_request.go
 model_auth_token.go
 model_auth_token_request.go
@@ -423,6 +429,7 @@ model_configuration_permission.go
 model_credential.go
 model_credential_mapping.go
 model_credential_mapping_request.go
+model_credential_prefetch.go
 model_credential_request.go
 model_delete_preview.go
 model_delta_statistics.go
@@ -444,6 +451,7 @@ model_engagement.go
 model_engagement_check_list.go
 model_engagement_check_list_request.go
 model_engagement_presets.go
+model_engagement_presets_prefetch.go
 model_engagement_presets_request.go
 model_engagement_request.go
 model_engagement_to_files.go
@@ -484,6 +492,7 @@ model_jira_instance_request.go
 model_jira_issue.go
 model_jira_issue_request.go
 model_jira_project.go
+model_jira_project_prefetch.go
 model_jira_project_request.go
 model_language.go
 model_language_prefetch.go
@@ -491,7 +500,6 @@ model_language_request.go
 model_language_type.go
 model_language_type_request.go
 model_meta.go
-model_meta_prefetch.go
 model_meta_request.go
 model_network_locations.go
 model_network_locations_request.go
@@ -502,7 +510,6 @@ model_note_request.go
 model_note_type.go
 model_note_type_request.go
 model_notifications.go
-model_notifications_prefetch.go
 model_notifications_request.go
 model_paginated_announcement_list.go
 model_paginated_app_analysis_list.go
@@ -531,6 +538,7 @@ model_paginated_note_list.go
 model_paginated_note_type_list.go
 model_paginated_notifications_list.go
 model_paginated_product_api_scan_configuration_list.go
+model_paginated_product_api_scan_configuration_list_prefetch.go
 model_paginated_product_group_list.go
 model_paginated_product_group_list_prefetch.go
 model_paginated_product_list.go
@@ -545,6 +553,7 @@ model_paginated_product_type_member_list.go
 model_paginated_product_type_member_list_prefetch.go
 model_paginated_questionnaire_answer_list.go
 model_paginated_questionnaire_answered_survey_list.go
+model_paginated_questionnaire_answered_survey_list_prefetch.go
 model_paginated_questionnaire_engagement_survey_list.go
 model_paginated_questionnaire_general_survey_list.go
 model_paginated_questionnaire_question_list.go
@@ -557,11 +566,12 @@ model_paginated_sonarqube_issue_transition_list.go
 model_paginated_stub_finding_list.go
 model_paginated_system_settings_list.go
 model_paginated_test_import_list.go
-model_paginated_test_import_list_prefetch.go
 model_paginated_test_list.go
 model_paginated_test_type_list.go
 model_paginated_tool_configuration_list.go
+model_paginated_tool_configuration_list_prefetch.go
 model_paginated_tool_product_settings_list.go
+model_paginated_tool_product_settings_list_prefetch.go
 model_paginated_tool_type_list.go
 model_paginated_user_contact_info_list.go
 model_paginated_user_contact_info_list_prefetch.go

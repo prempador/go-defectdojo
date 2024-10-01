@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Count** | Pointer to **int32** |  | [optional] 
+**Count** | **int32** |  | 
 **Next** | Pointer to **NullableString** |  | [optional] 
 **Previous** | Pointer to **NullableString** |  | [optional] 
-**Results** | Pointer to [**[]DojoGroup**](DojoGroup.md) |  | [optional] 
+**Results** | [**[]DojoGroup**](DojoGroup.md) |  | 
 **Prefetch** | Pointer to [**DojoGroupPrefetch**](DojoGroupPrefetch.md) |  | [optional] 
 
 ## Methods
 
 ### NewPaginatedDojoGroupList
 
-`func NewPaginatedDojoGroupList() *PaginatedDojoGroupList`
+`func NewPaginatedDojoGroupList(count int32, results []DojoGroup, ) *PaginatedDojoGroupList`
 
 NewPaginatedDojoGroupList instantiates a new PaginatedDojoGroupList object
 This constructor will assign default values to properties that have it defined,
@@ -48,11 +48,6 @@ and a boolean to check if the value has been set.
 
 SetCount sets Count field to given value.
 
-### HasCount
-
-`func (o *PaginatedDojoGroupList) HasCount() bool`
-
-HasCount returns a boolean if a field has been set.
 
 ### GetNext
 
@@ -143,11 +138,6 @@ and a boolean to check if the value has been set.
 
 SetResults sets Results field to given value.
 
-### HasResults
-
-`func (o *PaginatedDojoGroupList) HasResults() bool`
-
-HasResults returns a boolean if a field has been set.
 
 ### GetPrefetch
 

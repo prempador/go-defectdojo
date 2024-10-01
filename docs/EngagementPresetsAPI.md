@@ -218,7 +218,7 @@ Name | Type | Description  | Notes
 
 ## EngagementPresetsList
 
-> PaginatedEngagementPresetsList EngagementPresetsList(ctx).Id(id).Limit(limit).Offset(offset).Product(product).Title(title).Execute()
+> PaginatedEngagementPresetsList EngagementPresetsList(ctx).Id(id).Limit(limit).Offset(offset).Prefetch(prefetch).Product(product).Title(title).Execute()
 
 
 
@@ -238,12 +238,13 @@ func main() {
 	id := int32(56) // int32 |  (optional)
 	limit := int32(56) // int32 | Number of results to return per page. (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	prefetch := []string{"Prefetch_example"} // []string | List of fields for which to prefetch model instances and add those to the response (optional)
 	product := int32(56) // int32 |  (optional)
 	title := "title_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EngagementPresetsAPI.EngagementPresetsList(context.Background()).Id(id).Limit(limit).Offset(offset).Product(product).Title(title).Execute()
+	resp, r, err := apiClient.EngagementPresetsAPI.EngagementPresetsList(context.Background()).Id(id).Limit(limit).Offset(offset).Prefetch(prefetch).Product(product).Title(title).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EngagementPresetsAPI.EngagementPresetsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -267,6 +268,7 @@ Name | Type | Description  | Notes
  **id** | **int32** |  | 
  **limit** | **int32** | Number of results to return per page. | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **prefetch** | **[]string** | List of fields for which to prefetch model instances and add those to the response | 
  **product** | **int32** |  | 
  **title** | **string** |  | 
 
@@ -360,7 +362,7 @@ Name | Type | Description  | Notes
 
 ## EngagementPresetsRetrieve
 
-> EngagementPresets EngagementPresetsRetrieve(ctx, id).Execute()
+> EngagementPresets EngagementPresetsRetrieve(ctx, id).Prefetch(prefetch).Execute()
 
 
 
@@ -378,10 +380,11 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this engagement_ presets.
+	prefetch := []string{"Prefetch_example"} // []string | List of fields for which to prefetch model instances and add those to the response (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EngagementPresetsAPI.EngagementPresetsRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.EngagementPresetsAPI.EngagementPresetsRetrieve(context.Background(), id).Prefetch(prefetch).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EngagementPresetsAPI.EngagementPresetsRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -407,6 +410,7 @@ Other parameters are passed through a pointer to a apiEngagementPresetsRetrieveR
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **prefetch** | **[]string** | List of fields for which to prefetch model instances and add those to the response | 
 
 ### Return type
 

@@ -218,7 +218,7 @@ Name | Type | Description  | Notes
 
 ## CredentialsList
 
-> PaginatedCredentialList CredentialsList(ctx).Limit(limit).Offset(offset).Execute()
+> PaginatedCredentialList CredentialsList(ctx).Limit(limit).Offset(offset).Prefetch(prefetch).Execute()
 
 
 
@@ -237,10 +237,11 @@ import (
 func main() {
 	limit := int32(56) // int32 | Number of results to return per page. (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	prefetch := []string{"Prefetch_example"} // []string | List of fields for which to prefetch model instances and add those to the response (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CredentialsAPI.CredentialsList(context.Background()).Limit(limit).Offset(offset).Execute()
+	resp, r, err := apiClient.CredentialsAPI.CredentialsList(context.Background()).Limit(limit).Offset(offset).Prefetch(prefetch).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CredentialsAPI.CredentialsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -263,6 +264,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **int32** | Number of results to return per page. | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **prefetch** | **[]string** | List of fields for which to prefetch model instances and add those to the response | 
 
 ### Return type
 
@@ -354,7 +356,7 @@ Name | Type | Description  | Notes
 
 ## CredentialsRetrieve
 
-> Credential CredentialsRetrieve(ctx, id).Execute()
+> Credential CredentialsRetrieve(ctx, id).Prefetch(prefetch).Execute()
 
 
 
@@ -372,10 +374,11 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this cred_ user.
+	prefetch := []string{"Prefetch_example"} // []string | List of fields for which to prefetch model instances and add those to the response (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CredentialsAPI.CredentialsRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.CredentialsAPI.CredentialsRetrieve(context.Background(), id).Prefetch(prefetch).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CredentialsAPI.CredentialsRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -401,6 +404,7 @@ Other parameters are passed through a pointer to a apiCredentialsRetrieveRequest
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **prefetch** | **[]string** | List of fields for which to prefetch model instances and add those to the response | 
 
 ### Return type
 

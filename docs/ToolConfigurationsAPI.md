@@ -218,7 +218,7 @@ Name | Type | Description  | Notes
 
 ## ToolConfigurationsList
 
-> PaginatedToolConfigurationList ToolConfigurationsList(ctx).AuthenticationType(authenticationType).Id(id).Limit(limit).Name(name).Offset(offset).ToolType(toolType).Url(url).Execute()
+> PaginatedToolConfigurationList ToolConfigurationsList(ctx).AuthenticationType(authenticationType).Id(id).Limit(limit).Name(name).Offset(offset).Prefetch(prefetch).ToolType(toolType).Url(url).Execute()
 
 
 
@@ -240,12 +240,13 @@ func main() {
 	limit := int32(56) // int32 | Number of results to return per page. (optional)
 	name := "name_example" // string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	prefetch := []string{"Prefetch_example"} // []string | List of fields for which to prefetch model instances and add those to the response (optional)
 	toolType := int32(56) // int32 |  (optional)
 	url := "url_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ToolConfigurationsAPI.ToolConfigurationsList(context.Background()).AuthenticationType(authenticationType).Id(id).Limit(limit).Name(name).Offset(offset).ToolType(toolType).Url(url).Execute()
+	resp, r, err := apiClient.ToolConfigurationsAPI.ToolConfigurationsList(context.Background()).AuthenticationType(authenticationType).Id(id).Limit(limit).Name(name).Offset(offset).Prefetch(prefetch).ToolType(toolType).Url(url).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ToolConfigurationsAPI.ToolConfigurationsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -271,6 +272,7 @@ Name | Type | Description  | Notes
  **limit** | **int32** | Number of results to return per page. | 
  **name** | **string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **prefetch** | **[]string** | List of fields for which to prefetch model instances and add those to the response | 
  **toolType** | **int32** |  | 
  **url** | **string** |  | 
 
@@ -364,7 +366,7 @@ Name | Type | Description  | Notes
 
 ## ToolConfigurationsRetrieve
 
-> ToolConfiguration ToolConfigurationsRetrieve(ctx, id).Execute()
+> ToolConfiguration ToolConfigurationsRetrieve(ctx, id).Prefetch(prefetch).Execute()
 
 
 
@@ -382,10 +384,11 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this tool_ configuration.
+	prefetch := []string{"Prefetch_example"} // []string | List of fields for which to prefetch model instances and add those to the response (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ToolConfigurationsAPI.ToolConfigurationsRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.ToolConfigurationsAPI.ToolConfigurationsRetrieve(context.Background(), id).Prefetch(prefetch).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ToolConfigurationsAPI.ToolConfigurationsRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -411,6 +414,7 @@ Other parameters are passed through a pointer to a apiToolConfigurationsRetrieve
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **prefetch** | **[]string** | List of fields for which to prefetch model instances and add those to the response | 
 
 ### Return type
 

@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **Product** | **int32** |  | 
 **TestType** | Pointer to **[]int32** |  | [optional] 
 **NetworkLocations** | Pointer to **[]int32** |  | [optional] 
+**Prefetch** | Pointer to [**EngagementPresetsPrefetch**](EngagementPresetsPrefetch.md) |  | [optional] 
 
 ## Methods
 
@@ -226,6 +227,31 @@ SetNetworkLocations sets NetworkLocations field to given value.
 `func (o *EngagementPresets) HasNetworkLocations() bool`
 
 HasNetworkLocations returns a boolean if a field has been set.
+
+### GetPrefetch
+
+`func (o *EngagementPresets) GetPrefetch() EngagementPresetsPrefetch`
+
+GetPrefetch returns the Prefetch field if non-nil, zero value otherwise.
+
+### GetPrefetchOk
+
+`func (o *EngagementPresets) GetPrefetchOk() (*EngagementPresetsPrefetch, bool)`
+
+GetPrefetchOk returns a tuple with the Prefetch field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPrefetch
+
+`func (o *EngagementPresets) SetPrefetch(v EngagementPresetsPrefetch)`
+
+SetPrefetch sets Prefetch field to given value.
+
+### HasPrefetch
+
+`func (o *EngagementPresets) HasPrefetch() bool`
+
+HasPrefetch returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

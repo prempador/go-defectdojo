@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **User** | Pointer to **NullableInt32** |  | [optional] 
 **Group** | Pointer to **NullableInt32** |  | [optional] 
 **Role** | Pointer to **NullableInt32** | The global role will be applied to all product types and products. | [optional] 
+**Prefetch** | Pointer to [**DojoGroupMemberPrefetch**](DojoGroupMemberPrefetch.md) |  | [optional] 
 
 ## Methods
 
@@ -153,6 +154,31 @@ HasRole returns a boolean if a field has been set.
 `func (o *GlobalRole) UnsetRole()`
 
 UnsetRole ensures that no value is present for Role, not even an explicit nil
+### GetPrefetch
+
+`func (o *GlobalRole) GetPrefetch() DojoGroupMemberPrefetch`
+
+GetPrefetch returns the Prefetch field if non-nil, zero value otherwise.
+
+### GetPrefetchOk
+
+`func (o *GlobalRole) GetPrefetchOk() (*DojoGroupMemberPrefetch, bool)`
+
+GetPrefetchOk returns a tuple with the Prefetch field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPrefetch
+
+`func (o *GlobalRole) SetPrefetch(v DojoGroupMemberPrefetch)`
+
+SetPrefetch sets Prefetch field to given value.
+
+### HasPrefetch
+
+`func (o *GlobalRole) HasPrefetch() bool`
+
+HasPrefetch returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

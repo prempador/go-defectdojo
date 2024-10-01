@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
+**UserProfile** | [**User**](User.md) |  | [readonly] 
 **Title** | Pointer to **NullableString** |  | [optional] 
 **PhoneNumber** | Pointer to **string** | Phone number must be entered in the format: &#39;+999999999&#39;. Up to 15 digits allowed. | [optional] 
 **CellNumber** | Pointer to **string** | Phone number must be entered in the format: &#39;+999999999&#39;. Up to 15 digits allowed. | [optional] 
@@ -21,7 +22,7 @@ Name | Type | Description | Notes
 
 ### NewUserContactInfo
 
-`func NewUserContactInfo(id int32, user int32, ) *UserContactInfo`
+`func NewUserContactInfo(id int32, userProfile User, user int32, ) *UserContactInfo`
 
 NewUserContactInfo instantiates a new UserContactInfo object
 This constructor will assign default values to properties that have it defined,
@@ -54,6 +55,26 @@ and a boolean to check if the value has been set.
 `func (o *UserContactInfo) SetId(v int32)`
 
 SetId sets Id field to given value.
+
+
+### GetUserProfile
+
+`func (o *UserContactInfo) GetUserProfile() User`
+
+GetUserProfile returns the UserProfile field if non-nil, zero value otherwise.
+
+### GetUserProfileOk
+
+`func (o *UserContactInfo) GetUserProfileOk() (*User, bool)`
+
+GetUserProfileOk returns a tuple with the UserProfile field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUserProfile
+
+`func (o *UserContactInfo) SetUserProfile(v User)`
+
+SetUserProfile sets UserProfile field to given value.
 
 
 ### GetTitle

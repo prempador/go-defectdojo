@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **DuplicateFinding** | Pointer to [**map[string]Finding**](Finding.md) |  | [optional] [readonly] 
 **EndpointSet** | Pointer to [**map[string]Endpoint**](Endpoint.md) |  | [optional] [readonly] 
 **Endpoints** | Pointer to [**map[string]Endpoint**](Endpoint.md) |  | [optional] [readonly] 
-**Files** | Pointer to [**map[string]RawFile**](RawFile.md) |  | [optional] [readonly] 
+**Files** | Pointer to [**map[string]File**](File.md) |  | [optional] [readonly] 
 **FindingGroupSet** | Pointer to [**map[string]FindingGroup**](FindingGroup.md) |  | [optional] [readonly] 
 **FoundBy** | Pointer to [**map[string]TestType**](TestType.md) |  | [optional] [readonly] 
 **LastReviewedBy** | Pointer to [**map[string]UserStub**](UserStub.md) |  | [optional] [readonly] 
@@ -276,20 +276,20 @@ HasEndpoints returns a boolean if a field has been set.
 
 ### GetFiles
 
-`func (o *FindingPrefetch) GetFiles() map[string]RawFile`
+`func (o *FindingPrefetch) GetFiles() map[string]File`
 
 GetFiles returns the Files field if non-nil, zero value otherwise.
 
 ### GetFilesOk
 
-`func (o *FindingPrefetch) GetFilesOk() (*map[string]RawFile, bool)`
+`func (o *FindingPrefetch) GetFilesOk() (*map[string]File, bool)`
 
 GetFilesOk returns a tuple with the Files field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFiles
 
-`func (o *FindingPrefetch) SetFiles(v map[string]RawFile)`
+`func (o *FindingPrefetch) SetFiles(v map[string]File)`
 
 SetFiles sets Files field to given value.
 

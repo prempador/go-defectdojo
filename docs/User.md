@@ -8,8 +8,9 @@ Name | Type | Description | Notes
 **Username** | **string** | Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only. | 
 **FirstName** | Pointer to **string** |  | [optional] 
 **LastName** | Pointer to **string** |  | [optional] 
-**Email** | Pointer to **string** |  | [optional] 
-**LastLogin** | **time.Time** |  | [readonly] 
+**Email** | **string** |  | 
+**DateJoined** | **time.Time** |  | [readonly] 
+**LastLogin** | **NullableTime** |  | [readonly] 
 **IsActive** | Pointer to **bool** | Designates whether this user should be treated as active. Unselect this instead of deleting accounts. | [optional] 
 **IsSuperuser** | Pointer to **bool** | Designates that this user has all permissions without explicitly assigning them. | [optional] 
 **ConfigurationPermissions** | Pointer to **[]int32** |  | [optional] 
@@ -18,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewUser
 
-`func NewUser(id int32, username string, lastLogin time.Time, ) *User`
+`func NewUser(id int32, username string, email string, dateJoined time.Time, lastLogin NullableTime, ) *User`
 
 NewUser instantiates a new User object
 This constructor will assign default values to properties that have it defined,
@@ -142,11 +143,26 @@ and a boolean to check if the value has been set.
 
 SetEmail sets Email field to given value.
 
-### HasEmail
 
-`func (o *User) HasEmail() bool`
+### GetDateJoined
 
-HasEmail returns a boolean if a field has been set.
+`func (o *User) GetDateJoined() time.Time`
+
+GetDateJoined returns the DateJoined field if non-nil, zero value otherwise.
+
+### GetDateJoinedOk
+
+`func (o *User) GetDateJoinedOk() (*time.Time, bool)`
+
+GetDateJoinedOk returns a tuple with the DateJoined field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDateJoined
+
+`func (o *User) SetDateJoined(v time.Time)`
+
+SetDateJoined sets DateJoined field to given value.
+
 
 ### GetLastLogin
 
@@ -168,6 +184,16 @@ and a boolean to check if the value has been set.
 SetLastLogin sets LastLogin field to given value.
 
 
+### SetLastLoginNil
+
+`func (o *User) SetLastLoginNil(b bool)`
+
+ SetLastLoginNil sets the value for LastLogin to be an explicit nil
+
+### UnsetLastLogin
+`func (o *User) UnsetLastLogin()`
+
+UnsetLastLogin ensures that no value is present for LastLogin, not even an explicit nil
 ### GetIsActive
 
 `func (o *User) GetIsActive() bool`

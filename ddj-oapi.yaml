@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Defect Dojo API v2
-  version: 2.33.5
+  version: 2.38.4
   description: Defect Dojo - Open Source vulnerability Management made easy. Prefetch
     related parameters/responses not yet in the schema.
 paths:
@@ -562,6 +562,17 @@ paths:
         description: The initial index from which to return the results.
         schema:
           type: integer
+      - in: query
+        name: prefetch
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - environment
+            - notes
+        description: List of fields for which to prefetch model instances and add
+          those to the response
       tags:
       - credentials
       security:
@@ -612,6 +623,17 @@ paths:
           type: integer
         description: A unique integer value identifying this cred_ user.
         required: true
+      - in: query
+        name: prefetch
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - environment
+            - notes
+        description: List of fields for which to prefetch model instances and add
+          those to the response
       tags:
       - credentials
       security:
@@ -1992,6 +2014,18 @@ paths:
         schema:
           type: integer
       - in: query
+        name: prefetch
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - network_locations
+            - product
+            - test_type
+        description: List of fields for which to prefetch model instances and add
+          those to the response
+      - in: query
         name: product
         schema:
           type: integer
@@ -2049,6 +2083,18 @@ paths:
           type: integer
         description: A unique integer value identifying this engagement_ presets.
         required: true
+      - in: query
+        name: prefetch
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - network_locations
+            - product
+            - test_type
+        description: List of fields for which to prefetch model instances and add
+          those to the response
       tags:
       - engagement_presets
       security:
@@ -3150,16 +3196,6 @@ paths:
         schema:
           type: boolean
       - in: query
-        name: after
-        schema:
-          type: string
-          format: date
-      - in: query
-        name: before
-        schema:
-          type: string
-          format: date
-      - in: query
         name: component_name
         schema:
           type: string
@@ -3249,6 +3285,21 @@ paths:
         name: description
         schema:
           type: string
+      - in: query
+        name: discovered_after
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: discovered_before
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: discovered_on
+        schema:
+          type: string
+          format: date
       - in: query
         name: duplicate
         schema:
@@ -3478,6 +3529,16 @@ paths:
           * `6` - Current year
           * `7` - Past year
       - in: query
+        name: mitigated_after
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: mitigated_before
+        schema:
+          type: string
+          format: date
+      - in: query
         name: mitigated_by
         schema:
           type: array
@@ -3486,6 +3547,11 @@ paths:
         description: Multiple values may be separated by commas.
         explode: false
         style: form
+      - in: query
+        name: mitigated_on
+        schema:
+          type: string
+          format: date
       - in: query
         name: mitigation
         schema:
@@ -3658,11 +3724,6 @@ paths:
         description: The initial index from which to return the results.
         schema:
           type: integer
-      - in: query
-        name: 'on'
-        schema:
-          type: string
-          format: date
       - in: query
         name: out_of_scope
         schema:
@@ -4775,16 +4836,6 @@ paths:
         schema:
           type: boolean
       - in: query
-        name: after
-        schema:
-          type: string
-          format: date
-      - in: query
-        name: before
-        schema:
-          type: string
-          format: date
-      - in: query
         name: component_name
         schema:
           type: string
@@ -4874,6 +4925,21 @@ paths:
         name: description
         schema:
           type: string
+      - in: query
+        name: discovered_after
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: discovered_before
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: discovered_on
+        schema:
+          type: string
+          format: date
       - in: query
         name: duplicate
         schema:
@@ -5103,6 +5169,16 @@ paths:
           * `6` - Current year
           * `7` - Past year
       - in: query
+        name: mitigated_after
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: mitigated_before
+        schema:
+          type: string
+          format: date
+      - in: query
         name: mitigated_by
         schema:
           type: array
@@ -5111,6 +5187,11 @@ paths:
         description: Multiple values may be separated by commas.
         explode: false
         style: form
+      - in: query
+        name: mitigated_on
+        schema:
+          type: string
+          format: date
       - in: query
         name: mitigation
         schema:
@@ -5283,11 +5364,6 @@ paths:
         description: The initial index from which to return the results.
         schema:
           type: integer
-      - in: query
-        name: 'on'
-        schema:
-          type: string
-          format: date
       - in: query
         name: out_of_scope
         schema:
@@ -5633,6 +5709,18 @@ paths:
         schema:
           type: integer
       - in: query
+        name: prefetch
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - group
+            - role
+            - user
+        description: List of fields for which to prefetch model instances and add
+          those to the response
+      - in: query
         name: role
         schema:
           type: integer
@@ -5689,6 +5777,18 @@ paths:
           type: integer
         description: A unique integer value identifying this global_ role.
         required: true
+      - in: query
+        name: prefetch
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - group
+            - role
+            - user
+        description: List of fields for which to prefetch model instances and add
+          those to the response
       tags:
       - global_roles
       security:
@@ -6563,6 +6663,18 @@ paths:
         schema:
           type: integer
       - in: query
+        name: prefetch
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - engagement
+            - jira_instance
+            - product
+        description: List of fields for which to prefetch model instances and add
+          those to the response
+      - in: query
         name: product
         schema:
           type: integer
@@ -6627,6 +6739,18 @@ paths:
           type: integer
         description: A unique integer value identifying this jir a_ project.
         required: true
+      - in: query
+        name: prefetch
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - engagement
+            - jira_instance
+            - product
+        description: List of fields for which to prefetch model instances and add
+          those to the response
       tags:
       - jira_product_configurations
       security:
@@ -6796,6 +6920,18 @@ paths:
         schema:
           type: integer
       - in: query
+        name: prefetch
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - engagement
+            - jira_instance
+            - product
+        description: List of fields for which to prefetch model instances and add
+          those to the response
+      - in: query
         name: product
         schema:
           type: integer
@@ -6860,6 +6996,18 @@ paths:
           type: integer
         description: A unique integer value identifying this jir a_ project.
         required: true
+      - in: query
+        name: prefetch
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - engagement
+            - jira_instance
+            - product
+        description: List of fields for which to prefetch model instances and add
+          those to the response
       tags:
       - jira_projects
       security:
@@ -7471,18 +7619,6 @@ paths:
         schema:
           type: integer
       - in: query
-        name: prefetch
-        schema:
-          type: array
-          items:
-            type: string
-            enum:
-            - endpoint
-            - finding
-            - product
-        description: List of fields for which to prefetch model instances and add
-          those to the response
-      - in: query
         name: product
         schema:
           type: integer
@@ -7540,18 +7676,6 @@ paths:
           type: integer
         description: A unique integer value identifying this dojo meta.
         required: true
-      - in: query
-        name: prefetch
-        schema:
-          type: array
-          items:
-            type: string
-            enum:
-            - endpoint
-            - finding
-            - product
-        description: List of fields for which to prefetch model instances and add
-          those to the response
       tags:
       - metadata
       security:
@@ -8535,6 +8659,7 @@ paths:
           - br
           - bs
           - ca
+          - ckb
           - cs
           - cy
           - da
@@ -8615,6 +8740,7 @@ paths:
           - tr
           - tt
           - udm
+          - ug
           - uk
           - ur
           - uz
@@ -8668,6 +8794,17 @@ paths:
         description: The initial index from which to return the results.
         schema:
           type: integer
+      - in: query
+        name: prefetch
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - product
+            - tool_configuration
+        description: List of fields for which to prefetch model instances and add
+          those to the response
       - in: query
         name: product
         schema:
@@ -8738,6 +8875,17 @@ paths:
           type: integer
         description: A unique integer value identifying this product_ap i_ scan_ configuration.
         required: true
+      - in: query
+        name: prefetch
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - product
+            - tool_configuration
+        description: List of fields for which to prefetch model instances and add
+          those to the response
       tags:
       - product_api_scan_configurations
       security:
@@ -10561,6 +10709,19 @@ paths:
         description: The initial index from which to return the results.
         schema:
           type: integer
+      - in: query
+        name: prefetch
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - assignee
+            - engagement
+            - responder
+            - survey
+        description: List of fields for which to prefetch model instances and add
+          those to the response
       tags:
       - questionnaire_answered_questionnaires
       security:
@@ -10584,6 +10745,19 @@ paths:
           type: integer
         description: A unique integer value identifying this Answered Engagement Survey.
         required: true
+      - in: query
+        name: prefetch
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - assignee
+            - engagement
+            - responder
+            - survey
+        description: List of fields for which to prefetch model instances and add
+          those to the response
       tags:
       - questionnaire_answered_questionnaires
       security:
@@ -12315,7 +12489,7 @@ paths:
   /api/v2/system_settings/:
     get:
       operationId: system_settings_list
-      description: Basic control over System Settings. Use 'id' 1 for PUT, PATCH operations
+      description: Basic control over System Settings. Use 'id' 1 for PUT, PATCH operations
       parameters:
       - name: limit
         required: false
@@ -12345,7 +12519,7 @@ paths:
   /api/v2/system_settings/{id}/:
     put:
       operationId: system_settings_update
-      description: Basic control over System Settings. Use 'id' 1 for PUT, PATCH operations
+      description: Basic control over System Settings. Use 'id' 1 for PUT, PATCH operations
       parameters:
       - in: path
         name: id
@@ -12379,7 +12553,7 @@ paths:
           description: ''
     patch:
       operationId: system_settings_partial_update
-      description: Basic control over System Settings. Use 'id' 1 for PUT, PATCH operations
+      description: Basic control over System Settings. Use 'id' 1 for PUT, PATCH operations
       parameters:
       - in: path
         name: id
@@ -12445,6 +12619,17 @@ paths:
         description: The initial index from which to return the results.
         schema:
           type: integer
+      - in: query
+        name: prefetch
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - product
+            - user
+        description: List of fields for which to prefetch model instances and add
+          those to the response
       - in: query
         name: product
         schema:
@@ -12521,6 +12706,17 @@ paths:
           type: integer
         description: A unique integer value identifying this app_ analysis.
         required: true
+      - in: query
+        name: prefetch
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - product
+            - user
+        description: List of fields for which to prefetch model instances and add
+          those to the response
       tags:
       - technologies
       security:
@@ -12691,17 +12887,6 @@ paths:
         schema:
           type: integer
       - in: query
-        name: prefetch
-        schema:
-          type: array
-          items:
-            type: string
-            enum:
-            - findings_affected
-            - test
-        description: List of fields for which to prefetch model instances and add
-          those to the response
-      - in: query
         name: test
         schema:
           type: integer
@@ -12783,17 +12968,6 @@ paths:
           type: integer
         description: A unique integer value identifying this test_ import.
         required: true
-      - in: query
-        name: prefetch
-        schema:
-          type: array
-          items:
-            type: string
-            enum:
-            - findings_affected
-            - test
-        description: List of fields for which to prefetch model instances and add
-          those to the response
       tags:
       - test_imports
       security:
@@ -13728,6 +13902,16 @@ paths:
         schema:
           type: integer
       - in: query
+        name: prefetch
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - tool_type
+        description: List of fields for which to prefetch model instances and add
+          those to the response
+      - in: query
         name: tool_type
         schema:
           type: integer
@@ -13785,6 +13969,16 @@ paths:
           type: integer
         description: A unique integer value identifying this tool_ configuration.
         required: true
+      - in: query
+        name: prefetch
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - tool_type
+        description: List of fields for which to prefetch model instances and add
+          those to the response
       tags:
       - tool_configurations
       security:
@@ -13943,6 +14137,18 @@ paths:
         schema:
           type: integer
       - in: query
+        name: prefetch
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - notes
+            - product
+            - tool_configuration
+        description: List of fields for which to prefetch model instances and add
+          those to the response
+      - in: query
         name: product
         schema:
           type: integer
@@ -14008,6 +14214,18 @@ paths:
           type: integer
         description: A unique integer value identifying this tool_ product_ settings.
         required: true
+      - in: query
+        name: prefetch
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - notes
+            - product
+            - tool_configuration
+        description: List of fields for which to prefetch model instances and add
+          those to the response
       tags:
       - tool_product_settings
       security:
@@ -15014,6 +15232,19 @@ components:
           type: integer
         user:
           type: integer
+        prefetch:
+          type: object
+          properties:
+            product:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/Product'
+            user:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/UserStub'
       required:
       - created
       - id
@@ -15188,6 +15419,19 @@ components:
           items:
             type: integer
           readOnly: true
+        prefetch:
+          type: object
+          properties:
+            environment:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/FindingEnvironment'
+            notes:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/Note'
       required:
       - environment
       - id
@@ -15951,8 +16195,6 @@ components:
           items:
             type: integer
           readOnly: true
-        prefetch:
-          type: object
       required:
       - active
       - created
@@ -16136,6 +16378,24 @@ components:
           type: array
           items:
             type: integer
+        prefetch:
+          type: object
+          properties:
+            network_locations:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/NetworkLocations'
+            product:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/Product'
+            test_type:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/TestType'
       required:
       - created
       - id
@@ -16449,14 +16709,17 @@ components:
           allOf:
           - $ref: '#/components/schemas/FindingRelatedFields'
           readOnly: true
+          nullable: true
         jira_creation:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         jira_change:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         display_status:
           type: string
           readOnly: true
@@ -16874,7 +17137,7 @@ components:
               type: object
               readOnly: true
               additionalProperties:
-                $ref: '#/components/schemas/RawFile'
+                $ref: '#/components/schemas/File'
             finding_group_set:
               type: object
               readOnly: true
@@ -18361,6 +18624,24 @@ components:
           nullable: true
           title: Global role
           description: The global role will be applied to all product types and products.
+        prefetch:
+          type: object
+          properties:
+            group:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/DojoGroup'
+            role:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/Role'
+            user:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/UserStub'
       required:
       - id
     GlobalRoleRequest:
@@ -18438,17 +18719,18 @@ components:
           - Anchore Grype
           - AnchoreCTL Policies Report
           - AnchoreCTL Vuln Report
+          - AppCheck Web Application Scanner
           - AppSpider Scan
           - Aqua Scan
           - Arachni Scan
           - AuditJS Scan
           - AWS Prowler Scan
           - AWS Prowler V3
-          - AWS Scout2 Scan
           - AWS Security Finding Format (ASFF) Scan
           - AWS Security Hub Scan
           - Azure Security Center Recommendations Scan
           - Bandit Scan
+          - Bearer CLI
           - BlackDuck API
           - Blackduck Binary Analysis
           - Blackduck Component Risk
@@ -18476,12 +18758,14 @@ components:
           - Codechecker Report native
           - Contrast Scan
           - Coverity API
+          - Coverity Scan JSON Report
           - Crashtest Security JSON File
           - Crashtest Security XML File
           - CredScan Scan
           - Crunch42 Scan
           - CycloneDX Scan
           - DawnScanner Scan
+          - Deepfence Threatmapper Report
           - Dependency Check Scan
           - Dependency Track Finding Packaging Format (FPF) Export
           - Detect-secrets Scan
@@ -18516,16 +18800,20 @@ components:
           - IBM AppScan DAST
           - Immuniweb Scan
           - IntSights Report
+          - Invicti Scan
           - JFrog Xray API Summary Artifact Scan
           - JFrog Xray On Demand Binary Scan
           - JFrog Xray Scan
           - JFrog Xray Unified Scan
           - KICS Scan
+          - Kiuwan SCA Scan
           - Kiuwan Scan
+          - KrakenD Audit Scan
           - kube-bench Scan
           - Kubeaudit Scan
           - KubeHunter Scan
           - Kubescape JSON Importer
+          - Legitify Scan
           - Mend Scan
           - Meterian Scan
           - Microfocus Webinspect Scan
@@ -18556,10 +18844,13 @@ components:
           - pip-audit Scan
           - PMD Scan
           - Popeye Scan
+          - Progpilot Scan
           - PWN SAST
+          - Qualys Hacker Guardian Scan
           - Qualys Infrastructure Scan (WebGUI XML)
           - Qualys Scan
           - Qualys Webapp Scan
+          - Rapplex Scan
           - Red Hat Satellite
           - Retire.js Scan
           - Risk Recon API Importer
@@ -18591,6 +18882,7 @@ components:
           - Testssl Scan
           - TFSec Scan
           - Threagile risks report
+          - ThreatComposer Scan
           - Trivy Operator Scan
           - Trivy Scan
           - Trufflehog Scan
@@ -18608,6 +18900,9 @@ components:
           - Whispers Scan
           - WhiteHat Sentinel
           - Wiz Scan
+          - Wizcli Dir Scan
+          - Wizcli IaC Scan
+          - Wizcli Img Scan
           - Wpscan
           - Xanitizer Scan
           - Yarn Audit Scan
@@ -18620,17 +18915,18 @@ components:
             * `Anchore Grype` - Anchore Grype
             * `AnchoreCTL Policies Report` - AnchoreCTL Policies Report
             * `AnchoreCTL Vuln Report` - AnchoreCTL Vuln Report
+            * `AppCheck Web Application Scanner` - AppCheck Web Application Scanner
             * `AppSpider Scan` - AppSpider Scan
             * `Aqua Scan` - Aqua Scan
             * `Arachni Scan` - Arachni Scan
             * `AuditJS Scan` - AuditJS Scan
             * `AWS Prowler Scan` - AWS Prowler Scan
             * `AWS Prowler V3` - AWS Prowler V3
-            * `AWS Scout2 Scan` - AWS Scout2 Scan
             * `AWS Security Finding Format (ASFF) Scan` - AWS Security Finding Format (ASFF) Scan
             * `AWS Security Hub Scan` - AWS Security Hub Scan
             * `Azure Security Center Recommendations Scan` - Azure Security Center Recommendations Scan
             * `Bandit Scan` - Bandit Scan
+            * `Bearer CLI` - Bearer CLI
             * `BlackDuck API` - BlackDuck API
             * `Blackduck Binary Analysis` - Blackduck Binary Analysis
             * `Blackduck Component Risk` - Blackduck Component Risk
@@ -18658,12 +18954,14 @@ components:
             * `Codechecker Report native` - Codechecker Report native
             * `Contrast Scan` - Contrast Scan
             * `Coverity API` - Coverity API
+            * `Coverity Scan JSON Report` - Coverity Scan JSON Report
             * `Crashtest Security JSON File` - Crashtest Security JSON File
             * `Crashtest Security XML File` - Crashtest Security XML File
             * `CredScan Scan` - CredScan Scan
             * `Crunch42 Scan` - Crunch42 Scan
             * `CycloneDX Scan` - CycloneDX Scan
             * `DawnScanner Scan` - DawnScanner Scan
+            * `Deepfence Threatmapper Report` - Deepfence Threatmapper Report
             * `Dependency Check Scan` - Dependency Check Scan
             * `Dependency Track Finding Packaging Format (FPF) Export` - Dependency Track Finding Packaging Format (FPF) Export
             * `Detect-secrets Scan` - Detect-secrets Scan
@@ -18698,16 +18996,20 @@ components:
             * `IBM AppScan DAST` - IBM AppScan DAST
             * `Immuniweb Scan` - Immuniweb Scan
             * `IntSights Report` - IntSights Report
+            * `Invicti Scan` - Invicti Scan
             * `JFrog Xray API Summary Artifact Scan` - JFrog Xray API Summary Artifact Scan
             * `JFrog Xray On Demand Binary Scan` - JFrog Xray On Demand Binary Scan
             * `JFrog Xray Scan` - JFrog Xray Scan
             * `JFrog Xray Unified Scan` - JFrog Xray Unified Scan
             * `KICS Scan` - KICS Scan
+            * `Kiuwan SCA Scan` - Kiuwan SCA Scan
             * `Kiuwan Scan` - Kiuwan Scan
+            * `KrakenD Audit Scan` - KrakenD Audit Scan
             * `kube-bench Scan` - kube-bench Scan
             * `Kubeaudit Scan` - Kubeaudit Scan
             * `KubeHunter Scan` - KubeHunter Scan
             * `Kubescape JSON Importer` - Kubescape JSON Importer
+            * `Legitify Scan` - Legitify Scan
             * `Mend Scan` - Mend Scan
             * `Meterian Scan` - Meterian Scan
             * `Microfocus Webinspect Scan` - Microfocus Webinspect Scan
@@ -18738,10 +19040,13 @@ components:
             * `pip-audit Scan` - pip-audit Scan
             * `PMD Scan` - PMD Scan
             * `Popeye Scan` - Popeye Scan
+            * `Progpilot Scan` - Progpilot Scan
             * `PWN SAST` - PWN SAST
+            * `Qualys Hacker Guardian Scan` - Qualys Hacker Guardian Scan
             * `Qualys Infrastructure Scan (WebGUI XML)` - Qualys Infrastructure Scan (WebGUI XML)
             * `Qualys Scan` - Qualys Scan
             * `Qualys Webapp Scan` - Qualys Webapp Scan
+            * `Rapplex Scan` - Rapplex Scan
             * `Red Hat Satellite` - Red Hat Satellite
             * `Retire.js Scan` - Retire.js Scan
             * `Risk Recon API Importer` - Risk Recon API Importer
@@ -18773,6 +19078,7 @@ components:
             * `Testssl Scan` - Testssl Scan
             * `TFSec Scan` - TFSec Scan
             * `Threagile risks report` - Threagile risks report
+            * `ThreatComposer Scan` - ThreatComposer Scan
             * `Trivy Operator Scan` - Trivy Operator Scan
             * `Trivy Scan` - Trivy Scan
             * `Trufflehog Scan` - Trufflehog Scan
@@ -18790,14 +19096,18 @@ components:
             * `Whispers Scan` - Whispers Scan
             * `WhiteHat Sentinel` - WhiteHat Sentinel
             * `Wiz Scan` - Wiz Scan
+            * `Wizcli Dir Scan` - Wizcli Dir Scan
+            * `Wizcli IaC Scan` - Wizcli IaC Scan
+            * `Wizcli Img Scan` - Wizcli Img Scan
             * `Wpscan` - Wpscan
             * `Xanitizer Scan` - Xanitizer Scan
             * `Yarn Audit Scan` - Yarn Audit Scan
             * `ZAP Scan` - ZAP Scan
-          x-spec-enum-id: ce3efb7e1b63f41e
+          x-spec-enum-id: 9ba6a456aa714729
         endpoint_to_add:
           type: integer
-          description: The IP address, host name or full URL. It must be valid
+          description: Enter the ID of an Endpoint that is associated with the target
+            Product. New Findings will be added to that Endpoint.
         file:
           type: string
           format: uri
@@ -18965,17 +19275,18 @@ components:
           - Anchore Grype
           - AnchoreCTL Policies Report
           - AnchoreCTL Vuln Report
+          - AppCheck Web Application Scanner
           - AppSpider Scan
           - Aqua Scan
           - Arachni Scan
           - AuditJS Scan
           - AWS Prowler Scan
           - AWS Prowler V3
-          - AWS Scout2 Scan
           - AWS Security Finding Format (ASFF) Scan
           - AWS Security Hub Scan
           - Azure Security Center Recommendations Scan
           - Bandit Scan
+          - Bearer CLI
           - BlackDuck API
           - Blackduck Binary Analysis
           - Blackduck Component Risk
@@ -19003,12 +19314,14 @@ components:
           - Codechecker Report native
           - Contrast Scan
           - Coverity API
+          - Coverity Scan JSON Report
           - Crashtest Security JSON File
           - Crashtest Security XML File
           - CredScan Scan
           - Crunch42 Scan
           - CycloneDX Scan
           - DawnScanner Scan
+          - Deepfence Threatmapper Report
           - Dependency Check Scan
           - Dependency Track Finding Packaging Format (FPF) Export
           - Detect-secrets Scan
@@ -19043,16 +19356,20 @@ components:
           - IBM AppScan DAST
           - Immuniweb Scan
           - IntSights Report
+          - Invicti Scan
           - JFrog Xray API Summary Artifact Scan
           - JFrog Xray On Demand Binary Scan
           - JFrog Xray Scan
           - JFrog Xray Unified Scan
           - KICS Scan
+          - Kiuwan SCA Scan
           - Kiuwan Scan
+          - KrakenD Audit Scan
           - kube-bench Scan
           - Kubeaudit Scan
           - KubeHunter Scan
           - Kubescape JSON Importer
+          - Legitify Scan
           - Mend Scan
           - Meterian Scan
           - Microfocus Webinspect Scan
@@ -19083,10 +19400,13 @@ components:
           - pip-audit Scan
           - PMD Scan
           - Popeye Scan
+          - Progpilot Scan
           - PWN SAST
+          - Qualys Hacker Guardian Scan
           - Qualys Infrastructure Scan (WebGUI XML)
           - Qualys Scan
           - Qualys Webapp Scan
+          - Rapplex Scan
           - Red Hat Satellite
           - Retire.js Scan
           - Risk Recon API Importer
@@ -19118,6 +19438,7 @@ components:
           - Testssl Scan
           - TFSec Scan
           - Threagile risks report
+          - ThreatComposer Scan
           - Trivy Operator Scan
           - Trivy Scan
           - Trufflehog Scan
@@ -19135,6 +19456,9 @@ components:
           - Whispers Scan
           - WhiteHat Sentinel
           - Wiz Scan
+          - Wizcli Dir Scan
+          - Wizcli IaC Scan
+          - Wizcli Img Scan
           - Wpscan
           - Xanitizer Scan
           - Yarn Audit Scan
@@ -19147,17 +19471,18 @@ components:
             * `Anchore Grype` - Anchore Grype
             * `AnchoreCTL Policies Report` - AnchoreCTL Policies Report
             * `AnchoreCTL Vuln Report` - AnchoreCTL Vuln Report
+            * `AppCheck Web Application Scanner` - AppCheck Web Application Scanner
             * `AppSpider Scan` - AppSpider Scan
             * `Aqua Scan` - Aqua Scan
             * `Arachni Scan` - Arachni Scan
             * `AuditJS Scan` - AuditJS Scan
             * `AWS Prowler Scan` - AWS Prowler Scan
             * `AWS Prowler V3` - AWS Prowler V3
-            * `AWS Scout2 Scan` - AWS Scout2 Scan
             * `AWS Security Finding Format (ASFF) Scan` - AWS Security Finding Format (ASFF) Scan
             * `AWS Security Hub Scan` - AWS Security Hub Scan
             * `Azure Security Center Recommendations Scan` - Azure Security Center Recommendations Scan
             * `Bandit Scan` - Bandit Scan
+            * `Bearer CLI` - Bearer CLI
             * `BlackDuck API` - BlackDuck API
             * `Blackduck Binary Analysis` - Blackduck Binary Analysis
             * `Blackduck Component Risk` - Blackduck Component Risk
@@ -19185,12 +19510,14 @@ components:
             * `Codechecker Report native` - Codechecker Report native
             * `Contrast Scan` - Contrast Scan
             * `Coverity API` - Coverity API
+            * `Coverity Scan JSON Report` - Coverity Scan JSON Report
             * `Crashtest Security JSON File` - Crashtest Security JSON File
             * `Crashtest Security XML File` - Crashtest Security XML File
             * `CredScan Scan` - CredScan Scan
             * `Crunch42 Scan` - Crunch42 Scan
             * `CycloneDX Scan` - CycloneDX Scan
             * `DawnScanner Scan` - DawnScanner Scan
+            * `Deepfence Threatmapper Report` - Deepfence Threatmapper Report
             * `Dependency Check Scan` - Dependency Check Scan
             * `Dependency Track Finding Packaging Format (FPF) Export` - Dependency Track Finding Packaging Format (FPF) Export
             * `Detect-secrets Scan` - Detect-secrets Scan
@@ -19225,16 +19552,20 @@ components:
             * `IBM AppScan DAST` - IBM AppScan DAST
             * `Immuniweb Scan` - Immuniweb Scan
             * `IntSights Report` - IntSights Report
+            * `Invicti Scan` - Invicti Scan
             * `JFrog Xray API Summary Artifact Scan` - JFrog Xray API Summary Artifact Scan
             * `JFrog Xray On Demand Binary Scan` - JFrog Xray On Demand Binary Scan
             * `JFrog Xray Scan` - JFrog Xray Scan
             * `JFrog Xray Unified Scan` - JFrog Xray Unified Scan
             * `KICS Scan` - KICS Scan
+            * `Kiuwan SCA Scan` - Kiuwan SCA Scan
             * `Kiuwan Scan` - Kiuwan Scan
+            * `KrakenD Audit Scan` - KrakenD Audit Scan
             * `kube-bench Scan` - kube-bench Scan
             * `Kubeaudit Scan` - Kubeaudit Scan
             * `KubeHunter Scan` - KubeHunter Scan
             * `Kubescape JSON Importer` - Kubescape JSON Importer
+            * `Legitify Scan` - Legitify Scan
             * `Mend Scan` - Mend Scan
             * `Meterian Scan` - Meterian Scan
             * `Microfocus Webinspect Scan` - Microfocus Webinspect Scan
@@ -19265,10 +19596,13 @@ components:
             * `pip-audit Scan` - pip-audit Scan
             * `PMD Scan` - PMD Scan
             * `Popeye Scan` - Popeye Scan
+            * `Progpilot Scan` - Progpilot Scan
             * `PWN SAST` - PWN SAST
+            * `Qualys Hacker Guardian Scan` - Qualys Hacker Guardian Scan
             * `Qualys Infrastructure Scan (WebGUI XML)` - Qualys Infrastructure Scan (WebGUI XML)
             * `Qualys Scan` - Qualys Scan
             * `Qualys Webapp Scan` - Qualys Webapp Scan
+            * `Rapplex Scan` - Rapplex Scan
             * `Red Hat Satellite` - Red Hat Satellite
             * `Retire.js Scan` - Retire.js Scan
             * `Risk Recon API Importer` - Risk Recon API Importer
@@ -19300,6 +19634,7 @@ components:
             * `Testssl Scan` - Testssl Scan
             * `TFSec Scan` - TFSec Scan
             * `Threagile risks report` - Threagile risks report
+            * `ThreatComposer Scan` - ThreatComposer Scan
             * `Trivy Operator Scan` - Trivy Operator Scan
             * `Trivy Scan` - Trivy Scan
             * `Trufflehog Scan` - Trufflehog Scan
@@ -19317,14 +19652,18 @@ components:
             * `Whispers Scan` - Whispers Scan
             * `WhiteHat Sentinel` - WhiteHat Sentinel
             * `Wiz Scan` - Wiz Scan
+            * `Wizcli Dir Scan` - Wizcli Dir Scan
+            * `Wizcli IaC Scan` - Wizcli IaC Scan
+            * `Wizcli Img Scan` - Wizcli Img Scan
             * `Wpscan` - Wpscan
             * `Xanitizer Scan` - Xanitizer Scan
             * `Yarn Audit Scan` - Yarn Audit Scan
             * `ZAP Scan` - ZAP Scan
-          x-spec-enum-id: ce3efb7e1b63f41e
+          x-spec-enum-id: 9ba6a456aa714729
         endpoint_to_add:
           type: integer
-          description: The IP address, host name or full URL. It must be valid
+          description: Enter the ID of an Endpoint that is associated with the target
+            Product. New Findings will be added to that Endpoint.
         file:
           type: string
           format: binary
@@ -19886,6 +20225,24 @@ components:
         engagement:
           type: integer
           nullable: true
+        prefetch:
+          type: object
+          properties:
+            engagement:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/FindingEngagement'
+            jira_instance:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/JIRAInstance'
+            product:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/Product'
       required:
       - id
     JIRAProjectRequest:
@@ -20102,24 +20459,6 @@ components:
         value:
           type: string
           maxLength: 300
-        prefetch:
-          type: object
-          properties:
-            endpoint:
-              type: object
-              readOnly: true
-              additionalProperties:
-                $ref: '#/components/schemas/Endpoint'
-            finding:
-              type: object
-              readOnly: true
-              additionalProperties:
-                $ref: '#/components/schemas/Finding'
-            product:
-              type: object
-              readOnly: true
-              additionalProperties:
-                $ref: '#/components/schemas/Product'
       required:
       - id
       - name
@@ -20961,6 +21300,9 @@ components:
             * `alert` - alert
     PaginatedAnnouncementList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -20981,6 +21323,9 @@ components:
             $ref: '#/components/schemas/Announcement'
     PaginatedAppAnalysisList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -20999,8 +21344,24 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AppAnalysis'
+        prefetch:
+          type: object
+          properties:
+            product:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/Product'
+            user:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/UserStub'
     PaginatedConfigurationPermissionList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -21021,6 +21382,9 @@ components:
             $ref: '#/components/schemas/ConfigurationPermission'
     PaginatedCredentialList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -21039,8 +21403,24 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Credential'
+        prefetch:
+          type: object
+          properties:
+            environment:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/FindingEnvironment'
+            notes:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/Note'
     PaginatedCredentialMappingList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -21061,6 +21441,9 @@ components:
             $ref: '#/components/schemas/CredentialMapping'
     PaginatedDeletePreviewList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -21081,6 +21464,9 @@ components:
             $ref: '#/components/schemas/DeletePreview'
     PaginatedDevelopmentEnvironmentList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -21101,6 +21487,9 @@ components:
             $ref: '#/components/schemas/DevelopmentEnvironment'
     PaginatedDojoGroupList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -21139,6 +21528,9 @@ components:
                 $ref: '#/components/schemas/UserStub'
     PaginatedDojoGroupMemberList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -21177,6 +21569,9 @@ components:
                 $ref: '#/components/schemas/UserStub'
     PaginatedEndpointList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -21197,6 +21592,9 @@ components:
             $ref: '#/components/schemas/Endpoint'
     PaginatedEndpointStatusList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -21217,6 +21615,9 @@ components:
             $ref: '#/components/schemas/EndpointStatus'
     PaginatedEngagementList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -21237,6 +21638,9 @@ components:
             $ref: '#/components/schemas/Engagement'
     PaginatedEngagementPresetsList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -21255,8 +21659,29 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/EngagementPresets'
+        prefetch:
+          type: object
+          properties:
+            network_locations:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/NetworkLocations'
+            product:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/Product'
+            test_type:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/TestType'
     PaginatedFindingList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -21327,7 +21752,7 @@ components:
               type: object
               readOnly: true
               additionalProperties:
-                $ref: '#/components/schemas/RawFile'
+                $ref: '#/components/schemas/File'
             finding_group_set:
               type: object
               readOnly: true
@@ -21405,6 +21830,9 @@ components:
                 $ref: '#/components/schemas/TestImport'
     PaginatedFindingTemplateList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -21425,6 +21853,9 @@ components:
             $ref: '#/components/schemas/FindingTemplate'
     PaginatedGlobalRoleList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -21443,8 +21874,29 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/GlobalRole'
+        prefetch:
+          type: object
+          properties:
+            group:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/DojoGroup'
+            role:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/Role'
+            user:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/UserStub'
     PaginatedJIRAInstanceList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -21465,6 +21917,9 @@ components:
             $ref: '#/components/schemas/JIRAInstance'
     PaginatedJIRAIssueList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -21485,6 +21940,9 @@ components:
             $ref: '#/components/schemas/JIRAIssue'
     PaginatedJIRAProjectList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -21503,8 +21961,29 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/JIRAProject'
+        prefetch:
+          type: object
+          properties:
+            engagement:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/FindingEngagement'
+            jira_instance:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/JIRAInstance'
+            product:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/Product'
     PaginatedLanguageList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -21543,6 +22022,9 @@ components:
                 $ref: '#/components/schemas/UserStub'
     PaginatedLanguageTypeList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -21563,6 +22045,9 @@ components:
             $ref: '#/components/schemas/LanguageType'
     PaginatedMetaList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -21581,26 +22066,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Meta'
-        prefetch:
-          type: object
-          properties:
-            endpoint:
-              type: object
-              readOnly: true
-              additionalProperties:
-                $ref: '#/components/schemas/Endpoint'
-            finding:
-              type: object
-              readOnly: true
-              additionalProperties:
-                $ref: '#/components/schemas/Finding'
-            product:
-              type: object
-              readOnly: true
-              additionalProperties:
-                $ref: '#/components/schemas/Product'
     PaginatedNetworkLocationsList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -21621,6 +22091,9 @@ components:
             $ref: '#/components/schemas/NetworkLocations'
     PaginatedNoteList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -21641,6 +22114,9 @@ components:
             $ref: '#/components/schemas/Note'
     PaginatedNoteTypeList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -21661,6 +22137,9 @@ components:
             $ref: '#/components/schemas/NoteType'
     PaginatedNotificationsList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -21694,6 +22173,9 @@ components:
                 $ref: '#/components/schemas/UserStub'
     PaginatedProductAPIScanConfigurationList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -21712,8 +22194,24 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ProductAPIScanConfiguration'
+        prefetch:
+          type: object
+          properties:
+            product:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/Product'
+            tool_configuration:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/ToolConfiguration'
     PaginatedProductGroupList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -21752,6 +22250,9 @@ components:
                 $ref: '#/components/schemas/Role'
     PaginatedProductList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -21815,6 +22316,9 @@ components:
                 $ref: '#/components/schemas/UserStub'
     PaginatedProductMemberList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -21853,6 +22357,9 @@ components:
                 $ref: '#/components/schemas/UserStub'
     PaginatedProductTypeGroupList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -21891,6 +22398,9 @@ components:
                 $ref: '#/components/schemas/Role'
     PaginatedProductTypeList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -21924,6 +22434,9 @@ components:
                 $ref: '#/components/schemas/UserStub'
     PaginatedProductTypeMemberList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -21962,6 +22475,9 @@ components:
                 $ref: '#/components/schemas/UserStub'
     PaginatedQuestionnaireAnswerList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -21982,6 +22498,9 @@ components:
             $ref: '#/components/schemas/QuestionnaireAnswer'
     PaginatedQuestionnaireAnsweredSurveyList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -22000,8 +22519,34 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/QuestionnaireAnsweredSurvey'
+        prefetch:
+          type: object
+          properties:
+            assignee:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/UserStub'
+            engagement:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/FindingEngagement'
+            responder:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/UserStub'
+            survey:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/QuestionnaireEngagementSurvey'
     PaginatedQuestionnaireEngagementSurveyList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -22022,6 +22567,9 @@ components:
             $ref: '#/components/schemas/QuestionnaireEngagementSurvey'
     PaginatedQuestionnaireGeneralSurveyList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -22042,6 +22590,9 @@ components:
             $ref: '#/components/schemas/QuestionnaireGeneralSurvey'
     PaginatedQuestionnaireQuestionList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -22062,6 +22613,9 @@ components:
             $ref: '#/components/schemas/QuestionnaireQuestion'
     PaginatedRegulationList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -22082,6 +22636,9 @@ components:
             $ref: '#/components/schemas/Regulation'
     PaginatedRiskAcceptanceList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -22102,6 +22659,9 @@ components:
             $ref: '#/components/schemas/RiskAcceptance'
     PaginatedRoleList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -22122,6 +22682,9 @@ components:
             $ref: '#/components/schemas/Role'
     PaginatedSLAConfigurationList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -22142,6 +22705,9 @@ components:
             $ref: '#/components/schemas/SLAConfiguration'
     PaginatedSonarqubeIssueList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -22162,6 +22728,9 @@ components:
             $ref: '#/components/schemas/SonarqubeIssue'
     PaginatedSonarqubeIssueTransitionList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -22182,6 +22751,9 @@ components:
             $ref: '#/components/schemas/SonarqubeIssueTransition'
     PaginatedStubFindingList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -22202,6 +22774,9 @@ components:
             $ref: '#/components/schemas/StubFinding'
     PaginatedSystemSettingsList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -22222,6 +22797,9 @@ components:
             $ref: '#/components/schemas/SystemSettings'
     PaginatedTestImportList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -22240,21 +22818,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TestImport'
-        prefetch:
-          type: object
-          properties:
-            findings_affected:
-              type: object
-              readOnly: true
-              additionalProperties:
-                $ref: '#/components/schemas/Finding'
-            test:
-              type: object
-              readOnly: true
-              additionalProperties:
-                $ref: '#/components/schemas/Test'
     PaginatedTestList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -22275,6 +22843,9 @@ components:
             $ref: '#/components/schemas/Test'
     PaginatedTestTypeList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -22295,6 +22866,9 @@ components:
             $ref: '#/components/schemas/TestType'
     PaginatedToolConfigurationList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -22313,8 +22887,19 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ToolConfiguration'
+        prefetch:
+          type: object
+          properties:
+            tool_type:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/ToolType'
     PaginatedToolProductSettingsList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -22333,8 +22918,29 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ToolProductSettings'
+        prefetch:
+          type: object
+          properties:
+            notes:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/Note'
+            product:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/Product'
+            tool_configuration:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/ToolConfiguration'
     PaginatedToolTypeList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -22355,6 +22961,9 @@ components:
             $ref: '#/components/schemas/ToolType'
     PaginatedUserContactInfoList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -22383,6 +22992,9 @@ components:
                 $ref: '#/components/schemas/UserStub'
     PaginatedUserList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -24116,25 +24728,45 @@ components:
           maximum: 2147483647
           minimum: -2147483648
           title: Critical Finding SLA Days
-          description: number of days to remediate a critical finding.
+          description: The number of days to remediate a critical finding.
+        enforce_critical:
+          type: boolean
+          title: Enforce Critical Finding SLA Days
+          description: When enabled, critical findings will be assigned an SLA expiration
+            date based on the critical finding SLA days within this SLA configuration.
         high:
           type: integer
           maximum: 2147483647
           minimum: -2147483648
           title: High Finding SLA Days
-          description: number of days to remediate a high finding.
+          description: The number of days to remediate a high finding.
+        enforce_high:
+          type: boolean
+          title: Enforce High Finding SLA Days
+          description: When enabled, high findings will be assigned an SLA expiration
+            date based on the high finding SLA days within this SLA configuration.
         medium:
           type: integer
           maximum: 2147483647
           minimum: -2147483648
           title: Medium Finding SLA Days
-          description: number of days to remediate a medium finding.
+          description: The number of days to remediate a medium finding.
+        enforce_medium:
+          type: boolean
+          title: Enforce Medium Finding SLA Days
+          description: When enabled, medium findings will be assigned an SLA expiration
+            date based on the medium finding SLA days within this SLA configuration.
         low:
           type: integer
           maximum: 2147483647
           minimum: -2147483648
           title: Low Finding SLA Days
-          description: number of days to remediate a low finding.
+          description: The number of days to remediate a low finding.
+        enforce_low:
+          type: boolean
+          title: Enforce Low Finding SLA Days
+          description: When enabled, low findings will be assigned an SLA expiration
+            date based on the low finding SLA days within this SLA configuration.
     PatchedSonarqubeIssueRequest:
       type: object
       properties:
@@ -25559,6 +26191,11 @@ components:
             The text will be replaced for mitigation, impact and references on a finding.
             Useful for providing consistent impact and remediation advice regardless
             of the scanner.
+        enable_similar_findings:
+          type: boolean
+          description: Enable the query of similar findings on the view finding page.
+            This feature can involve potentially large queries and negatively impact
+            performance
         engagement_auto_close:
           type: boolean
           title: Enable Engagement Auto-Close
@@ -25649,6 +26286,12 @@ components:
         enable_finding_groups:
           type: boolean
           description: With this setting turned off, the Finding Groups will be disabled.
+        enable_ui_table_based_searching:
+          type: boolean
+          title: Enable UI Table Based Filtering/Sorting
+          description: With this setting enabled, table headings will contain sort
+            buttons for the current page of data in addition to sorting buttons that
+            consider data from all pages.
         enable_calendar:
           type: boolean
           description: With this setting turned off, the Calendar will be disabled
@@ -25694,6 +26337,12 @@ components:
         api_expose_error_details:
           type: boolean
           description: When turned on, the API will expose error details in the response.
+        filter_string_matching:
+          type: boolean
+          title: Filter String Matching Optimization
+          description: When turned on, all filter operations in the UI will require
+            string matches rather than ID. This is a performance enhancement to avoid
+            fetching objects unnecessarily.
         default_group:
           type: integer
           nullable: true
@@ -25981,8 +26630,7 @@ components:
         email:
           type: string
           format: email
-          title: Email address
-          maxLength: 254
+          minLength: 1
         is_active:
           type: boolean
           title: Active
@@ -26249,6 +26897,19 @@ components:
           type: integer
         tool_configuration:
           type: integer
+        prefetch:
+          type: object
+          properties:
+            product:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/Product'
+            tool_configuration:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/ToolConfiguration'
       required:
       - id
       - product
@@ -26761,6 +27422,29 @@ components:
         responder:
           type: integer
           nullable: true
+        prefetch:
+          type: object
+          properties:
+            assignee:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/UserStub'
+            engagement:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/FindingEngagement'
+            responder:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/UserStub'
+            survey:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/QuestionnaireEngagementSurvey'
       required:
       - id
       - survey
@@ -26892,17 +27576,18 @@ components:
           - Anchore Grype
           - AnchoreCTL Policies Report
           - AnchoreCTL Vuln Report
+          - AppCheck Web Application Scanner
           - AppSpider Scan
           - Aqua Scan
           - Arachni Scan
           - AuditJS Scan
           - AWS Prowler Scan
           - AWS Prowler V3
-          - AWS Scout2 Scan
           - AWS Security Finding Format (ASFF) Scan
           - AWS Security Hub Scan
           - Azure Security Center Recommendations Scan
           - Bandit Scan
+          - Bearer CLI
           - BlackDuck API
           - Blackduck Binary Analysis
           - Blackduck Component Risk
@@ -26930,12 +27615,14 @@ components:
           - Codechecker Report native
           - Contrast Scan
           - Coverity API
+          - Coverity Scan JSON Report
           - Crashtest Security JSON File
           - Crashtest Security XML File
           - CredScan Scan
           - Crunch42 Scan
           - CycloneDX Scan
           - DawnScanner Scan
+          - Deepfence Threatmapper Report
           - Dependency Check Scan
           - Dependency Track Finding Packaging Format (FPF) Export
           - Detect-secrets Scan
@@ -26970,16 +27657,20 @@ components:
           - IBM AppScan DAST
           - Immuniweb Scan
           - IntSights Report
+          - Invicti Scan
           - JFrog Xray API Summary Artifact Scan
           - JFrog Xray On Demand Binary Scan
           - JFrog Xray Scan
           - JFrog Xray Unified Scan
           - KICS Scan
+          - Kiuwan SCA Scan
           - Kiuwan Scan
+          - KrakenD Audit Scan
           - kube-bench Scan
           - Kubeaudit Scan
           - KubeHunter Scan
           - Kubescape JSON Importer
+          - Legitify Scan
           - Mend Scan
           - Meterian Scan
           - Microfocus Webinspect Scan
@@ -27010,10 +27701,13 @@ components:
           - pip-audit Scan
           - PMD Scan
           - Popeye Scan
+          - Progpilot Scan
           - PWN SAST
+          - Qualys Hacker Guardian Scan
           - Qualys Infrastructure Scan (WebGUI XML)
           - Qualys Scan
           - Qualys Webapp Scan
+          - Rapplex Scan
           - Red Hat Satellite
           - Retire.js Scan
           - Risk Recon API Importer
@@ -27045,6 +27739,7 @@ components:
           - Testssl Scan
           - TFSec Scan
           - Threagile risks report
+          - ThreatComposer Scan
           - Trivy Operator Scan
           - Trivy Scan
           - Trufflehog Scan
@@ -27062,6 +27757,9 @@ components:
           - Whispers Scan
           - WhiteHat Sentinel
           - Wiz Scan
+          - Wizcli Dir Scan
+          - Wizcli IaC Scan
+          - Wizcli Img Scan
           - Wpscan
           - Xanitizer Scan
           - Yarn Audit Scan
@@ -27074,17 +27772,18 @@ components:
             * `Anchore Grype` - Anchore Grype
             * `AnchoreCTL Policies Report` - AnchoreCTL Policies Report
             * `AnchoreCTL Vuln Report` - AnchoreCTL Vuln Report
+            * `AppCheck Web Application Scanner` - AppCheck Web Application Scanner
             * `AppSpider Scan` - AppSpider Scan
             * `Aqua Scan` - Aqua Scan
             * `Arachni Scan` - Arachni Scan
             * `AuditJS Scan` - AuditJS Scan
             * `AWS Prowler Scan` - AWS Prowler Scan
             * `AWS Prowler V3` - AWS Prowler V3
-            * `AWS Scout2 Scan` - AWS Scout2 Scan
             * `AWS Security Finding Format (ASFF) Scan` - AWS Security Finding Format (ASFF) Scan
             * `AWS Security Hub Scan` - AWS Security Hub Scan
             * `Azure Security Center Recommendations Scan` - Azure Security Center Recommendations Scan
             * `Bandit Scan` - Bandit Scan
+            * `Bearer CLI` - Bearer CLI
             * `BlackDuck API` - BlackDuck API
             * `Blackduck Binary Analysis` - Blackduck Binary Analysis
             * `Blackduck Component Risk` - Blackduck Component Risk
@@ -27112,12 +27811,14 @@ components:
             * `Codechecker Report native` - Codechecker Report native
             * `Contrast Scan` - Contrast Scan
             * `Coverity API` - Coverity API
+            * `Coverity Scan JSON Report` - Coverity Scan JSON Report
             * `Crashtest Security JSON File` - Crashtest Security JSON File
             * `Crashtest Security XML File` - Crashtest Security XML File
             * `CredScan Scan` - CredScan Scan
             * `Crunch42 Scan` - Crunch42 Scan
             * `CycloneDX Scan` - CycloneDX Scan
             * `DawnScanner Scan` - DawnScanner Scan
+            * `Deepfence Threatmapper Report` - Deepfence Threatmapper Report
             * `Dependency Check Scan` - Dependency Check Scan
             * `Dependency Track Finding Packaging Format (FPF) Export` - Dependency Track Finding Packaging Format (FPF) Export
             * `Detect-secrets Scan` - Detect-secrets Scan
@@ -27152,16 +27853,20 @@ components:
             * `IBM AppScan DAST` - IBM AppScan DAST
             * `Immuniweb Scan` - Immuniweb Scan
             * `IntSights Report` - IntSights Report
+            * `Invicti Scan` - Invicti Scan
             * `JFrog Xray API Summary Artifact Scan` - JFrog Xray API Summary Artifact Scan
             * `JFrog Xray On Demand Binary Scan` - JFrog Xray On Demand Binary Scan
             * `JFrog Xray Scan` - JFrog Xray Scan
             * `JFrog Xray Unified Scan` - JFrog Xray Unified Scan
             * `KICS Scan` - KICS Scan
+            * `Kiuwan SCA Scan` - Kiuwan SCA Scan
             * `Kiuwan Scan` - Kiuwan Scan
+            * `KrakenD Audit Scan` - KrakenD Audit Scan
             * `kube-bench Scan` - kube-bench Scan
             * `Kubeaudit Scan` - Kubeaudit Scan
             * `KubeHunter Scan` - KubeHunter Scan
             * `Kubescape JSON Importer` - Kubescape JSON Importer
+            * `Legitify Scan` - Legitify Scan
             * `Mend Scan` - Mend Scan
             * `Meterian Scan` - Meterian Scan
             * `Microfocus Webinspect Scan` - Microfocus Webinspect Scan
@@ -27192,10 +27897,13 @@ components:
             * `pip-audit Scan` - pip-audit Scan
             * `PMD Scan` - PMD Scan
             * `Popeye Scan` - Popeye Scan
+            * `Progpilot Scan` - Progpilot Scan
             * `PWN SAST` - PWN SAST
+            * `Qualys Hacker Guardian Scan` - Qualys Hacker Guardian Scan
             * `Qualys Infrastructure Scan (WebGUI XML)` - Qualys Infrastructure Scan (WebGUI XML)
             * `Qualys Scan` - Qualys Scan
             * `Qualys Webapp Scan` - Qualys Webapp Scan
+            * `Rapplex Scan` - Rapplex Scan
             * `Red Hat Satellite` - Red Hat Satellite
             * `Retire.js Scan` - Retire.js Scan
             * `Risk Recon API Importer` - Risk Recon API Importer
@@ -27227,6 +27935,7 @@ components:
             * `Testssl Scan` - Testssl Scan
             * `TFSec Scan` - TFSec Scan
             * `Threagile risks report` - Threagile risks report
+            * `ThreatComposer Scan` - ThreatComposer Scan
             * `Trivy Operator Scan` - Trivy Operator Scan
             * `Trivy Scan` - Trivy Scan
             * `Trufflehog Scan` - Trufflehog Scan
@@ -27244,13 +27953,18 @@ components:
             * `Whispers Scan` - Whispers Scan
             * `WhiteHat Sentinel` - WhiteHat Sentinel
             * `Wiz Scan` - Wiz Scan
+            * `Wizcli Dir Scan` - Wizcli Dir Scan
+            * `Wizcli IaC Scan` - Wizcli IaC Scan
+            * `Wizcli Img Scan` - Wizcli Img Scan
             * `Wpscan` - Wpscan
             * `Xanitizer Scan` - Xanitizer Scan
             * `Yarn Audit Scan` - Yarn Audit Scan
             * `ZAP Scan` - ZAP Scan
-          x-spec-enum-id: ce3efb7e1b63f41e
+          x-spec-enum-id: 9ba6a456aa714729
         endpoint_to_add:
           type: integer
+          description: Enter the ID of an Endpoint that is associated with the target
+            Product. New Findings will be added to that Endpoint.
         file:
           type: string
           format: uri
@@ -27422,17 +28136,18 @@ components:
           - Anchore Grype
           - AnchoreCTL Policies Report
           - AnchoreCTL Vuln Report
+          - AppCheck Web Application Scanner
           - AppSpider Scan
           - Aqua Scan
           - Arachni Scan
           - AuditJS Scan
           - AWS Prowler Scan
           - AWS Prowler V3
-          - AWS Scout2 Scan
           - AWS Security Finding Format (ASFF) Scan
           - AWS Security Hub Scan
           - Azure Security Center Recommendations Scan
           - Bandit Scan
+          - Bearer CLI
           - BlackDuck API
           - Blackduck Binary Analysis
           - Blackduck Component Risk
@@ -27460,12 +28175,14 @@ components:
           - Codechecker Report native
           - Contrast Scan
           - Coverity API
+          - Coverity Scan JSON Report
           - Crashtest Security JSON File
           - Crashtest Security XML File
           - CredScan Scan
           - Crunch42 Scan
           - CycloneDX Scan
           - DawnScanner Scan
+          - Deepfence Threatmapper Report
           - Dependency Check Scan
           - Dependency Track Finding Packaging Format (FPF) Export
           - Detect-secrets Scan
@@ -27500,16 +28217,20 @@ components:
           - IBM AppScan DAST
           - Immuniweb Scan
           - IntSights Report
+          - Invicti Scan
           - JFrog Xray API Summary Artifact Scan
           - JFrog Xray On Demand Binary Scan
           - JFrog Xray Scan
           - JFrog Xray Unified Scan
           - KICS Scan
+          - Kiuwan SCA Scan
           - Kiuwan Scan
+          - KrakenD Audit Scan
           - kube-bench Scan
           - Kubeaudit Scan
           - KubeHunter Scan
           - Kubescape JSON Importer
+          - Legitify Scan
           - Mend Scan
           - Meterian Scan
           - Microfocus Webinspect Scan
@@ -27540,10 +28261,13 @@ components:
           - pip-audit Scan
           - PMD Scan
           - Popeye Scan
+          - Progpilot Scan
           - PWN SAST
+          - Qualys Hacker Guardian Scan
           - Qualys Infrastructure Scan (WebGUI XML)
           - Qualys Scan
           - Qualys Webapp Scan
+          - Rapplex Scan
           - Red Hat Satellite
           - Retire.js Scan
           - Risk Recon API Importer
@@ -27575,6 +28299,7 @@ components:
           - Testssl Scan
           - TFSec Scan
           - Threagile risks report
+          - ThreatComposer Scan
           - Trivy Operator Scan
           - Trivy Scan
           - Trufflehog Scan
@@ -27592,6 +28317,9 @@ components:
           - Whispers Scan
           - WhiteHat Sentinel
           - Wiz Scan
+          - Wizcli Dir Scan
+          - Wizcli IaC Scan
+          - Wizcli Img Scan
           - Wpscan
           - Xanitizer Scan
           - Yarn Audit Scan
@@ -27604,17 +28332,18 @@ components:
             * `Anchore Grype` - Anchore Grype
             * `AnchoreCTL Policies Report` - AnchoreCTL Policies Report
             * `AnchoreCTL Vuln Report` - AnchoreCTL Vuln Report
+            * `AppCheck Web Application Scanner` - AppCheck Web Application Scanner
             * `AppSpider Scan` - AppSpider Scan
             * `Aqua Scan` - Aqua Scan
             * `Arachni Scan` - Arachni Scan
             * `AuditJS Scan` - AuditJS Scan
             * `AWS Prowler Scan` - AWS Prowler Scan
             * `AWS Prowler V3` - AWS Prowler V3
-            * `AWS Scout2 Scan` - AWS Scout2 Scan
             * `AWS Security Finding Format (ASFF) Scan` - AWS Security Finding Format (ASFF) Scan
             * `AWS Security Hub Scan` - AWS Security Hub Scan
             * `Azure Security Center Recommendations Scan` - Azure Security Center Recommendations Scan
             * `Bandit Scan` - Bandit Scan
+            * `Bearer CLI` - Bearer CLI
             * `BlackDuck API` - BlackDuck API
             * `Blackduck Binary Analysis` - Blackduck Binary Analysis
             * `Blackduck Component Risk` - Blackduck Component Risk
@@ -27642,12 +28371,14 @@ components:
             * `Codechecker Report native` - Codechecker Report native
             * `Contrast Scan` - Contrast Scan
             * `Coverity API` - Coverity API
+            * `Coverity Scan JSON Report` - Coverity Scan JSON Report
             * `Crashtest Security JSON File` - Crashtest Security JSON File
             * `Crashtest Security XML File` - Crashtest Security XML File
             * `CredScan Scan` - CredScan Scan
             * `Crunch42 Scan` - Crunch42 Scan
             * `CycloneDX Scan` - CycloneDX Scan
             * `DawnScanner Scan` - DawnScanner Scan
+            * `Deepfence Threatmapper Report` - Deepfence Threatmapper Report
             * `Dependency Check Scan` - Dependency Check Scan
             * `Dependency Track Finding Packaging Format (FPF) Export` - Dependency Track Finding Packaging Format (FPF) Export
             * `Detect-secrets Scan` - Detect-secrets Scan
@@ -27682,16 +28413,20 @@ components:
             * `IBM AppScan DAST` - IBM AppScan DAST
             * `Immuniweb Scan` - Immuniweb Scan
             * `IntSights Report` - IntSights Report
+            * `Invicti Scan` - Invicti Scan
             * `JFrog Xray API Summary Artifact Scan` - JFrog Xray API Summary Artifact Scan
             * `JFrog Xray On Demand Binary Scan` - JFrog Xray On Demand Binary Scan
             * `JFrog Xray Scan` - JFrog Xray Scan
             * `JFrog Xray Unified Scan` - JFrog Xray Unified Scan
             * `KICS Scan` - KICS Scan
+            * `Kiuwan SCA Scan` - Kiuwan SCA Scan
             * `Kiuwan Scan` - Kiuwan Scan
+            * `KrakenD Audit Scan` - KrakenD Audit Scan
             * `kube-bench Scan` - kube-bench Scan
             * `Kubeaudit Scan` - Kubeaudit Scan
             * `KubeHunter Scan` - KubeHunter Scan
             * `Kubescape JSON Importer` - Kubescape JSON Importer
+            * `Legitify Scan` - Legitify Scan
             * `Mend Scan` - Mend Scan
             * `Meterian Scan` - Meterian Scan
             * `Microfocus Webinspect Scan` - Microfocus Webinspect Scan
@@ -27722,10 +28457,13 @@ components:
             * `pip-audit Scan` - pip-audit Scan
             * `PMD Scan` - PMD Scan
             * `Popeye Scan` - Popeye Scan
+            * `Progpilot Scan` - Progpilot Scan
             * `PWN SAST` - PWN SAST
+            * `Qualys Hacker Guardian Scan` - Qualys Hacker Guardian Scan
             * `Qualys Infrastructure Scan (WebGUI XML)` - Qualys Infrastructure Scan (WebGUI XML)
             * `Qualys Scan` - Qualys Scan
             * `Qualys Webapp Scan` - Qualys Webapp Scan
+            * `Rapplex Scan` - Rapplex Scan
             * `Red Hat Satellite` - Red Hat Satellite
             * `Retire.js Scan` - Retire.js Scan
             * `Risk Recon API Importer` - Risk Recon API Importer
@@ -27757,6 +28495,7 @@ components:
             * `Testssl Scan` - Testssl Scan
             * `TFSec Scan` - TFSec Scan
             * `Threagile risks report` - Threagile risks report
+            * `ThreatComposer Scan` - ThreatComposer Scan
             * `Trivy Operator Scan` - Trivy Operator Scan
             * `Trivy Scan` - Trivy Scan
             * `Trufflehog Scan` - Trufflehog Scan
@@ -27774,13 +28513,18 @@ components:
             * `Whispers Scan` - Whispers Scan
             * `WhiteHat Sentinel` - WhiteHat Sentinel
             * `Wiz Scan` - Wiz Scan
+            * `Wizcli Dir Scan` - Wizcli Dir Scan
+            * `Wizcli IaC Scan` - Wizcli IaC Scan
+            * `Wizcli Img Scan` - Wizcli Img Scan
             * `Wpscan` - Wpscan
             * `Xanitizer Scan` - Xanitizer Scan
             * `Yarn Audit Scan` - Yarn Audit Scan
             * `ZAP Scan` - ZAP Scan
-          x-spec-enum-id: ce3efb7e1b63f41e
+          x-spec-enum-id: 9ba6a456aa714729
         endpoint_to_add:
           type: integer
+          description: Enter the ID of an Endpoint that is associated with the target
+            Product. New Findings will be added to that Endpoint.
         file:
           type: string
           format: binary
@@ -28292,25 +29036,45 @@ components:
           maximum: 2147483647
           minimum: -2147483648
           title: Critical Finding SLA Days
-          description: number of days to remediate a critical finding.
+          description: The number of days to remediate a critical finding.
+        enforce_critical:
+          type: boolean
+          title: Enforce Critical Finding SLA Days
+          description: When enabled, critical findings will be assigned an SLA expiration
+            date based on the critical finding SLA days within this SLA configuration.
         high:
           type: integer
           maximum: 2147483647
           minimum: -2147483648
           title: High Finding SLA Days
-          description: number of days to remediate a high finding.
+          description: The number of days to remediate a high finding.
+        enforce_high:
+          type: boolean
+          title: Enforce High Finding SLA Days
+          description: When enabled, high findings will be assigned an SLA expiration
+            date based on the high finding SLA days within this SLA configuration.
         medium:
           type: integer
           maximum: 2147483647
           minimum: -2147483648
           title: Medium Finding SLA Days
-          description: number of days to remediate a medium finding.
+          description: The number of days to remediate a medium finding.
+        enforce_medium:
+          type: boolean
+          title: Enforce Medium Finding SLA Days
+          description: When enabled, medium findings will be assigned an SLA expiration
+            date based on the medium finding SLA days within this SLA configuration.
         low:
           type: integer
           maximum: 2147483647
           minimum: -2147483648
           title: Low Finding SLA Days
-          description: number of days to remediate a low finding.
+          description: The number of days to remediate a low finding.
+        enforce_low:
+          type: boolean
+          title: Enforce Low Finding SLA Days
+          description: When enabled, low findings will be assigned an SLA expiration
+            date based on the low finding SLA days within this SLA configuration.
       required:
       - id
       - name
@@ -28332,25 +29096,45 @@ components:
           maximum: 2147483647
           minimum: -2147483648
           title: Critical Finding SLA Days
-          description: number of days to remediate a critical finding.
+          description: The number of days to remediate a critical finding.
+        enforce_critical:
+          type: boolean
+          title: Enforce Critical Finding SLA Days
+          description: When enabled, critical findings will be assigned an SLA expiration
+            date based on the critical finding SLA days within this SLA configuration.
         high:
           type: integer
           maximum: 2147483647
           minimum: -2147483648
           title: High Finding SLA Days
-          description: number of days to remediate a high finding.
+          description: The number of days to remediate a high finding.
+        enforce_high:
+          type: boolean
+          title: Enforce High Finding SLA Days
+          description: When enabled, high findings will be assigned an SLA expiration
+            date based on the high finding SLA days within this SLA configuration.
         medium:
           type: integer
           maximum: 2147483647
           minimum: -2147483648
           title: Medium Finding SLA Days
-          description: number of days to remediate a medium finding.
+          description: The number of days to remediate a medium finding.
+        enforce_medium:
+          type: boolean
+          title: Enforce Medium Finding SLA Days
+          description: When enabled, medium findings will be assigned an SLA expiration
+            date based on the medium finding SLA days within this SLA configuration.
         low:
           type: integer
           maximum: 2147483647
           minimum: -2147483648
           title: Low Finding SLA Days
-          description: number of days to remediate a low finding.
+          description: The number of days to remediate a low finding.
+        enforce_low:
+          type: boolean
+          title: Enforce Low Finding SLA Days
+          description: When enabled, low findings will be assigned an SLA expiration
+            date based on the low finding SLA days within this SLA configuration.
       required:
       - name
     SeverityStatusStatistics:
@@ -30022,6 +30806,11 @@ components:
             The text will be replaced for mitigation, impact and references on a finding.
             Useful for providing consistent impact and remediation advice regardless
             of the scanner.
+        enable_similar_findings:
+          type: boolean
+          description: Enable the query of similar findings on the view finding page.
+            This feature can involve potentially large queries and negatively impact
+            performance
         engagement_auto_close:
           type: boolean
           title: Enable Engagement Auto-Close
@@ -30112,6 +30901,12 @@ components:
         enable_finding_groups:
           type: boolean
           description: With this setting turned off, the Finding Groups will be disabled.
+        enable_ui_table_based_searching:
+          type: boolean
+          title: Enable UI Table Based Filtering/Sorting
+          description: With this setting enabled, table headings will contain sort
+            buttons for the current page of data in addition to sorting buttons that
+            consider data from all pages.
         enable_calendar:
           type: boolean
           description: With this setting turned off, the Calendar will be disabled
@@ -30157,6 +30952,12 @@ components:
         api_expose_error_details:
           type: boolean
           description: When turned on, the API will expose error details in the response.
+        filter_string_matching:
+          type: boolean
+          title: Filter String Matching Optimization
+          description: When turned on, all filter operations in the UI will require
+            string matches rather than ID. This is a performance enhancement to avoid
+            fetching objects unnecessarily.
         default_group:
           type: integer
           nullable: true
@@ -31540,6 +32341,11 @@ components:
             The text will be replaced for mitigation, impact and references on a finding.
             Useful for providing consistent impact and remediation advice regardless
             of the scanner.
+        enable_similar_findings:
+          type: boolean
+          description: Enable the query of similar findings on the view finding page.
+            This feature can involve potentially large queries and negatively impact
+            performance
         engagement_auto_close:
           type: boolean
           title: Enable Engagement Auto-Close
@@ -31630,6 +32436,12 @@ components:
         enable_finding_groups:
           type: boolean
           description: With this setting turned off, the Finding Groups will be disabled.
+        enable_ui_table_based_searching:
+          type: boolean
+          title: Enable UI Table Based Filtering/Sorting
+          description: With this setting enabled, table headings will contain sort
+            buttons for the current page of data in addition to sorting buttons that
+            consider data from all pages.
         enable_calendar:
           type: boolean
           description: With this setting turned off, the Calendar will be disabled
@@ -31675,6 +32487,12 @@ components:
         api_expose_error_details:
           type: boolean
           description: When turned on, the API will expose error details in the response.
+        filter_string_matching:
+          type: boolean
+          title: Filter String Matching Optimization
+          description: When turned on, all filter operations in the UI will require
+            string matches rather than ID. This is a performance enhancement to avoid
+            fetching objects unnecessarily.
         default_group:
           type: integer
           nullable: true
@@ -32050,19 +32868,6 @@ components:
           items:
             type: integer
           readOnly: true
-        prefetch:
-          type: object
-          properties:
-            findings_affected:
-              type: object
-              readOnly: true
-              additionalProperties:
-                $ref: '#/components/schemas/Finding'
-            test:
-              type: object
-              readOnly: true
-              additionalProperties:
-                $ref: '#/components/schemas/Test'
       required:
       - created
       - findings_affected
@@ -32340,6 +33145,14 @@ components:
           maxLength: 200
         tool_type:
           type: integer
+        prefetch:
+          type: object
+          properties:
+            tool_type:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/ToolType'
       required:
       - id
       - name
@@ -32439,6 +33252,24 @@ components:
           items:
             type: integer
           readOnly: true
+        prefetch:
+          type: object
+          properties:
+            notes:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/Note'
+            product:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/Product'
+            tool_configuration:
+              type: object
+              readOnly: true
+              additionalProperties:
+                $ref: '#/components/schemas/ToolConfiguration'
       required:
       - id
       - name
@@ -32527,12 +33358,15 @@ components:
         email:
           type: string
           format: email
-          title: Email address
-          maxLength: 254
+        date_joined:
+          type: string
+          format: date-time
+          readOnly: true
         last_login:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         is_active:
           type: boolean
           title: Active
@@ -32549,6 +33383,8 @@ components:
             type: integer
             nullable: true
       required:
+      - date_joined
+      - email
       - id
       - last_login
       - username
@@ -32557,6 +33393,10 @@ components:
       properties:
         id:
           type: integer
+          readOnly: true
+        user_profile:
+          allOf:
+          - $ref: '#/components/schemas/User'
           readOnly: true
         title:
           type: string
@@ -32612,6 +33452,7 @@ components:
       required:
       - id
       - user
+      - user_profile
     UserContactInfoRequest:
       type: object
       properties:
@@ -32683,11 +33524,9 @@ components:
             $ref: '#/components/schemas/ProductMember'
       required:
       - dojo_group_member
-      - global_role
       - product_member
       - product_type_member
       - user
-      - user_contact_info
     UserRequest:
       type: object
       properties:
@@ -32707,8 +33546,7 @@ components:
         email:
           type: string
           format: email
-          title: Email address
-          maxLength: 254
+          minLength: 1
         is_active:
           type: boolean
           title: Active
@@ -32729,6 +33567,7 @@ components:
             type: integer
             nullable: true
       required:
+      - email
       - username
     UserStub:
       type: object

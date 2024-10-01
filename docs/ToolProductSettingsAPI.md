@@ -218,7 +218,7 @@ Name | Type | Description  | Notes
 
 ## ToolProductSettingsList
 
-> PaginatedToolProductSettingsList ToolProductSettingsList(ctx).Id(id).Limit(limit).Name(name).Offset(offset).Product(product).ToolConfiguration(toolConfiguration).ToolProjectId(toolProjectId).Url(url).Execute()
+> PaginatedToolProductSettingsList ToolProductSettingsList(ctx).Id(id).Limit(limit).Name(name).Offset(offset).Prefetch(prefetch).Product(product).ToolConfiguration(toolConfiguration).ToolProjectId(toolProjectId).Url(url).Execute()
 
 
 
@@ -239,6 +239,7 @@ func main() {
 	limit := int32(56) // int32 | Number of results to return per page. (optional)
 	name := "name_example" // string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	prefetch := []string{"Prefetch_example"} // []string | List of fields for which to prefetch model instances and add those to the response (optional)
 	product := int32(56) // int32 |  (optional)
 	toolConfiguration := int32(56) // int32 |  (optional)
 	toolProjectId := "toolProjectId_example" // string |  (optional)
@@ -246,7 +247,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ToolProductSettingsAPI.ToolProductSettingsList(context.Background()).Id(id).Limit(limit).Name(name).Offset(offset).Product(product).ToolConfiguration(toolConfiguration).ToolProjectId(toolProjectId).Url(url).Execute()
+	resp, r, err := apiClient.ToolProductSettingsAPI.ToolProductSettingsList(context.Background()).Id(id).Limit(limit).Name(name).Offset(offset).Prefetch(prefetch).Product(product).ToolConfiguration(toolConfiguration).ToolProjectId(toolProjectId).Url(url).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ToolProductSettingsAPI.ToolProductSettingsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -271,6 +272,7 @@ Name | Type | Description  | Notes
  **limit** | **int32** | Number of results to return per page. | 
  **name** | **string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **prefetch** | **[]string** | List of fields for which to prefetch model instances and add those to the response | 
  **product** | **int32** |  | 
  **toolConfiguration** | **int32** |  | 
  **toolProjectId** | **string** |  | 
@@ -366,7 +368,7 @@ Name | Type | Description  | Notes
 
 ## ToolProductSettingsRetrieve
 
-> ToolProductSettings ToolProductSettingsRetrieve(ctx, id).Execute()
+> ToolProductSettings ToolProductSettingsRetrieve(ctx, id).Prefetch(prefetch).Execute()
 
 
 
@@ -384,10 +386,11 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this tool_ product_ settings.
+	prefetch := []string{"Prefetch_example"} // []string | List of fields for which to prefetch model instances and add those to the response (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ToolProductSettingsAPI.ToolProductSettingsRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.ToolProductSettingsAPI.ToolProductSettingsRetrieve(context.Background(), id).Prefetch(prefetch).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ToolProductSettingsAPI.ToolProductSettingsRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -413,6 +416,7 @@ Other parameters are passed through a pointer to a apiToolProductSettingsRetriev
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **prefetch** | **[]string** | List of fields for which to prefetch model instances and add those to the response | 
 
 ### Return type
 

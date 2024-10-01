@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **Finding** | Pointer to **NullableInt32** |  | [optional] 
 **Name** | **string** |  | 
 **Value** | **string** |  | 
-**Prefetch** | Pointer to [**MetaPrefetch**](MetaPrefetch.md) |  | [optional] 
 
 ## Methods
 
@@ -195,31 +194,6 @@ and a boolean to check if the value has been set.
 
 SetValue sets Value field to given value.
 
-
-### GetPrefetch
-
-`func (o *Meta) GetPrefetch() MetaPrefetch`
-
-GetPrefetch returns the Prefetch field if non-nil, zero value otherwise.
-
-### GetPrefetchOk
-
-`func (o *Meta) GetPrefetchOk() (*MetaPrefetch, bool)`
-
-GetPrefetchOk returns a tuple with the Prefetch field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPrefetch
-
-`func (o *Meta) SetPrefetch(v MetaPrefetch)`
-
-SetPrefetch sets Prefetch field to given value.
-
-### HasPrefetch
-
-`func (o *Meta) HasPrefetch() bool`
-
-HasPrefetch returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

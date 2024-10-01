@@ -218,7 +218,7 @@ Name | Type | Description  | Notes
 
 ## ProductApiScanConfigurationsList
 
-> PaginatedProductAPIScanConfigurationList ProductApiScanConfigurationsList(ctx).Id(id).Limit(limit).Offset(offset).Product(product).ServiceKey1(serviceKey1).ServiceKey2(serviceKey2).ServiceKey3(serviceKey3).ToolConfiguration(toolConfiguration).Execute()
+> PaginatedProductAPIScanConfigurationList ProductApiScanConfigurationsList(ctx).Id(id).Limit(limit).Offset(offset).Prefetch(prefetch).Product(product).ServiceKey1(serviceKey1).ServiceKey2(serviceKey2).ServiceKey3(serviceKey3).ToolConfiguration(toolConfiguration).Execute()
 
 
 
@@ -238,6 +238,7 @@ func main() {
 	id := int32(56) // int32 |  (optional)
 	limit := int32(56) // int32 | Number of results to return per page. (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	prefetch := []string{"Prefetch_example"} // []string | List of fields for which to prefetch model instances and add those to the response (optional)
 	product := int32(56) // int32 |  (optional)
 	serviceKey1 := "serviceKey1_example" // string |  (optional)
 	serviceKey2 := "serviceKey2_example" // string |  (optional)
@@ -246,7 +247,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProductApiScanConfigurationsAPI.ProductApiScanConfigurationsList(context.Background()).Id(id).Limit(limit).Offset(offset).Product(product).ServiceKey1(serviceKey1).ServiceKey2(serviceKey2).ServiceKey3(serviceKey3).ToolConfiguration(toolConfiguration).Execute()
+	resp, r, err := apiClient.ProductApiScanConfigurationsAPI.ProductApiScanConfigurationsList(context.Background()).Id(id).Limit(limit).Offset(offset).Prefetch(prefetch).Product(product).ServiceKey1(serviceKey1).ServiceKey2(serviceKey2).ServiceKey3(serviceKey3).ToolConfiguration(toolConfiguration).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProductApiScanConfigurationsAPI.ProductApiScanConfigurationsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -270,6 +271,7 @@ Name | Type | Description  | Notes
  **id** | **int32** |  | 
  **limit** | **int32** | Number of results to return per page. | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **prefetch** | **[]string** | List of fields for which to prefetch model instances and add those to the response | 
  **product** | **int32** |  | 
  **serviceKey1** | **string** |  | 
  **serviceKey2** | **string** |  | 
@@ -366,7 +368,7 @@ Name | Type | Description  | Notes
 
 ## ProductApiScanConfigurationsRetrieve
 
-> ProductAPIScanConfiguration ProductApiScanConfigurationsRetrieve(ctx, id).Execute()
+> ProductAPIScanConfiguration ProductApiScanConfigurationsRetrieve(ctx, id).Prefetch(prefetch).Execute()
 
 
 
@@ -384,10 +386,11 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this product_ap i_ scan_ configuration.
+	prefetch := []string{"Prefetch_example"} // []string | List of fields for which to prefetch model instances and add those to the response (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProductApiScanConfigurationsAPI.ProductApiScanConfigurationsRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.ProductApiScanConfigurationsAPI.ProductApiScanConfigurationsRetrieve(context.Background(), id).Prefetch(prefetch).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProductApiScanConfigurationsAPI.ProductApiScanConfigurationsRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -413,6 +416,7 @@ Other parameters are passed through a pointer to a apiProductApiScanConfiguratio
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **prefetch** | **[]string** | List of fields for which to prefetch model instances and add those to the response | 
 
 ### Return type
 

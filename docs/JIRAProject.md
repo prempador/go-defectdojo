@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **JiraInstance** | Pointer to **NullableInt32** |  | [optional] 
 **Product** | Pointer to **NullableInt32** |  | [optional] 
 **Engagement** | Pointer to **NullableInt32** |  | [optional] 
+**Prefetch** | Pointer to [**JIRAProjectPrefetch**](JIRAProjectPrefetch.md) |  | [optional] 
 
 ## Methods
 
@@ -531,6 +532,31 @@ HasEngagement returns a boolean if a field has been set.
 `func (o *JIRAProject) UnsetEngagement()`
 
 UnsetEngagement ensures that no value is present for Engagement, not even an explicit nil
+### GetPrefetch
+
+`func (o *JIRAProject) GetPrefetch() JIRAProjectPrefetch`
+
+GetPrefetch returns the Prefetch field if non-nil, zero value otherwise.
+
+### GetPrefetchOk
+
+`func (o *JIRAProject) GetPrefetchOk() (*JIRAProjectPrefetch, bool)`
+
+GetPrefetchOk returns a tuple with the Prefetch field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPrefetch
+
+`func (o *JIRAProject) SetPrefetch(v JIRAProjectPrefetch)`
+
+SetPrefetch sets Prefetch field to given value.
+
+### HasPrefetch
+
+`func (o *JIRAProject) HasPrefetch() bool`
+
+HasPrefetch returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
