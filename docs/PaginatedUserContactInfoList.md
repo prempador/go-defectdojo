@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Count** | Pointer to **int32** |  | [optional] 
+**Count** | **int32** |  | 
 **Next** | Pointer to **NullableString** |  | [optional] 
 **Previous** | Pointer to **NullableString** |  | [optional] 
-**Results** | Pointer to [**[]UserContactInfo**](UserContactInfo.md) |  | [optional] 
+**Results** | [**[]UserContactInfo**](UserContactInfo.md) |  | 
 **Prefetch** | Pointer to [**PaginatedUserContactInfoListPrefetch**](PaginatedUserContactInfoListPrefetch.md) |  | [optional] 
 
 ## Methods
 
 ### NewPaginatedUserContactInfoList
 
-`func NewPaginatedUserContactInfoList() *PaginatedUserContactInfoList`
+`func NewPaginatedUserContactInfoList(count int32, results []UserContactInfo, ) *PaginatedUserContactInfoList`
 
 NewPaginatedUserContactInfoList instantiates a new PaginatedUserContactInfoList object
 This constructor will assign default values to properties that have it defined,
@@ -48,11 +48,6 @@ and a boolean to check if the value has been set.
 
 SetCount sets Count field to given value.
 
-### HasCount
-
-`func (o *PaginatedUserContactInfoList) HasCount() bool`
-
-HasCount returns a boolean if a field has been set.
 
 ### GetNext
 
@@ -143,11 +138,6 @@ and a boolean to check if the value has been set.
 
 SetResults sets Results field to given value.
 
-### HasResults
-
-`func (o *PaginatedUserContactInfoList) HasResults() bool`
-
-HasResults returns a boolean if a field has been set.
 
 ### GetPrefetch
 

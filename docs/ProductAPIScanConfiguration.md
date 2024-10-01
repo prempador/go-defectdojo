@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **ServiceKey3** | Pointer to **NullableString** |  | [optional] 
 **Product** | **int32** |  | 
 **ToolConfiguration** | **int32** |  | 
+**Prefetch** | Pointer to [**PaginatedProductAPIScanConfigurationListPrefetch**](PaginatedProductAPIScanConfigurationListPrefetch.md) |  | [optional] 
 
 ## Methods
 
@@ -194,6 +195,31 @@ and a boolean to check if the value has been set.
 
 SetToolConfiguration sets ToolConfiguration field to given value.
 
+
+### GetPrefetch
+
+`func (o *ProductAPIScanConfiguration) GetPrefetch() PaginatedProductAPIScanConfigurationListPrefetch`
+
+GetPrefetch returns the Prefetch field if non-nil, zero value otherwise.
+
+### GetPrefetchOk
+
+`func (o *ProductAPIScanConfiguration) GetPrefetchOk() (*PaginatedProductAPIScanConfigurationListPrefetch, bool)`
+
+GetPrefetchOk returns a tuple with the Prefetch field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPrefetch
+
+`func (o *ProductAPIScanConfiguration) SetPrefetch(v PaginatedProductAPIScanConfigurationListPrefetch)`
+
+SetPrefetch sets Prefetch field to given value.
+
+### HasPrefetch
+
+`func (o *ProductAPIScanConfiguration) HasPrefetch() bool`
+
+HasPrefetch returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

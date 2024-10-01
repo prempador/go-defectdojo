@@ -6,10 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** | A unique name for the set of SLAs. | 
 **Description** | Pointer to **NullableString** |  | [optional] 
-**Critical** | Pointer to **int32** | number of days to remediate a critical finding. | [optional] 
-**High** | Pointer to **int32** | number of days to remediate a high finding. | [optional] 
-**Medium** | Pointer to **int32** | number of days to remediate a medium finding. | [optional] 
-**Low** | Pointer to **int32** | number of days to remediate a low finding. | [optional] 
+**Critical** | Pointer to **int32** | The number of days to remediate a critical finding. | [optional] 
+**EnforceCritical** | Pointer to **bool** | When enabled, critical findings will be assigned an SLA expiration date based on the critical finding SLA days within this SLA configuration. | [optional] 
+**High** | Pointer to **int32** | The number of days to remediate a high finding. | [optional] 
+**EnforceHigh** | Pointer to **bool** | When enabled, high findings will be assigned an SLA expiration date based on the high finding SLA days within this SLA configuration. | [optional] 
+**Medium** | Pointer to **int32** | The number of days to remediate a medium finding. | [optional] 
+**EnforceMedium** | Pointer to **bool** | When enabled, medium findings will be assigned an SLA expiration date based on the medium finding SLA days within this SLA configuration. | [optional] 
+**Low** | Pointer to **int32** | The number of days to remediate a low finding. | [optional] 
+**EnforceLow** | Pointer to **bool** | When enabled, low findings will be assigned an SLA expiration date based on the low finding SLA days within this SLA configuration. | [optional] 
 
 ## Methods
 
@@ -110,6 +114,31 @@ SetCritical sets Critical field to given value.
 
 HasCritical returns a boolean if a field has been set.
 
+### GetEnforceCritical
+
+`func (o *SLAConfigurationRequest) GetEnforceCritical() bool`
+
+GetEnforceCritical returns the EnforceCritical field if non-nil, zero value otherwise.
+
+### GetEnforceCriticalOk
+
+`func (o *SLAConfigurationRequest) GetEnforceCriticalOk() (*bool, bool)`
+
+GetEnforceCriticalOk returns a tuple with the EnforceCritical field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnforceCritical
+
+`func (o *SLAConfigurationRequest) SetEnforceCritical(v bool)`
+
+SetEnforceCritical sets EnforceCritical field to given value.
+
+### HasEnforceCritical
+
+`func (o *SLAConfigurationRequest) HasEnforceCritical() bool`
+
+HasEnforceCritical returns a boolean if a field has been set.
+
 ### GetHigh
 
 `func (o *SLAConfigurationRequest) GetHigh() int32`
@@ -134,6 +163,31 @@ SetHigh sets High field to given value.
 `func (o *SLAConfigurationRequest) HasHigh() bool`
 
 HasHigh returns a boolean if a field has been set.
+
+### GetEnforceHigh
+
+`func (o *SLAConfigurationRequest) GetEnforceHigh() bool`
+
+GetEnforceHigh returns the EnforceHigh field if non-nil, zero value otherwise.
+
+### GetEnforceHighOk
+
+`func (o *SLAConfigurationRequest) GetEnforceHighOk() (*bool, bool)`
+
+GetEnforceHighOk returns a tuple with the EnforceHigh field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnforceHigh
+
+`func (o *SLAConfigurationRequest) SetEnforceHigh(v bool)`
+
+SetEnforceHigh sets EnforceHigh field to given value.
+
+### HasEnforceHigh
+
+`func (o *SLAConfigurationRequest) HasEnforceHigh() bool`
+
+HasEnforceHigh returns a boolean if a field has been set.
 
 ### GetMedium
 
@@ -160,6 +214,31 @@ SetMedium sets Medium field to given value.
 
 HasMedium returns a boolean if a field has been set.
 
+### GetEnforceMedium
+
+`func (o *SLAConfigurationRequest) GetEnforceMedium() bool`
+
+GetEnforceMedium returns the EnforceMedium field if non-nil, zero value otherwise.
+
+### GetEnforceMediumOk
+
+`func (o *SLAConfigurationRequest) GetEnforceMediumOk() (*bool, bool)`
+
+GetEnforceMediumOk returns a tuple with the EnforceMedium field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnforceMedium
+
+`func (o *SLAConfigurationRequest) SetEnforceMedium(v bool)`
+
+SetEnforceMedium sets EnforceMedium field to given value.
+
+### HasEnforceMedium
+
+`func (o *SLAConfigurationRequest) HasEnforceMedium() bool`
+
+HasEnforceMedium returns a boolean if a field has been set.
+
 ### GetLow
 
 `func (o *SLAConfigurationRequest) GetLow() int32`
@@ -184,6 +263,31 @@ SetLow sets Low field to given value.
 `func (o *SLAConfigurationRequest) HasLow() bool`
 
 HasLow returns a boolean if a field has been set.
+
+### GetEnforceLow
+
+`func (o *SLAConfigurationRequest) GetEnforceLow() bool`
+
+GetEnforceLow returns the EnforceLow field if non-nil, zero value otherwise.
+
+### GetEnforceLowOk
+
+`func (o *SLAConfigurationRequest) GetEnforceLowOk() (*bool, bool)`
+
+GetEnforceLowOk returns a tuple with the EnforceLow field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnforceLow
+
+`func (o *SLAConfigurationRequest) SetEnforceLow(v bool)`
+
+SetEnforceLow sets EnforceLow field to given value.
+
+### HasEnforceLow
+
+`func (o *SLAConfigurationRequest) HasEnforceLow() bool`
+
+HasEnforceLow returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

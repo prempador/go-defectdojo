@@ -43,7 +43,6 @@ Name | Type | Description | Notes
 **Notes** | [**[]Note**](Note.md) |  | [readonly] 
 **Files** | [**[]File**](File.md) |  | [readonly] 
 **RiskAcceptance** | **[]int32** |  | [readonly] 
-**Prefetch** | Pointer to **map[string]interface{}** |  | [optional] 
 
 ## Methods
 
@@ -1203,31 +1202,6 @@ and a boolean to check if the value has been set.
 
 SetRiskAcceptance sets RiskAcceptance field to given value.
 
-
-### GetPrefetch
-
-`func (o *Engagement) GetPrefetch() map[string]interface{}`
-
-GetPrefetch returns the Prefetch field if non-nil, zero value otherwise.
-
-### GetPrefetchOk
-
-`func (o *Engagement) GetPrefetchOk() (*map[string]interface{}, bool)`
-
-GetPrefetchOk returns a tuple with the Prefetch field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPrefetch
-
-`func (o *Engagement) SetPrefetch(v map[string]interface{})`
-
-SetPrefetch sets Prefetch field to given value.
-
-### HasPrefetch
-
-`func (o *Engagement) HasPrefetch() bool`
-
-HasPrefetch returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

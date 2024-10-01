@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Count** | Pointer to **int32** |  | [optional] 
+**Count** | **int32** |  | 
 **Next** | Pointer to **NullableString** |  | [optional] 
 **Previous** | Pointer to **NullableString** |  | [optional] 
-**Results** | Pointer to [**[]JIRAIssue**](JIRAIssue.md) |  | [optional] 
+**Results** | [**[]JIRAIssue**](JIRAIssue.md) |  | 
 
 ## Methods
 
 ### NewPaginatedJIRAIssueList
 
-`func NewPaginatedJIRAIssueList() *PaginatedJIRAIssueList`
+`func NewPaginatedJIRAIssueList(count int32, results []JIRAIssue, ) *PaginatedJIRAIssueList`
 
 NewPaginatedJIRAIssueList instantiates a new PaginatedJIRAIssueList object
 This constructor will assign default values to properties that have it defined,
@@ -47,11 +47,6 @@ and a boolean to check if the value has been set.
 
 SetCount sets Count field to given value.
 
-### HasCount
-
-`func (o *PaginatedJIRAIssueList) HasCount() bool`
-
-HasCount returns a boolean if a field has been set.
 
 ### GetNext
 
@@ -142,11 +137,6 @@ and a boolean to check if the value has been set.
 
 SetResults sets Results field to given value.
 
-### HasResults
-
-`func (o *PaginatedJIRAIssueList) HasResults() bool`
-
-HasResults returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

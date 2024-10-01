@@ -4,16 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Count** | Pointer to **int32** |  | [optional] 
+**Count** | **int32** |  | 
 **Next** | Pointer to **NullableString** |  | [optional] 
 **Previous** | Pointer to **NullableString** |  | [optional] 
-**Results** | Pointer to [**[]ToolProductSettings**](ToolProductSettings.md) |  | [optional] 
+**Results** | [**[]ToolProductSettings**](ToolProductSettings.md) |  | 
+**Prefetch** | Pointer to [**PaginatedToolProductSettingsListPrefetch**](PaginatedToolProductSettingsListPrefetch.md) |  | [optional] 
 
 ## Methods
 
 ### NewPaginatedToolProductSettingsList
 
-`func NewPaginatedToolProductSettingsList() *PaginatedToolProductSettingsList`
+`func NewPaginatedToolProductSettingsList(count int32, results []ToolProductSettings, ) *PaginatedToolProductSettingsList`
 
 NewPaginatedToolProductSettingsList instantiates a new PaginatedToolProductSettingsList object
 This constructor will assign default values to properties that have it defined,
@@ -47,11 +48,6 @@ and a boolean to check if the value has been set.
 
 SetCount sets Count field to given value.
 
-### HasCount
-
-`func (o *PaginatedToolProductSettingsList) HasCount() bool`
-
-HasCount returns a boolean if a field has been set.
 
 ### GetNext
 
@@ -142,11 +138,31 @@ and a boolean to check if the value has been set.
 
 SetResults sets Results field to given value.
 
-### HasResults
 
-`func (o *PaginatedToolProductSettingsList) HasResults() bool`
+### GetPrefetch
 
-HasResults returns a boolean if a field has been set.
+`func (o *PaginatedToolProductSettingsList) GetPrefetch() PaginatedToolProductSettingsListPrefetch`
+
+GetPrefetch returns the Prefetch field if non-nil, zero value otherwise.
+
+### GetPrefetchOk
+
+`func (o *PaginatedToolProductSettingsList) GetPrefetchOk() (*PaginatedToolProductSettingsListPrefetch, bool)`
+
+GetPrefetchOk returns a tuple with the Prefetch field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPrefetch
+
+`func (o *PaginatedToolProductSettingsList) SetPrefetch(v PaginatedToolProductSettingsListPrefetch)`
+
+SetPrefetch sets Prefetch field to given value.
+
+### HasPrefetch
+
+`func (o *PaginatedToolProductSettingsList) HasPrefetch() bool`
+
+HasPrefetch returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

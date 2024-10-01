@@ -16,7 +16,6 @@ Name | Type | Description | Notes
 **BranchTag** | Pointer to **NullableString** | Tag or branch that was tested, a reimport may update this field. | [optional] 
 **Test** | **int32** |  | [readonly] 
 **FindingsAffected** | **[]int32** |  | [readonly] 
-**Prefetch** | Pointer to [**PaginatedTestImportListPrefetch**](PaginatedTestImportListPrefetch.md) |  | [optional] 
 
 ## Methods
 
@@ -356,31 +355,6 @@ and a boolean to check if the value has been set.
 
 SetFindingsAffected sets FindingsAffected field to given value.
 
-
-### GetPrefetch
-
-`func (o *TestImport) GetPrefetch() PaginatedTestImportListPrefetch`
-
-GetPrefetch returns the Prefetch field if non-nil, zero value otherwise.
-
-### GetPrefetchOk
-
-`func (o *TestImport) GetPrefetchOk() (*PaginatedTestImportListPrefetch, bool)`
-
-GetPrefetchOk returns a tuple with the Prefetch field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPrefetch
-
-`func (o *TestImport) SetPrefetch(v PaginatedTestImportListPrefetch)`
-
-SetPrefetch sets Prefetch field to given value.
-
-### HasPrefetch
-
-`func (o *TestImport) HasPrefetch() bool`
-
-HasPrefetch returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

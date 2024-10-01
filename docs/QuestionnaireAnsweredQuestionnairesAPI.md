@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## QuestionnaireAnsweredQuestionnairesList
 
-> PaginatedQuestionnaireAnsweredSurveyList QuestionnaireAnsweredQuestionnairesList(ctx).Limit(limit).Offset(offset).Execute()
+> PaginatedQuestionnaireAnsweredSurveyList QuestionnaireAnsweredQuestionnairesList(ctx).Limit(limit).Offset(offset).Prefetch(prefetch).Execute()
 
 
 
@@ -30,10 +30,11 @@ import (
 func main() {
 	limit := int32(56) // int32 | Number of results to return per page. (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	prefetch := []string{"Prefetch_example"} // []string | List of fields for which to prefetch model instances and add those to the response (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.QuestionnaireAnsweredQuestionnairesAPI.QuestionnaireAnsweredQuestionnairesList(context.Background()).Limit(limit).Offset(offset).Execute()
+	resp, r, err := apiClient.QuestionnaireAnsweredQuestionnairesAPI.QuestionnaireAnsweredQuestionnairesList(context.Background()).Limit(limit).Offset(offset).Prefetch(prefetch).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `QuestionnaireAnsweredQuestionnairesAPI.QuestionnaireAnsweredQuestionnairesList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -56,6 +57,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **int32** | Number of results to return per page. | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **prefetch** | **[]string** | List of fields for which to prefetch model instances and add those to the response | 
 
 ### Return type
 
@@ -77,7 +79,7 @@ Name | Type | Description  | Notes
 
 ## QuestionnaireAnsweredQuestionnairesRetrieve
 
-> QuestionnaireAnsweredSurvey QuestionnaireAnsweredQuestionnairesRetrieve(ctx, id).Execute()
+> QuestionnaireAnsweredSurvey QuestionnaireAnsweredQuestionnairesRetrieve(ctx, id).Prefetch(prefetch).Execute()
 
 
 
@@ -95,10 +97,11 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this Answered Engagement Survey.
+	prefetch := []string{"Prefetch_example"} // []string | List of fields for which to prefetch model instances and add those to the response (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.QuestionnaireAnsweredQuestionnairesAPI.QuestionnaireAnsweredQuestionnairesRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.QuestionnaireAnsweredQuestionnairesAPI.QuestionnaireAnsweredQuestionnairesRetrieve(context.Background(), id).Prefetch(prefetch).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `QuestionnaireAnsweredQuestionnairesAPI.QuestionnaireAnsweredQuestionnairesRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -124,6 +127,7 @@ Other parameters are passed through a pointer to a apiQuestionnaireAnsweredQuest
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **prefetch** | **[]string** | List of fields for which to prefetch model instances and add those to the response | 
 
 ### Return type
 

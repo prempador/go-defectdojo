@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Username** | **string** | Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only. | 
 **FirstName** | Pointer to **string** |  | [optional] 
 **LastName** | Pointer to **string** |  | [optional] 
-**Email** | Pointer to **string** |  | [optional] 
+**Email** | **string** |  | 
 **IsActive** | Pointer to **bool** | Designates whether this user should be treated as active. Unselect this instead of deleting accounts. | [optional] 
 **IsSuperuser** | Pointer to **bool** | Designates that this user has all permissions without explicitly assigning them. | [optional] 
 **Password** | Pointer to **string** |  | [optional] 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewUserRequest
 
-`func NewUserRequest(username string, ) *UserRequest`
+`func NewUserRequest(username string, email string, ) *UserRequest`
 
 NewUserRequest instantiates a new UserRequest object
 This constructor will assign default values to properties that have it defined,
@@ -121,11 +121,6 @@ and a boolean to check if the value has been set.
 
 SetEmail sets Email field to given value.
 
-### HasEmail
-
-`func (o *UserRequest) HasEmail() bool`
-
-HasEmail returns a boolean if a field has been set.
 
 ### GetIsActive
 

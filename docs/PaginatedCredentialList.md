@@ -4,16 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Count** | Pointer to **int32** |  | [optional] 
+**Count** | **int32** |  | 
 **Next** | Pointer to **NullableString** |  | [optional] 
 **Previous** | Pointer to **NullableString** |  | [optional] 
-**Results** | Pointer to [**[]Credential**](Credential.md) |  | [optional] 
+**Results** | [**[]Credential**](Credential.md) |  | 
+**Prefetch** | Pointer to [**CredentialPrefetch**](CredentialPrefetch.md) |  | [optional] 
 
 ## Methods
 
 ### NewPaginatedCredentialList
 
-`func NewPaginatedCredentialList() *PaginatedCredentialList`
+`func NewPaginatedCredentialList(count int32, results []Credential, ) *PaginatedCredentialList`
 
 NewPaginatedCredentialList instantiates a new PaginatedCredentialList object
 This constructor will assign default values to properties that have it defined,
@@ -47,11 +48,6 @@ and a boolean to check if the value has been set.
 
 SetCount sets Count field to given value.
 
-### HasCount
-
-`func (o *PaginatedCredentialList) HasCount() bool`
-
-HasCount returns a boolean if a field has been set.
 
 ### GetNext
 
@@ -142,11 +138,31 @@ and a boolean to check if the value has been set.
 
 SetResults sets Results field to given value.
 
-### HasResults
 
-`func (o *PaginatedCredentialList) HasResults() bool`
+### GetPrefetch
 
-HasResults returns a boolean if a field has been set.
+`func (o *PaginatedCredentialList) GetPrefetch() CredentialPrefetch`
+
+GetPrefetch returns the Prefetch field if non-nil, zero value otherwise.
+
+### GetPrefetchOk
+
+`func (o *PaginatedCredentialList) GetPrefetchOk() (*CredentialPrefetch, bool)`
+
+GetPrefetchOk returns a tuple with the Prefetch field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPrefetch
+
+`func (o *PaginatedCredentialList) SetPrefetch(v CredentialPrefetch)`
+
+SetPrefetch sets Prefetch field to given value.
+
+### HasPrefetch
+
+`func (o *PaginatedCredentialList) HasPrefetch() bool`
+
+HasPrefetch returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

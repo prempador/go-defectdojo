@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 **RiskAcceptanceExpiration** | Pointer to **[]string** |  | [optional] [default to ["alert"]]
 **Template** | Pointer to **bool** |  | [optional] [default to false]
 **ScanAddedEmpty** | Pointer to **string** | Triggered whenever an (re-)import has been done (even if that created/updated/closed no findings).  * &#x60;slack&#x60; - slack * &#x60;msteams&#x60; - msteams * &#x60;mail&#x60; - mail * &#x60;alert&#x60; - alert | [optional] 
-**Prefetch** | Pointer to [**NotificationsPrefetch**](NotificationsPrefetch.md) |  | [optional] 
+**Prefetch** | Pointer to [**AppAnalysisPrefetch**](AppAnalysisPrefetch.md) |  | [optional] 
 
 ## Methods
 
@@ -614,20 +614,20 @@ HasScanAddedEmpty returns a boolean if a field has been set.
 
 ### GetPrefetch
 
-`func (o *Notifications) GetPrefetch() NotificationsPrefetch`
+`func (o *Notifications) GetPrefetch() AppAnalysisPrefetch`
 
 GetPrefetch returns the Prefetch field if non-nil, zero value otherwise.
 
 ### GetPrefetchOk
 
-`func (o *Notifications) GetPrefetchOk() (*NotificationsPrefetch, bool)`
+`func (o *Notifications) GetPrefetchOk() (*AppAnalysisPrefetch, bool)`
 
 GetPrefetchOk returns a tuple with the Prefetch field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPrefetch
 
-`func (o *Notifications) SetPrefetch(v NotificationsPrefetch)`
+`func (o *Notifications) SetPrefetch(v AppAnalysisPrefetch)`
 
 SetPrefetch sets Prefetch field to given value.
 

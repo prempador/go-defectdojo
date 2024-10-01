@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **User** | [**User**](User.md) |  | 
-**UserContactInfo** | [**UserContactInfo**](UserContactInfo.md) |  | 
-**GlobalRole** | [**GlobalRole**](GlobalRole.md) |  | 
+**UserContactInfo** | Pointer to [**UserContactInfo**](UserContactInfo.md) |  | [optional] 
+**GlobalRole** | Pointer to [**GlobalRole**](GlobalRole.md) |  | [optional] 
 **DojoGroupMember** | [**[]DojoGroupMember**](DojoGroupMember.md) |  | 
 **ProductTypeMember** | [**[]ProductTypeMember**](ProductTypeMember.md) |  | 
 **ProductMember** | [**[]ProductMember**](ProductMember.md) |  | 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewUserProfile
 
-`func NewUserProfile(user User, userContactInfo UserContactInfo, globalRole GlobalRole, dojoGroupMember []DojoGroupMember, productTypeMember []ProductTypeMember, productMember []ProductMember, ) *UserProfile`
+`func NewUserProfile(user User, dojoGroupMember []DojoGroupMember, productTypeMember []ProductTypeMember, productMember []ProductMember, ) *UserProfile`
 
 NewUserProfile instantiates a new UserProfile object
 This constructor will assign default values to properties that have it defined,
@@ -69,6 +69,11 @@ and a boolean to check if the value has been set.
 
 SetUserContactInfo sets UserContactInfo field to given value.
 
+### HasUserContactInfo
+
+`func (o *UserProfile) HasUserContactInfo() bool`
+
+HasUserContactInfo returns a boolean if a field has been set.
 
 ### GetGlobalRole
 
@@ -89,6 +94,11 @@ and a boolean to check if the value has been set.
 
 SetGlobalRole sets GlobalRole field to given value.
 
+### HasGlobalRole
+
+`func (o *UserProfile) HasGlobalRole() bool`
+
+HasGlobalRole returns a boolean if a field has been set.
 
 ### GetDojoGroupMember
 

@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Count** | Pointer to **int32** |  | [optional] 
+**Count** | **int32** |  | 
 **Next** | Pointer to **NullableString** |  | [optional] 
 **Previous** | Pointer to **NullableString** |  | [optional] 
-**Results** | Pointer to [**[]ProductTypeMember**](ProductTypeMember.md) |  | [optional] 
+**Results** | [**[]ProductTypeMember**](ProductTypeMember.md) |  | 
 **Prefetch** | Pointer to [**PaginatedProductTypeMemberListPrefetch**](PaginatedProductTypeMemberListPrefetch.md) |  | [optional] 
 
 ## Methods
 
 ### NewPaginatedProductTypeMemberList
 
-`func NewPaginatedProductTypeMemberList() *PaginatedProductTypeMemberList`
+`func NewPaginatedProductTypeMemberList(count int32, results []ProductTypeMember, ) *PaginatedProductTypeMemberList`
 
 NewPaginatedProductTypeMemberList instantiates a new PaginatedProductTypeMemberList object
 This constructor will assign default values to properties that have it defined,
@@ -48,11 +48,6 @@ and a boolean to check if the value has been set.
 
 SetCount sets Count field to given value.
 
-### HasCount
-
-`func (o *PaginatedProductTypeMemberList) HasCount() bool`
-
-HasCount returns a boolean if a field has been set.
 
 ### GetNext
 
@@ -143,11 +138,6 @@ and a boolean to check if the value has been set.
 
 SetResults sets Results field to given value.
 
-### HasResults
-
-`func (o *PaginatedProductTypeMemberList) HasResults() bool`
-
-HasResults returns a boolean if a field has been set.
 
 ### GetPrefetch
 

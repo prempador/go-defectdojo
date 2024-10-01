@@ -218,7 +218,7 @@ Name | Type | Description  | Notes
 
 ## JiraProductConfigurationsList
 
-> PaginatedJIRAProjectList JiraProductConfigurationsList(ctx).Component(component).EnableEngagementEpicMapping(enableEngagementEpicMapping).Engagement(engagement).Id(id).JiraInstance(jiraInstance).Limit(limit).Offset(offset).Product(product).ProjectKey(projectKey).PushAllIssues(pushAllIssues).PushNotes(pushNotes).Execute()
+> PaginatedJIRAProjectList JiraProductConfigurationsList(ctx).Component(component).EnableEngagementEpicMapping(enableEngagementEpicMapping).Engagement(engagement).Id(id).JiraInstance(jiraInstance).Limit(limit).Offset(offset).Prefetch(prefetch).Product(product).ProjectKey(projectKey).PushAllIssues(pushAllIssues).PushNotes(pushNotes).Execute()
 
 
 
@@ -242,6 +242,7 @@ func main() {
 	jiraInstance := int32(56) // int32 |  (optional)
 	limit := int32(56) // int32 | Number of results to return per page. (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	prefetch := []string{"Prefetch_example"} // []string | List of fields for which to prefetch model instances and add those to the response (optional)
 	product := int32(56) // int32 |  (optional)
 	projectKey := "projectKey_example" // string |  (optional)
 	pushAllIssues := true // bool |  (optional)
@@ -249,7 +250,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.JiraProductConfigurationsAPI.JiraProductConfigurationsList(context.Background()).Component(component).EnableEngagementEpicMapping(enableEngagementEpicMapping).Engagement(engagement).Id(id).JiraInstance(jiraInstance).Limit(limit).Offset(offset).Product(product).ProjectKey(projectKey).PushAllIssues(pushAllIssues).PushNotes(pushNotes).Execute()
+	resp, r, err := apiClient.JiraProductConfigurationsAPI.JiraProductConfigurationsList(context.Background()).Component(component).EnableEngagementEpicMapping(enableEngagementEpicMapping).Engagement(engagement).Id(id).JiraInstance(jiraInstance).Limit(limit).Offset(offset).Prefetch(prefetch).Product(product).ProjectKey(projectKey).PushAllIssues(pushAllIssues).PushNotes(pushNotes).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `JiraProductConfigurationsAPI.JiraProductConfigurationsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -277,6 +278,7 @@ Name | Type | Description  | Notes
  **jiraInstance** | **int32** |  | 
  **limit** | **int32** | Number of results to return per page. | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **prefetch** | **[]string** | List of fields for which to prefetch model instances and add those to the response | 
  **product** | **int32** |  | 
  **projectKey** | **string** |  | 
  **pushAllIssues** | **bool** |  | 
@@ -372,7 +374,7 @@ Name | Type | Description  | Notes
 
 ## JiraProductConfigurationsRetrieve
 
-> JIRAProject JiraProductConfigurationsRetrieve(ctx, id).Execute()
+> JIRAProject JiraProductConfigurationsRetrieve(ctx, id).Prefetch(prefetch).Execute()
 
 
 
@@ -390,10 +392,11 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this jir a_ project.
+	prefetch := []string{"Prefetch_example"} // []string | List of fields for which to prefetch model instances and add those to the response (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.JiraProductConfigurationsAPI.JiraProductConfigurationsRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.JiraProductConfigurationsAPI.JiraProductConfigurationsRetrieve(context.Background(), id).Prefetch(prefetch).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `JiraProductConfigurationsAPI.JiraProductConfigurationsRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -419,6 +422,7 @@ Other parameters are passed through a pointer to a apiJiraProductConfigurationsR
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **prefetch** | **[]string** | List of fields for which to prefetch model instances and add those to the response | 
 
 ### Return type
 

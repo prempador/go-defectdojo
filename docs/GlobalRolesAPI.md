@@ -218,7 +218,7 @@ Name | Type | Description  | Notes
 
 ## GlobalRolesList
 
-> PaginatedGlobalRoleList GlobalRolesList(ctx).Group(group).Id(id).Limit(limit).Offset(offset).Role(role).User(user).Execute()
+> PaginatedGlobalRoleList GlobalRolesList(ctx).Group(group).Id(id).Limit(limit).Offset(offset).Prefetch(prefetch).Role(role).User(user).Execute()
 
 
 
@@ -239,12 +239,13 @@ func main() {
 	id := int32(56) // int32 |  (optional)
 	limit := int32(56) // int32 | Number of results to return per page. (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	prefetch := []string{"Prefetch_example"} // []string | List of fields for which to prefetch model instances and add those to the response (optional)
 	role := int32(56) // int32 |  (optional)
 	user := int32(56) // int32 |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.GlobalRolesAPI.GlobalRolesList(context.Background()).Group(group).Id(id).Limit(limit).Offset(offset).Role(role).User(user).Execute()
+	resp, r, err := apiClient.GlobalRolesAPI.GlobalRolesList(context.Background()).Group(group).Id(id).Limit(limit).Offset(offset).Prefetch(prefetch).Role(role).User(user).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `GlobalRolesAPI.GlobalRolesList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -269,6 +270,7 @@ Name | Type | Description  | Notes
  **id** | **int32** |  | 
  **limit** | **int32** | Number of results to return per page. | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **prefetch** | **[]string** | List of fields for which to prefetch model instances and add those to the response | 
  **role** | **int32** |  | 
  **user** | **int32** |  | 
 
@@ -362,7 +364,7 @@ Name | Type | Description  | Notes
 
 ## GlobalRolesRetrieve
 
-> GlobalRole GlobalRolesRetrieve(ctx, id).Execute()
+> GlobalRole GlobalRolesRetrieve(ctx, id).Prefetch(prefetch).Execute()
 
 
 
@@ -380,10 +382,11 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this global_ role.
+	prefetch := []string{"Prefetch_example"} // []string | List of fields for which to prefetch model instances and add those to the response (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.GlobalRolesAPI.GlobalRolesRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.GlobalRolesAPI.GlobalRolesRetrieve(context.Background(), id).Prefetch(prefetch).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `GlobalRolesAPI.GlobalRolesRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -409,6 +412,7 @@ Other parameters are passed through a pointer to a apiGlobalRolesRetrieveRequest
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **prefetch** | **[]string** | List of fields for which to prefetch model instances and add those to the response | 
 
 ### Return type
 

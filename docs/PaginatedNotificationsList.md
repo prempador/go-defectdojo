@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Count** | Pointer to **int32** |  | [optional] 
+**Count** | **int32** |  | 
 **Next** | Pointer to **NullableString** |  | [optional] 
 **Previous** | Pointer to **NullableString** |  | [optional] 
-**Results** | Pointer to [**[]Notifications**](Notifications.md) |  | [optional] 
-**Prefetch** | Pointer to [**NotificationsPrefetch**](NotificationsPrefetch.md) |  | [optional] 
+**Results** | [**[]Notifications**](Notifications.md) |  | 
+**Prefetch** | Pointer to [**AppAnalysisPrefetch**](AppAnalysisPrefetch.md) |  | [optional] 
 
 ## Methods
 
 ### NewPaginatedNotificationsList
 
-`func NewPaginatedNotificationsList() *PaginatedNotificationsList`
+`func NewPaginatedNotificationsList(count int32, results []Notifications, ) *PaginatedNotificationsList`
 
 NewPaginatedNotificationsList instantiates a new PaginatedNotificationsList object
 This constructor will assign default values to properties that have it defined,
@@ -48,11 +48,6 @@ and a boolean to check if the value has been set.
 
 SetCount sets Count field to given value.
 
-### HasCount
-
-`func (o *PaginatedNotificationsList) HasCount() bool`
-
-HasCount returns a boolean if a field has been set.
 
 ### GetNext
 
@@ -143,28 +138,23 @@ and a boolean to check if the value has been set.
 
 SetResults sets Results field to given value.
 
-### HasResults
-
-`func (o *PaginatedNotificationsList) HasResults() bool`
-
-HasResults returns a boolean if a field has been set.
 
 ### GetPrefetch
 
-`func (o *PaginatedNotificationsList) GetPrefetch() NotificationsPrefetch`
+`func (o *PaginatedNotificationsList) GetPrefetch() AppAnalysisPrefetch`
 
 GetPrefetch returns the Prefetch field if non-nil, zero value otherwise.
 
 ### GetPrefetchOk
 
-`func (o *PaginatedNotificationsList) GetPrefetchOk() (*NotificationsPrefetch, bool)`
+`func (o *PaginatedNotificationsList) GetPrefetchOk() (*AppAnalysisPrefetch, bool)`
 
 GetPrefetchOk returns a tuple with the Prefetch field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPrefetch
 
-`func (o *PaginatedNotificationsList) SetPrefetch(v NotificationsPrefetch)`
+`func (o *PaginatedNotificationsList) SetPrefetch(v AppAnalysisPrefetch)`
 
 SetPrefetch sets Prefetch field to given value.
 

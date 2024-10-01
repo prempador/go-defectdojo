@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Survey** | **int32** |  | 
 **Assignee** | Pointer to **NullableInt32** |  | [optional] 
 **Responder** | Pointer to **NullableInt32** |  | [optional] 
+**Prefetch** | Pointer to [**PaginatedQuestionnaireAnsweredSurveyListPrefetch**](PaginatedQuestionnaireAnsweredSurveyListPrefetch.md) |  | [optional] 
 
 ## Methods
 
@@ -236,6 +237,31 @@ HasResponder returns a boolean if a field has been set.
 `func (o *QuestionnaireAnsweredSurvey) UnsetResponder()`
 
 UnsetResponder ensures that no value is present for Responder, not even an explicit nil
+### GetPrefetch
+
+`func (o *QuestionnaireAnsweredSurvey) GetPrefetch() PaginatedQuestionnaireAnsweredSurveyListPrefetch`
+
+GetPrefetch returns the Prefetch field if non-nil, zero value otherwise.
+
+### GetPrefetchOk
+
+`func (o *QuestionnaireAnsweredSurvey) GetPrefetchOk() (*PaginatedQuestionnaireAnsweredSurveyListPrefetch, bool)`
+
+GetPrefetchOk returns a tuple with the Prefetch field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPrefetch
+
+`func (o *QuestionnaireAnsweredSurvey) SetPrefetch(v PaginatedQuestionnaireAnsweredSurveyListPrefetch)`
+
+SetPrefetch sets Prefetch field to given value.
+
+### HasPrefetch
+
+`func (o *QuestionnaireAnsweredSurvey) HasPrefetch() bool`
+
+HasPrefetch returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

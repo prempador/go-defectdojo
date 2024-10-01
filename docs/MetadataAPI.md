@@ -218,7 +218,7 @@ Name | Type | Description  | Notes
 
 ## MetadataList
 
-> PaginatedMetaList MetadataList(ctx).Endpoint(endpoint).Finding(finding).Id(id).Limit(limit).Name(name).Offset(offset).Prefetch(prefetch).Product(product).Value(value).Execute()
+> PaginatedMetaList MetadataList(ctx).Endpoint(endpoint).Finding(finding).Id(id).Limit(limit).Name(name).Offset(offset).Product(product).Value(value).Execute()
 
 
 
@@ -241,13 +241,12 @@ func main() {
 	limit := int32(56) // int32 | Number of results to return per page. (optional)
 	name := "name_example" // string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
-	prefetch := []string{"Prefetch_example"} // []string | List of fields for which to prefetch model instances and add those to the response (optional)
 	product := int32(56) // int32 |  (optional)
 	value := "value_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MetadataAPI.MetadataList(context.Background()).Endpoint(endpoint).Finding(finding).Id(id).Limit(limit).Name(name).Offset(offset).Prefetch(prefetch).Product(product).Value(value).Execute()
+	resp, r, err := apiClient.MetadataAPI.MetadataList(context.Background()).Endpoint(endpoint).Finding(finding).Id(id).Limit(limit).Name(name).Offset(offset).Product(product).Value(value).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MetadataAPI.MetadataList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -274,7 +273,6 @@ Name | Type | Description  | Notes
  **limit** | **int32** | Number of results to return per page. | 
  **name** | **string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
- **prefetch** | **[]string** | List of fields for which to prefetch model instances and add those to the response | 
  **product** | **int32** |  | 
  **value** | **string** |  | 
 
@@ -368,7 +366,7 @@ Name | Type | Description  | Notes
 
 ## MetadataRetrieve
 
-> Meta MetadataRetrieve(ctx, id).Prefetch(prefetch).Execute()
+> Meta MetadataRetrieve(ctx, id).Execute()
 
 
 
@@ -386,11 +384,10 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this dojo meta.
-	prefetch := []string{"Prefetch_example"} // []string | List of fields for which to prefetch model instances and add those to the response (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MetadataAPI.MetadataRetrieve(context.Background(), id).Prefetch(prefetch).Execute()
+	resp, r, err := apiClient.MetadataAPI.MetadataRetrieve(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MetadataAPI.MetadataRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -416,7 +413,6 @@ Other parameters are passed through a pointer to a apiMetadataRetrieveRequest st
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **prefetch** | **[]string** | List of fields for which to prefetch model instances and add those to the response | 
 
 ### Return type
 

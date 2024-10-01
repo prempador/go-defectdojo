@@ -218,7 +218,7 @@ Name | Type | Description  | Notes
 
 ## TechnologiesList
 
-> PaginatedAppAnalysisList TechnologiesList(ctx).Limit(limit).Name(name).NotTag(notTag).NotTags(notTags).Offset(offset).Product(product).Tag(tag).Tags(tags).User(user).Version(version).Execute()
+> PaginatedAppAnalysisList TechnologiesList(ctx).Limit(limit).Name(name).NotTag(notTag).NotTags(notTags).Offset(offset).Prefetch(prefetch).Product(product).Tag(tag).Tags(tags).User(user).Version(version).Execute()
 
 
 
@@ -240,6 +240,7 @@ func main() {
 	notTag := "notTag_example" // string | Not Tag name contains (optional)
 	notTags := []string{"Inner_example"} // []string | Comma separated list of exact tags not present on model (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	prefetch := []string{"Prefetch_example"} // []string | List of fields for which to prefetch model instances and add those to the response (optional)
 	product := int32(56) // int32 |  (optional)
 	tag := "tag_example" // string | Tag name contains (optional)
 	tags := []string{"Inner_example"} // []string | Comma separated list of exact tags (optional)
@@ -248,7 +249,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TechnologiesAPI.TechnologiesList(context.Background()).Limit(limit).Name(name).NotTag(notTag).NotTags(notTags).Offset(offset).Product(product).Tag(tag).Tags(tags).User(user).Version(version).Execute()
+	resp, r, err := apiClient.TechnologiesAPI.TechnologiesList(context.Background()).Limit(limit).Name(name).NotTag(notTag).NotTags(notTags).Offset(offset).Prefetch(prefetch).Product(product).Tag(tag).Tags(tags).User(user).Version(version).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TechnologiesAPI.TechnologiesList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -274,6 +275,7 @@ Name | Type | Description  | Notes
  **notTag** | **string** | Not Tag name contains | 
  **notTags** | **[]string** | Comma separated list of exact tags not present on model | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **prefetch** | **[]string** | List of fields for which to prefetch model instances and add those to the response | 
  **product** | **int32** |  | 
  **tag** | **string** | Tag name contains | 
  **tags** | **[]string** | Comma separated list of exact tags | 
@@ -370,7 +372,7 @@ Name | Type | Description  | Notes
 
 ## TechnologiesRetrieve
 
-> AppAnalysis TechnologiesRetrieve(ctx, id).Execute()
+> AppAnalysis TechnologiesRetrieve(ctx, id).Prefetch(prefetch).Execute()
 
 
 
@@ -388,10 +390,11 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this app_ analysis.
+	prefetch := []string{"Prefetch_example"} // []string | List of fields for which to prefetch model instances and add those to the response (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TechnologiesAPI.TechnologiesRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.TechnologiesAPI.TechnologiesRetrieve(context.Background(), id).Prefetch(prefetch).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TechnologiesAPI.TechnologiesRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -417,6 +420,7 @@ Other parameters are passed through a pointer to a apiTechnologiesRetrieveReques
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **prefetch** | **[]string** | List of fields for which to prefetch model instances and add those to the response | 
 
 ### Return type
 
