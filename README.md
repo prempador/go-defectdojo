@@ -1,5 +1,23 @@
 # Go API client for defectdojo
 
+## Generation Command
+
+```sh
+$ curl https://demo.defectdojo.org/api/v2/oa3/schema/\?format\=yaml > ddj-oapi.yaml
+
+$ docker run --rm -u $(id -u):$(id -g) \
+    -v $PWD:/local openapitools/openapi-generator-cli generate \
+    -i /local/ddj-oapi.yaml \
+    -g go \
+    -o /local \
+    --additional-properties=generateInterfaces=true \
+    --additional-properties=packageName=defectdojo \
+	--additional-properties=disallowAdditionalPropertiesIfNotPresent=false \
+	--additional-properties=useDefaultValuesForRequiredVars=true
+
+$ rm ddj-oapi.yaml
+```
+
 Defect Dojo - Open Source vulnerability Management made easy. Prefetch related parameters/responses not yet in the schema.
 
 ## Overview
