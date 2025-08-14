@@ -732,6 +732,4 @@ model_vulnerability_id_request.go
 model_vulnerability_id_template.go
 model_vulnerability_id_template_request.go
 response.go
-test/api_notification_webhooks_test.go
-test/api_request_response_pairs_test.go
 utils.go
