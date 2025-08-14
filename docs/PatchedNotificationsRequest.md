@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **SlaBreachCombined** | Pointer to **[]string** |  | [optional] [default to ["alert"]]
 **RiskAcceptanceExpiration** | Pointer to **[]string** |  | [optional] [default to ["alert"]]
 **Template** | Pointer to **bool** |  | [optional] [default to false]
-**ScanAddedEmpty** | Pointer to **string** | Triggered whenever an (re-)import has been done (even if that created/updated/closed no findings).  * &#x60;slack&#x60; - slack * &#x60;msteams&#x60; - msteams * &#x60;mail&#x60; - mail * &#x60;alert&#x60; - alert | [optional] 
+**ScanAddedEmpty** | Pointer to **string** | Triggered whenever an (re-)import has been done (even if that created/updated/closed no findings).  * &#x60;slack&#x60; - slack * &#x60;msteams&#x60; - msteams * &#x60;mail&#x60; - mail * &#x60;webhooks&#x60; - webhooks * &#x60;alert&#x60; - alert | [optional] 
 
 ## Methods
 

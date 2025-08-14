@@ -218,7 +218,7 @@ Name | Type | Description  | Notes
 
 ## JiraProjectsList
 
-> PaginatedJIRAProjectList JiraProjectsList(ctx).Component(component).EnableEngagementEpicMapping(enableEngagementEpicMapping).Engagement(engagement).Id(id).JiraInstance(jiraInstance).Limit(limit).Offset(offset).Prefetch(prefetch).Product(product).ProjectKey(projectKey).PushAllIssues(pushAllIssues).PushNotes(pushNotes).Execute()
+> PaginatedJIRAProjectList JiraProjectsList(ctx).Component(component).EnableEngagementEpicMapping(enableEngagementEpicMapping).Enabled(enabled).Engagement(engagement).Id(id).JiraInstance(jiraInstance).Limit(limit).Offset(offset).Prefetch(prefetch).Product(product).ProjectKey(projectKey).PushAllIssues(pushAllIssues).PushNotes(pushNotes).Execute()
 
 
 
@@ -237,6 +237,7 @@ import (
 func main() {
 	component := "component_example" // string |  (optional)
 	enableEngagementEpicMapping := true // bool |  (optional)
+	enabled := true // bool |  (optional)
 	engagement := int32(56) // int32 |  (optional)
 	id := int32(56) // int32 |  (optional)
 	jiraInstance := int32(56) // int32 |  (optional)
@@ -250,7 +251,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.JiraProjectsAPI.JiraProjectsList(context.Background()).Component(component).EnableEngagementEpicMapping(enableEngagementEpicMapping).Engagement(engagement).Id(id).JiraInstance(jiraInstance).Limit(limit).Offset(offset).Prefetch(prefetch).Product(product).ProjectKey(projectKey).PushAllIssues(pushAllIssues).PushNotes(pushNotes).Execute()
+	resp, r, err := apiClient.JiraProjectsAPI.JiraProjectsList(context.Background()).Component(component).EnableEngagementEpicMapping(enableEngagementEpicMapping).Enabled(enabled).Engagement(engagement).Id(id).JiraInstance(jiraInstance).Limit(limit).Offset(offset).Prefetch(prefetch).Product(product).ProjectKey(projectKey).PushAllIssues(pushAllIssues).PushNotes(pushNotes).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `JiraProjectsAPI.JiraProjectsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -273,6 +274,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **component** | **string** |  | 
  **enableEngagementEpicMapping** | **bool** |  | 
+ **enabled** | **bool** |  | 
  **engagement** | **int32** |  | 
  **id** | **int32** |  | 
  **jiraInstance** | **int32** |  | 

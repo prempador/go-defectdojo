@@ -218,7 +218,7 @@ Name | Type | Description  | Notes
 
 ## UsersList
 
-> PaginatedUserList UsersList(ctx).Email(email).FirstName(firstName).Id(id).IsActive(isActive).IsSuperuser(isSuperuser).LastName(lastName).Limit(limit).Offset(offset).Username(username).Execute()
+> PaginatedUserList UsersList(ctx).DateJoinedAfter(dateJoinedAfter).DateJoinedBefore(dateJoinedBefore).Email(email).FirstName(firstName).Id(id).IsActive(isActive).IsSuperuser(isSuperuser).LastLoginAfter(lastLoginAfter).LastLoginBefore(lastLoginBefore).LastName(lastName).Limit(limit).O(o).Offset(offset).Username(username).Execute()
 
 
 
@@ -231,23 +231,29 @@ import (
 	"context"
 	"fmt"
 	"os"
+    "time"
 	openapiclient "github.com/prempador/go-defectdojo"
 )
 
 func main() {
+	dateJoinedAfter := time.Now() // string |  (optional)
+	dateJoinedBefore := time.Now() // string |  (optional)
 	email := "email_example" // string |  (optional)
 	firstName := "firstName_example" // string |  (optional)
 	id := int32(56) // int32 |  (optional)
 	isActive := true // bool |  (optional)
 	isSuperuser := true // bool |  (optional)
+	lastLoginAfter := time.Now() // string |  (optional)
+	lastLoginBefore := time.Now() // string |  (optional)
 	lastName := "lastName_example" // string |  (optional)
 	limit := int32(56) // int32 | Number of results to return per page. (optional)
+	o := []string{"O_example"} // []string | Ordering  * `username` - Username * `-username` - Username (descending) * `last_name` - Last name * `-last_name` - Last name (descending) * `first_name` - First name * `-first_name` - First name (descending) * `email` - Email * `-email` - Email (descending) * `is_active` - Is active * `-is_active` - Is active (descending) * `is_superuser` - Is superuser * `-is_superuser` - Is superuser (descending) * `date_joined` - Date joined * `-date_joined` - Date joined (descending) * `last_login` - Last login * `-last_login` - Last login (descending) (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
 	username := "username_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsersAPI.UsersList(context.Background()).Email(email).FirstName(firstName).Id(id).IsActive(isActive).IsSuperuser(isSuperuser).LastName(lastName).Limit(limit).Offset(offset).Username(username).Execute()
+	resp, r, err := apiClient.UsersAPI.UsersList(context.Background()).DateJoinedAfter(dateJoinedAfter).DateJoinedBefore(dateJoinedBefore).Email(email).FirstName(firstName).Id(id).IsActive(isActive).IsSuperuser(isSuperuser).LastLoginAfter(lastLoginAfter).LastLoginBefore(lastLoginBefore).LastName(lastName).Limit(limit).O(o).Offset(offset).Username(username).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `UsersAPI.UsersList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -268,13 +274,18 @@ Other parameters are passed through a pointer to a apiUsersListRequest struct vi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **dateJoinedAfter** | **string** |  | 
+ **dateJoinedBefore** | **string** |  | 
  **email** | **string** |  | 
  **firstName** | **string** |  | 
  **id** | **int32** |  | 
  **isActive** | **bool** |  | 
  **isSuperuser** | **bool** |  | 
+ **lastLoginAfter** | **string** |  | 
+ **lastLoginBefore** | **string** |  | 
  **lastName** | **string** |  | 
  **limit** | **int32** | Number of results to return per page. | 
+ **o** | **[]string** | Ordering  * &#x60;username&#x60; - Username * &#x60;-username&#x60; - Username (descending) * &#x60;last_name&#x60; - Last name * &#x60;-last_name&#x60; - Last name (descending) * &#x60;first_name&#x60; - First name * &#x60;-first_name&#x60; - First name (descending) * &#x60;email&#x60; - Email * &#x60;-email&#x60; - Email (descending) * &#x60;is_active&#x60; - Is active * &#x60;-is_active&#x60; - Is active (descending) * &#x60;is_superuser&#x60; - Is superuser * &#x60;-is_superuser&#x60; - Is superuser (descending) * &#x60;date_joined&#x60; - Date joined * &#x60;-date_joined&#x60; - Date joined (descending) * &#x60;last_login&#x60; - Last login * &#x60;-last_login&#x60; - Last login (descending) | 
  **offset** | **int32** | The initial index from which to return the results. | 
  **username** | **string** |  | 
 

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **VulnerabilityIds** | Pointer to [**[]VulnerabilityIdTemplateRequest**](VulnerabilityIdTemplateRequest.md) |  | [optional] 
 **Title** | **string** |  | 
 **Cwe** | Pointer to **NullableInt32** |  | [optional] 
-**Cvssv3** | Pointer to **NullableString** |  | [optional] 
+**Cvssv3** | Pointer to **NullableString** | Common Vulnerability Scoring System version 3 (CVSSv3) score associated with this finding. | [optional] 
 **Severity** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **Mitigation** | Pointer to **NullableString** |  | [optional] 

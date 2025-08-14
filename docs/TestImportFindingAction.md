@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Id** | **int32** |  | [readonly] 
 **Created** | **time.Time** |  | [readonly] 
 **Modified** | **time.Time** |  | [readonly] 
-**Action** | Pointer to **NullableString** | * &#x60;N&#x60; - created * &#x60;C&#x60; - closed * &#x60;R&#x60; - reactivated * &#x60;U&#x60; - left untouched | [optional] 
+**Action** | Pointer to **NullableString** | * &#x60;N&#x60; - created * &#x60;C&#x60; - closed * &#x60;R&#x60; - reactivated * &#x60;U&#x60; - untouched | [optional] 
 **TestImport** | **int32** |  | [readonly] 
 **Finding** | **int32** |  | [readonly] 
 

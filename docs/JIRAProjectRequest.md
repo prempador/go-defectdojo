@@ -11,12 +11,13 @@ Name | Type | Description | Notes
 **DefaultAssignee** | Pointer to **NullableString** | JIRA default assignee (name). If left blank then it defaults to whatever is configured in JIRA. | [optional] 
 **JiraLabels** | Pointer to **NullableString** | JIRA issue labels space seperated | [optional] 
 **AddVulnerabilityIdToJiraLabel** | Pointer to **bool** |  | [optional] 
-**PushAllIssues** | Pointer to **bool** | Automatically maintain parity with JIRA. Always create and update JIRA tickets for findings in this Product. | [optional] 
+**PushAllIssues** | Pointer to **bool** | Automatically create JIRA tickets for verified findings, assuming enforce_verified_status is True, or for all findings otherwise. Once linked, the JIRA ticket will continue to sync, regardless of status in DefectDojo. | [optional] 
 **EnableEngagementEpicMapping** | Pointer to **bool** |  | [optional] 
 **EpicIssueTypeName** | Pointer to **string** | The name of the of structure that represents an Epic | [optional] 
 **PushNotes** | Pointer to **bool** |  | [optional] 
 **ProductJiraSlaNotification** | Pointer to **bool** |  | [optional] 
 **RiskAcceptanceExpirationNotification** | Pointer to **bool** |  | [optional] 
+**Enabled** | Pointer to **bool** | When disabled, Findings will no longer be pushed to Jira, even if they have already been pushed previously. | [optional] 
 **JiraInstance** | Pointer to **NullableInt32** |  | [optional] 
 **Product** | Pointer to **NullableInt32** |  | [optional] 
 **Engagement** | Pointer to **NullableInt32** |  | [optional] 
@@ -404,6 +405,31 @@ SetRiskAcceptanceExpirationNotification sets RiskAcceptanceExpirationNotificatio
 `func (o *JIRAProjectRequest) HasRiskAcceptanceExpirationNotification() bool`
 
 HasRiskAcceptanceExpirationNotification returns a boolean if a field has been set.
+
+### GetEnabled
+
+`func (o *JIRAProjectRequest) GetEnabled() bool`
+
+GetEnabled returns the Enabled field if non-nil, zero value otherwise.
+
+### GetEnabledOk
+
+`func (o *JIRAProjectRequest) GetEnabledOk() (*bool, bool)`
+
+GetEnabledOk returns a tuple with the Enabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnabled
+
+`func (o *JIRAProjectRequest) SetEnabled(v bool)`
+
+SetEnabled sets Enabled field to given value.
+
+### HasEnabled
+
+`func (o *JIRAProjectRequest) HasEnabled() bool`
+
+HasEnabled returns a boolean if a field has been set.
 
 ### GetJiraInstance
 

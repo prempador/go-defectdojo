@@ -5,7 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** | Descriptive name which in the future may also be used to group risk acceptances together across engagements and products | 
+**Recommendation** | Pointer to **string** | Recommendation from the security team.  * &#x60;A&#x60; - Accept (The risk is acknowledged, yet remains) * &#x60;V&#x60; - Avoid (Do not engage with whatever creates the risk) * &#x60;M&#x60; - Mitigate (The risk still exists, yet compensating controls make it less of a threat) * &#x60;F&#x60; - Fix (The risk is eradicated) * &#x60;T&#x60; - Transfer (The risk is transferred to a 3rd party) | [optional] 
 **RecommendationDetails** | Pointer to **NullableString** | Explanation of security recommendation | [optional] 
+**Decision** | Pointer to **string** | Risk treatment decision by risk owner  * &#x60;A&#x60; - Accept (The risk is acknowledged, yet remains) * &#x60;V&#x60; - Avoid (Do not engage with whatever creates the risk) * &#x60;M&#x60; - Mitigate (The risk still exists, yet compensating controls make it less of a threat) * &#x60;F&#x60; - Fix (The risk is eradicated) * &#x60;T&#x60; - Transfer (The risk is transferred to a 3rd party) | [optional] 
 **DecisionDetails** | Pointer to **NullableString** | If a compensating control exists to mitigate the finding or reduce risk, then list the compensating control(s). | [optional] 
 **AcceptedBy** | Pointer to **NullableString** | The person that accepts the risk, can be outside of DefectDojo. | [optional] 
 **ExpirationDate** | Pointer to **NullableTime** | When the risk acceptance expires, the findings will be reactivated (unless disabled below). | [optional] 
@@ -55,6 +57,31 @@ and a boolean to check if the value has been set.
 SetName sets Name field to given value.
 
 
+### GetRecommendation
+
+`func (o *RiskAcceptanceRequest) GetRecommendation() string`
+
+GetRecommendation returns the Recommendation field if non-nil, zero value otherwise.
+
+### GetRecommendationOk
+
+`func (o *RiskAcceptanceRequest) GetRecommendationOk() (*string, bool)`
+
+GetRecommendationOk returns a tuple with the Recommendation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRecommendation
+
+`func (o *RiskAcceptanceRequest) SetRecommendation(v string)`
+
+SetRecommendation sets Recommendation field to given value.
+
+### HasRecommendation
+
+`func (o *RiskAcceptanceRequest) HasRecommendation() bool`
+
+HasRecommendation returns a boolean if a field has been set.
+
 ### GetRecommendationDetails
 
 `func (o *RiskAcceptanceRequest) GetRecommendationDetails() string`
@@ -90,6 +117,31 @@ HasRecommendationDetails returns a boolean if a field has been set.
 `func (o *RiskAcceptanceRequest) UnsetRecommendationDetails()`
 
 UnsetRecommendationDetails ensures that no value is present for RecommendationDetails, not even an explicit nil
+### GetDecision
+
+`func (o *RiskAcceptanceRequest) GetDecision() string`
+
+GetDecision returns the Decision field if non-nil, zero value otherwise.
+
+### GetDecisionOk
+
+`func (o *RiskAcceptanceRequest) GetDecisionOk() (*string, bool)`
+
+GetDecisionOk returns a tuple with the Decision field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDecision
+
+`func (o *RiskAcceptanceRequest) SetDecision(v string)`
+
+SetDecision sets Decision field to given value.
+
+### HasDecision
+
+`func (o *RiskAcceptanceRequest) HasDecision() bool`
+
+HasDecision returns a boolean if a field has been set.
+
 ### GetDecisionDetails
 
 `func (o *RiskAcceptanceRequest) GetDecisionDetails() string`

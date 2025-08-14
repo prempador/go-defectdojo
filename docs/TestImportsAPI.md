@@ -218,7 +218,7 @@ Name | Type | Description  | Notes
 
 ## TestImportsList
 
-> PaginatedTestImportList TestImportsList(ctx).BranchTag(branchTag).BuildId(buildId).CommitHash(commitHash).FindingsAffected(findingsAffected).Limit(limit).Offset(offset).Test(test).TestImportFindingActionAction(testImportFindingActionAction).TestImportFindingActionCreated(testImportFindingActionCreated).TestImportFindingActionFinding(testImportFindingActionFinding).Version(version).Execute()
+> PaginatedTestImportList TestImportsList(ctx).BranchTag(branchTag).BuildId(buildId).CommitHash(commitHash).FindingsAffected(findingsAffected).Limit(limit).O(o).Offset(offset).Test(test).TestImportFindingActionAction(testImportFindingActionAction).TestImportFindingActionCreated(testImportFindingActionCreated).TestImportFindingActionFinding(testImportFindingActionFinding).Version(version).Execute()
 
 
 
@@ -241,16 +241,17 @@ func main() {
 	commitHash := "commitHash_example" // string |  (optional)
 	findingsAffected := []int32{int32(123)} // []int32 |  (optional)
 	limit := int32(56) // int32 | Number of results to return per page. (optional)
+	o := []string{"O_example"} // []string | Ordering  * `id` - Id * `-id` - Id (descending) * `created` - Created * `-created` - Created (descending) * `modified` - Modified * `-modified` - Modified (descending) * `version` - Version * `-version` - Version (descending) * `branch_tag` - Branch tag * `-branch_tag` - Branch tag (descending) * `build_id` - Build id * `-build_id` - Build id (descending) * `commit_hash` - Commit hash * `-commit_hash` - Commit hash (descending) (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
 	test := int32(56) // int32 |  (optional)
-	testImportFindingActionAction := "testImportFindingActionAction_example" // string | * `N` - created * `C` - closed * `R` - reactivated * `U` - left untouched (optional)
+	testImportFindingActionAction := "testImportFindingActionAction_example" // string | * `N` - created * `C` - closed * `R` - reactivated * `U` - untouched (optional)
 	testImportFindingActionCreated := time.Now() // time.Time |  (optional)
 	testImportFindingActionFinding := int32(56) // int32 |  (optional)
 	version := "version_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TestImportsAPI.TestImportsList(context.Background()).BranchTag(branchTag).BuildId(buildId).CommitHash(commitHash).FindingsAffected(findingsAffected).Limit(limit).Offset(offset).Test(test).TestImportFindingActionAction(testImportFindingActionAction).TestImportFindingActionCreated(testImportFindingActionCreated).TestImportFindingActionFinding(testImportFindingActionFinding).Version(version).Execute()
+	resp, r, err := apiClient.TestImportsAPI.TestImportsList(context.Background()).BranchTag(branchTag).BuildId(buildId).CommitHash(commitHash).FindingsAffected(findingsAffected).Limit(limit).O(o).Offset(offset).Test(test).TestImportFindingActionAction(testImportFindingActionAction).TestImportFindingActionCreated(testImportFindingActionCreated).TestImportFindingActionFinding(testImportFindingActionFinding).Version(version).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestImportsAPI.TestImportsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -276,9 +277,10 @@ Name | Type | Description  | Notes
  **commitHash** | **string** |  | 
  **findingsAffected** | **[]int32** |  | 
  **limit** | **int32** | Number of results to return per page. | 
+ **o** | **[]string** | Ordering  * &#x60;id&#x60; - Id * &#x60;-id&#x60; - Id (descending) * &#x60;created&#x60; - Created * &#x60;-created&#x60; - Created (descending) * &#x60;modified&#x60; - Modified * &#x60;-modified&#x60; - Modified (descending) * &#x60;version&#x60; - Version * &#x60;-version&#x60; - Version (descending) * &#x60;branch_tag&#x60; - Branch tag * &#x60;-branch_tag&#x60; - Branch tag (descending) * &#x60;build_id&#x60; - Build id * &#x60;-build_id&#x60; - Build id (descending) * &#x60;commit_hash&#x60; - Commit hash * &#x60;-commit_hash&#x60; - Commit hash (descending) | 
  **offset** | **int32** | The initial index from which to return the results. | 
  **test** | **int32** |  | 
- **testImportFindingActionAction** | **string** | * &#x60;N&#x60; - created * &#x60;C&#x60; - closed * &#x60;R&#x60; - reactivated * &#x60;U&#x60; - left untouched | 
+ **testImportFindingActionAction** | **string** | * &#x60;N&#x60; - created * &#x60;C&#x60; - closed * &#x60;R&#x60; - reactivated * &#x60;U&#x60; - untouched | 
  **testImportFindingActionCreated** | **time.Time** |  | 
  **testImportFindingActionFinding** | **int32** |  | 
  **version** | **string** |  | 

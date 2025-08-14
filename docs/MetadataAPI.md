@@ -4,6 +4,8 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**MetadataBatchCreate**](MetadataAPI.md#MetadataBatchCreate) | **Post** /api/v2/metadata/batch/ | 
+[**MetadataBatchPartialUpdate**](MetadataAPI.md#MetadataBatchPartialUpdate) | **Patch** /api/v2/metadata/batch/ | 
 [**MetadataCreate**](MetadataAPI.md#MetadataCreate) | **Post** /api/v2/metadata/ | 
 [**MetadataDeletePreviewList**](MetadataAPI.md#MetadataDeletePreviewList) | **Get** /api/v2/metadata/{id}/delete_preview/ | 
 [**MetadataDestroy**](MetadataAPI.md#MetadataDestroy) | **Delete** /api/v2/metadata/{id}/ | 
@@ -12,6 +14,134 @@ Method | HTTP request | Description
 [**MetadataRetrieve**](MetadataAPI.md#MetadataRetrieve) | **Get** /api/v2/metadata/{id}/ | 
 [**MetadataUpdate**](MetadataAPI.md#MetadataUpdate) | **Put** /api/v2/metadata/{id}/ | 
 
+
+
+## MetadataBatchCreate
+
+> MetaMain MetadataBatchCreate(ctx).MetaMainRequest(metaMainRequest).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/prempador/go-defectdojo"
+)
+
+func main() {
+	metaMainRequest := *openapiclient.NewMetaMainRequest([]openapiclient.MetadataRequest{*openapiclient.NewMetadataRequest("Name_example", "Value_example")}) // MetaMainRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MetadataAPI.MetadataBatchCreate(context.Background()).MetaMainRequest(metaMainRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MetadataAPI.MetadataBatchCreate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `MetadataBatchCreate`: MetaMain
+	fmt.Fprintf(os.Stdout, "Response from `MetadataAPI.MetadataBatchCreate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiMetadataBatchCreateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **metaMainRequest** | [**MetaMainRequest**](MetaMainRequest.md) |  | 
+
+### Return type
+
+[**MetaMain**](MetaMain.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## MetadataBatchPartialUpdate
+
+> MetaMain MetadataBatchPartialUpdate(ctx).PatchedMetaMainRequest(patchedMetaMainRequest).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/prempador/go-defectdojo"
+)
+
+func main() {
+	patchedMetaMainRequest := *openapiclient.NewPatchedMetaMainRequest() // PatchedMetaMainRequest |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MetadataAPI.MetadataBatchPartialUpdate(context.Background()).PatchedMetaMainRequest(patchedMetaMainRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MetadataAPI.MetadataBatchPartialUpdate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `MetadataBatchPartialUpdate`: MetaMain
+	fmt.Fprintf(os.Stdout, "Response from `MetadataAPI.MetadataBatchPartialUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiMetadataBatchPartialUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **patchedMetaMainRequest** | [**PatchedMetaMainRequest**](PatchedMetaMainRequest.md) |  | 
+
+### Return type
+
+[**MetaMain**](MetaMain.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## MetadataCreate
@@ -218,7 +348,7 @@ Name | Type | Description  | Notes
 
 ## MetadataList
 
-> PaginatedMetaList MetadataList(ctx).Endpoint(endpoint).Finding(finding).Id(id).Limit(limit).Name(name).Offset(offset).Product(product).Value(value).Execute()
+> PaginatedMetaList MetadataList(ctx).Endpoint(endpoint).Finding(finding).Id(id).Limit(limit).Name(name).NameCaseInsensitive(nameCaseInsensitive).Offset(offset).Product(product).Value(value).ValueCaseInsensitive(valueCaseInsensitive).Execute()
 
 
 
@@ -240,13 +370,15 @@ func main() {
 	id := int32(56) // int32 |  (optional)
 	limit := int32(56) // int32 | Number of results to return per page. (optional)
 	name := "name_example" // string |  (optional)
+	nameCaseInsensitive := "nameCaseInsensitive_example" // string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
 	product := int32(56) // int32 |  (optional)
 	value := "value_example" // string |  (optional)
+	valueCaseInsensitive := "valueCaseInsensitive_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MetadataAPI.MetadataList(context.Background()).Endpoint(endpoint).Finding(finding).Id(id).Limit(limit).Name(name).Offset(offset).Product(product).Value(value).Execute()
+	resp, r, err := apiClient.MetadataAPI.MetadataList(context.Background()).Endpoint(endpoint).Finding(finding).Id(id).Limit(limit).Name(name).NameCaseInsensitive(nameCaseInsensitive).Offset(offset).Product(product).Value(value).ValueCaseInsensitive(valueCaseInsensitive).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MetadataAPI.MetadataList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -272,9 +404,11 @@ Name | Type | Description  | Notes
  **id** | **int32** |  | 
  **limit** | **int32** | Number of results to return per page. | 
  **name** | **string** |  | 
+ **nameCaseInsensitive** | **string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
  **product** | **int32** |  | 
  **value** | **string** |  | 
+ **valueCaseInsensitive** | **string** |  | 
 
 ### Return type
 

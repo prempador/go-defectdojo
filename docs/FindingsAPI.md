@@ -38,7 +38,7 @@ Method | HTTP request | Description
 
 ## FindingsAcceptRisksCreate
 
-> PaginatedRiskAcceptanceList FindingsAcceptRisksCreate(ctx).AcceptedRiskRequest(acceptedRiskRequest).Active(active).ComponentName(componentName).ComponentVersion(componentVersion).Created(created).Cvssv3(cvssv3).Cvssv3Score(cvssv3Score).Cwe(cwe).Date(date).DefectReviewRequestedBy(defectReviewRequestedBy).Description(description).DiscoveredAfter(discoveredAfter).DiscoveredBefore(discoveredBefore).DiscoveredOn(discoveredOn).Duplicate(duplicate).DuplicateFinding(duplicateFinding).DynamicFinding(dynamicFinding).EffortForFixing(effortForFixing).Endpoints(endpoints).EpssPercentile(epssPercentile).EpssScore(epssScore).FalseP(falseP).FilePath(filePath).FindingGroup(findingGroup).FoundBy(foundBy).HasJira(hasJira).HasTags(hasTags).HashCode(hashCode).Id(id).Impact(impact).InheritedTags(inheritedTags).IsMitigated(isMitigated).JiraChange(jiraChange).JiraCreation(jiraCreation).LastReviewed(lastReviewed).LastReviewedBy(lastReviewedBy).LastStatusUpdate(lastStatusUpdate).Limit(limit).Mitigated(mitigated).MitigatedAfter(mitigatedAfter).MitigatedBefore(mitigatedBefore).MitigatedBy(mitigatedBy).MitigatedOn(mitigatedOn).Mitigation(mitigation).NbOccurences(nbOccurences).NotTag(notTag).NotTags(notTags).NotTestEngagementProductTags(notTestEngagementProductTags).NotTestEngagementTags(notTestEngagementTags).NotTestTags(notTestTags).NumericalSeverity(numericalSeverity).O(o).Offset(offset).OutOfScope(outOfScope).OutsideOfSla(outsideOfSla).Param(param).Payload(payload).PlannedRemediationDate(plannedRemediationDate).PlannedRemediationVersion(plannedRemediationVersion).ProductLifecycle(productLifecycle).ProductName(productName).ProductNameContains(productNameContains).PublishDate(publishDate).References(references).Reporter(reporter).ReviewRequestedBy(reviewRequestedBy).Reviewers(reviewers).RiskAcceptance(riskAcceptance).RiskAccepted(riskAccepted).SastSinkObject(sastSinkObject).SastSourceFilePath(sastSourceFilePath).SastSourceLine(sastSourceLine).SastSourceObject(sastSourceObject).ScannerConfidence(scannerConfidence).Service(service).Severity(severity).SeverityJustification(severityJustification).SlaExpirationDate(slaExpirationDate).SlaStartDate(slaStartDate).SonarqubeIssue(sonarqubeIssue).StaticFinding(staticFinding).StepsToReproduce(stepsToReproduce).Tag(tag).Tags(tags).Test(test).TestEngagement(testEngagement).TestEngagementProduct(testEngagementProduct).TestEngagementProductProdType(testEngagementProductProdType).TestEngagementProductTags(testEngagementProductTags).TestEngagementTags(testEngagementTags).TestTags(testTags).TestTestType(testTestType).Title(title).UnderDefectReview(underDefectReview).UnderReview(underReview).UniqueIdFromTool(uniqueIdFromTool).Verified(verified).VulnIdFromTool(vulnIdFromTool).VulnerabilityId(vulnerabilityId).Execute()
+> PaginatedRiskAcceptanceList FindingsAcceptRisksCreate(ctx).AcceptedRiskRequest(acceptedRiskRequest).Active(active).ComponentName(componentName).ComponentVersion(componentVersion).Created(created).Cvssv3(cvssv3).Cvssv3Score(cvssv3Score).Cvssv4(cvssv4).Cvssv4Score(cvssv4Score).Cwe(cwe).Date(date).DefectReviewRequestedBy(defectReviewRequestedBy).Description(description).DiscoveredAfter(discoveredAfter).DiscoveredBefore(discoveredBefore).DiscoveredOn(discoveredOn).Duplicate(duplicate).DuplicateFinding(duplicateFinding).DynamicFinding(dynamicFinding).EffortForFixing(effortForFixing).Endpoints(endpoints).EpssPercentileMax(epssPercentileMax).EpssPercentileMin(epssPercentileMin).EpssScoreMax(epssScoreMax).EpssScoreMin(epssScoreMin).FalseP(falseP).FilePath(filePath).FindingGroup(findingGroup).FixAvailable(fixAvailable).FoundBy(foundBy).HasJira(hasJira).HasTags(hasTags).HashCode(hashCode).Id(id).Impact(impact).InheritedTags(inheritedTags).IsMitigated(isMitigated).JiraChange(jiraChange).JiraCreation(jiraCreation).KevDate(kevDate).KnownExploited(knownExploited).LastReviewed(lastReviewed).LastReviewedBy(lastReviewedBy).LastStatusUpdate(lastStatusUpdate).Limit(limit).Mitigated(mitigated).MitigatedAfter(mitigatedAfter).MitigatedBefore(mitigatedBefore).MitigatedBy(mitigatedBy).MitigatedOn(mitigatedOn).Mitigation(mitigation).NbOccurences(nbOccurences).NotTag(notTag).NotTags(notTags).NotTestEngagementProductTags(notTestEngagementProductTags).NotTestEngagementTags(notTestEngagementTags).NotTestTags(notTestTags).NumericalSeverity(numericalSeverity).O(o).Offset(offset).OutOfScope(outOfScope).OutsideOfSla(outsideOfSla).Param(param).Payload(payload).PlannedRemediationDate(plannedRemediationDate).PlannedRemediationVersion(plannedRemediationVersion).ProductLifecycle(productLifecycle).ProductName(productName).ProductNameContains(productNameContains).PublishDate(publishDate).RansomwareUsed(ransomwareUsed).References(references).Reporter(reporter).ReviewRequestedBy(reviewRequestedBy).Reviewers(reviewers).RiskAcceptance(riskAcceptance).RiskAccepted(riskAccepted).SastSinkObject(sastSinkObject).SastSourceFilePath(sastSourceFilePath).SastSourceLine(sastSourceLine).SastSourceObject(sastSourceObject).ScannerConfidence(scannerConfidence).Service(service).Severity(severity).SeverityJustification(severityJustification).SlaExpirationDate(slaExpirationDate).SlaStartDate(slaStartDate).SonarqubeIssue(sonarqubeIssue).StaticFinding(staticFinding).StepsToReproduce(stepsToReproduce).Tag(tag).Tags(tags).TagsAnd(tagsAnd).Test(test).TestEngagement(testEngagement).TestEngagementProduct(testEngagementProduct).TestEngagementProductProdType(testEngagementProductProdType).TestEngagementProductTags(testEngagementProductTags).TestEngagementProductTagsAnd(testEngagementProductTagsAnd).TestEngagementTags(testEngagementTags).TestEngagementTagsAnd(testEngagementTagsAnd).TestTags(testTags).TestTagsAnd(testTagsAnd).TestTestType(testTestType).Title(title).UnderDefectReview(underDefectReview).UnderReview(underReview).UniqueIdFromTool(uniqueIdFromTool).Verified(verified).VulnIdFromTool(vulnIdFromTool).VulnerabilityId(vulnerabilityId).Execute()
 
 
 
@@ -63,6 +63,8 @@ func main() {
 	created := time.Now() // time.Time | The date the finding was created inside DefectDojo.  * `None` - Any date * `1` - Today * `2` - Past 7 days * `3` - Past 30 days * `4` - Past 90 days * `5` - Current month * `6` - Current year * `7` - Past year (optional)
 	cvssv3 := "cvssv3_example" // string |  (optional)
 	cvssv3Score := float32(3.4) // float32 |  (optional)
+	cvssv4 := "cvssv4_example" // string |  (optional)
+	cvssv4Score := float32(3.4) // float32 |  (optional)
 	cwe := []int32{int32(123)} // []int32 | Multiple values may be separated by commas. (optional)
 	date := time.Now() // string | The date the flaw was discovered.  * `None` - Any date * `1` - Today * `2` - Past 7 days * `3` - Past 30 days * `4` - Past 90 days * `5` - Current month * `6` - Current year * `7` - Past year (optional)
 	defectReviewRequestedBy := []int32{int32(123)} // []int32 | Multiple values may be separated by commas. (optional)
@@ -75,11 +77,14 @@ func main() {
 	dynamicFinding := true // bool |  (optional)
 	effortForFixing := "effortForFixing_example" // string |  (optional)
 	endpoints := []int32{int32(123)} // []int32 | Multiple values may be separated by commas. (optional)
-	epssPercentile := float32(3.4) // float32 |  (optional)
-	epssScore := float32(3.4) // float32 |  (optional)
+	epssPercentileMax := float64(1.2) // float64 | The range of EPSS percentiles to filter on; the min input is a lower bound, the max is an upper bound. Leaving one empty will skip that bound (e.g., leaving the min bound input empty will filter only on the max bound -- filtering on \"less than or equal\"). Leading 0 required. (optional)
+	epssPercentileMin := float64(1.2) // float64 | The range of EPSS percentiles to filter on; the min input is a lower bound, the max is an upper bound. Leaving one empty will skip that bound (e.g., leaving the min bound input empty will filter only on the max bound -- filtering on \"less than or equal\"). Leading 0 required. (optional)
+	epssScoreMax := float64(1.2) // float64 | The range of EPSS score percentages to filter on; the min input is a lower bound, the max is an upper bound. Leaving one empty will skip that bound (e.g., leaving the min bound input empty will filter only on the max bound -- filtering on \"less than or equal\"). Leading 0 required. (optional)
+	epssScoreMin := float64(1.2) // float64 | The range of EPSS score percentages to filter on; the min input is a lower bound, the max is an upper bound. Leaving one empty will skip that bound (e.g., leaving the min bound input empty will filter only on the max bound -- filtering on \"less than or equal\"). Leading 0 required. (optional)
 	falseP := true // bool |  (optional)
 	filePath := "filePath_example" // string |  (optional)
 	findingGroup := []float32{float32(123)} // []float32 | Multiple values may be separated by commas. (optional)
+	fixAvailable := true // bool |  (optional)
 	foundBy := []int32{int32(123)} // []int32 | Multiple values may be separated by commas. (optional)
 	hasJira := true // bool |  (optional)
 	hasTags := true // bool | Has tags (optional)
@@ -90,15 +95,17 @@ func main() {
 	isMitigated := true // bool |  (optional)
 	jiraChange := time.Now() // time.Time | The date the linked Jira issue was last modified.  * `None` - Any date * `1` - Today * `2` - Past 7 days * `3` - Past 30 days * `4` - Past 90 days * `5` - Current month * `6` - Current year * `7` - Past year (optional)
 	jiraCreation := time.Now() // time.Time | The date a Jira issue was created from this finding.  * `None` - Any date * `1` - Today * `2` - Past 7 days * `3` - Past 30 days * `4` - Past 90 days * `5` - Current month * `6` - Current year * `7` - Past year (optional)
+	kevDate := time.Now() // string |  (optional)
+	knownExploited := true // bool |  (optional)
 	lastReviewed := time.Now() // time.Time | Provides the date the flaw was last 'touched' by a tester.  * `None` - Any date * `1` - Today * `2` - Past 7 days * `3` - Past 30 days * `4` - Past 90 days * `5` - Current month * `6` - Current year * `7` - Past year (optional)
 	lastReviewedBy := []int32{int32(123)} // []int32 | Multiple values may be separated by commas. (optional)
 	lastStatusUpdate := time.Now() // time.Time |  (optional)
 	limit := int32(56) // int32 | Number of results to return per page. (optional)
 	mitigated := time.Now() // time.Time | Denotes if this flaw has been fixed by storing the date it was fixed.  * `None` - Any date * `1` - Today * `2` - Past 7 days * `3` - Past 30 days * `4` - Past 90 days * `5` - Current month * `6` - Current year * `7` - Past year (optional)
-	mitigatedAfter := time.Now() // string |  (optional)
-	mitigatedBefore := time.Now() // string |  (optional)
+	mitigatedAfter := time.Now() // time.Time | Mitigated After (optional)
+	mitigatedBefore := time.Now() // time.Time |  (optional)
 	mitigatedBy := []int32{int32(123)} // []int32 | Multiple values may be separated by commas. (optional)
-	mitigatedOn := time.Now() // string |  (optional)
+	mitigatedOn := time.Now() // time.Time |  (optional)
 	mitigation := "mitigation_example" // string |  (optional)
 	nbOccurences := []int32{int32(123)} // []int32 | Multiple values may be separated by commas. (optional)
 	notTag := "notTag_example" // string | Not Tag name contains (optional)
@@ -119,6 +126,7 @@ func main() {
 	productName := "productName_example" // string | exact product name (optional)
 	productNameContains := "productNameContains_example" // string | exact product name (optional)
 	publishDate := time.Now() // string |  (optional)
+	ransomwareUsed := true // bool |  (optional)
 	references := "references_example" // string |  (optional)
 	reporter := []int32{int32(123)} // []int32 | Multiple values may be separated by commas. (optional)
 	reviewRequestedBy := []int32{int32(123)} // []int32 | Multiple values may be separated by commas. (optional)
@@ -139,14 +147,18 @@ func main() {
 	staticFinding := true // bool |  (optional)
 	stepsToReproduce := "stepsToReproduce_example" // string |  (optional)
 	tag := "tag_example" // string | Tag name contains (optional)
-	tags := []string{"Inner_example"} // []string | Comma separated list of exact tags (optional)
+	tags := []string{"Inner_example"} // []string | Comma separated list of exact tags (uses OR for multiple values) (optional)
+	tagsAnd := []string{"Inner_example"} // []string | Comma separated list of exact tags to match with an AND expression (optional)
 	test := int32(56) // int32 |  (optional)
 	testEngagement := []int32{int32(123)} // []int32 | Multiple values may be separated by commas. (optional)
 	testEngagementProduct := []int32{int32(123)} // []int32 | Multiple values may be separated by commas. (optional)
 	testEngagementProductProdType := []int32{int32(123)} // []int32 | Multiple values may be separated by commas. (optional)
-	testEngagementProductTags := []string{"Inner_example"} // []string | Comma separated list of exact tags present on product (optional)
-	testEngagementTags := []string{"Inner_example"} // []string | Comma separated list of exact tags present on engagement (optional)
-	testTags := []string{"Inner_example"} // []string | Comma separated list of exact tags present on test (optional)
+	testEngagementProductTags := []string{"Inner_example"} // []string | Comma separated list of exact tags present on product (uses OR for multiple values) (optional)
+	testEngagementProductTagsAnd := []string{"Inner_example"} // []string | Comma separated list of exact tags to match with an AND expression present on product (optional)
+	testEngagementTags := []string{"Inner_example"} // []string | Comma separated list of exact tags present on engagement (uses OR for multiple values) (optional)
+	testEngagementTagsAnd := []string{"Inner_example"} // []string | Comma separated list of exact tags to match with an AND expression present on engagement (optional)
+	testTags := []string{"Inner_example"} // []string | Comma separated list of exact tags present on test (uses OR for multiple values) (optional)
+	testTagsAnd := []string{"Inner_example"} // []string | Comma separated list of exact tags to match with an AND expression present on test (optional)
 	testTestType := []int32{int32(123)} // []int32 | Multiple values may be separated by commas. (optional)
 	title := "title_example" // string |  (optional)
 	underDefectReview := true // bool |  (optional)
@@ -158,7 +170,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FindingsAPI.FindingsAcceptRisksCreate(context.Background()).AcceptedRiskRequest(acceptedRiskRequest).Active(active).ComponentName(componentName).ComponentVersion(componentVersion).Created(created).Cvssv3(cvssv3).Cvssv3Score(cvssv3Score).Cwe(cwe).Date(date).DefectReviewRequestedBy(defectReviewRequestedBy).Description(description).DiscoveredAfter(discoveredAfter).DiscoveredBefore(discoveredBefore).DiscoveredOn(discoveredOn).Duplicate(duplicate).DuplicateFinding(duplicateFinding).DynamicFinding(dynamicFinding).EffortForFixing(effortForFixing).Endpoints(endpoints).EpssPercentile(epssPercentile).EpssScore(epssScore).FalseP(falseP).FilePath(filePath).FindingGroup(findingGroup).FoundBy(foundBy).HasJira(hasJira).HasTags(hasTags).HashCode(hashCode).Id(id).Impact(impact).InheritedTags(inheritedTags).IsMitigated(isMitigated).JiraChange(jiraChange).JiraCreation(jiraCreation).LastReviewed(lastReviewed).LastReviewedBy(lastReviewedBy).LastStatusUpdate(lastStatusUpdate).Limit(limit).Mitigated(mitigated).MitigatedAfter(mitigatedAfter).MitigatedBefore(mitigatedBefore).MitigatedBy(mitigatedBy).MitigatedOn(mitigatedOn).Mitigation(mitigation).NbOccurences(nbOccurences).NotTag(notTag).NotTags(notTags).NotTestEngagementProductTags(notTestEngagementProductTags).NotTestEngagementTags(notTestEngagementTags).NotTestTags(notTestTags).NumericalSeverity(numericalSeverity).O(o).Offset(offset).OutOfScope(outOfScope).OutsideOfSla(outsideOfSla).Param(param).Payload(payload).PlannedRemediationDate(plannedRemediationDate).PlannedRemediationVersion(plannedRemediationVersion).ProductLifecycle(productLifecycle).ProductName(productName).ProductNameContains(productNameContains).PublishDate(publishDate).References(references).Reporter(reporter).ReviewRequestedBy(reviewRequestedBy).Reviewers(reviewers).RiskAcceptance(riskAcceptance).RiskAccepted(riskAccepted).SastSinkObject(sastSinkObject).SastSourceFilePath(sastSourceFilePath).SastSourceLine(sastSourceLine).SastSourceObject(sastSourceObject).ScannerConfidence(scannerConfidence).Service(service).Severity(severity).SeverityJustification(severityJustification).SlaExpirationDate(slaExpirationDate).SlaStartDate(slaStartDate).SonarqubeIssue(sonarqubeIssue).StaticFinding(staticFinding).StepsToReproduce(stepsToReproduce).Tag(tag).Tags(tags).Test(test).TestEngagement(testEngagement).TestEngagementProduct(testEngagementProduct).TestEngagementProductProdType(testEngagementProductProdType).TestEngagementProductTags(testEngagementProductTags).TestEngagementTags(testEngagementTags).TestTags(testTags).TestTestType(testTestType).Title(title).UnderDefectReview(underDefectReview).UnderReview(underReview).UniqueIdFromTool(uniqueIdFromTool).Verified(verified).VulnIdFromTool(vulnIdFromTool).VulnerabilityId(vulnerabilityId).Execute()
+	resp, r, err := apiClient.FindingsAPI.FindingsAcceptRisksCreate(context.Background()).AcceptedRiskRequest(acceptedRiskRequest).Active(active).ComponentName(componentName).ComponentVersion(componentVersion).Created(created).Cvssv3(cvssv3).Cvssv3Score(cvssv3Score).Cvssv4(cvssv4).Cvssv4Score(cvssv4Score).Cwe(cwe).Date(date).DefectReviewRequestedBy(defectReviewRequestedBy).Description(description).DiscoveredAfter(discoveredAfter).DiscoveredBefore(discoveredBefore).DiscoveredOn(discoveredOn).Duplicate(duplicate).DuplicateFinding(duplicateFinding).DynamicFinding(dynamicFinding).EffortForFixing(effortForFixing).Endpoints(endpoints).EpssPercentileMax(epssPercentileMax).EpssPercentileMin(epssPercentileMin).EpssScoreMax(epssScoreMax).EpssScoreMin(epssScoreMin).FalseP(falseP).FilePath(filePath).FindingGroup(findingGroup).FixAvailable(fixAvailable).FoundBy(foundBy).HasJira(hasJira).HasTags(hasTags).HashCode(hashCode).Id(id).Impact(impact).InheritedTags(inheritedTags).IsMitigated(isMitigated).JiraChange(jiraChange).JiraCreation(jiraCreation).KevDate(kevDate).KnownExploited(knownExploited).LastReviewed(lastReviewed).LastReviewedBy(lastReviewedBy).LastStatusUpdate(lastStatusUpdate).Limit(limit).Mitigated(mitigated).MitigatedAfter(mitigatedAfter).MitigatedBefore(mitigatedBefore).MitigatedBy(mitigatedBy).MitigatedOn(mitigatedOn).Mitigation(mitigation).NbOccurences(nbOccurences).NotTag(notTag).NotTags(notTags).NotTestEngagementProductTags(notTestEngagementProductTags).NotTestEngagementTags(notTestEngagementTags).NotTestTags(notTestTags).NumericalSeverity(numericalSeverity).O(o).Offset(offset).OutOfScope(outOfScope).OutsideOfSla(outsideOfSla).Param(param).Payload(payload).PlannedRemediationDate(plannedRemediationDate).PlannedRemediationVersion(plannedRemediationVersion).ProductLifecycle(productLifecycle).ProductName(productName).ProductNameContains(productNameContains).PublishDate(publishDate).RansomwareUsed(ransomwareUsed).References(references).Reporter(reporter).ReviewRequestedBy(reviewRequestedBy).Reviewers(reviewers).RiskAcceptance(riskAcceptance).RiskAccepted(riskAccepted).SastSinkObject(sastSinkObject).SastSourceFilePath(sastSourceFilePath).SastSourceLine(sastSourceLine).SastSourceObject(sastSourceObject).ScannerConfidence(scannerConfidence).Service(service).Severity(severity).SeverityJustification(severityJustification).SlaExpirationDate(slaExpirationDate).SlaStartDate(slaStartDate).SonarqubeIssue(sonarqubeIssue).StaticFinding(staticFinding).StepsToReproduce(stepsToReproduce).Tag(tag).Tags(tags).TagsAnd(tagsAnd).Test(test).TestEngagement(testEngagement).TestEngagementProduct(testEngagementProduct).TestEngagementProductProdType(testEngagementProductProdType).TestEngagementProductTags(testEngagementProductTags).TestEngagementProductTagsAnd(testEngagementProductTagsAnd).TestEngagementTags(testEngagementTags).TestEngagementTagsAnd(testEngagementTagsAnd).TestTags(testTags).TestTagsAnd(testTagsAnd).TestTestType(testTestType).Title(title).UnderDefectReview(underDefectReview).UnderReview(underReview).UniqueIdFromTool(uniqueIdFromTool).Verified(verified).VulnIdFromTool(vulnIdFromTool).VulnerabilityId(vulnerabilityId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `FindingsAPI.FindingsAcceptRisksCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -186,6 +198,8 @@ Name | Type | Description  | Notes
  **created** | **time.Time** | The date the finding was created inside DefectDojo.  * &#x60;None&#x60; - Any date * &#x60;1&#x60; - Today * &#x60;2&#x60; - Past 7 days * &#x60;3&#x60; - Past 30 days * &#x60;4&#x60; - Past 90 days * &#x60;5&#x60; - Current month * &#x60;6&#x60; - Current year * &#x60;7&#x60; - Past year | 
  **cvssv3** | **string** |  | 
  **cvssv3Score** | **float32** |  | 
+ **cvssv4** | **string** |  | 
+ **cvssv4Score** | **float32** |  | 
  **cwe** | **[]int32** | Multiple values may be separated by commas. | 
  **date** | **string** | The date the flaw was discovered.  * &#x60;None&#x60; - Any date * &#x60;1&#x60; - Today * &#x60;2&#x60; - Past 7 days * &#x60;3&#x60; - Past 30 days * &#x60;4&#x60; - Past 90 days * &#x60;5&#x60; - Current month * &#x60;6&#x60; - Current year * &#x60;7&#x60; - Past year | 
  **defectReviewRequestedBy** | **[]int32** | Multiple values may be separated by commas. | 
@@ -198,11 +212,14 @@ Name | Type | Description  | Notes
  **dynamicFinding** | **bool** |  | 
  **effortForFixing** | **string** |  | 
  **endpoints** | **[]int32** | Multiple values may be separated by commas. | 
- **epssPercentile** | **float32** |  | 
- **epssScore** | **float32** |  | 
+ **epssPercentileMax** | **float64** | The range of EPSS percentiles to filter on; the min input is a lower bound, the max is an upper bound. Leaving one empty will skip that bound (e.g., leaving the min bound input empty will filter only on the max bound -- filtering on \&quot;less than or equal\&quot;). Leading 0 required. | 
+ **epssPercentileMin** | **float64** | The range of EPSS percentiles to filter on; the min input is a lower bound, the max is an upper bound. Leaving one empty will skip that bound (e.g., leaving the min bound input empty will filter only on the max bound -- filtering on \&quot;less than or equal\&quot;). Leading 0 required. | 
+ **epssScoreMax** | **float64** | The range of EPSS score percentages to filter on; the min input is a lower bound, the max is an upper bound. Leaving one empty will skip that bound (e.g., leaving the min bound input empty will filter only on the max bound -- filtering on \&quot;less than or equal\&quot;). Leading 0 required. | 
+ **epssScoreMin** | **float64** | The range of EPSS score percentages to filter on; the min input is a lower bound, the max is an upper bound. Leaving one empty will skip that bound (e.g., leaving the min bound input empty will filter only on the max bound -- filtering on \&quot;less than or equal\&quot;). Leading 0 required. | 
  **falseP** | **bool** |  | 
  **filePath** | **string** |  | 
  **findingGroup** | **[]float32** | Multiple values may be separated by commas. | 
+ **fixAvailable** | **bool** |  | 
  **foundBy** | **[]int32** | Multiple values may be separated by commas. | 
  **hasJira** | **bool** |  | 
  **hasTags** | **bool** | Has tags | 
@@ -213,15 +230,17 @@ Name | Type | Description  | Notes
  **isMitigated** | **bool** |  | 
  **jiraChange** | **time.Time** | The date the linked Jira issue was last modified.  * &#x60;None&#x60; - Any date * &#x60;1&#x60; - Today * &#x60;2&#x60; - Past 7 days * &#x60;3&#x60; - Past 30 days * &#x60;4&#x60; - Past 90 days * &#x60;5&#x60; - Current month * &#x60;6&#x60; - Current year * &#x60;7&#x60; - Past year | 
  **jiraCreation** | **time.Time** | The date a Jira issue was created from this finding.  * &#x60;None&#x60; - Any date * &#x60;1&#x60; - Today * &#x60;2&#x60; - Past 7 days * &#x60;3&#x60; - Past 30 days * &#x60;4&#x60; - Past 90 days * &#x60;5&#x60; - Current month * &#x60;6&#x60; - Current year * &#x60;7&#x60; - Past year | 
+ **kevDate** | **string** |  | 
+ **knownExploited** | **bool** |  | 
  **lastReviewed** | **time.Time** | Provides the date the flaw was last &#39;touched&#39; by a tester.  * &#x60;None&#x60; - Any date * &#x60;1&#x60; - Today * &#x60;2&#x60; - Past 7 days * &#x60;3&#x60; - Past 30 days * &#x60;4&#x60; - Past 90 days * &#x60;5&#x60; - Current month * &#x60;6&#x60; - Current year * &#x60;7&#x60; - Past year | 
  **lastReviewedBy** | **[]int32** | Multiple values may be separated by commas. | 
  **lastStatusUpdate** | **time.Time** |  | 
  **limit** | **int32** | Number of results to return per page. | 
  **mitigated** | **time.Time** | Denotes if this flaw has been fixed by storing the date it was fixed.  * &#x60;None&#x60; - Any date * &#x60;1&#x60; - Today * &#x60;2&#x60; - Past 7 days * &#x60;3&#x60; - Past 30 days * &#x60;4&#x60; - Past 90 days * &#x60;5&#x60; - Current month * &#x60;6&#x60; - Current year * &#x60;7&#x60; - Past year | 
- **mitigatedAfter** | **string** |  | 
- **mitigatedBefore** | **string** |  | 
+ **mitigatedAfter** | **time.Time** | Mitigated After | 
+ **mitigatedBefore** | **time.Time** |  | 
  **mitigatedBy** | **[]int32** | Multiple values may be separated by commas. | 
- **mitigatedOn** | **string** |  | 
+ **mitigatedOn** | **time.Time** |  | 
  **mitigation** | **string** |  | 
  **nbOccurences** | **[]int32** | Multiple values may be separated by commas. | 
  **notTag** | **string** | Not Tag name contains | 
@@ -242,6 +261,7 @@ Name | Type | Description  | Notes
  **productName** | **string** | exact product name | 
  **productNameContains** | **string** | exact product name | 
  **publishDate** | **string** |  | 
+ **ransomwareUsed** | **bool** |  | 
  **references** | **string** |  | 
  **reporter** | **[]int32** | Multiple values may be separated by commas. | 
  **reviewRequestedBy** | **[]int32** | Multiple values may be separated by commas. | 
@@ -262,14 +282,18 @@ Name | Type | Description  | Notes
  **staticFinding** | **bool** |  | 
  **stepsToReproduce** | **string** |  | 
  **tag** | **string** | Tag name contains | 
- **tags** | **[]string** | Comma separated list of exact tags | 
+ **tags** | **[]string** | Comma separated list of exact tags (uses OR for multiple values) | 
+ **tagsAnd** | **[]string** | Comma separated list of exact tags to match with an AND expression | 
  **test** | **int32** |  | 
  **testEngagement** | **[]int32** | Multiple values may be separated by commas. | 
  **testEngagementProduct** | **[]int32** | Multiple values may be separated by commas. | 
  **testEngagementProductProdType** | **[]int32** | Multiple values may be separated by commas. | 
- **testEngagementProductTags** | **[]string** | Comma separated list of exact tags present on product | 
- **testEngagementTags** | **[]string** | Comma separated list of exact tags present on engagement | 
- **testTags** | **[]string** | Comma separated list of exact tags present on test | 
+ **testEngagementProductTags** | **[]string** | Comma separated list of exact tags present on product (uses OR for multiple values) | 
+ **testEngagementProductTagsAnd** | **[]string** | Comma separated list of exact tags to match with an AND expression present on product | 
+ **testEngagementTags** | **[]string** | Comma separated list of exact tags present on engagement (uses OR for multiple values) | 
+ **testEngagementTagsAnd** | **[]string** | Comma separated list of exact tags to match with an AND expression present on engagement | 
+ **testTags** | **[]string** | Comma separated list of exact tags present on test (uses OR for multiple values) | 
+ **testTagsAnd** | **[]string** | Comma separated list of exact tags to match with an AND expression present on test | 
  **testTestType** | **[]int32** | Multiple values may be separated by commas. | 
  **title** | **string** |  | 
  **underDefectReview** | **bool** |  | 
@@ -980,7 +1004,7 @@ Name | Type | Description  | Notes
 
 ## FindingsList
 
-> PaginatedFindingList FindingsList(ctx).Active(active).ComponentName(componentName).ComponentVersion(componentVersion).Created(created).Cvssv3(cvssv3).Cvssv3Score(cvssv3Score).Cwe(cwe).Date(date).DefectReviewRequestedBy(defectReviewRequestedBy).Description(description).DiscoveredAfter(discoveredAfter).DiscoveredBefore(discoveredBefore).DiscoveredOn(discoveredOn).Duplicate(duplicate).DuplicateFinding(duplicateFinding).DynamicFinding(dynamicFinding).EffortForFixing(effortForFixing).Endpoints(endpoints).EpssPercentile(epssPercentile).EpssScore(epssScore).FalseP(falseP).FilePath(filePath).FindingGroup(findingGroup).FoundBy(foundBy).HasJira(hasJira).HasTags(hasTags).HashCode(hashCode).Id(id).Impact(impact).InheritedTags(inheritedTags).IsMitigated(isMitigated).JiraChange(jiraChange).JiraCreation(jiraCreation).LastReviewed(lastReviewed).LastReviewedBy(lastReviewedBy).LastStatusUpdate(lastStatusUpdate).Limit(limit).Mitigated(mitigated).MitigatedAfter(mitigatedAfter).MitigatedBefore(mitigatedBefore).MitigatedBy(mitigatedBy).MitigatedOn(mitigatedOn).Mitigation(mitigation).NbOccurences(nbOccurences).NotTag(notTag).NotTags(notTags).NotTestEngagementProductTags(notTestEngagementProductTags).NotTestEngagementTags(notTestEngagementTags).NotTestTags(notTestTags).NumericalSeverity(numericalSeverity).O(o).Offset(offset).OutOfScope(outOfScope).OutsideOfSla(outsideOfSla).Param(param).Payload(payload).PlannedRemediationDate(plannedRemediationDate).PlannedRemediationVersion(plannedRemediationVersion).Prefetch(prefetch).ProductLifecycle(productLifecycle).ProductName(productName).ProductNameContains(productNameContains).PublishDate(publishDate).References(references).RelatedFields(relatedFields).Reporter(reporter).ReviewRequestedBy(reviewRequestedBy).Reviewers(reviewers).RiskAcceptance(riskAcceptance).RiskAccepted(riskAccepted).SastSinkObject(sastSinkObject).SastSourceFilePath(sastSourceFilePath).SastSourceLine(sastSourceLine).SastSourceObject(sastSourceObject).ScannerConfidence(scannerConfidence).Service(service).Severity(severity).SeverityJustification(severityJustification).SlaExpirationDate(slaExpirationDate).SlaStartDate(slaStartDate).SonarqubeIssue(sonarqubeIssue).StaticFinding(staticFinding).StepsToReproduce(stepsToReproduce).Tag(tag).Tags(tags).Test(test).TestEngagement(testEngagement).TestEngagementProduct(testEngagementProduct).TestEngagementProductProdType(testEngagementProductProdType).TestEngagementProductTags(testEngagementProductTags).TestEngagementTags(testEngagementTags).TestTags(testTags).TestTestType(testTestType).Title(title).UnderDefectReview(underDefectReview).UnderReview(underReview).UniqueIdFromTool(uniqueIdFromTool).Verified(verified).VulnIdFromTool(vulnIdFromTool).VulnerabilityId(vulnerabilityId).Execute()
+> PaginatedFindingList FindingsList(ctx).Active(active).ComponentName(componentName).ComponentVersion(componentVersion).Created(created).Cvssv3(cvssv3).Cvssv3Score(cvssv3Score).Cvssv4(cvssv4).Cvssv4Score(cvssv4Score).Cwe(cwe).Date(date).DefectReviewRequestedBy(defectReviewRequestedBy).Description(description).DiscoveredAfter(discoveredAfter).DiscoveredBefore(discoveredBefore).DiscoveredOn(discoveredOn).Duplicate(duplicate).DuplicateFinding(duplicateFinding).DynamicFinding(dynamicFinding).EffortForFixing(effortForFixing).Endpoints(endpoints).EpssPercentileMax(epssPercentileMax).EpssPercentileMin(epssPercentileMin).EpssScoreMax(epssScoreMax).EpssScoreMin(epssScoreMin).FalseP(falseP).FilePath(filePath).FindingGroup(findingGroup).FixAvailable(fixAvailable).FoundBy(foundBy).HasJira(hasJira).HasTags(hasTags).HashCode(hashCode).Id(id).Impact(impact).InheritedTags(inheritedTags).IsMitigated(isMitigated).JiraChange(jiraChange).JiraCreation(jiraCreation).KevDate(kevDate).KnownExploited(knownExploited).LastReviewed(lastReviewed).LastReviewedBy(lastReviewedBy).LastStatusUpdate(lastStatusUpdate).Limit(limit).Mitigated(mitigated).MitigatedAfter(mitigatedAfter).MitigatedBefore(mitigatedBefore).MitigatedBy(mitigatedBy).MitigatedOn(mitigatedOn).Mitigation(mitigation).NbOccurences(nbOccurences).NotTag(notTag).NotTags(notTags).NotTestEngagementProductTags(notTestEngagementProductTags).NotTestEngagementTags(notTestEngagementTags).NotTestTags(notTestTags).NumericalSeverity(numericalSeverity).O(o).Offset(offset).OutOfScope(outOfScope).OutsideOfSla(outsideOfSla).Param(param).Payload(payload).PlannedRemediationDate(plannedRemediationDate).PlannedRemediationVersion(plannedRemediationVersion).Prefetch(prefetch).ProductLifecycle(productLifecycle).ProductName(productName).ProductNameContains(productNameContains).PublishDate(publishDate).RansomwareUsed(ransomwareUsed).References(references).RelatedFields(relatedFields).Reporter(reporter).ReviewRequestedBy(reviewRequestedBy).Reviewers(reviewers).RiskAcceptance(riskAcceptance).RiskAccepted(riskAccepted).SastSinkObject(sastSinkObject).SastSourceFilePath(sastSourceFilePath).SastSourceLine(sastSourceLine).SastSourceObject(sastSourceObject).ScannerConfidence(scannerConfidence).Service(service).Severity(severity).SeverityJustification(severityJustification).SlaExpirationDate(slaExpirationDate).SlaStartDate(slaStartDate).SonarqubeIssue(sonarqubeIssue).StaticFinding(staticFinding).StepsToReproduce(stepsToReproduce).Tag(tag).Tags(tags).TagsAnd(tagsAnd).Test(test).TestEngagement(testEngagement).TestEngagementProduct(testEngagementProduct).TestEngagementProductProdType(testEngagementProductProdType).TestEngagementProductTags(testEngagementProductTags).TestEngagementProductTagsAnd(testEngagementProductTagsAnd).TestEngagementTags(testEngagementTags).TestEngagementTagsAnd(testEngagementTagsAnd).TestTags(testTags).TestTagsAnd(testTagsAnd).TestTestType(testTestType).Title(title).UnderDefectReview(underDefectReview).UnderReview(underReview).UniqueIdFromTool(uniqueIdFromTool).Verified(verified).VulnIdFromTool(vulnIdFromTool).VulnerabilityId(vulnerabilityId).Execute()
 
 
 
@@ -1004,6 +1028,8 @@ func main() {
 	created := time.Now() // time.Time | The date the finding was created inside DefectDojo.  * `None` - Any date * `1` - Today * `2` - Past 7 days * `3` - Past 30 days * `4` - Past 90 days * `5` - Current month * `6` - Current year * `7` - Past year (optional)
 	cvssv3 := "cvssv3_example" // string |  (optional)
 	cvssv3Score := float32(3.4) // float32 |  (optional)
+	cvssv4 := "cvssv4_example" // string |  (optional)
+	cvssv4Score := float32(3.4) // float32 |  (optional)
 	cwe := []int32{int32(123)} // []int32 | Multiple values may be separated by commas. (optional)
 	date := time.Now() // string | The date the flaw was discovered.  * `None` - Any date * `1` - Today * `2` - Past 7 days * `3` - Past 30 days * `4` - Past 90 days * `5` - Current month * `6` - Current year * `7` - Past year (optional)
 	defectReviewRequestedBy := []int32{int32(123)} // []int32 | Multiple values may be separated by commas. (optional)
@@ -1016,11 +1042,14 @@ func main() {
 	dynamicFinding := true // bool |  (optional)
 	effortForFixing := "effortForFixing_example" // string |  (optional)
 	endpoints := []int32{int32(123)} // []int32 | Multiple values may be separated by commas. (optional)
-	epssPercentile := float32(3.4) // float32 |  (optional)
-	epssScore := float32(3.4) // float32 |  (optional)
+	epssPercentileMax := float64(1.2) // float64 | The range of EPSS percentiles to filter on; the min input is a lower bound, the max is an upper bound. Leaving one empty will skip that bound (e.g., leaving the min bound input empty will filter only on the max bound -- filtering on \"less than or equal\"). Leading 0 required. (optional)
+	epssPercentileMin := float64(1.2) // float64 | The range of EPSS percentiles to filter on; the min input is a lower bound, the max is an upper bound. Leaving one empty will skip that bound (e.g., leaving the min bound input empty will filter only on the max bound -- filtering on \"less than or equal\"). Leading 0 required. (optional)
+	epssScoreMax := float64(1.2) // float64 | The range of EPSS score percentages to filter on; the min input is a lower bound, the max is an upper bound. Leaving one empty will skip that bound (e.g., leaving the min bound input empty will filter only on the max bound -- filtering on \"less than or equal\"). Leading 0 required. (optional)
+	epssScoreMin := float64(1.2) // float64 | The range of EPSS score percentages to filter on; the min input is a lower bound, the max is an upper bound. Leaving one empty will skip that bound (e.g., leaving the min bound input empty will filter only on the max bound -- filtering on \"less than or equal\"). Leading 0 required. (optional)
 	falseP := true // bool |  (optional)
 	filePath := "filePath_example" // string |  (optional)
 	findingGroup := []float32{float32(123)} // []float32 | Multiple values may be separated by commas. (optional)
+	fixAvailable := true // bool |  (optional)
 	foundBy := []int32{int32(123)} // []int32 | Multiple values may be separated by commas. (optional)
 	hasJira := true // bool |  (optional)
 	hasTags := true // bool | Has tags (optional)
@@ -1031,15 +1060,17 @@ func main() {
 	isMitigated := true // bool |  (optional)
 	jiraChange := time.Now() // time.Time | The date the linked Jira issue was last modified.  * `None` - Any date * `1` - Today * `2` - Past 7 days * `3` - Past 30 days * `4` - Past 90 days * `5` - Current month * `6` - Current year * `7` - Past year (optional)
 	jiraCreation := time.Now() // time.Time | The date a Jira issue was created from this finding.  * `None` - Any date * `1` - Today * `2` - Past 7 days * `3` - Past 30 days * `4` - Past 90 days * `5` - Current month * `6` - Current year * `7` - Past year (optional)
+	kevDate := time.Now() // string |  (optional)
+	knownExploited := true // bool |  (optional)
 	lastReviewed := time.Now() // time.Time | Provides the date the flaw was last 'touched' by a tester.  * `None` - Any date * `1` - Today * `2` - Past 7 days * `3` - Past 30 days * `4` - Past 90 days * `5` - Current month * `6` - Current year * `7` - Past year (optional)
 	lastReviewedBy := []int32{int32(123)} // []int32 | Multiple values may be separated by commas. (optional)
 	lastStatusUpdate := time.Now() // time.Time |  (optional)
 	limit := int32(56) // int32 | Number of results to return per page. (optional)
 	mitigated := time.Now() // time.Time | Denotes if this flaw has been fixed by storing the date it was fixed.  * `None` - Any date * `1` - Today * `2` - Past 7 days * `3` - Past 30 days * `4` - Past 90 days * `5` - Current month * `6` - Current year * `7` - Past year (optional)
-	mitigatedAfter := time.Now() // string |  (optional)
-	mitigatedBefore := time.Now() // string |  (optional)
+	mitigatedAfter := time.Now() // time.Time | Mitigated After (optional)
+	mitigatedBefore := time.Now() // time.Time |  (optional)
 	mitigatedBy := []int32{int32(123)} // []int32 | Multiple values may be separated by commas. (optional)
-	mitigatedOn := time.Now() // string |  (optional)
+	mitigatedOn := time.Now() // time.Time |  (optional)
 	mitigation := "mitigation_example" // string |  (optional)
 	nbOccurences := []int32{int32(123)} // []int32 | Multiple values may be separated by commas. (optional)
 	notTag := "notTag_example" // string | Not Tag name contains (optional)
@@ -1061,6 +1092,7 @@ func main() {
 	productName := "productName_example" // string | exact product name (optional)
 	productNameContains := "productNameContains_example" // string | exact product name (optional)
 	publishDate := time.Now() // string |  (optional)
+	ransomwareUsed := true // bool |  (optional)
 	references := "references_example" // string |  (optional)
 	relatedFields := true // bool | Expand finding external relations (engagement, environment, product,                                             product_type, test, test_type) (optional)
 	reporter := []int32{int32(123)} // []int32 | Multiple values may be separated by commas. (optional)
@@ -1082,14 +1114,18 @@ func main() {
 	staticFinding := true // bool |  (optional)
 	stepsToReproduce := "stepsToReproduce_example" // string |  (optional)
 	tag := "tag_example" // string | Tag name contains (optional)
-	tags := []string{"Inner_example"} // []string | Comma separated list of exact tags (optional)
+	tags := []string{"Inner_example"} // []string | Comma separated list of exact tags (uses OR for multiple values) (optional)
+	tagsAnd := []string{"Inner_example"} // []string | Comma separated list of exact tags to match with an AND expression (optional)
 	test := int32(56) // int32 |  (optional)
 	testEngagement := []int32{int32(123)} // []int32 | Multiple values may be separated by commas. (optional)
 	testEngagementProduct := []int32{int32(123)} // []int32 | Multiple values may be separated by commas. (optional)
 	testEngagementProductProdType := []int32{int32(123)} // []int32 | Multiple values may be separated by commas. (optional)
-	testEngagementProductTags := []string{"Inner_example"} // []string | Comma separated list of exact tags present on product (optional)
-	testEngagementTags := []string{"Inner_example"} // []string | Comma separated list of exact tags present on engagement (optional)
-	testTags := []string{"Inner_example"} // []string | Comma separated list of exact tags present on test (optional)
+	testEngagementProductTags := []string{"Inner_example"} // []string | Comma separated list of exact tags present on product (uses OR for multiple values) (optional)
+	testEngagementProductTagsAnd := []string{"Inner_example"} // []string | Comma separated list of exact tags to match with an AND expression present on product (optional)
+	testEngagementTags := []string{"Inner_example"} // []string | Comma separated list of exact tags present on engagement (uses OR for multiple values) (optional)
+	testEngagementTagsAnd := []string{"Inner_example"} // []string | Comma separated list of exact tags to match with an AND expression present on engagement (optional)
+	testTags := []string{"Inner_example"} // []string | Comma separated list of exact tags present on test (uses OR for multiple values) (optional)
+	testTagsAnd := []string{"Inner_example"} // []string | Comma separated list of exact tags to match with an AND expression present on test (optional)
 	testTestType := []int32{int32(123)} // []int32 | Multiple values may be separated by commas. (optional)
 	title := "title_example" // string |  (optional)
 	underDefectReview := true // bool |  (optional)
@@ -1101,7 +1137,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FindingsAPI.FindingsList(context.Background()).Active(active).ComponentName(componentName).ComponentVersion(componentVersion).Created(created).Cvssv3(cvssv3).Cvssv3Score(cvssv3Score).Cwe(cwe).Date(date).DefectReviewRequestedBy(defectReviewRequestedBy).Description(description).DiscoveredAfter(discoveredAfter).DiscoveredBefore(discoveredBefore).DiscoveredOn(discoveredOn).Duplicate(duplicate).DuplicateFinding(duplicateFinding).DynamicFinding(dynamicFinding).EffortForFixing(effortForFixing).Endpoints(endpoints).EpssPercentile(epssPercentile).EpssScore(epssScore).FalseP(falseP).FilePath(filePath).FindingGroup(findingGroup).FoundBy(foundBy).HasJira(hasJira).HasTags(hasTags).HashCode(hashCode).Id(id).Impact(impact).InheritedTags(inheritedTags).IsMitigated(isMitigated).JiraChange(jiraChange).JiraCreation(jiraCreation).LastReviewed(lastReviewed).LastReviewedBy(lastReviewedBy).LastStatusUpdate(lastStatusUpdate).Limit(limit).Mitigated(mitigated).MitigatedAfter(mitigatedAfter).MitigatedBefore(mitigatedBefore).MitigatedBy(mitigatedBy).MitigatedOn(mitigatedOn).Mitigation(mitigation).NbOccurences(nbOccurences).NotTag(notTag).NotTags(notTags).NotTestEngagementProductTags(notTestEngagementProductTags).NotTestEngagementTags(notTestEngagementTags).NotTestTags(notTestTags).NumericalSeverity(numericalSeverity).O(o).Offset(offset).OutOfScope(outOfScope).OutsideOfSla(outsideOfSla).Param(param).Payload(payload).PlannedRemediationDate(plannedRemediationDate).PlannedRemediationVersion(plannedRemediationVersion).Prefetch(prefetch).ProductLifecycle(productLifecycle).ProductName(productName).ProductNameContains(productNameContains).PublishDate(publishDate).References(references).RelatedFields(relatedFields).Reporter(reporter).ReviewRequestedBy(reviewRequestedBy).Reviewers(reviewers).RiskAcceptance(riskAcceptance).RiskAccepted(riskAccepted).SastSinkObject(sastSinkObject).SastSourceFilePath(sastSourceFilePath).SastSourceLine(sastSourceLine).SastSourceObject(sastSourceObject).ScannerConfidence(scannerConfidence).Service(service).Severity(severity).SeverityJustification(severityJustification).SlaExpirationDate(slaExpirationDate).SlaStartDate(slaStartDate).SonarqubeIssue(sonarqubeIssue).StaticFinding(staticFinding).StepsToReproduce(stepsToReproduce).Tag(tag).Tags(tags).Test(test).TestEngagement(testEngagement).TestEngagementProduct(testEngagementProduct).TestEngagementProductProdType(testEngagementProductProdType).TestEngagementProductTags(testEngagementProductTags).TestEngagementTags(testEngagementTags).TestTags(testTags).TestTestType(testTestType).Title(title).UnderDefectReview(underDefectReview).UnderReview(underReview).UniqueIdFromTool(uniqueIdFromTool).Verified(verified).VulnIdFromTool(vulnIdFromTool).VulnerabilityId(vulnerabilityId).Execute()
+	resp, r, err := apiClient.FindingsAPI.FindingsList(context.Background()).Active(active).ComponentName(componentName).ComponentVersion(componentVersion).Created(created).Cvssv3(cvssv3).Cvssv3Score(cvssv3Score).Cvssv4(cvssv4).Cvssv4Score(cvssv4Score).Cwe(cwe).Date(date).DefectReviewRequestedBy(defectReviewRequestedBy).Description(description).DiscoveredAfter(discoveredAfter).DiscoveredBefore(discoveredBefore).DiscoveredOn(discoveredOn).Duplicate(duplicate).DuplicateFinding(duplicateFinding).DynamicFinding(dynamicFinding).EffortForFixing(effortForFixing).Endpoints(endpoints).EpssPercentileMax(epssPercentileMax).EpssPercentileMin(epssPercentileMin).EpssScoreMax(epssScoreMax).EpssScoreMin(epssScoreMin).FalseP(falseP).FilePath(filePath).FindingGroup(findingGroup).FixAvailable(fixAvailable).FoundBy(foundBy).HasJira(hasJira).HasTags(hasTags).HashCode(hashCode).Id(id).Impact(impact).InheritedTags(inheritedTags).IsMitigated(isMitigated).JiraChange(jiraChange).JiraCreation(jiraCreation).KevDate(kevDate).KnownExploited(knownExploited).LastReviewed(lastReviewed).LastReviewedBy(lastReviewedBy).LastStatusUpdate(lastStatusUpdate).Limit(limit).Mitigated(mitigated).MitigatedAfter(mitigatedAfter).MitigatedBefore(mitigatedBefore).MitigatedBy(mitigatedBy).MitigatedOn(mitigatedOn).Mitigation(mitigation).NbOccurences(nbOccurences).NotTag(notTag).NotTags(notTags).NotTestEngagementProductTags(notTestEngagementProductTags).NotTestEngagementTags(notTestEngagementTags).NotTestTags(notTestTags).NumericalSeverity(numericalSeverity).O(o).Offset(offset).OutOfScope(outOfScope).OutsideOfSla(outsideOfSla).Param(param).Payload(payload).PlannedRemediationDate(plannedRemediationDate).PlannedRemediationVersion(plannedRemediationVersion).Prefetch(prefetch).ProductLifecycle(productLifecycle).ProductName(productName).ProductNameContains(productNameContains).PublishDate(publishDate).RansomwareUsed(ransomwareUsed).References(references).RelatedFields(relatedFields).Reporter(reporter).ReviewRequestedBy(reviewRequestedBy).Reviewers(reviewers).RiskAcceptance(riskAcceptance).RiskAccepted(riskAccepted).SastSinkObject(sastSinkObject).SastSourceFilePath(sastSourceFilePath).SastSourceLine(sastSourceLine).SastSourceObject(sastSourceObject).ScannerConfidence(scannerConfidence).Service(service).Severity(severity).SeverityJustification(severityJustification).SlaExpirationDate(slaExpirationDate).SlaStartDate(slaStartDate).SonarqubeIssue(sonarqubeIssue).StaticFinding(staticFinding).StepsToReproduce(stepsToReproduce).Tag(tag).Tags(tags).TagsAnd(tagsAnd).Test(test).TestEngagement(testEngagement).TestEngagementProduct(testEngagementProduct).TestEngagementProductProdType(testEngagementProductProdType).TestEngagementProductTags(testEngagementProductTags).TestEngagementProductTagsAnd(testEngagementProductTagsAnd).TestEngagementTags(testEngagementTags).TestEngagementTagsAnd(testEngagementTagsAnd).TestTags(testTags).TestTagsAnd(testTagsAnd).TestTestType(testTestType).Title(title).UnderDefectReview(underDefectReview).UnderReview(underReview).UniqueIdFromTool(uniqueIdFromTool).Verified(verified).VulnIdFromTool(vulnIdFromTool).VulnerabilityId(vulnerabilityId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `FindingsAPI.FindingsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1128,6 +1164,8 @@ Name | Type | Description  | Notes
  **created** | **time.Time** | The date the finding was created inside DefectDojo.  * &#x60;None&#x60; - Any date * &#x60;1&#x60; - Today * &#x60;2&#x60; - Past 7 days * &#x60;3&#x60; - Past 30 days * &#x60;4&#x60; - Past 90 days * &#x60;5&#x60; - Current month * &#x60;6&#x60; - Current year * &#x60;7&#x60; - Past year | 
  **cvssv3** | **string** |  | 
  **cvssv3Score** | **float32** |  | 
+ **cvssv4** | **string** |  | 
+ **cvssv4Score** | **float32** |  | 
  **cwe** | **[]int32** | Multiple values may be separated by commas. | 
  **date** | **string** | The date the flaw was discovered.  * &#x60;None&#x60; - Any date * &#x60;1&#x60; - Today * &#x60;2&#x60; - Past 7 days * &#x60;3&#x60; - Past 30 days * &#x60;4&#x60; - Past 90 days * &#x60;5&#x60; - Current month * &#x60;6&#x60; - Current year * &#x60;7&#x60; - Past year | 
  **defectReviewRequestedBy** | **[]int32** | Multiple values may be separated by commas. | 
@@ -1140,11 +1178,14 @@ Name | Type | Description  | Notes
  **dynamicFinding** | **bool** |  | 
  **effortForFixing** | **string** |  | 
  **endpoints** | **[]int32** | Multiple values may be separated by commas. | 
- **epssPercentile** | **float32** |  | 
- **epssScore** | **float32** |  | 
+ **epssPercentileMax** | **float64** | The range of EPSS percentiles to filter on; the min input is a lower bound, the max is an upper bound. Leaving one empty will skip that bound (e.g., leaving the min bound input empty will filter only on the max bound -- filtering on \&quot;less than or equal\&quot;). Leading 0 required. | 
+ **epssPercentileMin** | **float64** | The range of EPSS percentiles to filter on; the min input is a lower bound, the max is an upper bound. Leaving one empty will skip that bound (e.g., leaving the min bound input empty will filter only on the max bound -- filtering on \&quot;less than or equal\&quot;). Leading 0 required. | 
+ **epssScoreMax** | **float64** | The range of EPSS score percentages to filter on; the min input is a lower bound, the max is an upper bound. Leaving one empty will skip that bound (e.g., leaving the min bound input empty will filter only on the max bound -- filtering on \&quot;less than or equal\&quot;). Leading 0 required. | 
+ **epssScoreMin** | **float64** | The range of EPSS score percentages to filter on; the min input is a lower bound, the max is an upper bound. Leaving one empty will skip that bound (e.g., leaving the min bound input empty will filter only on the max bound -- filtering on \&quot;less than or equal\&quot;). Leading 0 required. | 
  **falseP** | **bool** |  | 
  **filePath** | **string** |  | 
  **findingGroup** | **[]float32** | Multiple values may be separated by commas. | 
+ **fixAvailable** | **bool** |  | 
  **foundBy** | **[]int32** | Multiple values may be separated by commas. | 
  **hasJira** | **bool** |  | 
  **hasTags** | **bool** | Has tags | 
@@ -1155,15 +1196,17 @@ Name | Type | Description  | Notes
  **isMitigated** | **bool** |  | 
  **jiraChange** | **time.Time** | The date the linked Jira issue was last modified.  * &#x60;None&#x60; - Any date * &#x60;1&#x60; - Today * &#x60;2&#x60; - Past 7 days * &#x60;3&#x60; - Past 30 days * &#x60;4&#x60; - Past 90 days * &#x60;5&#x60; - Current month * &#x60;6&#x60; - Current year * &#x60;7&#x60; - Past year | 
  **jiraCreation** | **time.Time** | The date a Jira issue was created from this finding.  * &#x60;None&#x60; - Any date * &#x60;1&#x60; - Today * &#x60;2&#x60; - Past 7 days * &#x60;3&#x60; - Past 30 days * &#x60;4&#x60; - Past 90 days * &#x60;5&#x60; - Current month * &#x60;6&#x60; - Current year * &#x60;7&#x60; - Past year | 
+ **kevDate** | **string** |  | 
+ **knownExploited** | **bool** |  | 
  **lastReviewed** | **time.Time** | Provides the date the flaw was last &#39;touched&#39; by a tester.  * &#x60;None&#x60; - Any date * &#x60;1&#x60; - Today * &#x60;2&#x60; - Past 7 days * &#x60;3&#x60; - Past 30 days * &#x60;4&#x60; - Past 90 days * &#x60;5&#x60; - Current month * &#x60;6&#x60; - Current year * &#x60;7&#x60; - Past year | 
  **lastReviewedBy** | **[]int32** | Multiple values may be separated by commas. | 
  **lastStatusUpdate** | **time.Time** |  | 
  **limit** | **int32** | Number of results to return per page. | 
  **mitigated** | **time.Time** | Denotes if this flaw has been fixed by storing the date it was fixed.  * &#x60;None&#x60; - Any date * &#x60;1&#x60; - Today * &#x60;2&#x60; - Past 7 days * &#x60;3&#x60; - Past 30 days * &#x60;4&#x60; - Past 90 days * &#x60;5&#x60; - Current month * &#x60;6&#x60; - Current year * &#x60;7&#x60; - Past year | 
- **mitigatedAfter** | **string** |  | 
- **mitigatedBefore** | **string** |  | 
+ **mitigatedAfter** | **time.Time** | Mitigated After | 
+ **mitigatedBefore** | **time.Time** |  | 
  **mitigatedBy** | **[]int32** | Multiple values may be separated by commas. | 
- **mitigatedOn** | **string** |  | 
+ **mitigatedOn** | **time.Time** |  | 
  **mitigation** | **string** |  | 
  **nbOccurences** | **[]int32** | Multiple values may be separated by commas. | 
  **notTag** | **string** | Not Tag name contains | 
@@ -1185,6 +1228,7 @@ Name | Type | Description  | Notes
  **productName** | **string** | exact product name | 
  **productNameContains** | **string** | exact product name | 
  **publishDate** | **string** |  | 
+ **ransomwareUsed** | **bool** |  | 
  **references** | **string** |  | 
  **relatedFields** | **bool** | Expand finding external relations (engagement, environment, product,                                             product_type, test, test_type) | 
  **reporter** | **[]int32** | Multiple values may be separated by commas. | 
@@ -1206,14 +1250,18 @@ Name | Type | Description  | Notes
  **staticFinding** | **bool** |  | 
  **stepsToReproduce** | **string** |  | 
  **tag** | **string** | Tag name contains | 
- **tags** | **[]string** | Comma separated list of exact tags | 
+ **tags** | **[]string** | Comma separated list of exact tags (uses OR for multiple values) | 
+ **tagsAnd** | **[]string** | Comma separated list of exact tags to match with an AND expression | 
  **test** | **int32** |  | 
  **testEngagement** | **[]int32** | Multiple values may be separated by commas. | 
  **testEngagementProduct** | **[]int32** | Multiple values may be separated by commas. | 
  **testEngagementProductProdType** | **[]int32** | Multiple values may be separated by commas. | 
- **testEngagementProductTags** | **[]string** | Comma separated list of exact tags present on product | 
- **testEngagementTags** | **[]string** | Comma separated list of exact tags present on engagement | 
- **testTags** | **[]string** | Comma separated list of exact tags present on test | 
+ **testEngagementProductTags** | **[]string** | Comma separated list of exact tags present on product (uses OR for multiple values) | 
+ **testEngagementProductTagsAnd** | **[]string** | Comma separated list of exact tags to match with an AND expression present on product | 
+ **testEngagementTags** | **[]string** | Comma separated list of exact tags present on engagement (uses OR for multiple values) | 
+ **testEngagementTagsAnd** | **[]string** | Comma separated list of exact tags to match with an AND expression present on engagement | 
+ **testTags** | **[]string** | Comma separated list of exact tags present on test (uses OR for multiple values) | 
+ **testTagsAnd** | **[]string** | Comma separated list of exact tags to match with an AND expression present on test | 
  **testTestType** | **[]int32** | Multiple values may be separated by commas. | 
  **title** | **string** |  | 
  **underDefectReview** | **bool** |  | 

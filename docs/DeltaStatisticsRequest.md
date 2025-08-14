@@ -7,13 +7,13 @@ Name | Type | Description | Notes
 **Created** | [**SeverityStatusStatisticsRequest**](SeverityStatusStatisticsRequest.md) |  | 
 **Closed** | [**SeverityStatusStatisticsRequest**](SeverityStatusStatisticsRequest.md) |  | 
 **Reactivated** | [**SeverityStatusStatisticsRequest**](SeverityStatusStatisticsRequest.md) |  | 
-**LeftUntouched** | [**SeverityStatusStatisticsRequest**](SeverityStatusStatisticsRequest.md) |  | 
+**Untouched** | [**SeverityStatusStatisticsRequest**](SeverityStatusStatisticsRequest.md) |  | 
 
 ## Methods
 
 ### NewDeltaStatisticsRequest
 
-`func NewDeltaStatisticsRequest(created SeverityStatusStatisticsRequest, closed SeverityStatusStatisticsRequest, reactivated SeverityStatusStatisticsRequest, leftUntouched SeverityStatusStatisticsRequest, ) *DeltaStatisticsRequest`
+`func NewDeltaStatisticsRequest(created SeverityStatusStatisticsRequest, closed SeverityStatusStatisticsRequest, reactivated SeverityStatusStatisticsRequest, untouched SeverityStatusStatisticsRequest, ) *DeltaStatisticsRequest`
 
 NewDeltaStatisticsRequest instantiates a new DeltaStatisticsRequest object
 This constructor will assign default values to properties that have it defined,
@@ -88,24 +88,24 @@ and a boolean to check if the value has been set.
 SetReactivated sets Reactivated field to given value.
 
 
-### GetLeftUntouched
+### GetUntouched
 
-`func (o *DeltaStatisticsRequest) GetLeftUntouched() SeverityStatusStatisticsRequest`
+`func (o *DeltaStatisticsRequest) GetUntouched() SeverityStatusStatisticsRequest`
 
-GetLeftUntouched returns the LeftUntouched field if non-nil, zero value otherwise.
+GetUntouched returns the Untouched field if non-nil, zero value otherwise.
 
-### GetLeftUntouchedOk
+### GetUntouchedOk
 
-`func (o *DeltaStatisticsRequest) GetLeftUntouchedOk() (*SeverityStatusStatisticsRequest, bool)`
+`func (o *DeltaStatisticsRequest) GetUntouchedOk() (*SeverityStatusStatisticsRequest, bool)`
 
-GetLeftUntouchedOk returns a tuple with the LeftUntouched field if it's non-nil, zero value otherwise
+GetUntouchedOk returns a tuple with the Untouched field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetLeftUntouched
+### SetUntouched
 
-`func (o *DeltaStatisticsRequest) SetLeftUntouched(v SeverityStatusStatisticsRequest)`
+`func (o *DeltaStatisticsRequest) SetUntouched(v SeverityStatusStatisticsRequest)`
 
-SetLeftUntouched sets LeftUntouched field to given value.
+SetUntouched sets Untouched field to given value.
 
 
 
