@@ -62,7 +62,6 @@ type ReImportScan struct {
 	ProductId int32 `json:"product_id"`
 	ProductTypeId int32 `json:"product_type_id"`
 	Statistics ImportStatistics `json:"statistics"`
-	Pro []interface{} `json:"pro"`
 	// If set to True, the tags will be applied to the findings
 	ApplyTagsToFindings *bool `json:"apply_tags_to_findings,omitempty"`
 	// If set to True, the tags will be applied to the endpoints
@@ -89,7 +88,7 @@ type _ReImportScan ReImportScan
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewReImportScan(testId int32, engagementId int32, productId int32, productTypeId int32, statistics ImportStatistics, pro []interface{}, scanType string) *ReImportScan {
+func NewReImportScan(testId int32, engagementId int32, productId int32, productTypeId int32, statistics ImportStatistics, scanType string) *ReImportScan {
 	this := ReImportScan{}
 	var minimumSeverity string = "Info"
 	this.MinimumSeverity = &minimumSeverity
@@ -102,7 +101,6 @@ func NewReImportScan(testId int32, engagementId int32, productId int32, productT
 	this.ProductId = productId
 	this.ProductTypeId = productTypeId
 	this.Statistics = statistics
-	this.Pro = pro
 	var doNotReactivate bool = false
 	this.DoNotReactivate = &doNotReactivate
 	this.ScanType = scanType
@@ -1041,32 +1039,6 @@ func (o *ReImportScan) SetStatistics(v ImportStatistics) {
 	o.Statistics = v
 }
 
-// GetPro returns the Pro field value
-// If the value is explicit nil, the zero value for []interface{} will be returned
-func (o *ReImportScan) GetPro() []interface{} {
-	if o == nil {
-		var ret []interface{}
-		return ret
-	}
-
-	return o.Pro
-}
-
-// GetProOk returns a tuple with the Pro field value
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ReImportScan) GetProOk() ([]interface{}, bool) {
-	if o == nil || IsNil(o.Pro) {
-		return nil, false
-	}
-	return o.Pro, true
-}
-
-// SetPro sets field value
-func (o *ReImportScan) SetPro(v []interface{}) {
-	o.Pro = v
-}
-
 // GetApplyTagsToFindings returns the ApplyTagsToFindings field value if set, zero value otherwise.
 func (o *ReImportScan) GetApplyTagsToFindings() bool {
 	if o == nil || IsNil(o.ApplyTagsToFindings) {
@@ -1434,9 +1406,6 @@ func (o ReImportScan) ToMap() (map[string]interface{}, error) {
 	toSerialize["product_id"] = o.ProductId
 	toSerialize["product_type_id"] = o.ProductTypeId
 	toSerialize["statistics"] = o.Statistics
-	if o.Pro != nil {
-		toSerialize["pro"] = o.Pro
-	}
 	if !IsNil(o.ApplyTagsToFindings) {
 		toSerialize["apply_tags_to_findings"] = o.ApplyTagsToFindings
 	}
@@ -1480,7 +1449,6 @@ func (o *ReImportScan) UnmarshalJSON(data []byte) (err error) {
 		"product_id",
 		"product_type_id",
 		"statistics",
-		"pro",
 		"scan_type",
 	}
 
@@ -1540,7 +1508,6 @@ func (o *ReImportScan) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "product_id")
 		delete(additionalProperties, "product_type_id")
 		delete(additionalProperties, "statistics")
-		delete(additionalProperties, "pro")
 		delete(additionalProperties, "apply_tags_to_findings")
 		delete(additionalProperties, "apply_tags_to_endpoints")
 		delete(additionalProperties, "do_not_reactivate")

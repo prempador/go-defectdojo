@@ -24643,9 +24643,6 @@ components:
         verified: true
         active: true
         product_type_id: 7
-        pro:
-        - ""
-        - ""
         product_name: product_name
         version: version
         lead: 6
@@ -24789,11 +24786,6 @@ components:
           allOf:
           - $ref: '#/components/schemas/ImportStatistics'
           readOnly: true
-        pro:
-          items: {}
-          nullable: true
-          readOnly: true
-          type: array
         apply_tags_to_findings:
           description: "If set to True, the tags will be applied to the findings"
           type: boolean
@@ -46773,9 +46765,6 @@ components:
         verified: true
         active: true
         product_type_id: 7
-        pro:
-        - ""
-        - ""
         product_name: product_name
         version: version
         lead: 6
@@ -46919,11 +46908,6 @@ components:
           allOf:
           - $ref: '#/components/schemas/ImportStatistics'
           readOnly: true
-        pro:
-          items: {}
-          nullable: true
-          readOnly: true
-          type: array
         apply_tags_to_findings:
           description: "If set to True, the tags will be applied to the findings"
           type: boolean

@@ -33,7 +33,6 @@ Name | Type | Description | Notes
 **ProductId** | **int32** |  | [readonly] 
 **ProductTypeId** | **int32** |  | [readonly] 
 **Statistics** | [**ImportStatistics**](ImportStatistics.md) |  | [readonly] 
-**Pro** | **[]interface{}** |  | [readonly] 
 **ApplyTagsToFindings** | Pointer to **bool** | If set to True, the tags will be applied to the findings | [optional] 
 **ApplyTagsToEndpoints** | Pointer to **bool** | If set to True, the tags will be applied to the endpoints | [optional] 
 **DoNotReactivate** | Pointer to **bool** | Select if the import should ignore active findings from the report, useful for triage-less scanners. Will keep existing findings closed, without reactivating them. For more information check the docs. | [optional] [default to false]
@@ -48,7 +47,7 @@ Name | Type | Description | Notes
 
 ### NewReImportScan
 
-`func NewReImportScan(testId int32, engagementId int32, productId int32, productTypeId int32, statistics ImportStatistics, pro []interface{}, scanType string, ) *ReImportScan`
+`func NewReImportScan(testId int32, engagementId int32, productId int32, productTypeId int32, statistics ImportStatistics, scanType string, ) *ReImportScan`
 
 NewReImportScan instantiates a new ReImportScan object
 This constructor will assign default values to properties that have it defined,
@@ -783,36 +782,6 @@ and a boolean to check if the value has been set.
 SetStatistics sets Statistics field to given value.
 
 
-### GetPro
-
-`func (o *ReImportScan) GetPro() []interface{}`
-
-GetPro returns the Pro field if non-nil, zero value otherwise.
-
-### GetProOk
-
-`func (o *ReImportScan) GetProOk() (*[]interface{}, bool)`
-
-GetProOk returns a tuple with the Pro field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPro
-
-`func (o *ReImportScan) SetPro(v []interface{})`
-
-SetPro sets Pro field to given value.
-
-
-### SetProNil
-
-`func (o *ReImportScan) SetProNil(b bool)`
-
- SetProNil sets the value for Pro to be an explicit nil
-
-### UnsetPro
-`func (o *ReImportScan) UnsetPro()`
-
-UnsetPro ensures that no value is present for Pro, not even an explicit nil
 ### GetApplyTagsToFindings
 
 `func (o *ReImportScan) GetApplyTagsToFindings() bool`

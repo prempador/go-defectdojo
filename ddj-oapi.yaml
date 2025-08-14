@@ -19992,11 +19992,6 @@ components:
           allOf:
           - $ref: '#/components/schemas/ImportStatistics'
           readOnly: true
-        pro:
-          type: array
-          items: {}
-          readOnly: true
-          nullable: true
         apply_tags_to_findings:
           type: boolean
           description: If set to True, the tags will be applied to the findings
@@ -29489,11 +29484,6 @@ components:
           allOf:
           - $ref: '#/components/schemas/ImportStatistics'
           readOnly: true
-        pro:
-          type: array
-          items: {}
-          readOnly: true
-          nullable: true
         apply_tags_to_findings:
           type: boolean
           description: If set to True, the tags will be applied to the findings
