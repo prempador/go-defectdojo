@@ -12,8 +12,8 @@ package defectdojo
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the Finding type satisfies the MappedNullable interface at compile time
@@ -21,21 +21,21 @@ var _ MappedNullable = &Finding{}
 
 // Finding struct for Finding
 type Finding struct {
-	Id int32 `json:"id"`
-	Tags []string `json:"tags,omitempty"`
-	RequestResponse BurpRawRequestResponse `json:"request_response"`
-	AcceptedRisks []RiskAcceptance `json:"accepted_risks"`
-	PushToJira *bool `json:"push_to_jira,omitempty"`
-	Age int32 `json:"age"`
-	SlaDaysRemaining NullableInt32 `json:"sla_days_remaining"`
-	FindingMeta []FindingMeta `json:"finding_meta"`
-	RelatedFields NullableFindingRelatedFields `json:"related_fields"`
-	JiraCreation NullableTime `json:"jira_creation"`
-	JiraChange NullableTime `json:"jira_change"`
-	DisplayStatus string `json:"display_status"`
-	FindingGroups []FindingGroup `json:"finding_groups"`
-	VulnerabilityIds []VulnerabilityId `json:"vulnerability_ids,omitempty"`
-	Reporter *int32 `json:"reporter,omitempty"`
+	Id               int32                        `json:"id"`
+	Tags             []string                     `json:"tags,omitempty"`
+	RequestResponse  BurpRawRequestResponse       `json:"request_response"`
+	AcceptedRisks    []RiskAcceptance             `json:"accepted_risks"`
+	PushToJira       *bool                        `json:"push_to_jira,omitempty"`
+	Age              int32                        `json:"age"`
+	SlaDaysRemaining NullableInt32                `json:"sla_days_remaining"`
+	FindingMeta      []FindingMeta                `json:"finding_meta"`
+	RelatedFields    NullableFindingRelatedFields `json:"related_fields"`
+	JiraCreation     NullableTime                 `json:"jira_creation"`
+	JiraChange       NullableTime                 `json:"jira_change"`
+	DisplayStatus    string                       `json:"display_status"`
+	FindingGroups    []FindingGroup               `json:"finding_groups"`
+	VulnerabilityIds []VulnerabilityId            `json:"vulnerability_ids,omitempty"`
+	Reporter         *int32                       `json:"reporter,omitempty"`
 	// A short description of the flaw.
 	Title string `json:"title"`
 	// The date the flaw was discovered.
@@ -102,7 +102,7 @@ type Finding struct {
 	UnderDefectReview *bool `json:"under_defect_review,omitempty"`
 	// Denotes if this flaw has been fixed.
 	IsMitigated *bool `json:"is_mitigated,omitempty"`
-	ThreadId int32 `json:"thread_id"`
+	ThreadId    int32 `json:"thread_id"`
 	// Denotes if this flaw has been fixed by storing the date it was fixed.
 	Mitigated NullableTime `json:"mitigated"`
 	// The numerical representation of the severity (S0, S1, S2, S3, S4).
@@ -173,12 +173,12 @@ type Finding struct {
 	Endpoints []int32 `json:"endpoints"`
 	// Documents who reviewed the flaw.
 	Reviewers []int32 `json:"reviewers,omitempty"`
-	Notes []Note `json:"notes"`
+	Notes     []Note  `json:"notes"`
 	// Files(s) related to the flaw.
 	Files []int32 `json:"files"`
 	// The name of the scanner that identified the flaw.
-	FoundBy []int32 `json:"found_by"`
-	Prefetch *FindingPrefetch `json:"prefetch,omitempty"`
+	FoundBy              []int32          `json:"found_by"`
+	Prefetch             *FindingPrefetch `json:"prefetch,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -726,6 +726,7 @@ func (o *Finding) HasSlaStartDate() bool {
 func (o *Finding) SetSlaStartDate(v string) {
 	o.SlaStartDate.Set(&v)
 }
+
 // SetSlaStartDateNil sets the value for SlaStartDate to be an explicit nil
 func (o *Finding) SetSlaStartDateNil() {
 	o.SlaStartDate.Set(nil)
@@ -768,6 +769,7 @@ func (o *Finding) HasSlaExpirationDate() bool {
 func (o *Finding) SetSlaExpirationDate(v string) {
 	o.SlaExpirationDate.Set(&v)
 }
+
 // SetSlaExpirationDateNil sets the value for SlaExpirationDate to be an explicit nil
 func (o *Finding) SetSlaExpirationDateNil() {
 	o.SlaExpirationDate.Set(nil)
@@ -810,6 +812,7 @@ func (o *Finding) HasCwe() bool {
 func (o *Finding) SetCwe(v int32) {
 	o.Cwe.Set(&v)
 }
+
 // SetCweNil sets the value for Cwe to be an explicit nil
 func (o *Finding) SetCweNil() {
 	o.Cwe.Set(nil)
@@ -852,6 +855,7 @@ func (o *Finding) HasEpssScore() bool {
 func (o *Finding) SetEpssScore(v float64) {
 	o.EpssScore.Set(&v)
 }
+
 // SetEpssScoreNil sets the value for EpssScore to be an explicit nil
 func (o *Finding) SetEpssScoreNil() {
 	o.EpssScore.Set(nil)
@@ -894,6 +898,7 @@ func (o *Finding) HasEpssPercentile() bool {
 func (o *Finding) SetEpssPercentile(v float64) {
 	o.EpssPercentile.Set(&v)
 }
+
 // SetEpssPercentileNil sets the value for EpssPercentile to be an explicit nil
 func (o *Finding) SetEpssPercentileNil() {
 	o.EpssPercentile.Set(nil)
@@ -1000,6 +1005,7 @@ func (o *Finding) HasKevDate() bool {
 func (o *Finding) SetKevDate(v string) {
 	o.KevDate.Set(&v)
 }
+
 // SetKevDateNil sets the value for KevDate to be an explicit nil
 func (o *Finding) SetKevDateNil() {
 	o.KevDate.Set(nil)
@@ -1042,6 +1048,7 @@ func (o *Finding) HasCvssv3() bool {
 func (o *Finding) SetCvssv3(v string) {
 	o.Cvssv3.Set(&v)
 }
+
 // SetCvssv3Nil sets the value for Cvssv3 to be an explicit nil
 func (o *Finding) SetCvssv3Nil() {
 	o.Cvssv3.Set(nil)
@@ -1084,6 +1091,7 @@ func (o *Finding) HasCvssv3Score() bool {
 func (o *Finding) SetCvssv3Score(v float64) {
 	o.Cvssv3Score.Set(&v)
 }
+
 // SetCvssv3ScoreNil sets the value for Cvssv3Score to be an explicit nil
 func (o *Finding) SetCvssv3ScoreNil() {
 	o.Cvssv3Score.Set(nil)
@@ -1126,6 +1134,7 @@ func (o *Finding) HasCvssv4() bool {
 func (o *Finding) SetCvssv4(v string) {
 	o.Cvssv4.Set(&v)
 }
+
 // SetCvssv4Nil sets the value for Cvssv4 to be an explicit nil
 func (o *Finding) SetCvssv4Nil() {
 	o.Cvssv4.Set(nil)
@@ -1168,6 +1177,7 @@ func (o *Finding) HasCvssv4Score() bool {
 func (o *Finding) SetCvssv4Score(v float64) {
 	o.Cvssv4Score.Set(&v)
 }
+
 // SetCvssv4ScoreNil sets the value for Cvssv4Score to be an explicit nil
 func (o *Finding) SetCvssv4ScoreNil() {
 	o.Cvssv4Score.Set(nil)
@@ -1284,6 +1294,7 @@ func (o *Finding) HasMitigation() bool {
 func (o *Finding) SetMitigation(v string) {
 	o.Mitigation.Set(&v)
 }
+
 // SetMitigationNil sets the value for Mitigation to be an explicit nil
 func (o *Finding) SetMitigationNil() {
 	o.Mitigation.Set(nil)
@@ -1326,6 +1337,7 @@ func (o *Finding) HasFixAvailable() bool {
 func (o *Finding) SetFixAvailable(v bool) {
 	o.FixAvailable.Set(&v)
 }
+
 // SetFixAvailableNil sets the value for FixAvailable to be an explicit nil
 func (o *Finding) SetFixAvailableNil() {
 	o.FixAvailable.Set(nil)
@@ -1368,6 +1380,7 @@ func (o *Finding) HasImpact() bool {
 func (o *Finding) SetImpact(v string) {
 	o.Impact.Set(&v)
 }
+
 // SetImpactNil sets the value for Impact to be an explicit nil
 func (o *Finding) SetImpactNil() {
 	o.Impact.Set(nil)
@@ -1410,6 +1423,7 @@ func (o *Finding) HasStepsToReproduce() bool {
 func (o *Finding) SetStepsToReproduce(v string) {
 	o.StepsToReproduce.Set(&v)
 }
+
 // SetStepsToReproduceNil sets the value for StepsToReproduce to be an explicit nil
 func (o *Finding) SetStepsToReproduceNil() {
 	o.StepsToReproduce.Set(nil)
@@ -1452,6 +1466,7 @@ func (o *Finding) HasSeverityJustification() bool {
 func (o *Finding) SetSeverityJustification(v string) {
 	o.SeverityJustification.Set(&v)
 }
+
 // SetSeverityJustificationNil sets the value for SeverityJustification to be an explicit nil
 func (o *Finding) SetSeverityJustificationNil() {
 	o.SeverityJustification.Set(nil)
@@ -1494,6 +1509,7 @@ func (o *Finding) HasReferences() bool {
 func (o *Finding) SetReferences(v string) {
 	o.References.Set(&v)
 }
+
 // SetReferencesNil sets the value for References to be an explicit nil
 func (o *Finding) SetReferencesNil() {
 	o.References.Set(nil)
@@ -2028,6 +2044,7 @@ func (o *Finding) HasLine() bool {
 func (o *Finding) SetLine(v int32) {
 	o.Line.Set(&v)
 }
+
 // SetLineNil sets the value for Line to be an explicit nil
 func (o *Finding) SetLineNil() {
 	o.Line.Set(nil)
@@ -2070,6 +2087,7 @@ func (o *Finding) HasFilePath() bool {
 func (o *Finding) SetFilePath(v string) {
 	o.FilePath.Set(&v)
 }
+
 // SetFilePathNil sets the value for FilePath to be an explicit nil
 func (o *Finding) SetFilePathNil() {
 	o.FilePath.Set(nil)
@@ -2112,6 +2130,7 @@ func (o *Finding) HasComponentName() bool {
 func (o *Finding) SetComponentName(v string) {
 	o.ComponentName.Set(&v)
 }
+
 // SetComponentNameNil sets the value for ComponentName to be an explicit nil
 func (o *Finding) SetComponentNameNil() {
 	o.ComponentName.Set(nil)
@@ -2154,6 +2173,7 @@ func (o *Finding) HasComponentVersion() bool {
 func (o *Finding) SetComponentVersion(v string) {
 	o.ComponentVersion.Set(&v)
 }
+
 // SetComponentVersionNil sets the value for ComponentVersion to be an explicit nil
 func (o *Finding) SetComponentVersionNil() {
 	o.ComponentVersion.Set(nil)
@@ -2312,6 +2332,7 @@ func (o *Finding) HasUniqueIdFromTool() bool {
 func (o *Finding) SetUniqueIdFromTool(v string) {
 	o.UniqueIdFromTool.Set(&v)
 }
+
 // SetUniqueIdFromToolNil sets the value for UniqueIdFromTool to be an explicit nil
 func (o *Finding) SetUniqueIdFromToolNil() {
 	o.UniqueIdFromTool.Set(nil)
@@ -2354,6 +2375,7 @@ func (o *Finding) HasVulnIdFromTool() bool {
 func (o *Finding) SetVulnIdFromTool(v string) {
 	o.VulnIdFromTool.Set(&v)
 }
+
 // SetVulnIdFromToolNil sets the value for VulnIdFromTool to be an explicit nil
 func (o *Finding) SetVulnIdFromToolNil() {
 	o.VulnIdFromTool.Set(nil)
@@ -2396,6 +2418,7 @@ func (o *Finding) HasSastSourceObject() bool {
 func (o *Finding) SetSastSourceObject(v string) {
 	o.SastSourceObject.Set(&v)
 }
+
 // SetSastSourceObjectNil sets the value for SastSourceObject to be an explicit nil
 func (o *Finding) SetSastSourceObjectNil() {
 	o.SastSourceObject.Set(nil)
@@ -2438,6 +2461,7 @@ func (o *Finding) HasSastSinkObject() bool {
 func (o *Finding) SetSastSinkObject(v string) {
 	o.SastSinkObject.Set(&v)
 }
+
 // SetSastSinkObjectNil sets the value for SastSinkObject to be an explicit nil
 func (o *Finding) SetSastSinkObjectNil() {
 	o.SastSinkObject.Set(nil)
@@ -2480,6 +2504,7 @@ func (o *Finding) HasSastSourceLine() bool {
 func (o *Finding) SetSastSourceLine(v int32) {
 	o.SastSourceLine.Set(&v)
 }
+
 // SetSastSourceLineNil sets the value for SastSourceLine to be an explicit nil
 func (o *Finding) SetSastSourceLineNil() {
 	o.SastSourceLine.Set(nil)
@@ -2522,6 +2547,7 @@ func (o *Finding) HasSastSourceFilePath() bool {
 func (o *Finding) SetSastSourceFilePath(v string) {
 	o.SastSourceFilePath.Set(&v)
 }
+
 // SetSastSourceFilePathNil sets the value for SastSourceFilePath to be an explicit nil
 func (o *Finding) SetSastSourceFilePathNil() {
 	o.SastSourceFilePath.Set(nil)
@@ -2564,6 +2590,7 @@ func (o *Finding) HasNbOccurences() bool {
 func (o *Finding) SetNbOccurences(v int32) {
 	o.NbOccurences.Set(&v)
 }
+
 // SetNbOccurencesNil sets the value for NbOccurences to be an explicit nil
 func (o *Finding) SetNbOccurencesNil() {
 	o.NbOccurences.Set(nil)
@@ -2606,6 +2633,7 @@ func (o *Finding) HasPublishDate() bool {
 func (o *Finding) SetPublishDate(v string) {
 	o.PublishDate.Set(&v)
 }
+
 // SetPublishDateNil sets the value for PublishDate to be an explicit nil
 func (o *Finding) SetPublishDateNil() {
 	o.PublishDate.Set(nil)
@@ -2648,6 +2676,7 @@ func (o *Finding) HasService() bool {
 func (o *Finding) SetService(v string) {
 	o.Service.Set(&v)
 }
+
 // SetServiceNil sets the value for Service to be an explicit nil
 func (o *Finding) SetServiceNil() {
 	o.Service.Set(nil)
@@ -2690,6 +2719,7 @@ func (o *Finding) HasPlannedRemediationDate() bool {
 func (o *Finding) SetPlannedRemediationDate(v string) {
 	o.PlannedRemediationDate.Set(&v)
 }
+
 // SetPlannedRemediationDateNil sets the value for PlannedRemediationDate to be an explicit nil
 func (o *Finding) SetPlannedRemediationDateNil() {
 	o.PlannedRemediationDate.Set(nil)
@@ -2732,6 +2762,7 @@ func (o *Finding) HasPlannedRemediationVersion() bool {
 func (o *Finding) SetPlannedRemediationVersion(v string) {
 	o.PlannedRemediationVersion.Set(&v)
 }
+
 // SetPlannedRemediationVersionNil sets the value for PlannedRemediationVersion to be an explicit nil
 func (o *Finding) SetPlannedRemediationVersionNil() {
 	o.PlannedRemediationVersion.Set(nil)
@@ -2774,6 +2805,7 @@ func (o *Finding) HasEffortForFixing() bool {
 func (o *Finding) SetEffortForFixing(v string) {
 	o.EffortForFixing.Set(&v)
 }
+
 // SetEffortForFixingNil sets the value for EffortForFixing to be an explicit nil
 func (o *Finding) SetEffortForFixingNil() {
 	o.EffortForFixing.Set(nil)
@@ -2866,6 +2898,7 @@ func (o *Finding) HasReviewRequestedBy() bool {
 func (o *Finding) SetReviewRequestedBy(v int32) {
 	o.ReviewRequestedBy.Set(&v)
 }
+
 // SetReviewRequestedByNil sets the value for ReviewRequestedBy to be an explicit nil
 func (o *Finding) SetReviewRequestedByNil() {
 	o.ReviewRequestedBy.Set(nil)
@@ -2908,6 +2941,7 @@ func (o *Finding) HasDefectReviewRequestedBy() bool {
 func (o *Finding) SetDefectReviewRequestedBy(v int32) {
 	o.DefectReviewRequestedBy.Set(&v)
 }
+
 // SetDefectReviewRequestedByNil sets the value for DefectReviewRequestedBy to be an explicit nil
 func (o *Finding) SetDefectReviewRequestedByNil() {
 	o.DefectReviewRequestedBy.Set(nil)
@@ -3002,6 +3036,7 @@ func (o *Finding) HasSonarqubeIssue() bool {
 func (o *Finding) SetSonarqubeIssue(v int32) {
 	o.SonarqubeIssue.Set(&v)
 }
+
 // SetSonarqubeIssueNil sets the value for SonarqubeIssue to be an explicit nil
 func (o *Finding) SetSonarqubeIssueNil() {
 	o.SonarqubeIssue.Set(nil)
@@ -3173,7 +3208,7 @@ func (o *Finding) SetPrefetch(v FindingPrefetch) {
 }
 
 func (o Finding) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -3393,7 +3428,6 @@ func (o *Finding) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"id",
 		"request_response",
 		"accepted_risks",
 		"age",
@@ -3433,10 +3467,10 @@ func (o *Finding) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -3584,5 +3618,3 @@ func (v *NullableFinding) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

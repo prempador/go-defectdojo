@@ -20,18 +20,18 @@ var _ MappedNullable = &FindingTest{}
 
 // FindingTest struct for FindingTest
 type FindingTest struct {
-	Id int32 `json:"id"`
-	Title NullableString `json:"title,omitempty"`
-	TestType *FindingTestType `json:"test_type,omitempty"`
-	Engagement *FindingEngagement `json:"engagement,omitempty"`
+	Id          int32               `json:"id"`
+	Title       NullableString      `json:"title,omitempty"`
+	TestType    *FindingTestType    `json:"test_type,omitempty"`
+	Engagement  *FindingEngagement  `json:"engagement,omitempty"`
 	Environment *FindingEnvironment `json:"environment,omitempty"`
 	// Tag or branch that was tested, a reimport may update this field.
 	BranchTag NullableString `json:"branch_tag,omitempty"`
 	// Build ID that was tested, a reimport may update this field.
 	BuildId NullableString `json:"build_id,omitempty"`
 	// Commit hash tested, a reimport may update this field.
-	CommitHash NullableString `json:"commit_hash,omitempty"`
-	Version NullableString `json:"version,omitempty"`
+	CommitHash           NullableString `json:"commit_hash,omitempty"`
+	Version              NullableString `json:"version,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -111,6 +111,7 @@ func (o *FindingTest) HasTitle() bool {
 func (o *FindingTest) SetTitle(v string) {
 	o.Title.Set(&v)
 }
+
 // SetTitleNil sets the value for Title to be an explicit nil
 func (o *FindingTest) SetTitleNil() {
 	o.Title.Set(nil)
@@ -249,6 +250,7 @@ func (o *FindingTest) HasBranchTag() bool {
 func (o *FindingTest) SetBranchTag(v string) {
 	o.BranchTag.Set(&v)
 }
+
 // SetBranchTagNil sets the value for BranchTag to be an explicit nil
 func (o *FindingTest) SetBranchTagNil() {
 	o.BranchTag.Set(nil)
@@ -291,6 +293,7 @@ func (o *FindingTest) HasBuildId() bool {
 func (o *FindingTest) SetBuildId(v string) {
 	o.BuildId.Set(&v)
 }
+
 // SetBuildIdNil sets the value for BuildId to be an explicit nil
 func (o *FindingTest) SetBuildIdNil() {
 	o.BuildId.Set(nil)
@@ -333,6 +336,7 @@ func (o *FindingTest) HasCommitHash() bool {
 func (o *FindingTest) SetCommitHash(v string) {
 	o.CommitHash.Set(&v)
 }
+
 // SetCommitHashNil sets the value for CommitHash to be an explicit nil
 func (o *FindingTest) SetCommitHashNil() {
 	o.CommitHash.Set(nil)
@@ -375,6 +379,7 @@ func (o *FindingTest) HasVersion() bool {
 func (o *FindingTest) SetVersion(v string) {
 	o.Version.Set(&v)
 }
+
 // SetVersionNil sets the value for Version to be an explicit nil
 func (o *FindingTest) SetVersionNil() {
 	o.Version.Set(nil)
@@ -386,7 +391,7 @@ func (o *FindingTest) UnsetVersion() {
 }
 
 func (o FindingTest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -432,19 +437,17 @@ func (o *FindingTest) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"id",
-	}
+	requiredProperties := []string{}
 
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -513,5 +516,3 @@ func (v *NullableFindingTest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
