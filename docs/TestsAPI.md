@@ -577,7 +577,7 @@ Name | Type | Description  | Notes
 
 ## TestsList
 
-> PaginatedTestList TestsList(ctx).ActualTime(actualTime).ApiScanConfiguration(apiScanConfiguration).BranchTag(branchTag).BuildId(buildId).CommitHash(commitHash).Engagement(engagement).EngagementProductTags(engagementProductTags).EngagementTags(engagementTags).HasTags(hasTags).Id(id).Limit(limit).NotEngagementProductTags(notEngagementProductTags).NotEngagementTags(notEngagementTags).NotTag(notTag).NotTags(notTags).Notes(notes).O(o).Offset(offset).PercentComplete(percentComplete).ScanType(scanType).Tag(tag).Tags(tags).TargetEnd(targetEnd).TargetStart(targetStart).TestType(testType).Title(title).Version(version).Execute()
+> PaginatedTestList TestsList(ctx).ApiScanConfiguration(apiScanConfiguration).BranchTag(branchTag).BuildId(buildId).CommitHash(commitHash).Engagement(engagement).EngagementProductTags(engagementProductTags).EngagementProductTagsAnd(engagementProductTagsAnd).EngagementTags(engagementTags).EngagementTagsAnd(engagementTagsAnd).HasTags(hasTags).Id(id).Limit(limit).NotEngagementProductTags(notEngagementProductTags).NotEngagementTags(notEngagementTags).NotTag(notTag).NotTags(notTags).Notes(notes).O(o).Offset(offset).PercentComplete(percentComplete).ScanType(scanType).Tag(tag).Tags(tags).TagsAnd(tagsAnd).TargetEnd(targetEnd).TargetStart(targetStart).TestType(testType).Title(title).Version(version).Execute()
 
 
 
@@ -595,14 +595,15 @@ import (
 )
 
 func main() {
-	actualTime := "actualTime_example" // string |  (optional)
 	apiScanConfiguration := int32(56) // int32 |  (optional)
 	branchTag := "branchTag_example" // string |  (optional)
 	buildId := "buildId_example" // string |  (optional)
 	commitHash := "commitHash_example" // string |  (optional)
 	engagement := int32(56) // int32 |  (optional)
-	engagementProductTags := []string{"Inner_example"} // []string | Comma separated list of exact tags present on product (optional)
-	engagementTags := []string{"Inner_example"} // []string | Comma separated list of exact tags present on engagement (optional)
+	engagementProductTags := []string{"Inner_example"} // []string | Comma separated list of exact tags present on product (uses OR for multiple values) (optional)
+	engagementProductTagsAnd := []string{"Inner_example"} // []string | Comma separated list of exact tags to match with an AND expression present on product (optional)
+	engagementTags := []string{"Inner_example"} // []string | Comma separated list of exact tags present on engagement (uses OR for multiple values) (optional)
+	engagementTagsAnd := []string{"Inner_example"} // []string | Comma separated list of exact tags to match with an AND expression present on engagement (optional)
 	hasTags := true // bool | Has tags (optional)
 	id := int32(56) // int32 |  (optional)
 	limit := int32(56) // int32 | Number of results to return per page. (optional)
@@ -616,7 +617,8 @@ func main() {
 	percentComplete := int32(56) // int32 |  (optional)
 	scanType := "scanType_example" // string |  (optional)
 	tag := "tag_example" // string | Tag name contains (optional)
-	tags := []string{"Inner_example"} // []string | Comma separated list of exact tags (optional)
+	tags := []string{"Inner_example"} // []string | Comma separated list of exact tags (uses OR for multiple values) (optional)
+	tagsAnd := []string{"Inner_example"} // []string | Comma separated list of exact tags to match with an AND expression (optional)
 	targetEnd := time.Now() // time.Time |  (optional)
 	targetStart := time.Now() // time.Time |  (optional)
 	testType := int32(56) // int32 |  (optional)
@@ -625,7 +627,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TestsAPI.TestsList(context.Background()).ActualTime(actualTime).ApiScanConfiguration(apiScanConfiguration).BranchTag(branchTag).BuildId(buildId).CommitHash(commitHash).Engagement(engagement).EngagementProductTags(engagementProductTags).EngagementTags(engagementTags).HasTags(hasTags).Id(id).Limit(limit).NotEngagementProductTags(notEngagementProductTags).NotEngagementTags(notEngagementTags).NotTag(notTag).NotTags(notTags).Notes(notes).O(o).Offset(offset).PercentComplete(percentComplete).ScanType(scanType).Tag(tag).Tags(tags).TargetEnd(targetEnd).TargetStart(targetStart).TestType(testType).Title(title).Version(version).Execute()
+	resp, r, err := apiClient.TestsAPI.TestsList(context.Background()).ApiScanConfiguration(apiScanConfiguration).BranchTag(branchTag).BuildId(buildId).CommitHash(commitHash).Engagement(engagement).EngagementProductTags(engagementProductTags).EngagementProductTagsAnd(engagementProductTagsAnd).EngagementTags(engagementTags).EngagementTagsAnd(engagementTagsAnd).HasTags(hasTags).Id(id).Limit(limit).NotEngagementProductTags(notEngagementProductTags).NotEngagementTags(notEngagementTags).NotTag(notTag).NotTags(notTags).Notes(notes).O(o).Offset(offset).PercentComplete(percentComplete).ScanType(scanType).Tag(tag).Tags(tags).TagsAnd(tagsAnd).TargetEnd(targetEnd).TargetStart(targetStart).TestType(testType).Title(title).Version(version).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestsAPI.TestsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -646,14 +648,15 @@ Other parameters are passed through a pointer to a apiTestsListRequest struct vi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **actualTime** | **string** |  | 
  **apiScanConfiguration** | **int32** |  | 
  **branchTag** | **string** |  | 
  **buildId** | **string** |  | 
  **commitHash** | **string** |  | 
  **engagement** | **int32** |  | 
- **engagementProductTags** | **[]string** | Comma separated list of exact tags present on product | 
- **engagementTags** | **[]string** | Comma separated list of exact tags present on engagement | 
+ **engagementProductTags** | **[]string** | Comma separated list of exact tags present on product (uses OR for multiple values) | 
+ **engagementProductTagsAnd** | **[]string** | Comma separated list of exact tags to match with an AND expression present on product | 
+ **engagementTags** | **[]string** | Comma separated list of exact tags present on engagement (uses OR for multiple values) | 
+ **engagementTagsAnd** | **[]string** | Comma separated list of exact tags to match with an AND expression present on engagement | 
  **hasTags** | **bool** | Has tags | 
  **id** | **int32** |  | 
  **limit** | **int32** | Number of results to return per page. | 
@@ -667,7 +670,8 @@ Name | Type | Description  | Notes
  **percentComplete** | **int32** |  | 
  **scanType** | **string** |  | 
  **tag** | **string** | Tag name contains | 
- **tags** | **[]string** | Comma separated list of exact tags | 
+ **tags** | **[]string** | Comma separated list of exact tags (uses OR for multiple values) | 
+ **tagsAnd** | **[]string** | Comma separated list of exact tags to match with an AND expression | 
  **targetEnd** | **time.Time** |  | 
  **targetStart** | **time.Time** |  | 
  **testType** | **int32** |  | 

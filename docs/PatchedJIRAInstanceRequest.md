@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ConfigurationName** | Pointer to **string** | Enter a name to give to this configuration | [optional] 
 **Url** | Pointer to **string** | For more information how to configure Jira, read the DefectDojo documentation. | [optional] 
-**Username** | Pointer to **string** |  | [optional] 
-**Password** | Pointer to **string** |  | [optional] 
+**Username** | Pointer to **string** | Username or Email Address, see DefectDojo documentation for more information. | [optional] 
+**Password** | Pointer to **string** | Password or API Token, see DefectDojo documentation for more information. | [optional] 
 **DefaultIssueType** | Pointer to **string** | You can define extra issue types in settings.py  * &#x60;Task&#x60; - Task * &#x60;Story&#x60; - Story * &#x60;Epic&#x60; - Epic * &#x60;Spike&#x60; - Spike * &#x60;Bug&#x60; - Bug * &#x60;Security&#x60; - Security | [optional] 
 **IssueTemplateDir** | Pointer to **NullableString** | Choose the folder containing the Django templates used to render the JIRA issue description. These are stored in dojo/templates/issue-trackers. Leave empty to use the default jira_full templates. | [optional] 
 **EpicNameId** | Pointer to **int32** | To obtain the &#39;Epic name id&#39; visit https://&lt;YOUR JIRA URL&gt;/rest/api/2/field and search for Epic Name. Copy the number out of cf[number] and paste it here. | [optional] 
@@ -19,8 +19,8 @@ Name | Type | Description | Notes
 **HighMappingSeverity** | Pointer to **string** | Maps to the &#39;Priority&#39; field in Jira. For example: High | [optional] 
 **CriticalMappingSeverity** | Pointer to **string** | Maps to the &#39;Priority&#39; field in Jira. For example: Critical | [optional] 
 **FindingText** | Pointer to **NullableString** | Additional text that will be added to the finding in Jira. For example including how the finding was created or who to contact for more information. | [optional] 
-**AcceptedMappingResolution** | Pointer to **NullableString** | JIRA resolution names (comma-separated values) that maps to an Accepted Finding | [optional] 
-**FalsePositiveMappingResolution** | Pointer to **NullableString** | JIRA resolution names (comma-separated values) that maps to a False Positive Finding | [optional] 
+**AcceptedMappingResolution** | Pointer to **NullableString** | JIRA issues that are closed in JIRA with one of these resolutions will result in the Finding becoming Risk Accepted in Defect Dojo. This Risk Acceptance will not have an expiration date. This mapping is not used when Findings are pushed to JIRA. In that case the Risk Accepted Findings are closed in JIRA and JIRA sets the default resolution. | [optional] 
+**FalsePositiveMappingResolution** | Pointer to **NullableString** | JIRA issues that are closed in JIRA with one of these resolutions will result in the Finding being marked as False Positive Defect Dojo. This mapping is not used when Findings are pushed to JIRA. In that case the Finding is closed in JIRA and JIRA sets the default resolution. | [optional] 
 **GlobalJiraSlaNotification** | Pointer to **bool** | This setting can be overidden at the Product level | [optional] 
 **FindingJiraSync** | Pointer to **bool** | If enabled, this will sync changes to a Finding automatically to JIRA | [optional] 
 

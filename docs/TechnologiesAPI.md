@@ -218,7 +218,7 @@ Name | Type | Description  | Notes
 
 ## TechnologiesList
 
-> PaginatedAppAnalysisList TechnologiesList(ctx).Limit(limit).Name(name).NotTag(notTag).NotTags(notTags).Offset(offset).Prefetch(prefetch).Product(product).Tag(tag).Tags(tags).User(user).Version(version).Execute()
+> PaginatedAppAnalysisList TechnologiesList(ctx).Limit(limit).Name(name).NotTag(notTag).NotTags(notTags).Offset(offset).Prefetch(prefetch).Product(product).Tag(tag).Tags(tags).TagsAnd(tagsAnd).User(user).Version(version).Execute()
 
 
 
@@ -243,13 +243,14 @@ func main() {
 	prefetch := []string{"Prefetch_example"} // []string | List of fields for which to prefetch model instances and add those to the response (optional)
 	product := int32(56) // int32 |  (optional)
 	tag := "tag_example" // string | Tag name contains (optional)
-	tags := []string{"Inner_example"} // []string | Comma separated list of exact tags (optional)
+	tags := []string{"Inner_example"} // []string | Comma separated list of exact tags (uses OR for multiple values) (optional)
+	tagsAnd := []string{"Inner_example"} // []string | Comma separated list of exact tags to match with an AND expression (optional)
 	user := int32(56) // int32 |  (optional)
 	version := "version_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TechnologiesAPI.TechnologiesList(context.Background()).Limit(limit).Name(name).NotTag(notTag).NotTags(notTags).Offset(offset).Prefetch(prefetch).Product(product).Tag(tag).Tags(tags).User(user).Version(version).Execute()
+	resp, r, err := apiClient.TechnologiesAPI.TechnologiesList(context.Background()).Limit(limit).Name(name).NotTag(notTag).NotTags(notTags).Offset(offset).Prefetch(prefetch).Product(product).Tag(tag).Tags(tags).TagsAnd(tagsAnd).User(user).Version(version).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TechnologiesAPI.TechnologiesList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -278,7 +279,8 @@ Name | Type | Description  | Notes
  **prefetch** | **[]string** | List of fields for which to prefetch model instances and add those to the response | 
  **product** | **int32** |  | 
  **tag** | **string** | Tag name contains | 
- **tags** | **[]string** | Comma separated list of exact tags | 
+ **tags** | **[]string** | Comma separated list of exact tags (uses OR for multiple values) | 
+ **tagsAnd** | **[]string** | Comma separated list of exact tags to match with an AND expression | 
  **user** | **int32** |  | 
  **version** | **string** |  | 
 

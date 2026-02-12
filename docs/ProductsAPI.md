@@ -289,7 +289,7 @@ Name | Type | Description  | Notes
 
 ## ProductsList
 
-> PaginatedProductList ProductsList(ctx).BusinessCriticality(businessCriticality).Created(created).Description(description).ExternalAudience(externalAudience).HasTags(hasTags).Id(id).InternetAccessible(internetAccessible).Lifecycle(lifecycle).Limit(limit).Name(name).NameExact(nameExact).NotTag(notTag).NotTags(notTags).O(o).Offset(offset).Origin(origin).OutsideOfSla(outsideOfSla).Platform(platform).Prefetch(prefetch).ProdNumericGrade(prodNumericGrade).ProdType(prodType).ProductManager(productManager).Regulations(regulations).Revenue(revenue).Tag(tag).Tags(tags).TeamManager(teamManager).TechnicalContact(technicalContact).Tid(tid).Updated(updated).UserRecords(userRecords).Execute()
+> PaginatedProductList ProductsList(ctx).BusinessCriticality(businessCriticality).Created(created).Description(description).ExternalAudience(externalAudience).HasTags(hasTags).Id(id).InternetAccessible(internetAccessible).Lifecycle(lifecycle).Limit(limit).Name(name).NameExact(nameExact).NotTag(notTag).NotTags(notTags).O(o).Offset(offset).Origin(origin).OutsideOfSla(outsideOfSla).Platform(platform).Prefetch(prefetch).ProdNumericGrade(prodNumericGrade).ProdType(prodType).ProductManager(productManager).Regulations(regulations).Revenue(revenue).Tag(tag).Tags(tags).TagsAnd(tagsAnd).TeamManager(teamManager).TechnicalContact(technicalContact).Tid(tid).Updated(updated).UserRecords(userRecords).Execute()
 
 
 
@@ -332,7 +332,8 @@ func main() {
 	regulations := []int32{int32(123)} // []int32 | Multiple values may be separated by commas. (optional)
 	revenue := float32(8.14) // float32 |  (optional)
 	tag := "tag_example" // string | Tag name contains (optional)
-	tags := []string{"Inner_example"} // []string | Comma separated list of exact tags (optional)
+	tags := []string{"Inner_example"} // []string | Comma separated list of exact tags (uses OR for multiple values) (optional)
+	tagsAnd := []string{"Inner_example"} // []string | Comma separated list of exact tags to match with an AND expression (optional)
 	teamManager := []int32{int32(123)} // []int32 | Multiple values may be separated by commas. (optional)
 	technicalContact := []int32{int32(123)} // []int32 | Multiple values may be separated by commas. (optional)
 	tid := []int32{int32(123)} // []int32 | Multiple values may be separated by commas. (optional)
@@ -341,7 +342,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProductsAPI.ProductsList(context.Background()).BusinessCriticality(businessCriticality).Created(created).Description(description).ExternalAudience(externalAudience).HasTags(hasTags).Id(id).InternetAccessible(internetAccessible).Lifecycle(lifecycle).Limit(limit).Name(name).NameExact(nameExact).NotTag(notTag).NotTags(notTags).O(o).Offset(offset).Origin(origin).OutsideOfSla(outsideOfSla).Platform(platform).Prefetch(prefetch).ProdNumericGrade(prodNumericGrade).ProdType(prodType).ProductManager(productManager).Regulations(regulations).Revenue(revenue).Tag(tag).Tags(tags).TeamManager(teamManager).TechnicalContact(technicalContact).Tid(tid).Updated(updated).UserRecords(userRecords).Execute()
+	resp, r, err := apiClient.ProductsAPI.ProductsList(context.Background()).BusinessCriticality(businessCriticality).Created(created).Description(description).ExternalAudience(externalAudience).HasTags(hasTags).Id(id).InternetAccessible(internetAccessible).Lifecycle(lifecycle).Limit(limit).Name(name).NameExact(nameExact).NotTag(notTag).NotTags(notTags).O(o).Offset(offset).Origin(origin).OutsideOfSla(outsideOfSla).Platform(platform).Prefetch(prefetch).ProdNumericGrade(prodNumericGrade).ProdType(prodType).ProductManager(productManager).Regulations(regulations).Revenue(revenue).Tag(tag).Tags(tags).TagsAnd(tagsAnd).TeamManager(teamManager).TechnicalContact(technicalContact).Tid(tid).Updated(updated).UserRecords(userRecords).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProductsAPI.ProductsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -387,7 +388,8 @@ Name | Type | Description  | Notes
  **regulations** | **[]int32** | Multiple values may be separated by commas. | 
  **revenue** | **float32** |  | 
  **tag** | **string** | Tag name contains | 
- **tags** | **[]string** | Comma separated list of exact tags | 
+ **tags** | **[]string** | Comma separated list of exact tags (uses OR for multiple values) | 
+ **tagsAnd** | **[]string** | Comma separated list of exact tags to match with an AND expression | 
  **teamManager** | **[]int32** | Multiple values may be separated by commas. | 
  **technicalContact** | **[]int32** | Multiple values may be separated by commas. | 
  **tid** | **[]int32** | Multiple values may be separated by commas. | 

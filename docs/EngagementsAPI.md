@@ -22,6 +22,7 @@ Method | HTTP request | Description
 [**EngagementsReopenCreate**](EngagementsAPI.md#EngagementsReopenCreate) | **Post** /api/v2/engagements/{id}/reopen/ | 
 [**EngagementsRetrieve**](EngagementsAPI.md#EngagementsRetrieve) | **Get** /api/v2/engagements/{id}/ | 
 [**EngagementsUpdate**](EngagementsAPI.md#EngagementsUpdate) | **Put** /api/v2/engagements/{id}/ | 
+[**EngagementsUpdateJiraEpicCreate**](EngagementsAPI.md#EngagementsUpdateJiraEpicCreate) | **Post** /api/v2/engagements/{id}/update_jira_epic/ | 
 
 
 
@@ -785,7 +786,7 @@ Name | Type | Description  | Notes
 
 ## EngagementsList
 
-> PaginatedEngagementList EngagementsList(ctx).Active(active).ApiTest(apiTest).HasTags(hasTags).Id(id).Limit(limit).Name(name).NotProductTags(notProductTags).NotTag(notTag).NotTags(notTags).O(o).Offset(offset).PenTest(penTest).Product(product).ProductProdType(productProdType).ProductTags(productTags).ReportType(reportType).Requester(requester).Status(status).Tag(tag).Tags(tags).TargetEnd(targetEnd).TargetStart(targetStart).ThreatModel(threatModel).Updated(updated).Version(version).Execute()
+> PaginatedEngagementList EngagementsList(ctx).Active(active).ApiTest(apiTest).HasTags(hasTags).Id(id).Limit(limit).Name(name).NotProductTags(notProductTags).NotTag(notTag).NotTags(notTags).O(o).Offset(offset).PenTest(penTest).Product(product).ProductProdType(productProdType).ProductTags(productTags).ProductTagsAnd(productTagsAnd).ReportType(reportType).Requester(requester).Status(status).Tag(tag).Tags(tags).TagsAnd(tagsAnd).TargetEnd(targetEnd).TargetStart(targetStart).ThreatModel(threatModel).Updated(updated).Version(version).Execute()
 
 
 
@@ -817,12 +818,14 @@ func main() {
 	penTest := true // bool |  (optional)
 	product := int32(56) // int32 |  (optional)
 	productProdType := []int32{int32(123)} // []int32 | Multiple values may be separated by commas. (optional)
-	productTags := []string{"Inner_example"} // []string | Comma separated list of exact tags present on product (optional)
+	productTags := []string{"Inner_example"} // []string | Comma separated list of exact tags present on product (uses OR for multiple values) (optional)
+	productTagsAnd := []string{"Inner_example"} // []string | Comma separated list of exact tags to match with an AND expression present on product (optional)
 	reportType := int32(56) // int32 |  (optional)
 	requester := int32(56) // int32 |  (optional)
 	status := "status_example" // string | * `Not Started` - Not Started * `Blocked` - Blocked * `Cancelled` - Cancelled * `Completed` - Completed * `In Progress` - In Progress * `On Hold` - On Hold * `Waiting for Resource` - Waiting for Resource (optional)
 	tag := "tag_example" // string | Tag name contains (optional)
-	tags := []string{"Inner_example"} // []string | Comma separated list of exact tags (optional)
+	tags := []string{"Inner_example"} // []string | Comma separated list of exact tags (uses OR for multiple values) (optional)
+	tagsAnd := []string{"Inner_example"} // []string | Comma separated list of exact tags to match with an AND expression (optional)
 	targetEnd := time.Now() // string |  (optional)
 	targetStart := time.Now() // string |  (optional)
 	threatModel := true // bool |  (optional)
@@ -831,7 +834,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EngagementsAPI.EngagementsList(context.Background()).Active(active).ApiTest(apiTest).HasTags(hasTags).Id(id).Limit(limit).Name(name).NotProductTags(notProductTags).NotTag(notTag).NotTags(notTags).O(o).Offset(offset).PenTest(penTest).Product(product).ProductProdType(productProdType).ProductTags(productTags).ReportType(reportType).Requester(requester).Status(status).Tag(tag).Tags(tags).TargetEnd(targetEnd).TargetStart(targetStart).ThreatModel(threatModel).Updated(updated).Version(version).Execute()
+	resp, r, err := apiClient.EngagementsAPI.EngagementsList(context.Background()).Active(active).ApiTest(apiTest).HasTags(hasTags).Id(id).Limit(limit).Name(name).NotProductTags(notProductTags).NotTag(notTag).NotTags(notTags).O(o).Offset(offset).PenTest(penTest).Product(product).ProductProdType(productProdType).ProductTags(productTags).ProductTagsAnd(productTagsAnd).ReportType(reportType).Requester(requester).Status(status).Tag(tag).Tags(tags).TagsAnd(tagsAnd).TargetEnd(targetEnd).TargetStart(targetStart).ThreatModel(threatModel).Updated(updated).Version(version).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EngagementsAPI.EngagementsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -866,12 +869,14 @@ Name | Type | Description  | Notes
  **penTest** | **bool** |  | 
  **product** | **int32** |  | 
  **productProdType** | **[]int32** | Multiple values may be separated by commas. | 
- **productTags** | **[]string** | Comma separated list of exact tags present on product | 
+ **productTags** | **[]string** | Comma separated list of exact tags present on product (uses OR for multiple values) | 
+ **productTagsAnd** | **[]string** | Comma separated list of exact tags to match with an AND expression present on product | 
  **reportType** | **int32** |  | 
  **requester** | **int32** |  | 
  **status** | **string** | * &#x60;Not Started&#x60; - Not Started * &#x60;Blocked&#x60; - Blocked * &#x60;Cancelled&#x60; - Cancelled * &#x60;Completed&#x60; - Completed * &#x60;In Progress&#x60; - In Progress * &#x60;On Hold&#x60; - On Hold * &#x60;Waiting for Resource&#x60; - Waiting for Resource | 
  **tag** | **string** | Tag name contains | 
- **tags** | **[]string** | Comma separated list of exact tags | 
+ **tags** | **[]string** | Comma separated list of exact tags (uses OR for multiple values) | 
+ **tagsAnd** | **[]string** | Comma separated list of exact tags to match with an AND expression | 
  **targetEnd** | **string** |  | 
  **targetStart** | **string** |  | 
  **threatModel** | **bool** |  | 
@@ -1294,6 +1299,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Engagement**](Engagement.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EngagementsUpdateJiraEpicCreate
+
+> EngagementUpdateJiraEpic EngagementsUpdateJiraEpicCreate(ctx, id).EngagementUpdateJiraEpicRequest(engagementUpdateJiraEpicRequest).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/prempador/go-defectdojo"
+)
+
+func main() {
+	id := int32(56) // int32 | A unique integer value identifying this engagement.
+	engagementUpdateJiraEpicRequest := *openapiclient.NewEngagementUpdateJiraEpicRequest() // EngagementUpdateJiraEpicRequest |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.EngagementsAPI.EngagementsUpdateJiraEpicCreate(context.Background(), id).EngagementUpdateJiraEpicRequest(engagementUpdateJiraEpicRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `EngagementsAPI.EngagementsUpdateJiraEpicCreate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EngagementsUpdateJiraEpicCreate`: EngagementUpdateJiraEpic
+	fmt.Fprintf(os.Stdout, "Response from `EngagementsAPI.EngagementsUpdateJiraEpicCreate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this engagement. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEngagementsUpdateJiraEpicCreateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **engagementUpdateJiraEpicRequest** | [**EngagementUpdateJiraEpicRequest**](EngagementUpdateJiraEpicRequest.md) |  | 
+
+### Return type
+
+[**EngagementUpdateJiraEpic**](EngagementUpdateJiraEpic.md)
 
 ### Authorization
 

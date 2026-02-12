@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Before** | Pointer to [**SeverityStatusStatistics**](SeverityStatusStatistics.md) | Finding statistics as stored in Defect Dojo before the import | [optional] 
-**Delta** | Pointer to [**DeltaStatistics**](DeltaStatistics.md) | Finding statistics of modifications made by the reimport. Only available when TRACK_IMPORT_HISTORY hass not disabled. | [optional] 
+**Delta** | Pointer to [**DeltaStatistics**](DeltaStatistics.md) | Finding statistics of modifications made by the reimport. Only available when TRACK_IMPORT_HISTORY has not been disabled. | [optional] 
 **After** | [**SeverityStatusStatistics**](SeverityStatusStatistics.md) | Finding statistics as stored in Defect Dojo after the import | 
 
 ## Methods

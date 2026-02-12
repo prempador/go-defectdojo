@@ -13,8 +13,6 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** |  | [optional] 
 **TargetStart** | **time.Time** |  | 
 **TargetEnd** | **time.Time** |  | 
-**EstimatedTime** | **NullableString** |  | [readonly] 
-**ActualTime** | **NullableString** |  | [readonly] 
 **PercentComplete** | Pointer to **NullableInt32** |  | [optional] 
 **Updated** | **NullableTime** |  | [readonly] 
 **Created** | **NullableTime** |  | [readonly] 
@@ -32,7 +30,7 @@ Name | Type | Description | Notes
 
 ### NewTestCreate
 
-`func NewTestCreate(id int32, engagement int32, targetStart time.Time, targetEnd time.Time, estimatedTime NullableString, actualTime NullableString, updated NullableTime, created NullableTime, testType int32, files []int32, ) *TestCreate`
+`func NewTestCreate(id int32, engagement int32, targetStart time.Time, targetEnd time.Time, updated NullableTime, created NullableTime, testType int32, files []int32, ) *TestCreate`
 
 NewTestCreate instantiates a new TestCreate object
 This constructor will assign default values to properties that have it defined,
@@ -282,66 +280,6 @@ and a boolean to check if the value has been set.
 SetTargetEnd sets TargetEnd field to given value.
 
 
-### GetEstimatedTime
-
-`func (o *TestCreate) GetEstimatedTime() string`
-
-GetEstimatedTime returns the EstimatedTime field if non-nil, zero value otherwise.
-
-### GetEstimatedTimeOk
-
-`func (o *TestCreate) GetEstimatedTimeOk() (*string, bool)`
-
-GetEstimatedTimeOk returns a tuple with the EstimatedTime field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEstimatedTime
-
-`func (o *TestCreate) SetEstimatedTime(v string)`
-
-SetEstimatedTime sets EstimatedTime field to given value.
-
-
-### SetEstimatedTimeNil
-
-`func (o *TestCreate) SetEstimatedTimeNil(b bool)`
-
- SetEstimatedTimeNil sets the value for EstimatedTime to be an explicit nil
-
-### UnsetEstimatedTime
-`func (o *TestCreate) UnsetEstimatedTime()`
-
-UnsetEstimatedTime ensures that no value is present for EstimatedTime, not even an explicit nil
-### GetActualTime
-
-`func (o *TestCreate) GetActualTime() string`
-
-GetActualTime returns the ActualTime field if non-nil, zero value otherwise.
-
-### GetActualTimeOk
-
-`func (o *TestCreate) GetActualTimeOk() (*string, bool)`
-
-GetActualTimeOk returns a tuple with the ActualTime field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetActualTime
-
-`func (o *TestCreate) SetActualTime(v string)`
-
-SetActualTime sets ActualTime field to given value.
-
-
-### SetActualTimeNil
-
-`func (o *TestCreate) SetActualTimeNil(b bool)`
-
- SetActualTimeNil sets the value for ActualTime to be an explicit nil
-
-### UnsetActualTime
-`func (o *TestCreate) UnsetActualTime()`
-
-UnsetActualTime ensures that no value is present for ActualTime, not even an explicit nil
 ### GetPercentComplete
 
 `func (o *TestCreate) GetPercentComplete() int32`

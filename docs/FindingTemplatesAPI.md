@@ -218,7 +218,7 @@ Name | Type | Description  | Notes
 
 ## FindingTemplatesList
 
-> PaginatedFindingTemplateList FindingTemplatesList(ctx).Cwe(cwe).Description(description).Id(id).Limit(limit).Mitigation(mitigation).NotTag(notTag).NotTags(notTags).O(o).Offset(offset).Severity(severity).Tag(tag).Tags(tags).Title(title).Execute()
+> PaginatedFindingTemplateList FindingTemplatesList(ctx).Cwe(cwe).Description(description).Id(id).Limit(limit).Mitigation(mitigation).NotTag(notTag).NotTags(notTags).O(o).Offset(offset).Severity(severity).Tag(tag).Tags(tags).TagsAnd(tagsAnd).Title(title).Execute()
 
 
 
@@ -246,12 +246,13 @@ func main() {
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
 	severity := "severity_example" // string |  (optional)
 	tag := "tag_example" // string | Tag name contains (optional)
-	tags := []string{"Inner_example"} // []string | Comma separated list of exact tags (optional)
+	tags := []string{"Inner_example"} // []string | Comma separated list of exact tags (uses OR for multiple values) (optional)
+	tagsAnd := []string{"Inner_example"} // []string | Comma separated list of exact tags to match with an AND expression (optional)
 	title := "title_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FindingTemplatesAPI.FindingTemplatesList(context.Background()).Cwe(cwe).Description(description).Id(id).Limit(limit).Mitigation(mitigation).NotTag(notTag).NotTags(notTags).O(o).Offset(offset).Severity(severity).Tag(tag).Tags(tags).Title(title).Execute()
+	resp, r, err := apiClient.FindingTemplatesAPI.FindingTemplatesList(context.Background()).Cwe(cwe).Description(description).Id(id).Limit(limit).Mitigation(mitigation).NotTag(notTag).NotTags(notTags).O(o).Offset(offset).Severity(severity).Tag(tag).Tags(tags).TagsAnd(tagsAnd).Title(title).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `FindingTemplatesAPI.FindingTemplatesList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -283,7 +284,8 @@ Name | Type | Description  | Notes
  **offset** | **int32** | The initial index from which to return the results. | 
  **severity** | **string** |  | 
  **tag** | **string** | Tag name contains | 
- **tags** | **[]string** | Comma separated list of exact tags | 
+ **tags** | **[]string** | Comma separated list of exact tags (uses OR for multiple values) | 
+ **tagsAnd** | **[]string** | Comma separated list of exact tags to match with an AND expression | 
  **title** | **string** |  | 
 
 ### Return type

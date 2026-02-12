@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Id** | **int32** |  | [readonly] 
 **Name** | **string** | The name of the regulation. | 
 **Acronym** | **string** | A shortened representation of the name. | 
-**Category** | **string** | The subject of the regulation.  * &#x60;privacy&#x60; - Privacy * &#x60;finance&#x60; - Finance * &#x60;education&#x60; - Education * &#x60;medical&#x60; - Medical * &#x60;corporate&#x60; - Corporate * &#x60;other&#x60; - Other | 
+**Category** | **string** | The subject of the regulation.  * &#x60;privacy&#x60; - Privacy * &#x60;finance&#x60; - Finance * &#x60;education&#x60; - Education * &#x60;medical&#x60; - Medical * &#x60;corporate&#x60; - Corporate * &#x60;security&#x60; - Security * &#x60;government&#x60; - Government * &#x60;other&#x60; - Other | 
 **Jurisdiction** | **string** | The territory over which the regulation applies. | 
 **Description** | Pointer to **string** | Information about the regulation&#39;s purpose. | [optional] 
 **Reference** | Pointer to **string** | An external URL for more information. | [optional] 

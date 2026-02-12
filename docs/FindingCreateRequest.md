@@ -19,11 +19,17 @@ Name | Type | Description | Notes
 **Cwe** | Pointer to **NullableInt32** | The CWE number associated with this flaw. | [optional] 
 **EpssScore** | Pointer to **NullableFloat64** | EPSS score for the CVE. Describes how likely it is the vulnerability will be exploited in the next 30 days. | [optional] 
 **EpssPercentile** | Pointer to **NullableFloat64** | EPSS percentile for the CVE. Describes how many CVEs are scored at or below this one. | [optional] 
-**Cvssv3** | Pointer to **NullableString** | Common Vulnerability Scoring System version 3 (CVSSv3) score associated with this flaw. | [optional] 
+**KnownExploited** | Pointer to **bool** | Whether this vulnerability is known to have been exploited in the wild. | [optional] 
+**RansomwareUsed** | Pointer to **bool** | Whether this vulnerability is known to have been leveraged as part of a ransomware campaign. | [optional] 
+**KevDate** | Pointer to **NullableString** | The date the vulnerability was added to the KEV catalog. | [optional] 
+**Cvssv3** | Pointer to **NullableString** | Common Vulnerability Scoring System version 3 (CVSS3) score associated with this finding. | [optional] 
 **Cvssv3Score** | Pointer to **NullableFloat64** | Numerical CVSSv3 score for the vulnerability. If the vector is given, the score is updated while saving the finding. The value must be between 0-10. | [optional] 
+**Cvssv4** | Pointer to **NullableString** | Common Vulnerability Scoring System version 4 (CVSS4) score associated with this finding. | [optional] 
+**Cvssv4Score** | Pointer to **NullableFloat64** | Numerical CVSSv4 score for the vulnerability. If the vector is given, the score is updated while saving the finding. The value must be between 0-10. | [optional] 
 **Severity** | **string** | The severity level of this flaw (Critical, High, Medium, Low, Info). | 
 **Description** | **string** | Longer more descriptive information about the flaw. | 
 **Mitigation** | Pointer to **NullableString** | Text describing how to best fix the flaw. | [optional] 
+**FixAvailable** | Pointer to **NullableBool** | Denotes if there is a fix available for this flaw. | [optional] 
 **Impact** | Pointer to **NullableString** | Text describing the impact this flaw has on systems, products, enterprise, etc. | [optional] 
 **StepsToReproduce** | Pointer to **NullableString** | Text describing the steps that must be followed in order to reproduce the flaw / bug. | [optional] 
 **SeverityJustification** | Pointer to **NullableString** | Text describing why a certain severity was associated with this flaw. | [optional] 
@@ -44,7 +50,7 @@ Name | Type | Description | Notes
 **ComponentVersion** | Pointer to **NullableString** | Version of the affected component. | [optional] 
 **StaticFinding** | Pointer to **bool** | Flaw has been detected from a Static Application Security Testing tool (SAST). | [optional] 
 **DynamicFinding** | Pointer to **bool** | Flaw has been detected from a Dynamic Application Security Testing tool (DAST). | [optional] 
-**UniqueIdFromTool** | Pointer to **NullableString** | Vulnerability technical id from the source tool. Allows to track unique vulnerabilities. | [optional] 
+**UniqueIdFromTool** | Pointer to **NullableString** | Vulnerability technical id from the source tool. Allows to track unique vulnerabilities over time across subsequent scans. | [optional] 
 **VulnIdFromTool** | Pointer to **NullableString** | Non-unique technical id from the source tool associated with the vulnerability type. | [optional] 
 **SastSourceObject** | Pointer to **NullableString** | Source object (variable, function...) of the attack vector. | [optional] 
 **SastSinkObject** | Pointer to **NullableString** | Sink object (variable, function...) of the attack vector. | [optional] 
@@ -500,6 +506,91 @@ HasEpssPercentile returns a boolean if a field has been set.
 `func (o *FindingCreateRequest) UnsetEpssPercentile()`
 
 UnsetEpssPercentile ensures that no value is present for EpssPercentile, not even an explicit nil
+### GetKnownExploited
+
+`func (o *FindingCreateRequest) GetKnownExploited() bool`
+
+GetKnownExploited returns the KnownExploited field if non-nil, zero value otherwise.
+
+### GetKnownExploitedOk
+
+`func (o *FindingCreateRequest) GetKnownExploitedOk() (*bool, bool)`
+
+GetKnownExploitedOk returns a tuple with the KnownExploited field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetKnownExploited
+
+`func (o *FindingCreateRequest) SetKnownExploited(v bool)`
+
+SetKnownExploited sets KnownExploited field to given value.
+
+### HasKnownExploited
+
+`func (o *FindingCreateRequest) HasKnownExploited() bool`
+
+HasKnownExploited returns a boolean if a field has been set.
+
+### GetRansomwareUsed
+
+`func (o *FindingCreateRequest) GetRansomwareUsed() bool`
+
+GetRansomwareUsed returns the RansomwareUsed field if non-nil, zero value otherwise.
+
+### GetRansomwareUsedOk
+
+`func (o *FindingCreateRequest) GetRansomwareUsedOk() (*bool, bool)`
+
+GetRansomwareUsedOk returns a tuple with the RansomwareUsed field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRansomwareUsed
+
+`func (o *FindingCreateRequest) SetRansomwareUsed(v bool)`
+
+SetRansomwareUsed sets RansomwareUsed field to given value.
+
+### HasRansomwareUsed
+
+`func (o *FindingCreateRequest) HasRansomwareUsed() bool`
+
+HasRansomwareUsed returns a boolean if a field has been set.
+
+### GetKevDate
+
+`func (o *FindingCreateRequest) GetKevDate() string`
+
+GetKevDate returns the KevDate field if non-nil, zero value otherwise.
+
+### GetKevDateOk
+
+`func (o *FindingCreateRequest) GetKevDateOk() (*string, bool)`
+
+GetKevDateOk returns a tuple with the KevDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetKevDate
+
+`func (o *FindingCreateRequest) SetKevDate(v string)`
+
+SetKevDate sets KevDate field to given value.
+
+### HasKevDate
+
+`func (o *FindingCreateRequest) HasKevDate() bool`
+
+HasKevDate returns a boolean if a field has been set.
+
+### SetKevDateNil
+
+`func (o *FindingCreateRequest) SetKevDateNil(b bool)`
+
+ SetKevDateNil sets the value for KevDate to be an explicit nil
+
+### UnsetKevDate
+`func (o *FindingCreateRequest) UnsetKevDate()`
+
+UnsetKevDate ensures that no value is present for KevDate, not even an explicit nil
 ### GetCvssv3
 
 `func (o *FindingCreateRequest) GetCvssv3() string`
@@ -570,6 +661,76 @@ HasCvssv3Score returns a boolean if a field has been set.
 `func (o *FindingCreateRequest) UnsetCvssv3Score()`
 
 UnsetCvssv3Score ensures that no value is present for Cvssv3Score, not even an explicit nil
+### GetCvssv4
+
+`func (o *FindingCreateRequest) GetCvssv4() string`
+
+GetCvssv4 returns the Cvssv4 field if non-nil, zero value otherwise.
+
+### GetCvssv4Ok
+
+`func (o *FindingCreateRequest) GetCvssv4Ok() (*string, bool)`
+
+GetCvssv4Ok returns a tuple with the Cvssv4 field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCvssv4
+
+`func (o *FindingCreateRequest) SetCvssv4(v string)`
+
+SetCvssv4 sets Cvssv4 field to given value.
+
+### HasCvssv4
+
+`func (o *FindingCreateRequest) HasCvssv4() bool`
+
+HasCvssv4 returns a boolean if a field has been set.
+
+### SetCvssv4Nil
+
+`func (o *FindingCreateRequest) SetCvssv4Nil(b bool)`
+
+ SetCvssv4Nil sets the value for Cvssv4 to be an explicit nil
+
+### UnsetCvssv4
+`func (o *FindingCreateRequest) UnsetCvssv4()`
+
+UnsetCvssv4 ensures that no value is present for Cvssv4, not even an explicit nil
+### GetCvssv4Score
+
+`func (o *FindingCreateRequest) GetCvssv4Score() float64`
+
+GetCvssv4Score returns the Cvssv4Score field if non-nil, zero value otherwise.
+
+### GetCvssv4ScoreOk
+
+`func (o *FindingCreateRequest) GetCvssv4ScoreOk() (*float64, bool)`
+
+GetCvssv4ScoreOk returns a tuple with the Cvssv4Score field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCvssv4Score
+
+`func (o *FindingCreateRequest) SetCvssv4Score(v float64)`
+
+SetCvssv4Score sets Cvssv4Score field to given value.
+
+### HasCvssv4Score
+
+`func (o *FindingCreateRequest) HasCvssv4Score() bool`
+
+HasCvssv4Score returns a boolean if a field has been set.
+
+### SetCvssv4ScoreNil
+
+`func (o *FindingCreateRequest) SetCvssv4ScoreNil(b bool)`
+
+ SetCvssv4ScoreNil sets the value for Cvssv4Score to be an explicit nil
+
+### UnsetCvssv4Score
+`func (o *FindingCreateRequest) UnsetCvssv4Score()`
+
+UnsetCvssv4Score ensures that no value is present for Cvssv4Score, not even an explicit nil
 ### GetSeverity
 
 `func (o *FindingCreateRequest) GetSeverity() string`
@@ -645,6 +806,41 @@ HasMitigation returns a boolean if a field has been set.
 `func (o *FindingCreateRequest) UnsetMitigation()`
 
 UnsetMitigation ensures that no value is present for Mitigation, not even an explicit nil
+### GetFixAvailable
+
+`func (o *FindingCreateRequest) GetFixAvailable() bool`
+
+GetFixAvailable returns the FixAvailable field if non-nil, zero value otherwise.
+
+### GetFixAvailableOk
+
+`func (o *FindingCreateRequest) GetFixAvailableOk() (*bool, bool)`
+
+GetFixAvailableOk returns a tuple with the FixAvailable field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFixAvailable
+
+`func (o *FindingCreateRequest) SetFixAvailable(v bool)`
+
+SetFixAvailable sets FixAvailable field to given value.
+
+### HasFixAvailable
+
+`func (o *FindingCreateRequest) HasFixAvailable() bool`
+
+HasFixAvailable returns a boolean if a field has been set.
+
+### SetFixAvailableNil
+
+`func (o *FindingCreateRequest) SetFixAvailableNil(b bool)`
+
+ SetFixAvailableNil sets the value for FixAvailable to be an explicit nil
+
+### UnsetFixAvailable
+`func (o *FindingCreateRequest) UnsetFixAvailable()`
+
+UnsetFixAvailable ensures that no value is present for FixAvailable, not even an explicit nil
 ### GetImpact
 
 `func (o *FindingCreateRequest) GetImpact() string`

@@ -289,7 +289,7 @@ Name | Type | Description  | Notes
 
 ## EndpointsList
 
-> PaginatedEndpointList EndpointsList(ctx).Fragment(fragment).HasTags(hasTags).Host(host).Id(id).Limit(limit).NotTag(notTag).NotTags(notTags).O(o).Offset(offset).Path(path).Port(port).Product(product).Protocol(protocol).Query(query).Tag(tag).Tags(tags).Userinfo(userinfo).Execute()
+> PaginatedEndpointList EndpointsList(ctx).Fragment(fragment).HasTags(hasTags).Host(host).Id(id).Limit(limit).NotTag(notTag).NotTags(notTags).O(o).Offset(offset).Path(path).Port(port).Product(product).Protocol(protocol).Query(query).Tag(tag).Tags(tags).TagsAnd(tagsAnd).Userinfo(userinfo).Execute()
 
 
 
@@ -313,7 +313,7 @@ func main() {
 	limit := int32(56) // int32 | Number of results to return per page. (optional)
 	notTag := "notTag_example" // string | Not Tag name contains (optional)
 	notTags := []string{"Inner_example"} // []string | Comma separated list of exact tags not present on model (optional)
-	o := []string{"O_example"} // []string | Ordering  * `host` - Host * `-host` - Host (descending) * `product` - Product * `-product` - Product (descending) (optional)
+	o := []string{"O_example"} // []string | Ordering  * `host` - Host * `-host` - Host (descending) * `product` - Product * `-product` - Product (descending) * `id` - Id * `-id` - Id (descending) (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
 	path := "path_example" // string |  (optional)
 	port := int32(56) // int32 |  (optional)
@@ -321,12 +321,13 @@ func main() {
 	protocol := "protocol_example" // string |  (optional)
 	query := "query_example" // string |  (optional)
 	tag := "tag_example" // string | Tag name contains (optional)
-	tags := []string{"Inner_example"} // []string | Comma separated list of exact tags (optional)
+	tags := []string{"Inner_example"} // []string | Comma separated list of exact tags (uses OR for multiple values) (optional)
+	tagsAnd := []string{"Inner_example"} // []string | Comma separated list of exact tags to match with an AND expression (optional)
 	userinfo := "userinfo_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EndpointsAPI.EndpointsList(context.Background()).Fragment(fragment).HasTags(hasTags).Host(host).Id(id).Limit(limit).NotTag(notTag).NotTags(notTags).O(o).Offset(offset).Path(path).Port(port).Product(product).Protocol(protocol).Query(query).Tag(tag).Tags(tags).Userinfo(userinfo).Execute()
+	resp, r, err := apiClient.EndpointsAPI.EndpointsList(context.Background()).Fragment(fragment).HasTags(hasTags).Host(host).Id(id).Limit(limit).NotTag(notTag).NotTags(notTags).O(o).Offset(offset).Path(path).Port(port).Product(product).Protocol(protocol).Query(query).Tag(tag).Tags(tags).TagsAnd(tagsAnd).Userinfo(userinfo).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EndpointsAPI.EndpointsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -354,7 +355,7 @@ Name | Type | Description  | Notes
  **limit** | **int32** | Number of results to return per page. | 
  **notTag** | **string** | Not Tag name contains | 
  **notTags** | **[]string** | Comma separated list of exact tags not present on model | 
- **o** | **[]string** | Ordering  * &#x60;host&#x60; - Host * &#x60;-host&#x60; - Host (descending) * &#x60;product&#x60; - Product * &#x60;-product&#x60; - Product (descending) | 
+ **o** | **[]string** | Ordering  * &#x60;host&#x60; - Host * &#x60;-host&#x60; - Host (descending) * &#x60;product&#x60; - Product * &#x60;-product&#x60; - Product (descending) * &#x60;id&#x60; - Id * &#x60;-id&#x60; - Id (descending) | 
  **offset** | **int32** | The initial index from which to return the results. | 
  **path** | **string** |  | 
  **port** | **int32** |  | 
@@ -362,7 +363,8 @@ Name | Type | Description  | Notes
  **protocol** | **string** |  | 
  **query** | **string** |  | 
  **tag** | **string** | Tag name contains | 
- **tags** | **[]string** | Comma separated list of exact tags | 
+ **tags** | **[]string** | Comma separated list of exact tags (uses OR for multiple values) | 
+ **tagsAnd** | **[]string** | Comma separated list of exact tags to match with an AND expression | 
  **userinfo** | **string** |  | 
 
 ### Return type

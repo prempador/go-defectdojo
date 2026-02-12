@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **EnforceMedium** | Pointer to **bool** | When enabled, medium findings will be assigned an SLA expiration date based on the medium finding SLA days within this SLA configuration. | [optional] 
 **Low** | Pointer to **int32** | The number of days to remediate a low finding. | [optional] 
 **EnforceLow** | Pointer to **bool** | When enabled, low findings will be assigned an SLA expiration date based on the low finding SLA days within this SLA configuration. | [optional] 
+**RestartSlaOnReactivation** | Pointer to **bool** | When enabled, findings that were previously mitigated but are reactivated durign reimport will have their SLA period restarted. | [optional] 
 
 ## Methods
 
@@ -309,6 +310,31 @@ SetEnforceLow sets EnforceLow field to given value.
 `func (o *SLAConfiguration) HasEnforceLow() bool`
 
 HasEnforceLow returns a boolean if a field has been set.
+
+### GetRestartSlaOnReactivation
+
+`func (o *SLAConfiguration) GetRestartSlaOnReactivation() bool`
+
+GetRestartSlaOnReactivation returns the RestartSlaOnReactivation field if non-nil, zero value otherwise.
+
+### GetRestartSlaOnReactivationOk
+
+`func (o *SLAConfiguration) GetRestartSlaOnReactivationOk() (*bool, bool)`
+
+GetRestartSlaOnReactivationOk returns a tuple with the RestartSlaOnReactivation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRestartSlaOnReactivation
+
+`func (o *SLAConfiguration) SetRestartSlaOnReactivation(v bool)`
+
+SetRestartSlaOnReactivation sets RestartSlaOnReactivation field to given value.
+
+### HasRestartSlaOnReactivation
+
+`func (o *SLAConfiguration) HasRestartSlaOnReactivation() bool`
+
+HasRestartSlaOnReactivation returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

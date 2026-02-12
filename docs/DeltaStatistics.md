@@ -7,13 +7,13 @@ Name | Type | Description | Notes
 **Created** | [**SeverityStatusStatistics**](SeverityStatusStatistics.md) |  | 
 **Closed** | [**SeverityStatusStatistics**](SeverityStatusStatistics.md) |  | 
 **Reactivated** | [**SeverityStatusStatistics**](SeverityStatusStatistics.md) |  | 
-**LeftUntouched** | [**SeverityStatusStatistics**](SeverityStatusStatistics.md) |  | 
+**Untouched** | [**SeverityStatusStatistics**](SeverityStatusStatistics.md) |  | 
 
 ## Methods
 
 ### NewDeltaStatistics
 
-`func NewDeltaStatistics(created SeverityStatusStatistics, closed SeverityStatusStatistics, reactivated SeverityStatusStatistics, leftUntouched SeverityStatusStatistics, ) *DeltaStatistics`
+`func NewDeltaStatistics(created SeverityStatusStatistics, closed SeverityStatusStatistics, reactivated SeverityStatusStatistics, untouched SeverityStatusStatistics, ) *DeltaStatistics`
 
 NewDeltaStatistics instantiates a new DeltaStatistics object
 This constructor will assign default values to properties that have it defined,
@@ -88,24 +88,24 @@ and a boolean to check if the value has been set.
 SetReactivated sets Reactivated field to given value.
 
 
-### GetLeftUntouched
+### GetUntouched
 
-`func (o *DeltaStatistics) GetLeftUntouched() SeverityStatusStatistics`
+`func (o *DeltaStatistics) GetUntouched() SeverityStatusStatistics`
 
-GetLeftUntouched returns the LeftUntouched field if non-nil, zero value otherwise.
+GetUntouched returns the Untouched field if non-nil, zero value otherwise.
 
-### GetLeftUntouchedOk
+### GetUntouchedOk
 
-`func (o *DeltaStatistics) GetLeftUntouchedOk() (*SeverityStatusStatistics, bool)`
+`func (o *DeltaStatistics) GetUntouchedOk() (*SeverityStatusStatistics, bool)`
 
-GetLeftUntouchedOk returns a tuple with the LeftUntouched field if it's non-nil, zero value otherwise
+GetUntouchedOk returns a tuple with the Untouched field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetLeftUntouched
+### SetUntouched
 
-`func (o *DeltaStatistics) SetLeftUntouched(v SeverityStatusStatistics)`
+`func (o *DeltaStatistics) SetUntouched(v SeverityStatusStatistics)`
 
-SetLeftUntouched sets LeftUntouched field to given value.
+SetUntouched sets Untouched field to given value.
 
 
 

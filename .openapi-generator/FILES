@@ -31,6 +31,7 @@ api_metadata.go
 api_network_locations.go
 api_note_type.go
 api_notes.go
+api_notification_webhooks.go
 api_notifications.go
 api_oa3.go
 api_product_api_scan_configurations.go
@@ -47,6 +48,7 @@ api_questionnaire_general_questionnaires.go
 api_questionnaire_questions.go
 api_regulations.go
 api_reimport_scan.go
+api_request_response_pairs.go
 api_risk_acceptance.go
 api_roles.go
 api_sla_configurations.go
@@ -78,6 +80,8 @@ docs/AppAnalysisRequest.md
 docs/AuthToken.md
 docs/AuthTokenRequest.md
 docs/BurpRawRequestResponse.md
+docs/BurpRawRequestResponseMulti.md
+docs/BurpRawRequestResponseMultiRequest.md
 docs/BurpRawRequestResponseRequest.md
 docs/ConfigurationPermission.md
 docs/ConfigurationPermissionsAPI.md
@@ -120,6 +124,8 @@ docs/EngagementPresetsRequest.md
 docs/EngagementRequest.md
 docs/EngagementToFiles.md
 docs/EngagementToNotes.md
+docs/EngagementUpdateJiraEpic.md
+docs/EngagementUpdateJiraEpicRequest.md
 docs/EngagementsAPI.md
 docs/ExecutiveSummary.md
 docs/File.md
@@ -177,8 +183,12 @@ docs/LanguageTypeRequest.md
 docs/LanguageTypesAPI.md
 docs/LanguagesAPI.md
 docs/Meta.md
+docs/MetaMain.md
+docs/MetaMainRequest.md
 docs/MetaRequest.md
+docs/Metadata.md
 docs/MetadataAPI.md
+docs/MetadataRequest.md
 docs/NetworkLocations.md
 docs/NetworkLocationsAPI.md
 docs/NetworkLocationsRequest.md
@@ -190,12 +200,16 @@ docs/NoteType.md
 docs/NoteTypeAPI.md
 docs/NoteTypeRequest.md
 docs/NotesAPI.md
+docs/NotificationWebhooks.md
+docs/NotificationWebhooksAPI.md
+docs/NotificationWebhooksRequest.md
 docs/Notifications.md
 docs/NotificationsAPI.md
 docs/NotificationsRequest.md
 docs/Oa3API.md
 docs/PaginatedAnnouncementList.md
 docs/PaginatedAppAnalysisList.md
+docs/PaginatedBurpRawRequestResponseMultiList.md
 docs/PaginatedConfigurationPermissionList.md
 docs/PaginatedCredentialList.md
 docs/PaginatedCredentialMappingList.md
@@ -219,6 +233,7 @@ docs/PaginatedMetaList.md
 docs/PaginatedNetworkLocationsList.md
 docs/PaginatedNoteList.md
 docs/PaginatedNoteTypeList.md
+docs/PaginatedNotificationWebhooksList.md
 docs/PaginatedNotificationsList.md
 docs/PaginatedProductAPIScanConfigurationList.md
 docs/PaginatedProductAPIScanConfigurationListPrefetch.md
@@ -261,6 +276,7 @@ docs/PaginatedUserContactInfoListPrefetch.md
 docs/PaginatedUserList.md
 docs/PatchedAnnouncementRequest.md
 docs/PatchedAppAnalysisRequest.md
+docs/PatchedBurpRawRequestResponseMultiRequest.md
 docs/PatchedCredentialMappingRequest.md
 docs/PatchedCredentialRequest.md
 docs/PatchedDevelopmentEnvironmentRequest.md
@@ -278,10 +294,12 @@ docs/PatchedJIRAIssueRequest.md
 docs/PatchedJIRAProjectRequest.md
 docs/PatchedLanguageRequest.md
 docs/PatchedLanguageTypeRequest.md
+docs/PatchedMetaMainRequest.md
 docs/PatchedMetaRequest.md
 docs/PatchedNetworkLocationsRequest.md
 docs/PatchedNoteRequest.md
 docs/PatchedNoteTypeRequest.md
+docs/PatchedNotificationWebhooksRequest.md
 docs/PatchedNotificationsRequest.md
 docs/PatchedProductAPIScanConfigurationRequest.md
 docs/PatchedProductRequest.md
@@ -343,6 +361,7 @@ docs/RegulationsAPI.md
 docs/ReimportScanAPI.md
 docs/ReportGenerate.md
 docs/ReportGenerateOptionRequest.md
+docs/RequestResponsePairsAPI.md
 docs/RiskAcceptance.md
 docs/RiskAcceptanceAPI.md
 docs/RiskAcceptanceProof.md
@@ -424,6 +443,8 @@ model_app_analysis_request.go
 model_auth_token.go
 model_auth_token_request.go
 model_burp_raw_request_response.go
+model_burp_raw_request_response_multi.go
+model_burp_raw_request_response_multi_request.go
 model_burp_raw_request_response_request.go
 model_configuration_permission.go
 model_credential.go
@@ -456,6 +477,8 @@ model_engagement_presets_request.go
 model_engagement_request.go
 model_engagement_to_files.go
 model_engagement_to_notes.go
+model_engagement_update_jira_epic.go
+model_engagement_update_jira_epic_request.go
 model_executive_summary.go
 model_file.go
 model_file_request.go
@@ -500,7 +523,11 @@ model_language_request.go
 model_language_type.go
 model_language_type_request.go
 model_meta.go
+model_meta_main.go
+model_meta_main_request.go
 model_meta_request.go
+model_metadata.go
+model_metadata_request.go
 model_network_locations.go
 model_network_locations_request.go
 model_note.go
@@ -509,10 +536,13 @@ model_note_history_request.go
 model_note_request.go
 model_note_type.go
 model_note_type_request.go
+model_notification_webhooks.go
+model_notification_webhooks_request.go
 model_notifications.go
 model_notifications_request.go
 model_paginated_announcement_list.go
 model_paginated_app_analysis_list.go
+model_paginated_burp_raw_request_response_multi_list.go
 model_paginated_configuration_permission_list.go
 model_paginated_credential_list.go
 model_paginated_credential_mapping_list.go
@@ -536,6 +566,7 @@ model_paginated_meta_list.go
 model_paginated_network_locations_list.go
 model_paginated_note_list.go
 model_paginated_note_type_list.go
+model_paginated_notification_webhooks_list.go
 model_paginated_notifications_list.go
 model_paginated_product_api_scan_configuration_list.go
 model_paginated_product_api_scan_configuration_list_prefetch.go
@@ -578,6 +609,7 @@ model_paginated_user_contact_info_list_prefetch.go
 model_paginated_user_list.go
 model_patched_announcement_request.go
 model_patched_app_analysis_request.go
+model_patched_burp_raw_request_response_multi_request.go
 model_patched_credential_mapping_request.go
 model_patched_credential_request.go
 model_patched_development_environment_request.go
@@ -595,10 +627,12 @@ model_patched_jira_issue_request.go
 model_patched_jira_project_request.go
 model_patched_language_request.go
 model_patched_language_type_request.go
+model_patched_meta_main_request.go
 model_patched_meta_request.go
 model_patched_network_locations_request.go
 model_patched_note_request.go
 model_patched_note_type_request.go
+model_patched_notification_webhooks_request.go
 model_patched_notifications_request.go
 model_patched_product_api_scan_configuration_request.go
 model_patched_product_request.go
